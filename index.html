@@ -20,6 +20,7 @@
 
         #me {
             width: 300px;
+            height: 300px;
             border-radius: 500px;
             border-color: yellow;
             border-width: thick;
@@ -58,7 +59,9 @@
 
 <body>
     <h1>Hi, welcome to the Brian portal</h1>
-    <img src="me.jpg" alt="brian" id="me" />
+    <div id="profile">
+        <img height="310px" src="giphy.gif" id="temp">
+    </div>
     <h3>"If you know, you know"</h3>
     <p>updated: July 7, 2019</p>
     <hr>
@@ -219,5 +222,13 @@
     <img src="me.svg" id="mesvg">
 
 </body>
+
+<script type="text/javascript">
+    setTimeout(function() {
+        var img = document.getElementById("temp")
+        img.id = "me"
+        img.src = "me.jpg"
+    }, 6000)
+</script>
 
 </html>
