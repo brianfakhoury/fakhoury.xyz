@@ -54,6 +54,33 @@
             max-width: 500px;
             width: 100%;
         }
+
+
+
+        /* Style the button that is used to open and close the collapsible content */
+        .collapsible {
+            cursor: pointer;
+        }
+
+        /* Style the collapsible content. Note: hidden by default */
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .collapsible:after {
+            content: "🙈";
+            /* Unicode character for "plus" sign (+) */
+            font-size: 20px;
+            position: absolute;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "🙉";
+            /* Unicode character for "minus" sign (-) */
+        }
     </style>
 </head>
 
@@ -66,18 +93,18 @@
     <p>updated: July 7, 2019</p>
     <hr>
     <div id="main">
-        <h2>🔬 Published Research</h2>
-        <ul>
+        <h2 class="collapsible" class="collapsible">🔬 Published Research</h2>
+        <ul class="content" class="content">
             <li>Saliency Tracking and Prediction (Available Soon)</li>
             <li>Upcoming</li>
         </ul>
-        <h2>🤯 Other Research</h2>
-        <ul>
+        <h2 class="collapsible">🤯 Other Research</h2>
+        <ul class="content">
             <li><a href="research.pdf">Oculomotor Neural Modeling</a></li>
             <li><a href="research2.pdf">Eye Movement Classification</a></li>
         </ul>
-        <h2>😤 Companies I Started</h2>
-        <ul>
+        <h2 class="collapsible">😤 Companies I Started</h2>
+        <ul class="content">
             <li>
                 <a href="http://cryptoholdings.business">Crypto Holdings Group, Inc.</a>
             </li>
@@ -87,8 +114,8 @@
                 (dead)
             </li>
         </ul>
-        <h2>🏢 Organizations I'm (was) part of</h2>
-        <ul>
+        <h2 class="collapsible">🏢 Organizations I've been part of</h2>
+        <ul class="content">
             <li>
                 <a href="https://contrarycap.com/">Contrary Capital</a>: Venture Partner
             </li>
@@ -109,12 +136,12 @@
                     (CompNet)</a>: Researcher
             </li>
         </ul>
-        <h2>📚 My Book</h2>
-        <ul>
+        <h2 class="collapsible">📚 My Book</h2>
+        <ul class="content">
             <li>Neuromimicry (Coming 2019)</li>
         </ul>
-        <h2>💸 Startup Investments</h2>
-        <ul>
+        <h2 class="collapsible">💸 Startup Investments</h2>
+        <ul class="content">
             <li>
                 <a href="https://www.hypersciences.com/">HyperSciences, Inc</a>: Series A
             </li>
@@ -139,8 +166,8 @@
             <li><a href="https://vizihealthcare.com/">Vizi Healthcare</a>: Seed</li>
             <li><a href="https://cytonics.com/">Cytonics</a>: Series C</li>
         </ul>
-        <h2>🤓 Cool Technical Projects</h2>
-        <ul>
+        <h2 class="collapsible">🤓 Cool Technical Projects</h2>
+        <ul class="content">
             <li><a href="https://github.com/brianfakhoury/PYTHON/tree/master/Discrete%20Neural%20Simulator">Discrete Neural Simulator</a></li>
             <li><a href="https://github.com/brianfakhoury/neuro-fyi">NeuroFYI</a></li>
             <li>
@@ -157,8 +184,8 @@
                 <a href="https://github.com/brianfakhoury/PYTHON/tree/master/Elevator%20Controller">Hypothetical Scalable Elevator Controller</a>
             </li>
         </ul>
-        <h2>😎 Cool Interests</h2>
-        <ul>
+        <h2 class="collapsible">😎 Cool Interests</h2>
+        <ul class="content">
             <li>
                 <a href="https://en.wikipedia.org/wiki/Bodybuilding">Bodybuilding & Fitness</a>
             </li>
@@ -183,8 +210,8 @@
                     Travel</a>
             </li>
         </ul>
-        <h2>🤑 Personal Crypto Investments</h2>
-        <ul>
+        <h2 class="collapsible">🤑 Personal Crypto Investments</h2>
+        <ul class="content">
             <li><a href="https://www.ethereum.org/">Ethereum</a> (ETH)</li>
             <li><a href="https://tron.network/">Tron</a> (TRN)</li>
             <li><a href="https://sia.tech/">SiaCoin</a> (SC)</li>
@@ -194,8 +221,8 @@
             <li><a href="http://nem.io/">NEM</a> (XEM)</li>
             <li><a href="https://www.cardano.org/en/home/">Cardano</a> (ADA)</li>
         </ul>
-        <h2>💲 Stocks that I like</h2>
-        <ul>
+        <h2 class="collapsible">💲 Stocks that I like</h2>
+        <ul class="content">
             <li><a href="https://www.apple.com/">Apple</a> (NASDAQ: AAPL)</li>
             <li><a href="https://squareup.com/">Square</a> (NYSE: SQ)</li>
             <li><a href="https://www.shopify.com/">Shopify</a> (NYSE: SHOP)</li>
@@ -208,8 +235,8 @@
             <li><a href="https://www.amd.com/en">AMD</a> (NASDAQ: AMD)</li>
             <li><a href="https://www.intel.com/">Intel</a> (NASDAQ: INTC)</li>
         </ul>
-        <h2>🔥 Comprehensive social links</h2>
-        <ul>
+        <h2 class="collapsible">🔥 Comprehensive social links</h2>
+        <ul class="content">
             <li><a href="https://www.facebook.com/brianfakhoury">Facebook</a></li>
             <li><a href="https://www.instagram.com/brianfakhoury/">Instagram</a></li>
             <li><a href="https://www.snapchat.com/add/brianfakhoury">Snapchat</a></li>
@@ -229,6 +256,19 @@
         img.id = "me"
         img.src = "me.jpg"
     }, 6000)
+
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
 </script>
 
 </html>
