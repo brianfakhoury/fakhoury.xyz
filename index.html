@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name=”description” content="Brian Fakhoury personal webpage!">
+    <meta name=”keywords” content="brian fakhoury, venture capital, machine learning, neuroscience, lifestyle, personal page" />
     <title>Brian Fakhoury lives here</title>
     <style media="screen">
         @import url('https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise');
@@ -18,6 +20,16 @@
             color: gray
         }
 
+        h2 {
+            width: 80%;
+            text-align: center;
+            margin: 30px 0 0 0
+        }
+
+        ul {
+            width: 80%;
+        }
+
         #me {
             width: 200px;
             height: 200px;
@@ -25,6 +37,18 @@
             border-color: yellow;
             border-width: thick;
             border-style: solid;
+        }
+
+        #arrow {
+            visibility: hidden;
+            position: absolute;
+            top: -40px;
+            right: -50px;
+            transform: rotate(-20deg)
+        }
+
+        html {
+            background-color: #f2f2f2;
         }
 
         body {
@@ -38,16 +62,20 @@
         }
 
         #main {
-            max-width: 500px
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         hr {
-            width: 60%;
+            width: 90%;
             height: 4px;
             margin-left: auto;
             margin-right: auto;
             background-color: yellow;
             border: 0 none;
+            max-width: 600px
         }
 
         #mesvg {
@@ -55,23 +83,29 @@
             width: 100%;
         }
 
+        #profile {
+            position: relative;
+        }
 
+        .fadein {
+            opacity: 1;
+            -webkit-transition: opacity 500ms ease-in-out;
+            transition: opacity 500ms ease-in-out;
+        }
 
-        /* Style the button that is used to open and close the collapsible content */
         .collapsible {
             cursor: pointer;
         }
 
-        /* Style the collapsible content. Note: hidden by default */
         .content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.2s ease-out;
+            transition: max-height 150ms ease-out;
+            -webkit-transition: max-height 150ms ease-out;
         }
 
         .collapsible:after {
             content: "🙈";
-            /* Unicode character for "plus" sign (+) */
             font-size: 20px;
             position: absolute;
             margin-left: 5px;
@@ -79,15 +113,15 @@
 
         .active:after {
             content: "🙉";
-            /* Unicode character for "minus" sign (-) */
         }
     </style>
 </head>
 
 <body>
-    <h1>Hi, welcome to the Brian portal</h1>
+    <h1 style="text-align:center">Hi, welcome to the Brian portal</h1>
     <div id="profile">
-        <img height="210px" src="giphy.gif" id="temp">
+        <img height="210px" src="giphy.gif" id="temp" class="fadein">
+        <img width="90px" src="arrow.png" id="arrow">
     </div>
     <h3>"If you know, you know"</h3>
     <p>updated: July 7, 2019</p>
@@ -251,12 +285,25 @@
 </body>
 
 <script type="text/javascript">
+    // wait 5.8 seconds to switch to main pic
     setTimeout(function() {
         var img = document.getElementById("temp")
         img.id = "me"
         img.src = "me.jpg"
-    }, 6000)
+        img.style.opacity = '1';
+        var arrow = document.getElementById("arrow")
+        setTimeout(function() {
+            arrow.style.visibility = 'visible';
+        }, 1000)
+    }, 5800)
 
+    // remove the old pic after 5300ms (give it 500ms to be gone, so 5800ms total)
+    setTimeout(function() {
+        var img = document.getElementById("temp")
+        img.style.opacity = '0';
+    }, 5300)
+
+    // listen for click to unroll list
     var coll = document.getElementsByClassName("collapsible");
     for (var i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function() {
