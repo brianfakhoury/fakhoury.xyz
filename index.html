@@ -41,7 +41,7 @@
         }
 
         #arrow {
-            visibility: hidden;
+            display: none;
             position: absolute;
             top: -40px;
             right: -50px;
@@ -298,7 +298,7 @@
         img.style.opacity = '1';
         var arrow = document.getElementById("arrow")
         setTimeout(function() {
-            arrow.style.visibility = 'visible';
+            arrow.style.display = 'flex';
         }, 1000)
     }, 5800)
 
