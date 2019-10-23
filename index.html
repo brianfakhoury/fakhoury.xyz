@@ -17,7 +17,7 @@
         h1,
         h2,
         h3 {
-            color: gray
+            color: black;
         }
 
         h2 {
@@ -35,7 +35,7 @@
             width: 200px;
             height: 200px;
             border-radius: 500px;
-            border-color: yellow;
+            border-color: black;
             border-width: thick;
             border-style: solid;
         }
@@ -59,7 +59,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f2f2f2;
+            /* background-color: #f2f2f2; */
             margin: 0
         }
 
@@ -75,7 +75,7 @@
             height: 4px;
             margin-left: auto;
             margin-right: auto;
-            background-color: yellow;
+            background-color: black;
             border: 0 none;
             max-width: 600px
         }
@@ -121,34 +121,110 @@
         .active:after {
             content: "🙉";
         }
+
+        body {
+            /* W3C */
+            background: linear-gradient(top, #e1e0ff 0%, #f7f6f2 100%);
+
+            /* Firefox */
+            background: -moz-linear-gradient(top, #e1e0ff 0%, #f7f6f2 100%);
+
+            /* Chrome10+,Safari5.1+ */
+            background: -webkit-linear-gradient(top, #e1e0ff 0%, #f7f6f2 100%);
+
+            background-size: 1000%;
+            -moz-background-size: 1000%;
+            -webkit-background-size: 1000%;
+
+            /* W3C */
+            animation-name: fun-time-awesome;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: running;
+
+            /* Firefox: */
+            -moz-animation-name: fun-time-awesome;
+            -moz-animation-duration: 5s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+            -moz-animation-direction: alternate;
+            -moz-animation-play-state: running;
+
+            /* Chrome, Safari */
+            -webkit-animation-name: fun-time-awesome;
+            -webkit-animation-duration: 5s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-play-state: running;
+        }
+
+        /* W3C */
+        @keyframes fun-time-awesome {
+            0% {
+                background-position: left top;
+            }
+
+            100% {
+                background-position: left bottom;
+            }
+        }
+
+        /* Firefox */
+        @-moz-keyframes fun-time-awesome {
+            0% {
+                background-position: left top;
+            }
+
+            100% {
+                background-position: left bottom;
+            }
+        }
+
+        /* Chrome, Safari */
+        @-webkit-keyframes fun-time-awesome {
+            0% {
+                background-position: left top;
+            }
+
+            100% {
+                background-position: left bottom;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <h1 style="text-align:center">Hi, welcome to the Brian portal</h1>
+    <h1 style="text-align:center;padding:0 40px 0 40px">Hi, welcome to the Brian portal</h1>
     <div id="profile">
         <img height="210px" src="giphy.gif" id="temp" class="fadein">
         <img width="90px" src="arrow.png" id="arrow">
     </div>
-    <h3 style="text-align:center">"If you know, you know"<br /><small>updated: July 7, 2019</small></h3>
+    <h3 style="text-align:center; width: 80%; max-width:500px">I am a technical generalist working in venture capital with a focus on hard tech and legacy markets.</h3>
     <hr>
     <div id="main">
-        <h2 class="collapsible" class="collapsible">🔬 Published Research</h2>
+        <h2 class="collapsible" class="collapsible">✒️ Select Writing</h2>
+        <ul class="content" class="content">
+            <li><a href="https://medium.com/@brianfakhoury/2-points-on-the-evolving-role-of-data-in-business-f62b79bf67ad">2 Points On The Evolving Role Of Data In Business</a></li>
+            <li><a href="https://medium.com/@brianfakhoury/7-books-for-august-quick-snippets-on-what-ive-read-65a1a5a0885">7 Books for August — Quick Snippets on What I’ve Read</a> </li>
+            <li><a href="https://medium.com/bu-entrepreneurs-club/what-they-dont-tell-you-about-starting-a-business-in-college-994e7e72ca39">What They Don’t Tell You About Starting A Business In College</a> </li>
+        </ul>
+        <h2 class="collapsible" class="collapsible">🔬 Research</h2>
         <ul class="content" class="content">
             <li>Saliency Tracking and Prediction (Available Soon)</li>
-            <li>Upcoming</li>
-        </ul>
-        <h2 class="collapsible">🤯 Other Research</h2>
-        <ul class="content">
-            <li><a href="research.pdf">Oculomotor Neural Modeling</a></li>
+            <li><a href="Efficient Word Vector Representations.pdf">Field Survey: Efficient Word Vector Representations for Boosted Accuracy in Machine Translation Tasks</a></li>
+            <li><a href="research.pdf">On Neural Networks Modeling the Choice between Saccades and Pursuits in Oculomotor Movements Across a Single Object</a></li>
             <li><a href="research2.pdf">Eye Movement Classification</a></li>
         </ul>
-        <h2 class="collapsible">😤 Companies I Started</h2>
+        <h2 class="collapsible">😤 Things I Started</h2>
         <ul class="content">
+            <li><a href="https://youngangelnetwork.com">Young Angel Network</a> </li>
             <li>
-                <a href="http://cryptoholdings.business">Crypto Holdings Group, Inc.</a>
+                <a href="https://cryptoholdings.business">Crypto Holdings Group, Inc.</a>
             </li>
-            <li><a href="https://friendlystorage.io">Friendly Storage Inc.</a></li>
+            <li><a href="https://friendlystorage.io">Friendly Storage Inc.</a> (dead)</li>
             <li>
                 <a href="https://drive.google.com/file/d/1RFolmq3dDiIRtevusIULOMW-o_z0dTxr/view?usp=sharing">Bastion</a>
                 (dead)
@@ -160,13 +236,19 @@
                 <a href="https://contrarycap.com/">Contrary Capital</a>: Venture Partner
             </li>
             <li>
+                <a href="equal.vc">Equal Ventures</a>: Intern
+            </li>
+            <li>
                 <a href="https://eclub.bu.edu">Boston University Entrepreneur's Club</a>: President
             </li>
             <li>
                 <a href="https://topo.cc/">Topo Solutions (Hong Kong)</a>: Machine Learning Intern
             </li>
             <li>
-                <a href="https://www.facebook.com/BUVentureAccelerator/">Boston University Venture Accelerator</a>: Vice President
+                <a href="https://www.facebook.com/BUVentureAccelerator/">Boston University Venture Accelerator</a>
+            </li>
+            <li>
+                <a href="https://eclub.bu.edu">Boston University Venture Capital Club</a>
             </li>
             <li>
                 <a href="http://mic.bu.edu/">Boston University Machine Intelligence Community</a>: (past) Founding Board Member
@@ -208,6 +290,8 @@
         </ul>
         <h2 class="collapsible">🤓 Cool Technical Projects</h2>
         <ul class="content">
+            <li><a href="https://github.com/brianfakhoury/Experimental-Defect-LSTM-With-Signal-Processing">Experimental Defect LSTM</a></li>
+            <li><a href="https://github.com/brianfakhoury/MATLAB/tree/master/Shunting%20Simulations">Real Time Neural Shunting Simulation</a> </li>
             <li><a href="https://github.com/brianfakhoury/PYTHON/tree/master/Discrete%20Neural%20Simulator">Discrete Neural Simulator</a></li>
             <li><a href="https://github.com/brianfakhoury/neuro-fyi">NeuroFYI</a></li>
             <li>
@@ -224,7 +308,7 @@
                 <a href="https://github.com/brianfakhoury/PYTHON/tree/master/Elevator%20Controller">Hypothetical Scalable Elevator Controller</a>
             </li>
         </ul>
-        <h2 class="collapsible">😎 Cool Interests</h2>
+        <h2 class="collapsible">😎 My Interests</h2>
         <ul class="content">
             <li>
                 <a href="https://en.wikipedia.org/wiki/Bodybuilding">Bodybuilding & Fitness</a>
@@ -287,6 +371,8 @@
         </ul>
     </div>
     <img src="me.svg" id="mesvg">
+    <h3>updated: October 22, 2019</h3>
+
 
 </body>
 
