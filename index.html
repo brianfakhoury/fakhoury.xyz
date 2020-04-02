@@ -1,448 +1,565 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name=”description” content="Brian Fakhoury personal webpage!">
-    <meta name=”keywords” content="brian fakhoury, venture capital, machine learning, neuroscience, lifestyle, personal page" />
-    <meta property="og:title" content="Brian Fakhoury" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://brianfakhoury.com" />
-    <meta property="og:image" content="https://brianfakhoury.com/me.jpg" />
-    <title>Brian Fakhoury - Homepage</title>
-    <style media="screen">
-        @import url('https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise');
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <meta name="”description”" content="Brian Fakhoury personal webpage!">
+        <meta name="”keywords”" content="brian fakhoury, venture capital, machine learning, neuroscience, lifestyle, personal page"/>
+        <meta property="og:title" content="Brian Fakhoury"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://brianfakhoury.com"/>
+        <meta property="og:image" content="https://brianfakhoury.com/me.jpg"/>
+        <title>Brian Fakhoury - Homepage</title>
+        <style media="screen">
+            @import url('https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise');
 
-        a {
-            color: green;
-        }
+            a {
+                color: green;
+            }
 
-        h1,
-        h2,
-        h3 {
-            color: black;
-        }
+            h1,
+            h2,
+            h3 {
+                color: black;
+            }
 
-        h2 {
-            width: 80%;
-            margin: 20px 0 0 0;
-            position: relative;
-            padding-right: 40px
-        }
+            h2 {
+                width: 80%;
+                margin: 20px 0 0;
+                position: relative;
+                padding-right: 40px;
+            }
 
-        ul {
-            width: 80%;
-        }
+            ul {
+                width: 80%;
+            }
 
-        #me {
-            width: 200px;
-            height: 200px;
-            border-radius: 500px;
-            border-color: black;
-            border-width: thick;
-            border-style: solid;
-        }
+            #me {
+                width: 200px;
+                height: 200px;
+                border-radius: 500px;
+                border-color: black;
+                border-width: thick;
+                border-style: solid;
+            }
 
-        #arrow {
-            display: none;
-            position: absolute;
-            top: -40px;
-            right: -50px;
-            transform: rotate(-20deg)
-        }
+            #arrow {
+                display: none;
+                position: absolute;
+                top: -40px;
+                right: -50px;
+                transform: rotate(-20deg);
+            }
 
-        html {
-            background-color: #f2f2f2;
-        }
+            html {
+                background-color: #f2f2f2;
+            }
 
-        body {
-            font-family: 'Waiting for the Sunrise';
-            font-weight: bold;
-            font-size: x-large;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* background-color: #f2f2f2; */
-            margin: 0
-        }
+            body {
+                font-family: 'Waiting for the Sunrise';
+                font-weight: bold;
+                font-size: x-large;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* background-color: #f2f2f2; */
+                margin: 0;
+            }
 
-        #main {
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+            #main {
+                max-width: 500px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
-        hr {
-            width: 90%;
-            height: 4px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: black;
-            border: 0 none;
-            max-width: 600px
-        }
+            hr {
+                width: 90%;
+                height: 4px;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: black;
+                border: 0 none;
+                max-width: 600px;
+            }
 
-        small {
-            font-size: small;
-        }
+            small {
+                font-size: small;
+            }
 
-        #mesvg {
-            max-width: 500px;
-            width: 100%;
-        }
+            #mesvg {
+                max-width: 500px;
+                width: 100%;
+            }
 
-        #profile {
-            position: relative;
-        }
+            #profile {
+                position: relative;
+            }
 
-        .fadein {
-            opacity: 1;
-            -webkit-transition: opacity 500ms ease-in-out;
-            transition: opacity 500ms ease-in-out;
-        }
+            .fadein {
+                opacity: 1;
+                -webkit-transition: opacity 500ms ease-in-out;
+                transition: opacity 500ms ease-in-out;
+            }
 
-        .collapsible {
-            cursor: pointer;
-        }
+            .collapsible {
+                cursor: pointer;
+            }
 
-        .content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 150ms ease-out;
-            -webkit-transition: max-height 150ms ease-out;
-        }
+            .content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 150ms ease-out;
+                -webkit-transition: max-height 150ms ease-out;
+            }
 
-        .collapsible:after {
-            content: "🙈";
-            font-size: 20px;
-            position: absolute;
-            bottom: 10px;
-            right: 0
-        }
+            .collapsible:after {
+                content: "🙈";
+                font-size: 20px;
+                position: absolute;
+                bottom: 10px;
+                right: 0;
+            }
 
-        .active:after {
-            content: "🙉";
-        }
+            .active:after {
+                content: "🙉";
+            }
 
-        body {
+            body {
+                /* W3C */
+                background: linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
+
+                /* Firefox */
+                background: -moz-linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
+
+                /* Chrome10+,Safari5.1+ */
+                background: -webkit-linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
+
+                background-size: 1000%;
+                -moz-background-size: 1000%;
+                -webkit-background-size: 1000%;
+
+                /* W3C */
+                animation-name: fun-time-awesome;
+                animation-duration: 10s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-play-state: running;
+
+                /* Firefox: */
+                -moz-animation-name: fun-time-awesome;
+                -moz-animation-duration: 10s;
+                -moz-animation-timing-function: linear;
+                -moz-animation-iteration-count: infinite;
+                -moz-animation-direction: alternate;
+                -moz-animation-play-state: running;
+
+                /* Chrome, Safari */
+                -webkit-animation-name: fun-time-awesome;
+                -webkit-animation-duration: 10s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-direction: alternate;
+                -webkit-animation-play-state: running;
+            }
+
             /* W3C */
-            background: linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
+            @keyframes fun-time-awesome {
+                0% {
+                    background-position: left top;
+                }
+
+                100% {
+                    background-position: left bottom;
+                }
+            }
 
             /* Firefox */
-            background: -moz-linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
+            @-moz-keyframes fun-time-awesome {
+                0% {
+                    background-position: left top;
+                }
 
-            /* Chrome10+,Safari5.1+ */
-            background: -webkit-linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
-
-            background-size: 1000%;
-            -moz-background-size: 1000%;
-            -webkit-background-size: 1000%;
-
-            /* W3C */
-            animation-name: fun-time-awesome;
-            animation-duration: 10s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-play-state: running;
-
-            /* Firefox: */
-            -moz-animation-name: fun-time-awesome;
-            -moz-animation-duration: 10s;
-            -moz-animation-timing-function: linear;
-            -moz-animation-iteration-count: infinite;
-            -moz-animation-direction: alternate;
-            -moz-animation-play-state: running;
+                100% {
+                    background-position: left bottom;
+                }
+            }
 
             /* Chrome, Safari */
-            -webkit-animation-name: fun-time-awesome;
-            -webkit-animation-duration: 10s;
-            -webkit-animation-timing-function: linear;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-direction: alternate;
-            -webkit-animation-play-state: running;
+            @-webkit-keyframes fun-time-awesome {
+                0% {
+                    background-position: left top;
+                }
+
+                100% {
+                    background-position: left bottom;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 style="max-width: 600px;text-align:center;padding:0 40px 0 40px">Hey there, welcome to the Brian portal!</h1>
+        <div id="profile">
+            <img height="210px" src="me.jpg" id="temp" class="fadein">
+            <img width="90px" src="arrow.png" id="arrow">
+        </div>
+        <p style="text-align:left; width: 80%; max-width:600px">I'm a technology investor & generalist with experience in machine learning and venture capital. I advise tech startups on fundraising, product strategy, and more out of a passion for the latest
+            in innovation and commercialization. If you like what you see,
+            <a href="mailto:brian@fakhoury.vc">let's work together</a>
+            on hard problems. My hobbies include fitness and hiking, reading and philosphy, cooking, and going on crazy adventures with my friends:)
+        </p>
+        <div id="main">
+            <h2 class="collapsible">⚡️ Resources I maintain</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://www.notion.so/brianfakhoury/Professional-Mental-Models-Things-to-Know-063b3bd375fd4f18b9ebde6345fd43d5">Mental Models</a>
+                </li>
+                <li>
+                    <a href="https://www.notion.so/brianfakhoury/Startup-Tools-187204ca11ec44e381f4975458e2efdc">Useful Startup Tools</a>
+                </li>
+                <li>
+                    <a href="https://www.notion.so/brianfakhoury/Understanding-Venture-Fundamentals-c88f8eebfc1f42dfa6e2c350500d07fe">Understanding Venture Fundamentals</a>
+                </li>
+            </ul>
+            <h2 class="collapsible">✒️ Select Writing</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://fakhoury.vc/The-Unix-Startup-Approach/">The Unix Startup Approach</a>
+                </li>
+                <li>
+                    <a href="https://fakhoury.vc/2-Points-On-The-Evolving-Role-Of-Data-In-Business/">2 Points On The Evolving Role Of Data In Business</a>
+                </li>
+                <li>
+                    <a href="https://medium.com/@brianfakhoury/7-books-for-august-quick-snippets-on-what-ive-read-65a1a5a0885">7 Books for August — Quick Snippets on What I’ve Read</a>
+                </li>
+                <li>
+                    <a href="https://medium.com/bu-entrepreneurs-club/what-they-dont-tell-you-about-starting-a-business-in-college-994e7e72ca39">What They Don’t Tell You About Starting A Business In College</a>
+                </li>
+            </ul>
+            <h2 class="collapsible">🔬 Research</h2>
+            <ul class="content">
+                <li>Saliency Tracking and Prediction (Available Soon)</li>
+                <li>
+                    <a href="Efficient Word Vector Representations.pdf">Field Survey: Efficient Word Vector Representations for Boosted Accuracy in Machine Translation Tasks</a>
+                </li>
+                <li>
+                    <a href="research.pdf">On Neural Networks Modeling the Choice between Saccades and Pursuits in Oculomotor Movements Across a Single Object</a>
+                </li>
+                <li>
+                    <a href="research2.pdf">Eye Movement Classification</a>
+                </li>
+                <li>
+                    <a href="https://www.notion.so/brianfakhoury/5f61f987b831471698f9c4d2e873cd22?v=efe9c12e924d46d1a44efd37024c595b">Investment Theses</a>
+                </li>
+            </ul>
+            <h2 class="collapsible">😤 Things I Started</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://youngangelnetwork.com">Young Angel Network</a>
+                </li>
+                <li>
+                    <a href="https://cryptoholdings.group">Crypto Holdings Group, Inc.</a>
+                </li>
+                <li>
+                    <a href="https://friendlystorage.io">Friendly Storage Inc.</a>
+                    (dead)</li>
+                <li>
+                    <a href="https://drive.google.com/file/d/1RFolmq3dDiIRtevusIULOMW-o_z0dTxr/view?usp=sharing">Bastion</a>
+                    (dead)
+                </li>
+            </ul>
+            <h2 class="collapsible">🏢 Organizations I've been part of</h2>
+            <ul class="content">
+                <li>Stealth🤫
+                </li>
+                <li>
+                    <a href="https://contrarycap.com/">Contrary Capital</a>: Venture Partner
+                </li>
+                <li>
+                    <a href="equal.vc">Equal Ventures</a>: Intern
+                </li>
+                <li>
+                    <a href="https://eclub.bu.edu">Boston University Entrepreneur's Club</a>: President
+                </li>
+                <li>
+                    <a href="https://topo.cc/">Topo Solutions (Hong Kong)</a>: Machine Learning Intern
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/BUVentureAccelerator/">Boston University Venture Accelerator</a>
+                </li>
+                <li>
+                    <a href="https://eclub.bu.edu">Boston University Venture Capital Club</a>
+                </li>
+                <li>
+                    <a href="http://mic.bu.edu/">Boston University Machine Intelligence Community</a>: (past) Founding Board Member
+                </li>
+                <li>
+                    <a href="https://www.bu.edu/neuro/research/centers/">Center for Computational Neuroscience and Neural Technology (CompNet)</a>: Researcher
+                </li>
+            </ul>
+            <h2 class="collapsible">📚 My Book & Media Projects</h2>
+            <ul class="content">
+                <li>Neuromimicry (Coming 2020)</li>
+                <li>
+                    <a href="https://anchor.fm/building-the-21st-century">Building The 21st Century Podcast</a>
+                </li>
+                <li>
+                    <a href="https://youtube.com/brianfakhoury/live">Live Alan Watts Radio</a>
+                </li>
+            </ul>
+            <h2 class="collapsible">💸 Startup Investments</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://www.hypersciences.com/">HyperSciences, Inc</a>: Series A
+                </li>
+                <li>
+                    <a href="https://www.sapientx.com/">SapientX Inc</a>: Seed</li>
+                <li>
+                    <a href="http://www.blackpointseafood.com/">Black Point Seafood</a>: Seed</li>
+                <li>
+                    <a href="https://www.pongalo.com/">Pongalo</a>: Bridge</li>
+                <li>
+                    <a href="https://donegood.co/">DoneGood</a>: Seed</li>
+                <li>
+                    <a href="https://smilelove.com/">Smilelove</a>: Seed</li>
+                <li>
+                    <a href="http://2020gene.com/">20/20 GeneSystems</a>: Series B</li>
+                <li>
+                    <a href="https://www.bizly.com/">Bizly</a>: Seed</li>
+                <li>
+                    <a href="http://www.seatassignmate.com/">SeatAssignMate</a>: Seed
+                </li>
+                <li>
+                    <a href="https://growgenics.net/">Growgenics</a>: Series A</li>
+                <li>
+                    <a href="https://www.bizly.com/">Bizly</a>: Seed</li>
+                <li>
+                    <a href="https://www.digitalbrandsgroup.co/">Digital Brands Group</a>: Series A</li>
+                <li>
+                    <a href="https://zenspace.io/">Zenspace</a>: Seed
+                </li>
+                <li>
+                    <a href="https://ipwe.com/who-are-you">IPwe</a>: Seed</li>
+                <li>
+                    <a href="https://www.gimmeradio.com">Gimme Radio</a>: Seed</li>
+                <li>
+                    <a href="https://www.halo.energy/">Halo Energy</a>: Seed</li>
+                <li>
+                    <a href="https://farmtogether.com/">FarmTogether</a>: Seed</li>
+                <li>
+                    <a href="https://vizihealthcare.com/">Vizi Healthcare</a>: Seed</li>
+                <li>
+                    <a href="https://cytonics.com/">Cytonics</a>: Series C</li>
+            </ul>
+            <h2 class="collapsible">🤓 Cool Technical Projects</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://github.com/brianfakhoury/Experimental-Defect-LSTM-With-Signal-Processing">Experimental Defect LSTM</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/MATLAB/tree/master/Shunting%20Simulations">Real Time Neural Shunting Simulation</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/PYTHON/tree/master/Discrete%20Neural%20Simulator">Discrete Neural Simulator</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/neuro-fyi">NeuroFYI</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/ctf-editor">CTF Editor</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/one-touch">OneTouch</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/MATLAB/tree/master/Neural%20Self-Organization">Neural Self Organization</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/PYTHON/tree/master/Jane%20Street%20Hackathon">JaneStreet Trading Bot</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury/PYTHON/tree/master/Elevator%20Controller">Hypothetical Scalable Elevator Controller</a>
+                </li>
+            </ul>
+            <h2 class="collapsible">😎 My Interests</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Bodybuilding">Bodybuilding & Fitness</a>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Artificial_intelligence">Artificial Intelligence</a>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Web_development">WebDev</a>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Science_fiction">Science Fiction Movies and Books</a>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Stock">Stocks</a>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Angel_investor">Angel Investing</a>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Venture_capital">Venture Capital</a>
+                </li>
+
+                <li>
+                    <a href="https://www.google.com/search?biw=1458&bih=906&tbm=isch&sa=1&ei=op46XK2wEsOkwATdgJdA&q=beautiul+world&oq=beautiul+world&gs_l=img.3..0i10l10.2312.4455..4577...0.0..0.428.2986.3-6j2......1....1..gws-wiz-img.......35i39j0i67j0.0F7C_Rj-GuA">World Travel</a>
+                </li>
+            </ul>
+            <h2 class="collapsible">🤑 Personal Crypto Investments</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://www.ethereum.org/">Ethereum</a>
+                    (ETH)</li>
+                <li>
+                    <a href="https://tron.network/">Tron</a>
+                    (TRN)</li>
+                <li>
+                    <a href="https://sia.tech/">SiaCoin</a>
+                    (SC)</li>
+                <li>
+                    <a href="https://ripple.com/xrp/">Ripple</a>
+                    (XRP)</li>
+                <li>
+                    <a href="https://0x.org/">0x</a>
+                    (ZRX)</li>
+                <li>
+                    <a href="https://blocknet.co/">Blocknet</a>
+                    (BLOCK)</li>
+                <li>
+                    <a href="http://nem.io/">NEM</a>
+                    (XEM)</li>
+                <li>
+                    <a href="https://www.cardano.org/en/home/">Cardano</a>
+                    (ADA)</li>
+            </ul>
+            <h2 class="collapsible">💲 Stocks that I like</h2>
+            <ul class="content">
+                <li>
+                    <a href="https://www.apple.com/">Apple</a>
+                    (NASDAQ: AAPL)</li>
+                <li>
+                    <a href="https://squareup.com/">Square</a>
+                    (NYSE: SQ)</li>
+                <li>
+                    <a href="https://www.shopify.com/">Shopify</a>
+                    (NYSE: SHOP)</li>
+                <li>
+                    <a href="https://abc.xyz/">Alphabet</a>
+                    (NASDAQ: GOOGL)</li>
+                <li>
+                    <a href="https://www.amazon.com/">Amazon</a>
+                    (NASDAQ: AMZN)</li>
+                <li>
+                    <a href="https://www.nvidia.com/">Nvidia</a>
+                    (NASDAQ: NVDA)</li>
+                <li>
+                    <a href="https://www.tencent.com/en-us/">Tencent</a>
+                    (OTCMKTS: TCEHY)
+                </li>
+                <li>
+                    <a href="https://www.amd.com/en">AMD</a>
+                    (NASDAQ: AMD)</li>
+                <li>
+                    <a href="https://www.intel.com/">Intel</a>
+                    (NASDAQ: INTC)</li>
+            </ul>
+            <h2 class="collapsible">📫 Get in touch</h2>
+            <ul class="content">
+                <li>
+                    <a href="mailto:brian@fakhoury.vc">Email brian@fakhoury.vc</a>
+                </li>
+                <li>
+                    <a href="http://cal.brianfakhoury.com">Availability Calendar</a>
+                </li>
+                <li>
+                    <a href="https://calendly.com/brianfakhoury/">Scheduling</a>
+                </li>
+            </ul>
+            <h2 class="collapsible">🔥 Comprehensive social links</h2>
+
+            <ul class="content">
+                <li>
+                    <a href="https://www.facebook.com/brianfakhoury">Facebook</a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/brianfakhoury/">Instagram</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/BrianFakhoury">Twitter</a>
+                </li>
+                <li>
+                    <a href="https://www.snapchat.com/add/brianfakhoury">Snapchat</a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/brianfakhoury/">LinkedIn</a>
+                </li>
+                <li>
+                    <a href="https://github.com/brianfakhoury">GitHub</a>
+                </li>
+                <li>
+                    <a href="https://devpost.com/brianfakhoury">Devpost</a>
+                </li>
+                <li>
+                    <a href="https://angel.co/brianfakhoury">AngelList</a>
+                </li>
+                <li>
+                    <a href="https://medium.com/@brianfakhoury">Medium</a>
+                </li>
+            </ul>
+        </div>
+        <p style="text-align:left; width: 80%; max-width:600px">Concurrently, I truly love building my own interesting projects that will push bleeding edge tech for myself and others, bring together investors and entrepreneurs, or simply spark my curiosity.
+            To date, I have been involved in the independent fundraising of multiple startups, personally invested significantly in other startups, cryptocurrencies, and more, have built side projects that have reached hundreds of thousands of people, carried
+            out academic research in psychophysics and machine learning, and have led multiple entrepreneurial communities in the Boston area and beyond.
+        </p>
+        <p style="text-align:left; width: 80%; max-width:600px">My daily drive is to connect high-powered people and meet the most innovative of them around him. If this century is defined by high capital and social efficiency, then I am investing in and building the 21st century. (check out my VC personality at
+            <a href="https://fakhoury.vc">fakhoury.vc</a>).</p>
+        <img src="me.svg" id="mesvg">
+        <h3>updated: April 1, 2020</h3>
+
+    </body>
+
+    <script type="text/javascript">
+        // wait 5.8 seconds to switch to main pic
+        var img_pre = document.getElementById("temp")
+        img_pre.src = "giphy.gif"
+
+        setTimeout(function () {
+            var img = document.getElementById("temp")
+            img.id = "me"
+            img.src = "me.jpg"
+            img.style.opacity = '1';
+            var arrow = document.getElementById("arrow")
+            setTimeout(function () {
+                arrow.style.display = 'flex';
+            }, 1000)
+        }, 5800)
+
+        // remove the old pic after 5300ms (give it 500ms to be gone, so 5800ms total)
+        setTimeout(function () {
+            var img = document.getElementById("temp")
+            img.style.opacity = '0';
+        }, 5300)
+
+        // listen for click to unroll list
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
         }
-
-        /* W3C */
-        @keyframes fun-time-awesome {
-            0% {
-                background-position: left top;
-            }
-
-            100% {
-                background-position: left bottom;
-            }
-        }
-
-        /* Firefox */
-        @-moz-keyframes fun-time-awesome {
-            0% {
-                background-position: left top;
-            }
-
-            100% {
-                background-position: left bottom;
-            }
-        }
-
-        /* Chrome, Safari */
-        @-webkit-keyframes fun-time-awesome {
-            0% {
-                background-position: left top;
-            }
-
-            100% {
-                background-position: left bottom;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <h1 style="max-width: 600px;text-align:center;padding:0 40px 0 40px">Hey there, welcome to the Brian portal!</h1>
-    <div id="profile">
-        <img height="210px" src="me.jpg" id="temp" class="fadein">
-        <img width="90px" src="arrow.png" id="arrow">
-    </div>
-    <p style="text-align:left; width: 80%; max-width:600px">I'm a technology investor & generalist with experience in machine learning and venture capital. I advise tech startups on fundraising, product strategy, and more out of a passion for the
-        latest in innovation and commercialization. If you like what you see, <a href="mailto:brian@fakhoury.vc">let's work together</a> on hard problems. My hobbies include fitness and hiking, reading and
-        philosphy, cooking, and going on crazy
-        adventures with my friends:)
-    </p>
-    <div id="main">
-        <h2 class="collapsible" class="collapsible">⚡️ Resources I maintain</h2>
-        <ul class="content" class="content">
-            <li><a href="https://www.notion.so/brianfakhoury/Professional-Mental-Models-Things-to-Know-063b3bd375fd4f18b9ebde6345fd43d5">Mental Models</a> </li>
-            <li><a href="https://www.notion.so/brianfakhoury/Startup-Tools-187204ca11ec44e381f4975458e2efdc">Useful Startup Tools</a></li>
-            <li><a href="https://www.notion.so/brianfakhoury/Understanding-Venture-Fundamentals-c88f8eebfc1f42dfa6e2c350500d07fe">Understanding Venture Fundamentals</a></li>
-        </ul>
-        <h2 class="collapsible" class="collapsible">✒️ Select Writing</h2>
-        <ul class="content" class="content">
-            <li><a href="https://fakhoury.vc/The-Unix-Startup-Approach/">The Unix Startup Approach</a></li>
-            <li><a href="https://fakhoury.vc/2-Points-On-The-Evolving-Role-Of-Data-In-Business/">2 Points On The Evolving Role Of Data In Business</a></li>
-            <li><a href="https://medium.com/@brianfakhoury/7-books-for-august-quick-snippets-on-what-ive-read-65a1a5a0885">7 Books for August — Quick Snippets on What I’ve Read</a> </li>
-            <li><a href="https://medium.com/bu-entrepreneurs-club/what-they-dont-tell-you-about-starting-a-business-in-college-994e7e72ca39">What They Don’t Tell You About Starting A Business In College</a> </li>
-        </ul>
-        <h2 class="collapsible" class="collapsible">🔬 Research</h2>
-        <ul class="content" class="content">
-            <li>Saliency Tracking and Prediction (Available Soon)</li>
-            <li><a href="Efficient Word Vector Representations.pdf">Field Survey: Efficient Word Vector Representations for Boosted Accuracy in Machine Translation Tasks</a></li>
-            <li><a href="research.pdf">On Neural Networks Modeling the Choice between Saccades and Pursuits in Oculomotor Movements Across a Single Object</a></li>
-            <li><a href="research2.pdf">Eye Movement Classification</a></li>
-            <li><a href="https://www.notion.so/brianfakhoury/5f61f987b831471698f9c4d2e873cd22?v=efe9c12e924d46d1a44efd37024c595b">Investment Theses</a></li>
-        </ul>
-        <h2 class="collapsible">😤 Things I Started</h2>
-        <ul class="content">
-            <li><a href="https://youngangelnetwork.com">Young Angel Network</a> </li>
-            <li>
-                <a href="https://cryptoholdings.group">Crypto Holdings Group, Inc.</a>
-            </li>
-            <li><a href="https://friendlystorage.io">Friendly Storage Inc.</a> (dead)</li>
-            <li>
-                <a href="https://drive.google.com/file/d/1RFolmq3dDiIRtevusIULOMW-o_z0dTxr/view?usp=sharing">Bastion</a>
-                (dead)
-            </li>
-        </ul>
-        <h2 class="collapsible">🏢 Organizations I've been part of</h2>
-        <ul class="content">
-            <li>
-                <a href="https://contrarycap.com/">Contrary Capital</a>: Venture Partner
-            </li>
-            <li>
-                <a href="equal.vc">Equal Ventures</a>: Intern
-            </li>
-            <li>
-                <a href="https://eclub.bu.edu">Boston University Entrepreneur's Club</a>: President
-            </li>
-            <li>
-                <a href="https://topo.cc/">Topo Solutions (Hong Kong)</a>: Machine Learning Intern
-            </li>
-            <li>
-                <a href="https://www.facebook.com/BUVentureAccelerator/">Boston University Venture Accelerator</a>
-            </li>
-            <li>
-                <a href="https://eclub.bu.edu">Boston University Venture Capital Club</a>
-            </li>
-            <li>
-                <a href="http://mic.bu.edu/">Boston University Machine Intelligence Community</a>: (past) Founding Board Member
-            </li>
-            <li>
-                <a href="https://www.bu.edu/neuro/research/centers/">Center for Computational Neuroscience and Neural Technology
-                    (CompNet)</a>: Researcher
-            </li>
-        </ul>
-        <h2 class="collapsible">📚 My Book</h2>
-        <ul class="content">
-            <li>Neuromimicry (Coming 2020)</li>
-        </ul>
-        <h2 class="collapsible">💸 Startup Investments</h2>
-        <ul class="content">
-            <li>
-                <a href="https://www.hypersciences.com/">HyperSciences, Inc</a>: Series A
-            </li>
-            <li><a href="https://www.sapientx.com/">SapientX Inc</a>: Seed</li>
-            <li><a href="http://www.blackpointseafood.com/">Black Point Seafood</a>: Seed</li>
-            <li><a href="https://www.pongalo.com/">Pongalo</a>: Bridge</li>
-            <li><a href="https://donegood.co/">DoneGood</a>: Seed</li>
-            <li><a href="https://smilelove.com/">Smilelove</a>: Seed</li>
-            <li><a href="http://2020gene.com/">20/20 GeneSystems</a>: Series B</li>
-            <li><a href="https://www.bizly.com/">Bizly</a>: Seed</li>
-            <li>
-                <a href="http://www.seatassignmate.com/">SeatAssignMate</a>: Seed
-            </li>
-            <li><a href="https://growgenics.net/">Growgenics</a>: Series A</li>
-            <li><a href="https://www.bizly.com/">Bizly</a>: Seed</li>
-            <li><a href="https://www.digitalbrandsgroup.co/">Digital Brands Group</a>: Series A</li>
-            <li><a href="https://zenspace.io/">Zenspace</a>: Seed </li>
-            <li><a href="https://ipwe.com/who-are-you">IPwe</a>: Seed</li>
-            <li><a href="https://www.gimmeradio.com">Gimme Radio</a>: Seed</li>
-            <li><a href="https://www.halo.energy/">Halo Energy</a>: Seed</li>
-            <li><a href="https://farmtogether.com/">FarmTogether</a>: Seed</li>
-            <li><a href="https://vizihealthcare.com/">Vizi Healthcare</a>: Seed</li>
-            <li><a href="https://cytonics.com/">Cytonics</a>: Series C</li>
-        </ul>
-        <h2 class="collapsible">🤓 Cool Technical Projects</h2>
-        <ul class="content">
-            <li><a href="https://github.com/brianfakhoury/Experimental-Defect-LSTM-With-Signal-Processing">Experimental Defect LSTM</a></li>
-            <li><a href="https://github.com/brianfakhoury/MATLAB/tree/master/Shunting%20Simulations">Real Time Neural Shunting Simulation</a> </li>
-            <li><a href="https://github.com/brianfakhoury/PYTHON/tree/master/Discrete%20Neural%20Simulator">Discrete Neural Simulator</a></li>
-            <li><a href="https://github.com/brianfakhoury/neuro-fyi">NeuroFYI</a></li>
-            <li>
-                <a href="https://github.com/brianfakhoury/ctf-editor">CTF Editor</a>
-            </li>
-            <li><a href="https://github.com/brianfakhoury/one-touch">OneTouch</a></li>
-            <li>
-                <a href="https://github.com/brianfakhoury/MATLAB/tree/master/Neural%20Self-Organization">Neural Self Organization</a>
-            </li>
-            <li>
-                <a href="https://github.com/brianfakhoury/PYTHON/tree/master/Jane%20Street%20Hackathon">JaneStreet Trading Bot</a>
-            </li>
-            <li>
-                <a href="https://github.com/brianfakhoury/PYTHON/tree/master/Elevator%20Controller">Hypothetical Scalable Elevator Controller</a>
-            </li>
-        </ul>
-        <h2 class="collapsible">😎 My Interests</h2>
-        <ul class="content">
-            <li>
-                <a href="https://en.wikipedia.org/wiki/Bodybuilding">Bodybuilding & Fitness</a>
-            </li>
-            <li>
-                <a href="https://en.wikipedia.org/wiki/Artificial_intelligence">Artificial Intelligence</a>
-            </li>
-            <li>
-                <a href="https://en.wikipedia.org/wiki/Web_development">WebDev</a>
-            </li>
-            <li>
-                <a href="https://en.wikipedia.org/wiki/Science_fiction">Science Fiction Movies and Books</a>
-            </li>
-            <li><a href="https://en.wikipedia.org/wiki/Stock">Stocks</a></li>
-            <li>
-                <a href="https://en.wikipedia.org/wiki/Angel_investor">Angel Investing</a>
-            </li>
-            <li><a href="https://en.wikipedia.org/wiki/Venture_capital">Venture Capital</a> </li>
-
-            <li>
-                <a
-                    href="https://www.google.com/search?biw=1458&bih=906&tbm=isch&sa=1&ei=op46XK2wEsOkwATdgJdA&q=beautiul+world&oq=beautiul+world&gs_l=img.3..0i10l10.2312.4455..4577...0.0..0.428.2986.3-6j2......1....1..gws-wiz-img.......35i39j0i67j0.0F7C_Rj-GuA">World
-                    Travel</a>
-            </li>
-        </ul>
-        <h2 class="collapsible">🤑 Personal Crypto Investments</h2>
-        <ul class="content">
-            <li><a href="https://www.ethereum.org/">Ethereum</a> (ETH)</li>
-            <li><a href="https://tron.network/">Tron</a> (TRN)</li>
-            <li><a href="https://sia.tech/">SiaCoin</a> (SC)</li>
-            <li><a href="https://ripple.com/xrp/">Ripple</a> (XRP)</li>
-            <li><a href="https://0x.org/">0x</a> (ZRX)</li>
-            <li><a href="https://blocknet.co/">Blocknet</a> (BLOCK)</li>
-            <li><a href="http://nem.io/">NEM</a> (XEM)</li>
-            <li><a href="https://www.cardano.org/en/home/">Cardano</a> (ADA)</li>
-        </ul>
-        <h2 class="collapsible">💲 Stocks that I like</h2>
-        <ul class="content">
-            <li><a href="https://www.apple.com/">Apple</a> (NASDAQ: AAPL)</li>
-            <li><a href="https://squareup.com/">Square</a> (NYSE: SQ)</li>
-            <li><a href="https://www.shopify.com/">Shopify</a> (NYSE: SHOP)</li>
-            <li><a href="https://abc.xyz/">Alphabet</a> (NASDAQ: GOOGL)</li>
-            <li><a href="https://www.amazon.com/">Amazon</a> (NASDAQ: AMZN)</li>
-            <li><a href="https://www.nvidia.com/">Nvidia</a> (NASDAQ: NVDA)</li>
-            <li>
-                <a href="https://www.tencent.com/en-us/">Tencent</a> (OTCMKTS: TCEHY)
-            </li>
-            <li><a href="https://www.amd.com/en">AMD</a> (NASDAQ: AMD)</li>
-            <li><a href="https://www.intel.com/">Intel</a> (NASDAQ: INTC)</li>
-        </ul>
-        <h2 class="collapsible">📫 Get in touch</h2>
-        <ul class="content">
-            <li><a href="mailto:brian@fakhoury.vc">Email brian@fakhoury.vc</a> </li>
-            <li><a href="http://cal.brianfakhoury.com">Availability Calendar</a> </li>
-            <li><a href="https://calendly.com/brianfakhoury/">Scheduling</a> </li>
-        </ul>
-        <h2 class="collapsible">🔥 Comprehensive social links</h2>
-
-        <ul class="content">
-            <li><a href="https://www.facebook.com/brianfakhoury">Facebook</a></li>
-            <li><a href="https://www.instagram.com/brianfakhoury/">Instagram</a></li>
-            <li><a href="https://twitter.com/BrianFakhoury">Twitter</a></li>
-            <li><a href="https://www.snapchat.com/add/brianfakhoury">Snapchat</a></li>
-            <li><a href="https://www.linkedin.com/in/brianfakhoury/">LinkedIn</a></li>
-            <li><a href="https://github.com/brianfakhoury">GitHub</a></li>
-            <li><a href="https://devpost.com/brianfakhoury">Devpost</a></li>
-            <li><a href="https://angel.co/brianfakhoury">AngelList</a></li>
-            <li><a href="https://medium.com/@brianfakhoury">Medium</a> </li>
-        </ul>
-    </div>
-    <p style="text-align:left; width: 80%; max-width:600px">Concurrently, I truly love building my own interesting projects that will push bleeding edge tech for myself and others, bring together investors and entrepreneurs, or simply spark my
-        curiosity. To date, I have been involved in the
-        independent fundraising of multiple startups, personally invested significantly in other startups, cryptocurrencies, and more, have built side projects that have reached hundreds of thousands of people, carried out academic research in
-        psychophysics and machine learning, and have led multiple entrepreneurial communities in the Boston area and beyond.
-    </p>
-    <p style="text-align:left; width: 80%; max-width:600px">My daily drive is to connect high-powered people and meet the most innovative of them around him. If this century is defined by high capital and social efficiency, then I am investing in and
-        building the 21st century. (check out my VC
-        personality at <a href="https://fakhoury.vc">fakhoury.vc</a>).</p>
-    <img src="me.svg" id="mesvg">
-    <h3>updated: March 5, 2020</h3>
-
-
-</body>
-
-<script type="text/javascript">
-    // wait 5.8 seconds to switch to main pic
-    var img_pre = document.getElementById("temp")
-    img_pre.src = "giphy.gif"
-
-    setTimeout(function() {
-        var img = document.getElementById("temp")
-        img.id = "me"
-        img.src = "me.jpg"
-        img.style.opacity = '1';
-        var arrow = document.getElementById("arrow")
-        setTimeout(function() {
-            arrow.style.display = 'flex';
-        }, 1000)
-    }, 5800)
-
-    // remove the old pic after 5300ms (give it 500ms to be gone, so 5800ms total)
-    setTimeout(function() {
-        var img = document.getElementById("temp")
-        img.style.opacity = '0';
-    }, 5300)
-
-    // listen for click to unroll list
-    var coll = document.getElementsByClassName("collapsible");
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    }
-</script>
+    </script>
 
 </html>
