@@ -129,82 +129,10 @@
             .active:after {
                 content: "🙉";
             }
-
-            body {
-                /* W3C */
-                background: linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
-
-                /* Firefox */
-                background: -moz-linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
-
-                /* Chrome10+,Safari5.1+ */
-                background: -webkit-linear-gradient(top, #e1e0ff 0%, #f7f6f2 20%, #eaffd1 40%, #f7f6f2 60%, #fce6e6 80%, #f7f6f2 100%);
-
-                background-size: 1000%;
-                -moz-background-size: 1000%;
-                -webkit-background-size: 1000%;
-
-                /* W3C */
-                animation-name: fun-time-awesome;
-                animation-duration: 10s;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
-                animation-direction: alternate;
-                animation-play-state: running;
-
-                /* Firefox: */
-                -moz-animation-name: fun-time-awesome;
-                -moz-animation-duration: 10s;
-                -moz-animation-timing-function: linear;
-                -moz-animation-iteration-count: infinite;
-                -moz-animation-direction: alternate;
-                -moz-animation-play-state: running;
-
-                /* Chrome, Safari */
-                -webkit-animation-name: fun-time-awesome;
-                -webkit-animation-duration: 10s;
-                -webkit-animation-timing-function: linear;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-direction: alternate;
-                -webkit-animation-play-state: running;
-            }
-
-            /* W3C */
-            @keyframes fun-time-awesome {
-                0% {
-                    background-position: left top;
-                }
-
-                100% {
-                    background-position: left bottom;
-                }
-            }
-
-            /* Firefox */
-            @-moz-keyframes fun-time-awesome {
-                0% {
-                    background-position: left top;
-                }
-
-                100% {
-                    background-position: left bottom;
-                }
-            }
-
-            /* Chrome, Safari */
-            @-webkit-keyframes fun-time-awesome {
-                0% {
-                    background-position: left top;
-                }
-
-                100% {
-                    background-position: left bottom;
-                }
-            }
         </style>
     </head>
 
-    <body>
+    <body id="gradient">
         <h1 style="max-width: 600px;text-align:center;padding:0 40px 0 40px">Hey there, welcome to the Brian portal!</h1>
         <div id="profile">
             <img height="210px" src="me.jpg" id="temp" class="fadein">
@@ -570,6 +498,60 @@
                 }
             });
         }
+
+        var colors = new Array([
+            255, 247, 224
+        ], [
+            225, 255, 224
+        ], [
+            249, 224, 255
+        ], [
+            255, 224, 224
+        ], [
+            224, 240, 255
+        ], [238, 224, 255]);
+
+        var step = 0;
+        //color table indices for: current color left next color left current color right next color right
+        var colorIndices = [0, 1, 2, 3];
+
+        //transition speed
+        var gradientSpeed = 0.02;
+
+        function updateGradient() {
+
+            var c0_0 = colors[colorIndices[0]];
+            var c0_1 = colors[colorIndices[1]];
+            var c1_0 = colors[colorIndices[2]];
+            var c1_1 = colors[colorIndices[3]];
+
+            var istep = 1 - step;
+            var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+            var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+            var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+            var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
+
+            var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+            var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+            var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+            var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
+
+            document.getElementById("gradient").style.background = "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
+
+            step += gradientSpeed;
+            if (step >= 1) {
+                step %= 1;
+                colorIndices[0] = colorIndices[1];
+                colorIndices[2] = colorIndices[3];
+
+                //pick two new target color indices do not pick the same as the current one
+                colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+                colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+
+            }
+        }
+
+        setInterval(updateGradient, 100);
     </script>
 
 </html>
