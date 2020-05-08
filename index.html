@@ -9,136 +9,9 @@
         <meta property="og:title" content="Brian Fakhoury"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://brianfakhoury.com"/>
-        <meta property="og:image" content="https://brianfakhoury.com/me.jpg"/>
+        <meta property="og:image" content="https://brianfakhoury.com/profile.jpg"/>
         <title>Brian Fakhoury - Homepage</title>
-        <style media="screen">
-            @import url('https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise');
-
-            a {
-                color: green;
-            }
-
-            h1,
-            h2,
-            h3 {
-                color: black;
-            }
-
-            h2 {
-                width: 80%;
-                margin: 20px 0 0;
-                position: relative;
-                padding-right: 40px;
-            }
-
-            ul {
-                width: 80%;
-            }
-
-            #me {
-                width: 200px;
-                height: 200px;
-                border-radius: 500px;
-                border-color: black;
-                border-width: thick;
-                border-style: solid;
-            }
-
-            #arrow {
-                display: none;
-                position: absolute;
-                top: -40px;
-                right: -50px;
-                transform: rotate(-20deg);
-            }
-
-            html {
-                background-color: #f2f2f2;
-            }
-
-            body {
-                font-family: 'Waiting for the Sunrise';
-                font-weight: bold;
-                font-size: x-large;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                /* background-color: #f2f2f2; */
-                margin: 0;
-            }
-
-            #main {
-                max-width: 500px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            #glass {
-                background-image: url("glass.png");
-                background-size: cover;
-                width: 100%;
-                height: 100%;
-                position: fixed;
-                opacity: 50%;
-            }
-
-            hr {
-                width: 90%;
-                height: 4px;
-                margin-left: auto;
-                margin-right: auto;
-                background-color: black;
-                border: 0 none;
-                max-width: 600px;
-            }
-
-            small {
-                font-size: small;
-            }
-
-            #mesvg {
-                max-width: 500px;
-                width: 100%;
-            }
-
-            #temp {
-                border-radius: 500px;
-            }
-
-            #profile {
-                position: relative;
-            }
-
-            .fadein {
-                opacity: 1;
-                -webkit-transition: opacity 500ms ease-in-out;
-                transition: opacity 500ms ease-in-out;
-            }
-
-            .collapsible {
-                cursor: pointer;
-            }
-
-            .content {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 150ms ease-out;
-                -webkit-transition: max-height 150ms ease-out;
-            }
-
-            .collapsible:after {
-                content: "🙈";
-                font-size: 20px;
-                position: absolute;
-                bottom: 10px;
-                right: 0;
-            }
-
-            .active:after {
-                content: "🙉";
-            }
-        </style>
+        <link rel="stylesheet" href="index.css">
     </head>
 
     <body id="gradient">
@@ -146,7 +19,7 @@
 
         <h1 style="max-width: 600px;text-align:center;padding:0 40px 0 40px">Hey there, welcome to the Brian portal!</h1>
         <div id="profile">
-            <img height="210px" src="me.jpg" id="temp" class="fadein">
+            <img height="210px" src="profile.jpg" id="temp" class="fadein">
             <img width="90px" src="arrow.png" id="arrow">
         </div>
         <p style="text-align:left; width: 80%; max-width:600px">I'm a technology investor & generalist with experience in machine learning and venture capital. I advise tech startups on fundraising, product strategy, and more out of a passion for the latest
@@ -469,99 +342,8 @@
         <p style="text-align:left; width: 80%; max-width:600px">My daily drive is to connect high-powered people and meet the most innovative of them around him. If this century is defined by high capital and social efficiency, then I am investing in and building the 21st century. (check out my VC personality at
             <a href="https://fakhoury.vc">fakhoury.vc</a>).</p>
         <img src="me.svg" id="mesvg">
-        <h3>updated: April 5, 2020</h3>
-
+        <h3>updated: May 8, 2020</h3>
+        <script src="index.js" charset="utf-8"></script>
     </body>
-
-    <script type="text/javascript">
-        // wait 5.8 seconds to switch to main pic
-        var img_pre = document.getElementById("temp")
-        img_pre.src = "giphy.gif"
-
-        setTimeout(function () {
-            var img = document.getElementById("temp")
-            img.id = "me"
-            img.src = "me.jpg"
-            img.style.opacity = '1';
-            var arrow = document.getElementById("arrow")
-            setTimeout(function () {
-                arrow.style.display = 'flex';
-            }, 1000)
-        }, 5800)
-
-        // remove the old pic after 5300ms (give it 500ms to be gone, so 5800ms total)
-        setTimeout(function () {
-            var img = document.getElementById("temp")
-            img.style.opacity = '0';
-        }, 5300)
-
-        // listen for click to unroll list
-        var coll = document.getElementsByClassName("collapsible");
-        for (var i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        }
-
-        var colors = new Array([
-            255, 247, 224
-        ], [
-            225, 255, 224
-        ], [
-            249, 224, 255
-        ], [
-            255, 224, 224
-        ], [
-            224, 240, 255
-        ], [238, 224, 255]);
-
-        var step = 0;
-        //color table indices for: current color left next color left current color right next color right
-        var colorIndices = [0, 1, 2, 3];
-
-        //transition speed
-        var gradientSpeed = 0.02;
-
-        function updateGradient() {
-
-            var c0_0 = colors[colorIndices[0]];
-            var c0_1 = colors[colorIndices[1]];
-            var c1_0 = colors[colorIndices[2]];
-            var c1_1 = colors[colorIndices[3]];
-
-            var istep = 1 - step;
-            var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
-            var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
-            var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
-            var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
-
-            var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
-            var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
-            var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
-            var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
-
-            document.getElementById("gradient").style.background = "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
-
-            step += gradientSpeed;
-            if (step >= 1) {
-                step %= 1;
-                colorIndices[0] = colorIndices[1];
-                colorIndices[2] = colorIndices[3];
-
-                //pick two new target color indices do not pick the same as the current one
-                colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-                colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-
-            }
-        }
-
-        setInterval(updateGradient, 100);
-    </script>
 
 </html>

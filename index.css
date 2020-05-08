@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise');
+
+a {
+    color: green;
+}
+
+h1,
+h2,
+h3 {
+    color: black;
+}
+
+h2 {
+    width: 80%;
+    margin: 20px 0 0;
+    position: relative;
+    padding-right: 40px;
+}
+
+ul {
+    width: 80%;
+}
+
+#me {
+    width: 200px;
+    height: 200px;
+    border-radius: 500px;
+    border-color: black;
+    border-width: thick;
+    border-style: solid;
+}
+
+#arrow {
+    display: none;
+    position: absolute;
+    top: -40px;
+    right: -50px;
+    transform: rotate(-20deg);
+}
+
+html {
+    background-color: #f2f2f2;
+}
+
+body {
+    font-family: 'Waiting for the Sunrise';
+    font-weight: bold;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #f2f2f2; */
+    margin: 0;
+}
+
+#main {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#glass {
+    background-image: url("glass.png");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 50%;
+}
+
+hr {
+    width: 90%;
+    height: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    border: 0 none;
+    max-width: 600px;
+}
+
+small {
+    font-size: small;
+}
+
+#mesvg {
+    max-width: 500px;
+    width: 100%;
+}
+
+#temp {
+    border-radius: 500px;
+}
+
+#profile {
+    position: relative;
+}
+
+.fadein {
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
+}
+
+.collapsible {
+    cursor: pointer;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 150ms ease-out;
+    -webkit-transition: max-height 150ms ease-out;
+}
+
+.collapsible:after {
+    content: "🙈";
+    font-size: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+.active:after {
+    content: "🙉";
+}
