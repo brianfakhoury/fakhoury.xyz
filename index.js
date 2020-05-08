@@ -91,4 +91,4 @@ function updateGradient() {
     }
 }
 
-setInterval(updateGradient, 100);
+// setInterval(updateGradient, 100);
