@@ -1,23 +1,52 @@
-// wait 5.8 seconds to switch to main pic
-var img_pre = document.getElementById("temp");
-img_pre.src = "giphy.gif";
+// wait 5.8 seconds to switch to main pic, slow network mitigation added
+var img = document.getElementById("temp");
+img.style.opacity = "0";
 
-setTimeout(function() {
-    var img = document.getElementById("temp");
-    img.id = "me";
-    img.src = "profile.jpg";
-    img.style.opacity = "1";
-    var arrow = document.getElementById("arrow");
-    setTimeout(function() {
-        arrow.style.display = "flex";
-    }, 1000);
-}, 5800);
+var state = 0
 
-// remove the old pic after 5300ms (give it 500ms to be gone, so 5800ms total)
-setTimeout(function() {
-    var img = document.getElementById("temp");
-    img.style.opacity = "0";
-}, 5300);
+if (img.complete) {
+  loaded()
+} else {
+  img.addEventListener('load', loaded)
+}
+
+function loaded() {
+    console.log("Detected Load Finish....")
+
+    if (state === 0) {
+        console.log("state 0 in motion");
+        img.src = "giphy.gif";
+        state = 1
+        return
+    }
+
+    if (state === 1) {
+        console.log("state 1 in motion");
+        img.style.opacity = "1";
+        img.removeEventListener('load', loaded)
+        state = 2
+        
+
+        setTimeout(function() {
+            console.log("Time to switch to main pic")
+            img.id = "me";
+            img.src = "profile.jpg";
+            img.style.opacity = "1";
+            var arrow = document.getElementById("arrow");
+            setTimeout(function() {
+                arrow.style.display = "flex";
+            }, 1000);
+        }, 5800);
+
+        // remove the old pic after 5300ms (give it 500ms to be gone, so 5800ms total)
+        setTimeout(function() {
+            img.style.opacity = "0";
+        }, 5300);
+    }
+
+}
+
+
 
 // listen for click to unroll list
 var coll = document.getElementsByClassName("collapsible");
