@@ -1,14 +1,14 @@
 // wait 5.8 seconds to switch to main pic, slow network mitigation added
 var img = document.getElementById("temp");
-img.style.opacity = "0";
 
 var state = 0
 
 if (img.complete) {
-  loaded()
-} else {
-  img.addEventListener('load', loaded)
+    console.log("fast");
+    loaded()
 }
+
+img.addEventListener('load', loaded)
 
 function loaded() {
     console.log("Detected Load Finish....")
@@ -17,6 +17,10 @@ function loaded() {
         console.log("state 0 in motion");
         state = 1
         img.src = "giphy.gif";
+        if (img.complete) {
+            console.log("fast");
+            loaded()
+        }
         return
     }
 
