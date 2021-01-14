@@ -15,8 +15,8 @@ function loaded() {
 
     if (state === 0) {
         console.log("state 0 in motion");
-        img.src = "giphy.gif";
         state = 1
+        img.src = "giphy.gif";
         return
     }
 
