@@ -1,0 +1,30 @@
+{
+  "name": "brian-fakhoury",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Brian Fakhoury",
+  "author": "brianfakhoury",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "gatsby": "^2.26.1",
+    "gatsby-image": "^2.9.0",
+    "gatsby-plugin-google-analytics": "^2.9.0",
+    "gatsby-plugin-sharp": "^2.12.1",
+    "gatsby-plugin-styled-components": "^3.8.0",
+    "gatsby-source-filesystem": "^2.9.0",
+    "gatsby-transformer-sharp": "^2.10.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.2.1"
+  }
+}
