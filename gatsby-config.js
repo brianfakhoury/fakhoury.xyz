@@ -3,6 +3,7 @@ module.exports = {
     title: "Brian Fakhoury",
   },
   plugins: [
+      "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-plugin-google-analytics",
