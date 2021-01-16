@@ -45,11 +45,21 @@ a {
 }
 
 a:hover {
-    font-weight: 1000;
+    font-weight: bolder;
+    text-decoration: underline blue wavy;
+    text-shadow: 1px 1px 3px #ff0000;
+}
+
+.sectionText:hover {
+    text-shadow: 0px 0px 10px rgb(180,180,180);
 }
 
 ul {
     width: 80%;
+}
+
+p:hover {
+    text-shadow: 0px 0px 3px rgb(180,180,180);
 }
 
 #me {
@@ -240,7 +250,7 @@ const Item = ( { link, content } ) => (
 
 const ItemContainer = (props) => (
     <>
-        <h2>{props.title}</h2>
+        <h2 className="sectionText">{props.title}</h2>
         <ul>{props.children}</ul>
     </>
 )
