@@ -201,7 +201,9 @@ const IndexPage = () => {
             <meta property="og:image" content={profile}/>
         </Helmet>
         <div id="content">
-            <Toggle theme={theme} toggleTheme={toggleTheme}/>
+                <ToggleContainer lightTheme={theme === 'light'} onClick={toggleTheme} >
+                    <div className="emoji">☀️</div><div className="emoji">🌙</div> 
+                </ToggleContainer>
             
             <h1>Hey there, welcome to the Brian portal!</h1>
             <div id="profile">
@@ -233,16 +235,6 @@ const IndexPage = () => {
     </ThemeProvider>
   );
 }
-
-const Toggle = ({ theme, toggleTheme }) => {
-  const isLight = theme === 'light';
-  return (
-    <ToggleContainer lightTheme={isLight} onClick={toggleTheme} >
-      <div className="emoji">☀️</div> 
-      <div className="emoji">🌙</div> 
-    </ToggleContainer>
-  );
-};
 
 const Item = ( { link, content } ) => (
     <li><a href={link}>{content}</a></li>
