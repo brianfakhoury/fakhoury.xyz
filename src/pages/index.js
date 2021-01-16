@@ -13,7 +13,7 @@ import content from './content';
 
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
   
   body {
     background: ${({ theme }) => theme.body};
@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     transition: all 0.25s linear;
     position: relative;
-    font-family: 'Caveat', cursive;
+    font-family: 'Lato', 'sans-serif';
     font-size: x-large;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
 a {
-    color: green;
+    color: ${({ theme }) => theme.green};
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: 1000;
 }
 
 ul {
@@ -55,6 +60,10 @@ ul {
     border-width: 3px;
     border-style: solid;
     box-shadow: 0px 0px 16px 4px rgba(112,112,112,0.79); 
+}
+
+#me:hover {
+    box-shadow: 0px 0px 32px 4px rgba(112,112,112,0.79); 
 }
 
 #arrow {
@@ -99,17 +108,9 @@ const ToggleContainer = styled.button`
   outline: none;
   box-shadow: none;
 
-  button {
-      width: 100%;
-      height: 100%;
-      background: none;
-      border: none
+  &:hover {
+      box-shadow: 0px 0px 32px 2px rgba(112,112,112,0.5); 
   }
-
-  button:focus {
-    outline: none;
-    box-shadow: none;
-}
 
   .emoji {
     height: auto;
@@ -136,6 +137,7 @@ const lightTheme = {
   toggleBorder: 'rgb(220,220,220)',
   imgInv: 0,
   gradient: 'white',
+  green: 'rgb(0,100,0)'
 }
 
 const darkTheme = {
@@ -144,28 +146,8 @@ const darkTheme = {
   toggleBorder: '#6B8096',
   imgInv: 1,
   gradient: 'black',
+  green: 'rgb(20,255,20)'
 }
-
-const Toggle = ({ theme, toggleTheme }) => {
-  const isLight = theme === 'light';
-  return (
-    <ToggleContainer lightTheme={isLight} onClick={toggleTheme} >
-      <div className="emoji">☀️</div> 
-      <div className="emoji">🌙</div> 
-    </ToggleContainer>
-  );
-};
-
-const Item = ( { link, content } ) => (
-    <li><a href={link}>{content}</a></li>
-)
-
-const ItemContainer = (props) => (
-    <>
-        <h2>{props.title}</h2>
-        <ul>{props.children}</ul>
-    </>
-)
 
 const IndexPage = () => {
   const [theme, setTheme] = useState((typeof window != 'undefined') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -181,7 +163,7 @@ const IndexPage = () => {
   const [profileImage, setProfileImage] = useState(profile)
   const [picOpacity, setPicOpacity] = useState(1)
 
-  useEffect(() => {
+  const runSequence = () => {
     setProfileImage(giphy);
     setTimeout(() => {
         setPicOpacity(0);
@@ -190,20 +172,9 @@ const IndexPage = () => {
         setProfileImage(profile);
         setPicOpacity(1);
     }, 5800)
-  }, [])
+  }
 
-  useEffect(() => {
-      switch (theme) {
-          case 'light':
-              setTheme('dark')
-              setTheme('light')
-              break;
-          case 'dark':
-            setTheme('light')
-            setTheme('dark')
-            break;
-      }
-  }, [])
+  useEffect(() => {runSequence()}, [])
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -224,10 +195,12 @@ const IndexPage = () => {
             
             <h1>Hey there, welcome to the Brian portal!</h1>
             <div id="profile">
-                <img style={{opacity: picOpacity}} height="210px" src={profileImage} id="me" className="fadein"/>
+                <img height="210px" src={profileImage} id="me" className="fadein" onClick={profileImage === profile ? runSequence : () => {}} style={{opacity: picOpacity, cursor: profileImage === profile ? 'pointer' : 'initial'}}/>
                 <img style={{opacity: profileImage===profile ? 1 : 0}} width="90px" src={arrow} id="arrow"className="fadein" />
             </div>
-            <p>I'm a technology investor & generalist with experience in machine learning and venture capital. I advise tech startups on fundraising, product strategy, and more out of a passion for the latest in innovation and commercialization. If you like what you see, <a href="mailto:brianfakhoury@gmail.com"> let's work together</a> on hard problems. My hobbies include fitness and hiking, reading and philosophy, cooking, and going on crazy adventures with my friends:) I have a degree in neuroscience & computer science from Boston University.
+            <p>I'm a technology investor & generalist with experience in machine learning and venture capital. </p>
+            <p>I advise tech startups on fundraising, product strategy, and more out of a passion for the latest in innovation and commercialization. If you like what you see, <a href="mailto:brianfakhoury@gmail.com"> let's work together</a> on hard problems.</p>
+            <p>My hobbies include fitness and hiking, reading and philosophy, cooking, and going on crazy adventures with my friends:) I have a degree in neuroscience & computer science from Boston University.
             </p>
             <div id="main">
                 {content.map(e => (
@@ -250,5 +223,26 @@ const IndexPage = () => {
     </ThemeProvider>
   );
 }
+
+const Toggle = ({ theme, toggleTheme }) => {
+  const isLight = theme === 'light';
+  return (
+    <ToggleContainer lightTheme={isLight} onClick={toggleTheme} >
+      <div className="emoji">☀️</div> 
+      <div className="emoji">🌙</div> 
+    </ToggleContainer>
+  );
+};
+
+const Item = ( { link, content } ) => (
+    <li><a href={link}>{content}</a></li>
+)
+
+const ItemContainer = (props) => (
+    <>
+        <h2>{props.title}</h2>
+        <ul>{props.children}</ul>
+    </>
+)
 
 export default IndexPage
