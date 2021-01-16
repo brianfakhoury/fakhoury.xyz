@@ -13,7 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build && mv ./public ./docs"
+    "deploy": "gatsby build && cp -r ./public/* ./docs && git add --all && git commit -m 'deploy' && git push"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.12.0",
@@ -26,6 +26,7 @@
     "gatsby-transformer-sharp": "^2.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

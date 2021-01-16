@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import {Helmet} from "react-helmet";
 import bg from '../images/bg.svg';
 import profile from '../images/profile.jpg';
 import arrow from '../images/arrow.png';
 import giphy from '../images/giphy.gif';
+import favicon from '../images/favicon.ico'
 import content from './content';
 
 
@@ -168,6 +170,10 @@ const ItemContainer = (props) => (
 const IndexPage = () => {
   const [theme, setTheme] = useState((typeof window != 'undefined') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
+  useEffect(() => {
+      (typeof window != 'undefined') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')
+  }, [])
+
   const toggleTheme = () => {
     if (theme === 'light') {
       setTheme('dark');
@@ -194,6 +200,16 @@ const IndexPage = () => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
+        <Helmet>
+            <title>Brian Fakhoury - Homepage</title>
+            <link rel="icon" type="image/x-icon" href={favicon} />
+            <meta name="”description”" content="Brian Fakhoury personal webpage!"/>
+            <meta name="”keywords”" content="brian fakhoury, venture capital, machine learning, neuroscience, lifestyle, personal page"/>
+            <meta property="og:title" content="Brian Fakhoury"/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:url" content="https://brianfakhoury.com"/>
+            <meta property="og:image" content={profile}/>
+        </Helmet>
         <div id="content">
             <Toggle theme={theme} toggleTheme={toggleTheme}/>
             
