@@ -170,10 +170,6 @@ const ItemContainer = (props) => (
 const IndexPage = () => {
   const [theme, setTheme] = useState((typeof window != 'undefined') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-  useEffect(() => {
-      (typeof window != 'undefined') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')
-  }, [])
-
   const toggleTheme = () => {
     if (theme === 'light') {
       setTheme('dark');
@@ -196,6 +192,19 @@ const IndexPage = () => {
     }, 5800)
   }, [])
 
+  useEffect(() => {
+      switch (theme) {
+          case 'light':
+              setTheme('dark')
+              setTheme('light')
+              break;
+          case 'dark':
+            setTheme('light')
+            setTheme('dark')
+            break;
+      }
+  }, [])
+
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
@@ -205,7 +214,7 @@ const IndexPage = () => {
             <link rel="icon" type="image/x-icon" href={favicon} />
             <meta name="”description”" content="Brian Fakhoury personal webpage!"/>
             <meta name="”keywords”" content="brian fakhoury, venture capital, machine learning, neuroscience, lifestyle, personal page"/>
-            <meta property="og:title" content="Brian Fakhoury"/>
+            <meta property="og:title" content="Brian Fakhoury - Homepage"/>
             <meta property="og:type" content="website"/>
             <meta property="og:url" content="https://brianfakhoury.com"/>
             <meta property="og:image" content={profile}/>
