@@ -103,6 +103,10 @@ ax-width: 600px;
     max-width: 600px;
     padding: 15px
 }
+
+#header:hover {
+    text-shadow: 0px 0px 6px rgb(180,180,180);
+}
 `
 
 const ToggleContainer = styled.button`
@@ -142,18 +146,18 @@ const ToggleContainer = styled.button`
 
 // styles
 const lightTheme = {
-  body: 'rgb(240,240,240)',
-  text: '#363537',
-  toggleBorder: 'rgb(220,220,220)',
+  body: 'rgb(245,245,245)',
+  text: 'black',
+  toggleBorder: 'rgb(240,240,240)',
   imgInv: 0,
   gradient: 'white',
-  green: 'rgb(0,100,0)'
+  green: 'rgb(0,60,0)'
 }
 
 const darkTheme = {
   body: 'rgb(25,25,25)',
   text: '#FAFAFA',
-  toggleBorder: '#6B8096',
+  toggleBorder: 'rgb(60,60,60)',
   imgInv: 1,
   gradient: 'black',
   green: 'rgb(20,255,20)'
@@ -212,7 +216,7 @@ const IndexPage = () => {
                 </ToggleContainer> : <></>}
 
             
-            <h1>Hey there, welcome to the Brian portal!</h1>
+            <h1 id="header">Hey there, welcome to the Brian portal!</h1>
             <div id="profile">
                 <img height="210px" src={profileImage} id="me" className="fadein" onClick={profileImage === profile ? runSequence : () => {}} style={{opacity: picOpacity, cursor: profileImage === profile ? 'pointer' : 'initial'}}/>
                 <img style={{opacity: profileImage===profile ? 1 : 0}} width="90px" src={arrow} id="arrow"className="fadein" />
