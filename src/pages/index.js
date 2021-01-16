@@ -247,9 +247,15 @@ const IndexPage = () => {
   );
 }
 
-const Item = ( { link, content } ) => (
-    <li><a href={link}>{content}</a></li>
-)
+const Item = ( { link, content } ) => {
+    const [expand, setexpand] = useState(false)
+    return(
+        <div onMouseOver={() => setexpand(true)} onMouseLeave={() => setTimeout(() => setexpand(false), 0)} >
+            <li><a href={link}>{content}</a></li>
+            {expand && <p>Detailed Info, Coming Soon! 🔥 </p>}
+        </div>
+    )
+}
 
 const ItemContainer = (props) => (
     <>
