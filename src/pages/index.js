@@ -160,6 +160,11 @@ const darkTheme = {
 }
 
 const IndexPage = () => {
+    const [isClient, setClient] = useState(false);
+    useEffect(() => {
+        setClient(true);
+    }, []);
+
   const [theme, setTheme] = useState((typeof window != 'undefined') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
   const toggleTheme = () => {
@@ -201,9 +206,11 @@ const IndexPage = () => {
             <meta property="og:image" content={profile}/>
         </Helmet>
         <div id="content">
+                {isClient ?
                 <ToggleContainer lightTheme={theme === 'light'} onClick={toggleTheme} >
                     <div className="emoji">☀️</div><div className="emoji">🌙</div> 
-                </ToggleContainer>
+                </ToggleContainer> : <></>}
+
             
             <h1>Hey there, welcome to the Brian portal!</h1>
             <div id="profile">
