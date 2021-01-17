@@ -43,12 +43,16 @@ a {
 
 a:hover {
     font-weight: bolder;
-    text-decoration: underline blue wavy;
-    text-shadow: 1px 1px 3px #ff0000;
+    // text-decoration: underline blue wavy;
+    text-shadow: 0px 0px 10px rgb(180,180,180);
 }
 
 .sectionText:hover {
     text-shadow: 0px 0px 10px rgb(180,180,180);
+}
+
+.sectionText {
+    cursor: pointer
 }
 
 ul {
@@ -148,7 +152,7 @@ const lightTheme = {
     toggleBorder: 'rgb(240,240,240)',
     imgInv: 0,
     gradient: 'white',
-    green: 'rgb(0,60,0)',
+    green: 'rgb(0,100,0)',
 };
 
 const darkTheme = {
@@ -193,6 +197,17 @@ const IndexPage = () => {
     useEffect(() => {
         runSequence();
     }, []);
+
+    const update = new Date('January 17, 2021');
+
+    const [time, setTime] = useState(Date.now() - update);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTime(Date.now() - update)
+        }, 67);
+        return () => clearInterval(timer);
+    }, [])
 
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -239,7 +254,12 @@ const IndexPage = () => {
           </p>
                     <p>My daily drive is to connect high-powered people and meet the most innovative of them around him. If this century is defined by high capital and social efficiency, then I am investing in and building the 21st century. (check out my VC personality at <a href="https://brianfakhoury.com/vc">Fakhoury VC</a>).</p>
                     {/* <img src="me.svg" id="mesvg"> */}
-                    <h3>updated: Jan 14, 2021</h3>
+                    <hr />
+                    <div style={{ textAlign: 'right' }}>
+                        <small>Latest deploy: {update.toDateString()}</small><br />
+                        <small>({time} milliseconds ago)</small>
+                    </div>
+
                 </div>
             </>
         </ThemeProvider>
@@ -247,20 +267,23 @@ const IndexPage = () => {
 };
 
 const Item = ({ link, content }) => {
-    const [expand, setexpand] = useState(false);
+    const [expand, setExpand] = useState(false);
     return (
-        <div onMouseOver={() => setexpand(true)} onMouseLeave={() => setTimeout(() => setexpand(false), 0)} >
+        <div onMouseOver={() => setExpand(true)} onMouseLeave={() => setTimeout(() => setExpand(false), 0)} >
             <li><a href={link}>{content}</a></li>
-            {expand && <p>Detailed Info, Coming Soon! 🔥 </p>}
+            {/* {expand && <p>Detailed Info, Coming Soon! 🔥 </p>} */}
         </div>
     );
 };
 
-const ItemContainer = (props) => (
-    <>
-        <h2 className="sectionText">{props.title}</h2>
-        <ul>{props.children}</ul>
-    </>
-);
+const ItemContainer = (props) => {
+    const [expand, setExpand] = useState(false);
+    return (
+        <>
+            <h2 onClick={() => setExpand(!expand)} className="sectionText">{props.title}</h2>
+            {expand && <ul>{props.children}</ul>}
+        </>
+    )
+};
 
 export default IndexPage;
