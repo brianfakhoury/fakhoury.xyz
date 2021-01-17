@@ -39,16 +39,19 @@ const GlobalStyles = createGlobalStyle`
 a {
     color: ${({ theme }) => theme.green};
     text-decoration: none;
+    display: inline-block;
 }
 
 a:hover {
     font-weight: bolder;
     // text-decoration: underline blue wavy;
     text-shadow: 0px 0px 10px rgb(180,180,180);
+    transform: translate(2px, 2px);
 }
 
 .sectionText:hover {
     text-shadow: 0px 0px 10px rgb(180,180,180);
+    transform: translate(2px, 2px);
 }
 
 .sectionText {
@@ -75,6 +78,7 @@ p:hover {
 
 #me:hover {
     box-shadow: 0px 0px 32px 4px rgba(112,112,112,0.79); 
+    transform: translate(2px, 2px);
 }
 
 #arrow {
@@ -266,15 +270,12 @@ const IndexPage = () => {
     );
 };
 
-const Item = ({ link, content }) => {
-    const [expand, setExpand] = useState(false);
-    return (
-        <div onMouseOver={() => setExpand(true)} onMouseLeave={() => setTimeout(() => setExpand(false), 0)} >
-            <li><a href={link}>{content}</a></li>
-            {/* {expand && <p>Detailed Info, Coming Soon! 🔥 </p>} */}
-        </div>
-    );
-};
+const Item = ({ link, content }) => (
+    <>
+        <li><a href={link}>{content}</a></li>
+        {/* {expand && <p>Detailed Info, Coming Soon! 🔥 </p>} */}
+    </>
+);
 
 const ItemContainer = (props) => {
     const [expand, setExpand] = useState(false);
