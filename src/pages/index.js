@@ -49,6 +49,8 @@ a:hover {
     transform: translate(2px, 2px);
 }
 
+li a { vertical-align: top }
+
 .sectionText:hover {
     text-shadow: 0px 0px 10px rgb(180,180,180);
     transform: translate(2px, 2px);
