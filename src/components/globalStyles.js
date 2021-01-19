@@ -106,9 +106,4 @@ ax-width: 600px;
 #header:hover {
     text-shadow: 0px 0px 6px rgb(180,180,180);
 }
-
-.emojicon {
-    display: inline-block;
-    transition: transform 400ms linear;
-}
 `;

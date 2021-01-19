@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { Helmet } from 'react-helmet'
+import { motion } from "framer-motion"
 
 import { GlobalStyles } from '../components/globalStyles'
 import { lightTheme, darkTheme } from '../components/Themes'
@@ -25,8 +26,8 @@ const ItemContainer = (props) => {
     const [expand, setExpand] = useState(false);
     return (
         <>
-            <h2 onClick={() => setExpand(!expand)} className="sectionText"><span style={{ transform: `rotate(${expand ? '360' : '0'}deg)` }} className="emojicon">{props.emoji}</span> {props.title}</h2>
-            {expand && <ul>{props.children}</ul>}
+            <h2 onClick={() => setExpand(!expand)} className="sectionText"><motion.div style={{ display: 'inline-block' }} animate={{ rotate: expand ? 360 : 0 }}>{props.emoji}</motion.div> {props.title}</h2>
+            {expand && <motion.ul initial={{ y: '-100px' }} animate={{ y: 0 }} exit={{ y: '-100px' }}>{props.children}</motion.ul>}
         </>
     )
 };
