@@ -1,6 +1,7 @@
 [
     {
-        "title": "⚡️ Resources I maintain",
+        "title": "Resources I maintain",
+        "emoji": "⚡️",
         "items": [
             {
                 "link": "https://www.notion.so/brianfakhoury/Professional-Mental-Models-Things-to-Know-063b3bd375fd4f18b9ebde6345fd43d5",
@@ -17,7 +18,8 @@
         ]
     },
     {
-        "title": "✒️ Select Writing",
+        "title": "Select Writing",
+        "emoji": "✒️",
         "items": [
             {
                 "link": "https://fakhoury.vc/The-Unix-Startup-Approach/",
@@ -38,28 +40,30 @@
         ]
     },
     {
-        "title": "🔬 Research",
+        "title": "Research",
+        "emoji": "🔬",
         "items": [
             {
                 "link": "https://drive.google.com/open?id=1d5Kbz0wnAgawl2zbuO7g0cdNThqmR1NZ",
                 "content": "Exploring Privacy Preserving Mechanisms for Statistical Queries in Contact Tracing Applications"
             },
-                        {
+            {
                 "link": "https://drive.google.com/open?id=1005zRIOav0xnaUuWQpK--B60_sF4io0o",
                 "content": "Research Survey: Efficient Word Vector Representations for Boosted Accuracy in Machine Translation Tasks"
             },
-                        {
+            {
                 "link": "https://drive.google.com/open?id=1UZpulfHqjbLnhMOMIvdHBDDAg1OeXiBI",
                 "content": "On Neural Networks Modeling the Choice between Saccades and Pursuits in Oculomotor Movements Across a Single Object"
             },
-                        {
+            {
                 "link": "https://www.notion.so/brianfakhoury/5f61f987b831471698f9c4d2e873cd22?v=efe9c12e924d46d1a44efd37024c595b",
                 "content": "Investment Theses"
             }
         ]
     },
     {
-        "title": "😤 Things I Started",
+        "title": "Things I Started",
+        "emoji": "😤",
         "items": [
             {
                 "link": "https://youngangelnetwork.com/",
@@ -84,7 +88,8 @@
         ]
     },
     {
-        "title": "🏢 Organizations I've been part of",
+        "title": "Organizations I've been part of",
+        "emoji": "🏢",
         "items": [
             {
                 "link": "https://underscore.vc/",
@@ -129,7 +134,8 @@
         ]
     },
     {
-        "title": "📚 My Book & Media Projects",
+        "title": "My Book & Media Projects",
+        "emoji": "📚",
         "items": [
             {
                 "link": "",
@@ -149,7 +155,8 @@
         ]
     },
     {
-        "title": "💸 Startup Investments",
+        "title": "Startup Investments",
+        "emoji": "💸",
         "items": [
             {
                 "link": "https://angel.co/u/brianfakhoury",
@@ -164,7 +171,8 @@
         ]
     },
     {
-        "title": "🤓 Cool Technical Projects",
+        "title": "Cool Technical Projects",
+        "emoji": "🤓",
         "items": [
             {
                 "link": "http://www.metaswap.in/",
@@ -209,7 +217,8 @@
         ]
     },
     {
-        "title": "📫 Get in touch",
+        "title": "Get in touch",
+        "emoji": "📫",
         "items": [
             {
                 "link": "mailto:brianfakhoury@gmail.com",
@@ -226,7 +235,8 @@
         ]
     },
     {
-        "title": "🔥 Comprehensive social links",
+        "title": "Comprehensive social links",
+        "emoji": "🔥",
         "items": [
             {
                 "link": "",
