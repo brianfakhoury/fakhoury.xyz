@@ -104,6 +104,25 @@ ax-width: 600px;
 }
 
 #header:hover {
-    text-shadow: 0px 0px 6px rgb(180,180,180);
+    background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+    -webkit-background-clip: text;
+    transition: background-image 1000ms linear;
+}
+
+#header {
+    background-image: -webkit-linear-gradient(45deg, #00eab7, #7fba1b, #f0c800, #f08c28, #be1e2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#para1 {
+    background-color: ${({ theme }) => theme.base};
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px;
+    border: 10px solid;
+    border-image: -webkit-linear-gradient(45deg, #00eab7, #7fba1b, #f0c800, #f08c28, #be1e2d) 1;
+    transition: transform 200ms ease-out;
+    box-shadow: 0px 0px 10px 4px rgba(112,112,112,0.79); 
 }
 `;

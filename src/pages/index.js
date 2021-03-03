@@ -70,6 +70,22 @@ const IndexPage = () => {
         return () => clearInterval(timer);
     }, [])
 
+    const [perspectiveStyle, setPerspectiveStyle] = useState({});
+    const handleMouseMove = (e) => {
+        const xVal = e.nativeEvent.layerX
+
+        const yVal = e.nativeEvent.layerY
+
+        const yRotation = 20 * ((xVal - 500 / 2) / 500)
+
+        const xRotation = -20 * ((yVal - 500 / 2) / 500)
+
+        setPerspectiveStyle({ transform: `scale(1.1) rotateX(${xRotation}deg) rotateY(${yRotation}deg)` })
+    }
+    const handleMouseOut = (e) => {
+        setPerspectiveStyle({ transform: "" })
+    }
+
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
             <GlobalStyles />
@@ -94,9 +110,11 @@ const IndexPage = () => {
                     <img style={{ opacity: profileImage === profile ? 1 : 0 }} width="90px" src={arrow} id="arrow" className="fadein" />
                 </div>
 
-                <p>I'm a technology investor & generalist with experience in machine learning and venture capital. </p>
-                <p>I advise tech startups on fundraising, product strategy, and more out of a passion for the latest in innovation and commercialization. If you like what you see, <a href="mailto:brianfakhoury@gmail.com"> let's work together</a> on hard problems.</p>
-                <p>My hobbies include fitness and hiking, reading and philosophy, cooking, and going on crazy adventures with my friends:) I have a degree in neuroscience & computer science from Boston University.</p>
+                <div id="para1" onMouseMove={handleMouseMove} onMouseOut={handleMouseOut} style={perspectiveStyle}>
+                    <p>I'm a technology investor & generalist with experience in machine learning and venture capital. </p>
+                    <p>I advise tech startups on fundraising, product strategy, and more out of a passion for the latest in innovation and commercialization. If you like what you see, <a href="mailto:brianfakhoury@gmail.com"> let's work together</a> on hard problems.</p>
+                    <p>My hobbies include fitness and hiking, reading and philosophy, cooking, and going on crazy adventures with my friends:) I have a degree in neuroscience & computer science from Boston University.</p>
+                </div>
 
                 <div id="main">
                     {content.map((e) => (
