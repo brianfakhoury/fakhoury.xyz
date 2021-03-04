@@ -34,10 +34,8 @@ const Button = styled.button`
 }
 `;
 
-export const Toggle = ({ theme, toggleTheme }) => {
-    return (
-        <Button lightTheme={theme === 'light'} onClick={toggleTheme} >
-            <div className="emoji">☀️</div><div className="emoji">🌙</div>
-        </Button>
-    );
-};
+export const Toggle = ({ theme, toggleTheme }) => (
+    <Button lightTheme={theme === 'light'} onClick={toggleTheme} >
+        <div className="emoji">☀️</div><div className="emoji">🌙</div>
+    </Button>
+)
