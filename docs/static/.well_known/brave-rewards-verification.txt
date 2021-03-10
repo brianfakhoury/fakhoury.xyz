@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: brianfakhoury.com
-Token: 38eb77dc664a5b7b2d19e4124ae999eeb60f92b5ee797de6b24467e47da29feb
