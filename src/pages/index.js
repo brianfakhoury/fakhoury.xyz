@@ -88,16 +88,14 @@ const IndexPage = () => {
                 {isClient ?
                     <Toggle theme={theme} toggleTheme={toggleTheme} /> : <></>}
 
-
-                <h1 id="header">Hey there, welcome to the Brian portal!</h1>
-                <div id="profile">
-                    <img height="210px" src={profileImage} id="me" className="fadein" onClick={profileImage === profile ? runSequence : () => { }} style={{ opacity: profileOpacity, cursor: profileImage === profile ? 'pointer' : 'initial' }} />
-                    <img style={{ opacity: profileImage === profile ? 1 : 0 }} width="90px" src={arrow} id="arrow" className="fadein" />
-                </div>
-
                 {isClient ?
 
                     <CoolCard>
+                        <h1 id="header">Hey there, welcome to the Brian portal!</h1>
+                        <div id="profile">
+                            <img height="210px" src={profileImage} id="me" className="fadein" onClick={profileImage === profile ? runSequence : () => { }} style={{ opacity: profileOpacity, cursor: profileImage === profile ? 'pointer' : 'initial' }} />
+                            <img style={{ opacity: profileImage === profile ? 1 : 0 }} width="90px" src={arrow} id="arrow" className="fadein" />
+                        </div>
                         <p>I'm a technology investor & generalist with experience in machine learning and venture capital. </p>
                         <p>I advise tech startups on fundraising, product strategy, and more out of a passion for the latest in innovation and commercialization. If you like what you see, <a href="mailto:brianfakhoury@gmail.com"> let's work together</a> on hard problems.</p>
                         <p>My hobbies include fitness and hiking, reading and philosophy, cooking, and going on crazy adventures with my friends:) I have a degree in neuroscience & computer science from Boston University.</p>
