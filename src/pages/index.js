@@ -60,7 +60,7 @@ const IndexPage = () => {
         runSequence();
     }, []);
 
-    const update = new Date('January 17, 2021');
+    const update = new Date();
 
     const [time, setTime] = useState(Date.now() - update);
 
