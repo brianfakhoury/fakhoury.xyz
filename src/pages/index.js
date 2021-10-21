@@ -96,9 +96,11 @@ const IndexPage = () => {
                             <img height="210px" src={profileImage} id="me" className="fadein" onClick={profileImage === profile ? runSequence : () => { }} style={{ opacity: profileOpacity, cursor: profileImage === profile ? 'pointer' : 'initial' }} />
                             <img style={{ opacity: profileImage === profile ? 1 : 0 }} width="90px" src={arrow} id="arrow" className="fadein" />
                         </div>
+                        <s>
                         <p>I'm a technology investor & generalist with experience in machine learning and venture capital. </p>
                         <p>I advise tech startups on fundraising, product strategy, and more out of a passion for the latest in innovation and commercialization. If you like what you see, <a href="mailto:brianfakhoury@gmail.com"> let's work together</a> on hard problems.</p>
                         <p>My hobbies include fitness and hiking, reading and philosophy, cooking, and going on crazy adventures with my friends:) I have a degree in neuroscience & computer science from Boston University.</p>
+                        </s> <p>I do crypto</p>
                     </CoolCard>
 
                     : <></>}
@@ -112,11 +114,13 @@ const IndexPage = () => {
                         </ItemContainer>
                     ))}
                 </div>
-
+                
+                <s>
                 <p>Concurrently, I truly love building my own interesting projects that will push bleeding edge tech for myself and others, bring together investors and entrepreneurs, or simply spark my curiosity.
                 To date, I have been involved in the independent fundraising of multiple startups, personally invested significantly in other startups, cryptocurrencies, and more, have built side projects that have reached hundreds of thousands of people, carried
                 out academic research in psychophysics and machine learning, and have led multiple entrepreneurial communities in the Boston area and beyond.</p>
                 <p>My daily drive is to connect high-powered people and meet the most innovative of them around him. If this century is defined by high capital and social efficiency, then I am investing in and building the 21st century. (check out my VC personality at <a href="https://brianfakhoury.com/vc">Fakhoury VC</a>).</p>
+                </s>
 
                 <hr />
                 <div style={{ textAlign: 'right' }}>
