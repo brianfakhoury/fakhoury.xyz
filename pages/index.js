@@ -88,7 +88,7 @@ export default function Home({ renderDate }) {
           <Card.Body css={{ p: "25px 15px" }}>
             <Container css={{ background: "$background", borderRadius: "$md" }}>
               <Spacer />
-              <Text>👋🏼 Hey, I'm Brian</Text>
+              <Text>👋🏼 Hey, I&apos;m Brian</Text>
               <Text>
                 My days are currently occupied investing in and researching
                 blockchain networks and crypto assets.
@@ -97,7 +97,9 @@ export default function Home({ renderDate }) {
                 My primary motivation is a strong will to work with hard
                 problems and use new technology.
               </Text>
-              <Text>I'm a student of first principles and rationality.</Text>
+              <Text>
+                I&apos;m a student of first principles and rationality.
+              </Text>
               <Spacer />
             </Container>
           </Card.Body>
