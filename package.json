@@ -1,40 +1,23 @@
 {
-  "name": "brian-fakhoury",
-  "version": "1.0.0",
+  "name": "fakhoury.xyz",
+  "version": "0.1.0",
   "private": true,
-  "description": "Brian Fakhoury",
-  "author": "brianfakhoury",
-  "keywords": [
-    "gatsby"
-  ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build && cp -r ./public/* ./docs && git add --all && git commit -m 'deploy' && git push"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^1.12.0",
-    "framer-motion": "^3.2.1",
-    "gatsby": "^2.26.1",
-    "gatsby-image": "^2.9.0",
-    "gatsby-plugin-google-analytics": "^2.9.0",
-    "gatsby-plugin-react-helmet": "^3.8.0",
-    "gatsby-plugin-sharp": "^2.12.1",
-    "gatsby-plugin-styled-components": "^3.8.0",
-    "gatsby-source-filesystem": "^2.9.0",
-    "gatsby-transformer-sharp": "^2.10.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "styled-components": "^5.2.1"
+    "@nextui-org/react": "^1.0.0-beta.7",
+    "next": "12.1.6",
+    "next-themes": "^0.2.0",
+    "react": "18.1.0",
+    "react-activity": "^2.1.3",
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.18.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-plugin-react": "^7.22.0",
-    "gh-pages": "^3.1.0"
+    "eslint": "8.16.0",
+    "eslint-config-next": "12.1.6"
   }
 }
