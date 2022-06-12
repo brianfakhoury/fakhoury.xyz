@@ -26,26 +26,40 @@ import { FrontCard } from "../components/FrontCard";
 import content from "../public/content.json";
 import { Footer } from "../components/Footer";
 
+import Heart from "../components/Heart";
+
 export default function Home({ renderDate }) {
   const { setTheme } = useNextTheme();
   const { isDark, type } = useTheme();
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    let x = JSON.parse(localStorage.getItem("count"));
+    let y = JSON.parse(localStorage.getItem("clicked"));
+    x && setCount(x);
+    y && setClick(y);
+  }, []);
   const [mounted, setMounted] = useState(false);
+  const [isclicked, setClick] = useState(false);
+  const [count, setCount] = useState(141);
 
   return (
     <Container xs css={{ p: 0 }}>
       <Head>
         <title>Brian Fakhoury - Homepage</title>
-        {/* <link rel="icon" type="image/x-icon" href={favicon} /> */}
-        <meta name="”description”" content="Brian Fakhoury personal webpage!" />
+        <link rel="icon" type="image/x-icon" href="/azuki.png" />
+        <meta
+          name="”description”"
+          content="Hey, I'm Brian 👋🏼. This is my personal website, a list of all things relevant to me."
+        />
         <meta
           name="keywords"
-          content="brian fakhoury, venture capital, machine learning, neuroscience, lifestyle, personal page"
+          content="brian fakhoury, venture capital, machine learning, neuroscience, crypto, blockchain, defi, lifestyle, personal page"
         />
         <meta property="og:title" content="Brian Fakhoury - Homepage" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://brianfakhoury.com" />
-        {/* <meta property="og:image" content={profile} /> */}
+        <meta property="og:url" content="https://fakhoury.xyz" />
+        <meta property="og:image" content="/header.png" />
+        <meta property="og:description" content="Ad astra per aspera." />
       </Head>
 
       <Spacer />
@@ -100,7 +114,27 @@ export default function Home({ renderDate }) {
               <Text>
                 I&apos;m a student of first principles and rationality.
               </Text>
-              <Spacer />
+              <Grid.Container justify="flex-end" alignItems="center">
+                <Heart
+                  isclicked={isclicked}
+                  onClick={() => {
+                    if (isclicked) {
+                      setClick(false);
+                      setCount(count - 1);
+                      localStorage.setItem("count", JSON.stringify(count - 1));
+                      localStorage.setItem("clicked", JSON.stringify(false));
+                    } else {
+                      setClick(true);
+                      setCount(count + 1);
+                      localStorage.setItem("count", JSON.stringify(count + 1));
+                      localStorage.setItem("clicked", JSON.stringify(true));
+                    }
+                  }}
+                />
+                <Text small color="gray">
+                  {count}
+                </Text>
+              </Grid.Container>
             </Container>
           </Card.Body>
         </Card>
