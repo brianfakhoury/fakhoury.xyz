@@ -45,6 +45,18 @@
         "emoji": "🗞",
         "items": [
             {
+                "link": "https://www.reuters.com/video/watch/a-crypto-winter-ahead-id755974835",
+                "content": "Reuters Video: A Crypto Winter Ahead?"
+            },
+            {
+                "link": "https://www.reuters.com/business/finance/after-ftx-collapse-pressure-builds-tougher-crypto-rules-2022-12-02/",
+                "content": "After FTX collapse, pressure builds for tougher crypto rules"
+            },
+            {
+                "link": "https://www.theinformation.com/articles/people-think-hes-just-a-straight-up-sociopath-the-5-biggest-warning-signs-we-missed-about-sbf",
+                "content": "'People Think He's Just a Straight-Up Sociopath': The 5 Biggest Warning Signs We Missed About SBF"
+            },
+            {
                 "link":"https://www.theinformation.com/articles/can-peace-last-between-cryptos-visionary-rivals",
                 "content": "Can Peace Last Between Crypto's Visionary Rivals?"
             },
@@ -162,7 +174,7 @@
             }, 
             {
                 "link": "https://angel.co/u/brianfakhoury",
-                "content": "Crowdfunding Participation on SeedInvest",
+                "content": "Other",
                 "modifier": "(portfolio on AngelList)"
             }
         ]

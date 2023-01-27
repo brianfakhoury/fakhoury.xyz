@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import {
   Grid,
   Switch,
@@ -8,7 +6,6 @@ import {
   User,
   Container,
   Divider,
-  Tooltip,
   Link,
   Text,
   Spacer,
@@ -20,13 +17,10 @@ import { useEffect, useState, useMemo } from "react";
 
 import { SunIcon } from "../components/SunIcon";
 import { MoonIcon } from "../components/MoonIcon";
-
-import { FrontCard } from "../components/FrontCard";
-
-import content from "../public/content.json";
+import Heart from "../components/Heart";
 import { Footer } from "../components/Footer";
 
-import Heart from "../components/Heart";
+import content from "../data/content.json";
 
 export default function Home({ renderDate }) {
   const { setTheme } = useNextTheme();
@@ -138,27 +132,6 @@ export default function Home({ renderDate }) {
             </Container>
           </Card.Body>
         </Card>
-
-        {/* <Spacer y={2} />
-
-        <Text h1 color="secondary">
-          Highlights
-        </Text>
-        <Spacer />
-        <Grid.Container gap={2} justify="center" css={{ p: 0 }}>
-          <Grid xs={12} sm={7}>
-            <FrontCard />
-          </Grid>
-          <Grid xs={12} sm={5}>
-            <FrontCard />
-          </Grid>
-          <Grid xs={12} sm={5}>
-            <FrontCard />
-          </Grid>
-          <Grid xs={12} sm={7}>
-            <FrontCard />
-          </Grid>
-        </Grid.Container> */}
 
         <Spacer y={2} />
 
