@@ -1,9 +1,6 @@
 import Head from "next/head";
 import {
   Grid,
-  Switch,
-  useTheme,
-  User,
   Container,
   Divider,
   Link,
@@ -12,19 +9,15 @@ import {
   Collapse,
   Card,
 } from "@nextui-org/react";
-import { useTheme as useNextTheme } from "next-themes";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 
-import { SunIcon } from "../components/SunIcon";
-import { MoonIcon } from "../components/MoonIcon";
 import Heart from "../components/Heart";
 import { Footer } from "../components/Footer";
+import { SunIcon } from "../components/SunIcon";
 
 import content from "../data/content.json";
 
 export default function Home({ renderDate }) {
-  const { setTheme } = useNextTheme();
-  const { isDark, type } = useTheme();
   useEffect(() => {
     setMounted(true);
     let x = JSON.parse(localStorage.getItem("count"));
@@ -37,7 +30,7 @@ export default function Home({ renderDate }) {
   const [count, setCount] = useState(141);
 
   return (
-    <Container xs css={{ p: 0 }}>
+    <>
       <Head>
         <title>Brian Fakhoury - Homepage</title>
         <link rel="icon" type="image/x-icon" href="/azuki.png" />
@@ -55,41 +48,6 @@ export default function Home({ renderDate }) {
         <meta property="og:image" content="/header.png" />
         <meta property="og:description" content="Ad astra per aspera." />
       </Head>
-
-      <Spacer />
-      <Grid.Container gap={1} justify="space-between" alignItems="center">
-        <Grid>
-          <User
-            bordered
-            pointer="true"
-            src="/azuki.png"
-            name="Brian Fakhoury"
-            color="gradient"
-            size="xl"
-          >
-            <User.Link
-              href="https://twitter.com/brianfakhoury"
-              css={{ color: "$link" }}
-            >
-              @brianfakhoury
-            </User.Link>
-          </User>
-        </Grid>
-
-        <Grid>
-          <Switch
-            checked={isDark}
-            size="xl"
-            shadow
-            iconOn={<MoonIcon filled />}
-            iconOff={<SunIcon filled />}
-            onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-          />
-        </Grid>
-      </Grid.Container>
-      <Divider />
-
-      <Spacer />
 
       <Container fluid>
         <Card css={{ background: "$gradient", p: 0 }} variant="flat">
@@ -165,7 +123,7 @@ export default function Home({ renderDate }) {
 
       <Footer date={renderDate} />
       <Spacer />
-    </Container>
+    </>
   );
 }
 

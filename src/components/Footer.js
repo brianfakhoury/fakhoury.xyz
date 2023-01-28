@@ -1,12 +1,4 @@
-import {
-  Grid,
-  Divider,
-  Text,
-  Button,
-  Spacer,
-  Tooltip,
-  Link,
-} from "@nextui-org/react";
+import { Grid, Text, Button, Tooltip, Link } from "@nextui-org/react";
 
 import { Sentry } from "react-activity";
 import "react-activity/dist/library.css";

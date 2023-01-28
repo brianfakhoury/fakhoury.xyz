@@ -1,8 +1,13 @@
 import { ThemeProvider } from "next-themes";
-import { createTheme, NextUIProvider } from "@nextui-org/react";
+import { createTheme, globalCss, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import Layout from "../components/layout";
 
 import "../styles/globals.css";
+
+const baseTheme = {
+  letterSpacings: { tighter: "0.05em" },
+};
 
 const lightTheme = createTheme({
   type: "light",
@@ -11,7 +16,8 @@ const lightTheme = createTheme({
       gradient:
         "linear-gradient(112deg, $red100 -25%, $yellow500 -10%, $green500 80%)",
       link: "$green700",
-    }, // optional
+    },
+    ...baseTheme,
   },
 });
 
@@ -23,6 +29,7 @@ const darkTheme = createTheme({
         "linear-gradient(112deg, $red100 -25%, $yellow500 -10%, $green500 80%)",
       link: "$green700",
     }, // optional
+    ...baseTheme,
   },
 });
 
@@ -37,7 +44,9 @@ function MyApp({ Component, pageProps }) {
       }}
     >
       <NextUIProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </NextUIProvider>
     </NextThemesProvider>
   );
