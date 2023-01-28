@@ -1,8 +1,7 @@
 [
-
     {
         "title": "Select Writing",
-        "emoji": "✒️",
+        "emoji": "pen",
         "items": [
             {
                 "link": "https://underscore.vc/blog/the-future-is-dao-a-primer-on-daos-and-their-explosive-growth/",
@@ -24,7 +23,7 @@
     },
     {
         "title": "Research Papers",
-        "emoji": "🔬",
+        "emoji": "microchip",
         "items": [
             {
                 "link": "https://drive.google.com/open?id=1d5Kbz0wnAgawl2zbuO7g0cdNThqmR1NZ",
@@ -42,7 +41,7 @@
     },
     {
         "title": "Recently In The Press",
-        "emoji": "🗞",
+        "emoji": "view_list",
         "items": [
             {
                 "link": "https://www.reuters.com/video/watch/a-crypto-winter-ahead-id755974835",
@@ -80,7 +79,7 @@
     },
     {
         "title": "Organizations",
-        "emoji": "🏢",
+        "emoji": "globe",
         "items": [
             {
                 "link": "https://mechanism.capital",
@@ -141,7 +140,7 @@
     },
     {
         "title": "Angel Investments",
-        "emoji": "💸",
+        "emoji": "money_check_1",
         "items": [
             {
                 "link": "https://monet.world/",
@@ -181,7 +180,7 @@
     },
     {
         "title": "Cool Technical Projects",
-        "emoji": "🤓",
+        "emoji": "beaker_1",
         "items": [
             {
                 "link": "https://github.com/brianfakhoury/Ether-Forms",
@@ -239,7 +238,7 @@
     },
     {
         "title": "Get in touch",
-        "emoji": "📫",
+        "emoji": "mail",
         "items": [
             {
                 "link": "https://twitter.com/messages/compose?recipient_id=987899418597879808",

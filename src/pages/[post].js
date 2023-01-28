@@ -1,14 +1,10 @@
-import { Spacer, Text } from "@nextui-org/react";
+import { Spacer, Text, Badge } from "@nextui-org/react";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { Container, Link, Image } from "@nextui-org/react";
 
-const posts = {
-  "history-rhymes": "vomP2SxbRjDW1SS96QlmZ6YXv2lt7HZvShEH-ZUxTIM",
-  "settlement-layers": "bhYYvFuwTDPZBp_RZINJLGTcr5cxbGZuV2xPZ1HkDOM",
-  //   zk: "Q4PyoYdOlYGlnAA4q4XWTEk5x5JgFEAhvA9qWvw1PYo",
-};
+import posts from "../data/posts.json";
 
 export async function getStaticPaths() {
   return {
@@ -22,8 +18,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("here");
-  console.log(params);
   let hash = posts[params["post"]];
   let data = await fetch(
     `https://nylbrpc3wbgdhwigt7iwja2jfrsnzl4xgfwgm3sxnrhwoupebtrq.arweave.net/${hash}`
@@ -54,13 +48,13 @@ export default function Post({ content }) {
         <meta property="og:description" content="Ad astra per aspera." />
       </Head>
       <Text h1>{content.title}</Text>
-      <Text h5 color="$gray600">
+      <Badge>
         {new Date(content.timestamp * 1000).toLocaleString("en", {
           month: "short",
           day: "numeric",
-          weekday: "short",
+          year: "numeric",
         })}
-      </Text>
+      </Badge>
       <ReactMarkdown
         remarkPlugins={[remarkUnwrapImages]}
         components={{

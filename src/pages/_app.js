@@ -6,17 +6,20 @@ import Layout from "../components/layout";
 import "../styles/globals.css";
 
 const baseTheme = {
+  colors: {
+    gradient:
+      "linear-gradient(112deg, $red100 -25%, $yellow500 -10%, $green500 80%)",
+    link: "$green700",
+  },
   letterSpacings: { tighter: "0.05em" },
+  fontSizes: {
+    base: "1.05rem",
+  },
 };
 
 const lightTheme = createTheme({
   type: "light",
   theme: {
-    colors: {
-      gradient:
-        "linear-gradient(112deg, $red100 -25%, $yellow500 -10%, $green500 80%)",
-      link: "$green700",
-    },
     ...baseTheme,
   },
 });
@@ -24,11 +27,6 @@ const lightTheme = createTheme({
 const darkTheme = createTheme({
   type: "dark",
   theme: {
-    colors: {
-      gradient:
-        "linear-gradient(112deg, $red100 -25%, $yellow500 -10%, $green500 80%)",
-      link: "$green700",
-    }, // optional
     ...baseTheme,
   },
 });

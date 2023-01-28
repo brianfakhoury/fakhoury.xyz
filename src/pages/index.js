@@ -10,7 +10,7 @@ import {
   Card,
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-
+import CircumIcon from "@klarr-agency/circum-icons-react";
 import Heart from "../components/Heart";
 import { Footer } from "../components/Footer";
 import { SunIcon } from "../components/SunIcon";
@@ -54,16 +54,16 @@ export default function Home({ renderDate }) {
           <Card.Body css={{ p: "25px 15px" }}>
             <Container css={{ background: "$background", borderRadius: "$md" }}>
               <Spacer />
-              <Text>👋🏼 Hey, I&apos;m Brian</Text>
-              <Text>
+              <Text>👋🏼 Hey, I&apos;m Brian.</Text>
+              <Text size="$sm">
                 My days are currently occupied investing in and researching
                 blockchain networks and crypto assets.
               </Text>
-              <Text>
+              <Text size="$sm">
                 My primary motivation is a strong will to work with hard
                 problems and use new technology.
               </Text>
-              <Text>
+              <Text size="$sm">
                 I&apos;m a student of first principles and rationality.
               </Text>
               <Grid.Container justify="flex-end" alignItems="center">
@@ -98,10 +98,10 @@ export default function Home({ renderDate }) {
             <Collapse.Group css={{ p: 0 }}>
               {content.map((category, i) => (
                 <Collapse
-                  title={category.emoji + " " + category.title}
+                  title={category.title}
                   key={i}
-                  arrowIcon={<SunIcon />}
-                  expanded={category.emoji === "🗞"}
+                  arrowIcon={<CircumIcon name={category.emoji} />}
+                  expanded={category.emoji === "view_list"}
                 >
                   <ul>
                     {category.items.map((item, j) => (
@@ -119,7 +119,7 @@ export default function Home({ renderDate }) {
         </Grid.Container>
       </Container>
 
-      <Spacer y={3} />
+      <Spacer y={1} />
 
       <Footer date={renderDate} />
       <Spacer />

@@ -20,6 +20,7 @@
     "remark-unwrap-images": "^3.0.1"
   },
   "devDependencies": {
+    "@klarr-agency/circum-icons-react": "^2.0.1",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6"
   }
