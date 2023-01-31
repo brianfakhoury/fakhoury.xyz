@@ -11,8 +11,8 @@ import {
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
-import Heart from "../components/Heart";
-import { Footer } from "../components/Footer";
+import Heart from "../components/heart";
+import { Footer } from "../components/footer";
 import NextLink from "next/link";
 
 import content from "../data/content.json";
@@ -66,10 +66,7 @@ export default function Home({ renderDate }) {
               <Text size="$sm">
                 I&apos;m a student of first principles and rationality. You can
                 continue down to my links or see my writings{" "}
-                <NextLink href="/writing">
-                  <Link>here</Link>
-                </NextLink>
-                .
+                <Link href="writing">here</Link>.
               </Text>
               <Grid.Container justify="flex-end" alignItems="center">
                 <Heart

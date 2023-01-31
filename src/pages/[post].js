@@ -4,7 +4,6 @@ import ReactMarkdown from "react-markdown";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { Container, Link, Image } from "@nextui-org/react";
 import NextLink from "next/link";
-import CircumIcon from "@klarr-agency/circum-icons-react";
 
 import posts from "../data/posts.json";
 
@@ -85,11 +84,9 @@ export default function Post({ content, hash, tags }) {
       </ReactMarkdown>
       <Spacer y={2} />
       <Divider />
-      <NextLink href="/writing">
-        <Link>
-          <Text size="$sm">← All writing</Text>
-        </Link>
-      </NextLink>
+      <Link href="/writing">
+        <Text size="$sm">← All writing</Text>
+      </Link>
       <Text size="$xs" color="$gray600">
         Arweave transaction:{" "}
         <Link
