@@ -9,7 +9,9 @@ const baseTheme = {
   colors: {
     gradient:
       "linear-gradient(112deg, $red100 -25%, $yellow500 -10%, $green500 80%)",
-    link: "$green700",
+    link: "$green800",
+    primary: "$green500",
+    secondary: "$yellow500",
   },
   letterSpacings: { tighter: "0.05em" },
   fontSizes: {

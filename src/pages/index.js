@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import Heart from "../components/Heart";
 import { Footer } from "../components/Footer";
-import { SunIcon } from "../components/SunIcon";
+import NextLink from "next/link";
 
 import content from "../data/content.json";
 
@@ -64,7 +64,12 @@ export default function Home({ renderDate }) {
                 problems and use new technology.
               </Text>
               <Text size="$sm">
-                I&apos;m a student of first principles and rationality.
+                I&apos;m a student of first principles and rationality. You can
+                continue down to my links or see my writings{" "}
+                <NextLink href="/writing">
+                  <Link>here</Link>
+                </NextLink>
+                .
               </Text>
               <Grid.Container justify="flex-end" alignItems="center">
                 <Heart

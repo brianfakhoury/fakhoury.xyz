@@ -1,8 +1,10 @@
-import { Spacer, Text, Badge } from "@nextui-org/react";
+import { Spacer, Text, Badge, Divider } from "@nextui-org/react";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { Container, Link, Image } from "@nextui-org/react";
+import NextLink from "next/link";
+import CircumIcon from "@klarr-agency/circum-icons-react";
 
 import posts from "../data/posts.json";
 
@@ -18,17 +20,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  let hash = posts[params["post"]];
+  let { hash, tags } = posts[params["post"]];
   let data = await fetch(
     `https://nylbrpc3wbgdhwigt7iwja2jfrsnzl4xgfwgm3sxnrhwoupebtrq.arweave.net/${hash}`
   );
   let { content } = await data.json();
   return {
-    props: { content },
+    props: { content, hash, tags },
   };
 }
 
-export default function Post({ content }) {
+export default function Post({ content, hash, tags }) {
   return (
     <Container>
       <Head>
@@ -43,18 +45,24 @@ export default function Post({ content }) {
           content="brian fakhoury, venture capital, machine learning, neuroscience, crypto, blockchain, defi, lifestyle, personal page"
         />
         <meta property="og:title" content={content.title} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
         <meta property="og:image" content="/header.png" />
         <meta property="og:description" content="Ad astra per aspera." />
       </Head>
       <Text h1>{content.title}</Text>
-      <Badge>
+      <Badge color="primary">
         {new Date(content.timestamp * 1000).toLocaleString("en", {
           month: "short",
           day: "numeric",
           year: "numeric",
         })}
       </Badge>
+      {tags.map((tag, i) => (
+        <Badge color="secondary" key={i}>
+          #{tag}
+        </Badge>
+      ))}
+      <Spacer />
       <ReactMarkdown
         remarkPlugins={[remarkUnwrapImages]}
         components={{
@@ -75,7 +83,26 @@ export default function Post({ content }) {
       >
         {content.body}
       </ReactMarkdown>
-      <Spacer y={3} />
+      <Spacer y={2} />
+      <Divider />
+      <NextLink href="/writing">
+        <Link>
+          <Text size="$sm">← All writing</Text>
+        </Link>
+      </NextLink>
+      <Text size="$xs" color="$gray600">
+        Arweave transaction:{" "}
+        <Link
+          color="text"
+          isExternal
+          target="_blank"
+          href={`https://viewblock.io/arweave/tx/${hash}`}
+        >
+          {hash}
+        </Link>
+      </Text>
+
+      <Spacer y={2} />
     </Container>
   );
 }
