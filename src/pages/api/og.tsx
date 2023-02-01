@@ -1,4 +1,5 @@
 import { ImageResponse } from "@vercel/og";
+import { url } from "inspector";
 import { NextRequest } from "next/server";
 
 export const config = {
@@ -19,62 +20,69 @@ export default function handler(req: NextRequest) {
       (
         <div
           style={{
-            backgroundColor: "black",
-            backgroundSize: "150px 150px",
+            display: "flex",
+            background: "rgb(255, 255, 255)",
             height: "100%",
             width: "100%",
-            display: "flex",
-            textAlign: "center",
             alignItems: "center",
             justifyContent: "center",
-            flexDirection: "row",
-            flexWrap: "nowrap",
-            padding: "50px",
           }}
         >
           <div
             style={{
+              background: "rgb(0, 0, 0)",
+              height: "98%",
+              width: "99%",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
-              justifyItems: "center",
+              flexDirection: "row",
+              flexWrap: "nowrap",
+              padding: "50px",
+              borderRadius: "30px",
             }}
           >
-            <img
-              alt="Brian F"
-              height={200}
-              src="http://localhost:3000/azuki.png"
-              style={{ margin: "0 30px", borderRadius: "50%" }}
-              width={200}
-            />
-          </div>
-          <div
-            style={{
-              fontSize: 160,
-              fontStyle: "normal",
-              letterSpacing: "-0.025em",
-              color: "white",
-              marginTop: 30,
-              padding: "0 120px",
-              lineHeight: 1.4,
-              whiteSpace: "nowrap",
-            }}
-          >
-            //
-          </div>
-          <div
-            style={{
-              fontSize: 60,
-              fontStyle: "normal",
-              letterSpacing: "-0.025em",
-              color: "white",
-              marginTop: 30,
-              padding: "0 120px",
-              lineHeight: 1.4,
-              whiteSpace: "pre-wrap",
-            }}
-          >
-            {title}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                justifyItems: "center",
+              }}
+            >
+              <img
+                alt="Brian F"
+                height={200}
+                src="http://localhost:3000/azuki.png"
+                style={{
+                  margin: "0",
+                  borderRadius: "50%",
+                }}
+                width={200}
+              />
+            </div>
+            <div
+              style={{
+                fontSize: 160,
+                fontStyle: "normal",
+                color: "white",
+                padding: "0 80px 0 30px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              ::
+            </div>
+            <div
+              style={{
+                fontSize: 75,
+                fontStyle: "normal",
+                letterSpacing: "-0.025em",
+                color: "white",
+                padding: "0 0 0 50px",
+                lineHeight: 1.4,
+              }}
+            >
+              {title.toUpperCase()}
+            </div>
           </div>
         </div>
       ),
