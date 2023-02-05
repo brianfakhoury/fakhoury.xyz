@@ -1,5 +1,4 @@
 import { ImageResponse } from "@vercel/og";
-import { url } from "inspector";
 import { NextRequest } from "next/server";
 
 export const config = {
@@ -8,7 +7,7 @@ export const config = {
 
 export default function handler(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url);
+    const { searchParams, host } = new URL(req.url);
 
     // ?title=<title>
     const hasTitle = searchParams.has("title");
@@ -21,7 +20,7 @@ export default function handler(req: NextRequest) {
         <div
           style={{
             display: "flex",
-            background: "rgb(255, 255, 255)",
+            background: "rgba(255, 255, 255, 0)",
             height: "100%",
             width: "100%",
             alignItems: "center",
@@ -31,14 +30,14 @@ export default function handler(req: NextRequest) {
           <div
             style={{
               background: "rgb(0, 0, 0)",
-              height: "98%",
-              width: "99%",
+              height: "96%",
+              width: "97%",
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-start",
               flexDirection: "row",
               flexWrap: "nowrap",
               padding: "50px",
-              borderRadius: "30px",
+              borderRadius: "40px",
             }}
           >
             <div
@@ -52,7 +51,7 @@ export default function handler(req: NextRequest) {
               <img
                 alt="Brian F"
                 height={200}
-                src="http://localhost:3000/azuki.png"
+                src={`http://${host}/azuki.png`}
                 style={{
                   margin: "0",
                   borderRadius: "50%",
@@ -66,14 +65,15 @@ export default function handler(req: NextRequest) {
                 fontStyle: "normal",
                 color: "white",
                 padding: "0 80px 0 30px",
+                lineHeight: "11rem",
                 whiteSpace: "nowrap",
               }}
             >
-              ::
+              {"//"}
             </div>
             <div
               style={{
-                fontSize: 75,
+                fontSize: title.length > 40 ? 70 : title.length > 30 ? 80 : 100,
                 fontStyle: "normal",
                 letterSpacing: "-0.025em",
                 color: "white",

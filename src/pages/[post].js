@@ -3,37 +3,13 @@ import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { Container, Link, Image } from "@nextui-org/react";
-import NextLink from "next/link";
-
-import posts from "../data/posts.json";
-
-export async function getStaticPaths() {
-  return {
-    paths: Object.keys(posts).map((slug) => ({
-      params: {
-        post: slug,
-      },
-    })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  let { hash, tags } = posts[params["post"]];
-  let data = await fetch(
-    `https://nylbrpc3wbgdhwigt7iwja2jfrsnzl4xgfwgm3sxnrhwoupebtrq.arweave.net/${hash}`
-  );
-  let { content } = await data.json();
-  return {
-    props: { content, hash, tags },
-  };
-}
+import { getPosts } from "lib";
 
 export default function Post({ content, hash, tags }) {
   return (
     <Container>
       <Head>
-        <title>{content.title} - Brian Fakhoury</title>
+        <title>{content.title}</title>
         <link rel="icon" type="image/x-icon" href="/azuki.png" />
         <meta
           name="”description”"
@@ -45,7 +21,7 @@ export default function Post({ content, hash, tags }) {
         />
         <meta property="og:title" content={content.title} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="/header.png" />
+        <meta property="og:image" content={`/api/og?title=${content.title}`} />
         <meta property="og:description" content="Ad astra per aspera." />
       </Head>
       <Text h1>{content.title}</Text>
@@ -102,4 +78,24 @@ export default function Post({ content, hash, tags }) {
       <Spacer y={2} />
     </Container>
   );
+}
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return {
+    paths: Object.keys(posts).map((slug) => ({
+      params: {
+        post: slug,
+      },
+    })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const posts = await getPosts();
+  let { hash, tags, content } = posts[params["post"]];
+  return {
+    props: { content, hash, tags },
+  };
 }
