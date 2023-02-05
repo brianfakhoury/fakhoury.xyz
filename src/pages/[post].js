@@ -1,8 +1,13 @@
-import { Spacer, Text, Badge, Divider } from "@nextui-org/react";
 import Head from "next/head";
-import ReactMarkdown from "react-markdown";
-import remarkUnwrapImages from "remark-unwrap-images";
-import { Container, Link, Image } from "@nextui-org/react";
+import { NextMarkdown } from "../components/NextMarkdown";
+import {
+  Container,
+  Link,
+  Badge,
+  Text,
+  Spacer,
+  Divider,
+} from "@nextui-org/react";
 import { getPosts } from "lib";
 
 export default function Post({ content, hash, tags }) {
@@ -49,26 +54,7 @@ export default function Post({ content, hash, tags }) {
         </Badge>
       ))}
       <Spacer />
-      <ReactMarkdown
-        remarkPlugins={[remarkUnwrapImages]}
-        components={{
-          h1: ({ node, ...props }) => <Text h1 {...props} />,
-          h2: ({ node, ...props }) => <Text h2 {...props} />,
-          h3: ({ node, ...props }) => <Text h3 {...props} />,
-          p: ({ node, ...props }) => <Text {...props} />,
-          a: ({ node, ...props }) => (
-            <Link target="_blank" css={{ display: "inline" }} {...props} />
-          ),
-          strong: ({ node, ...props }) => <Text b {...props} />,
-          blockquote: ({ node, ...props }) => <Text blockquote {...props} />,
-          code: ({ node, ...props }) => <Text code {...props} />,
-          img: ({ node, ...props }) => (
-            <Image alt="" css={{ borderRadius: "10px" }} {...props} />
-          ),
-        }}
-      >
-        {content.body}
-      </ReactMarkdown>
+      <NextMarkdown>{content.body}</NextMarkdown>
       <Spacer y={2} />
       <Divider />
       <Link href="/writing">
