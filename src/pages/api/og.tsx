@@ -36,7 +36,7 @@ export default function handler(req: NextRequest) {
               alignItems: "flex-start",
               flexDirection: "row",
               flexWrap: "nowrap",
-              padding: "50px",
+              padding: "100px",
               borderRadius: "40px",
             }}
           >
@@ -73,7 +73,7 @@ export default function handler(req: NextRequest) {
             </div>
             <div
               style={{
-                fontSize: title.length > 40 ? 70 : title.length > 30 ? 80 : 100,
+                fontSize: title.length > 40 ? 60 : title.length > 30 ? 70 : 100,
                 fontStyle: "normal",
                 letterSpacing: "-0.025em",
                 color: "white",

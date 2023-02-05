@@ -25,6 +25,11 @@ export default function Post({ content, hash, tags }) {
           property="og:image"
           content={`https://fakhoury.xyz/api/og?title=${content.title}`}
         />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="og:description"
           content={content.body.split(" ").slice(0, 10).join(" ") + "..."}
