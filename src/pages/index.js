@@ -13,11 +13,9 @@ import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import Heart from "../components/heart";
 import { Footer } from "../components/footer";
-import NextLink from "next/link";
+import { getLinks } from "lib";
 
-import content from "../data/content.json";
-
-export default function Home({ renderDate }) {
+export default function Home({ renderDate, links }) {
   useEffect(() => {
     setMounted(true);
     let x = JSON.parse(localStorage.getItem("count"));
@@ -68,7 +66,7 @@ export default function Home({ renderDate }) {
                 continue down to my links or see my writings{" "}
                 <Link href="writing">here</Link>.
               </Text>
-              <Grid.Container justify="flex-end" alignItems="center">
+              {/* <Grid.Container justify="flex-end" alignItems="center">
                 <Heart
                   isclicked={isclicked}
                   onClick={() => {
@@ -88,7 +86,7 @@ export default function Home({ renderDate }) {
                 <Text small color="gray">
                   {count}
                 </Text>
-              </Grid.Container>
+              </Grid.Container> */}
             </Container>
           </Card.Body>
         </Card>
@@ -98,7 +96,7 @@ export default function Home({ renderDate }) {
         <Grid.Container gap={2} css={{ p: 0 }}>
           <Grid css={{ p: 0 }}>
             <Collapse.Group css={{ p: 0 }}>
-              {content.map((category, i) => (
+              {links.map((category, i) => (
                 <Collapse
                   title={category.title}
                   key={i}
@@ -108,7 +106,7 @@ export default function Home({ renderDate }) {
                   <ul>
                     {category.items.map((item, j) => (
                       <li key={j}>
-                        <Link icon href={item.link} target="_blank">
+                        <Link isExternal href={item.link} target="_blank">
                           {item.content}
                         </Link>
                       </li>
@@ -133,6 +131,7 @@ export async function getStaticProps() {
   return {
     props: {
       renderDate: JSON.stringify(new Date()),
+      links: getLinks(),
     },
   };
 }
