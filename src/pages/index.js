@@ -12,7 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import Heart from "../components/Heart";
-import { Footer } from "../components/footer";
+import { Footer } from "../components/Footer";
 import { getLinks } from "lib";
 
 export default function Home({ renderDate, links }) {
