@@ -21,8 +21,14 @@ export default function Post({ content, hash, tags }) {
         />
         <meta property="og:title" content={content.title} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={`/api/og?title=${content.title}`} />
-        <meta property="og:description" content="Ad astra per aspera." />
+        <meta
+          property="og:image"
+          content={`https://fakhoury.xyz/api/og?title=${content.title}`}
+        />
+        <meta
+          property="og:description"
+          content={content.body.split(" ").slice(0, 10).join(" ") + "..."}
+        />
       </Head>
       <Text h1>{content.title}</Text>
       <Badge color="primary">
