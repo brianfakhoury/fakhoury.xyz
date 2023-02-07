@@ -28,7 +28,9 @@ export default function Post({ content, hash, tags }) {
         <meta property="og:type" content="article" />
         <meta
           property="og:image"
-          content={`https://fakhoury.xyz/api/og?title=${content.title}`}
+          content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
+            content.title
+          )}`}
         />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="og:image:type" content="image/png" />
