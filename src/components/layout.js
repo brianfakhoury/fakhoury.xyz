@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 
 import { SunIcon } from "../components/SunIcon";
 import { MoonIcon } from "../components/MoonIcon";
+import Image from "next/image";
 
 export default function Layout({ children }) {
   const { setTheme } = useNextTheme();
