@@ -2,8 +2,11 @@ import { ThemeProvider } from "next-themes";
 import { createTheme, globalCss, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Layout from "../components/layout";
+import { Raleway } from "@next/font/google";
 
 import "../styles/globals.css";
+
+const raleway = Raleway({ weight: "400", subsets: ["latin"] });
 
 const baseTheme = {
   colors: {
@@ -12,6 +15,9 @@ const baseTheme = {
     link: "$green800",
     primary: "$green500",
     secondary: "$yellow500",
+  },
+  fonts: {
+    sans: raleway.style.fontFamily,
   },
   letterSpacings: { tighter: "0.05em" },
   fontSizes: {

@@ -1,7 +1,7 @@
 import LINKS from "./data/links.json";
 import POSTS from "./data//posts.json";
 
-type Post = {
+type Posts = {
   hash: String;
   tags: [String];
   content: {
@@ -24,7 +24,14 @@ type Links = [
   }
 ];
 
-export const getPosts = async (): Promise<Post> => {
+let POSTS_CACHE: Posts;
+
+export const getPosts = async (): Promise<Posts> => {
+  console.log("Called POSTS");
+  if (POSTS_CACHE) {
+    return POSTS_CACHE;
+  }
+  console.log("Generating posts", POSTS_CACHE);
   const posts = JSON.parse(JSON.stringify(POSTS));
   for (const key in posts) {
     let data = await fetch(
@@ -33,6 +40,7 @@ export const getPosts = async (): Promise<Post> => {
     let { content } = await data.json();
     posts[key]["content"] = content;
   }
+  POSTS_CACHE = posts;
   return posts;
 };
 

@@ -9,10 +9,8 @@ import {
 } from "@nextui-org/react";
 import { useTheme as useNextTheme } from "next-themes";
 import { useRouter } from "next/router";
-
 import { SunIcon } from "../components/SunIcon";
 import { MoonIcon } from "../components/MoonIcon";
-import Image from "next/image";
 
 export default function Layout({ children }) {
   const { setTheme } = useNextTheme();
@@ -52,7 +50,7 @@ export default function Layout({ children }) {
       </Grid.Container>
       <Divider />
       <Spacer />
-      <main>{children}</main>
+      {children}
     </Container>
   );
 }

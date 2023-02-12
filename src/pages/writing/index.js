@@ -1,6 +1,7 @@
 import { Link, Spacer, Text, Badge } from "@nextui-org/react";
 import { getPosts } from "lib";
 import { NextMarkdown } from "src/components/NextMarkdown";
+import FancyTitle from "src/components/FancyTitle";
 
 export default function Writing({ posts }) {
   return (
@@ -10,7 +11,9 @@ export default function Writing({ posts }) {
         .map((post, i) => (
           <li key={i}>
             <Text h2>
-              <Link href={post}>{posts[post].content.title}</Link>{" "}
+              <Link href={post} css={{ display: "block" }}>
+                <FancyTitle text={posts[post].content.title} />
+              </Link>
             </Text>
 
             <Badge color="primary">

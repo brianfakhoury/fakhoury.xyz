@@ -14,6 +14,9 @@ import CircumIcon from "@klarr-agency/circum-icons-react";
 import Heart from "../components/Heart";
 import { Footer } from "../components/Footer";
 import { getLinks } from "lib";
+import { Great_Vibes } from "@next/font/google";
+
+const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
 export default function Home({ renderDate, links }) {
   useEffect(() => {
@@ -52,19 +55,20 @@ export default function Home({ renderDate, links }) {
           <Card.Body css={{ p: "25px 15px" }}>
             <Container css={{ background: "$background", borderRadius: "$md" }}>
               <Spacer />
-              <Text>👋🏼 Hey, I&apos;m Brian.</Text>
+              <Text>
+                👋🏼 <span className={greatVibes.className}>H</span>ey, I&apos;m
+                Brian.
+              </Text>
               <Text size="$sm">
-                My days are currently occupied investing in and researching
-                blockchain networks and crypto assets.
+                You can continue down to my links or see my writings{" "}
+                <Link href="writing">here</Link>. My days are currently occupied
+                investing in and researching blockchain networks and crypto
+                assets.
               </Text>
               <Text size="$sm">
                 My primary motivation is a strong will to work with hard
-                problems and use new technology.
-              </Text>
-              <Text size="$sm">
-                I&apos;m a student of first principles and rationality. You can
-                continue down to my links or see my writings{" "}
-                <Link href="writing">here</Link>.
+                problems and use new technology. I&apos;m a student of first
+                principles and rationality. .
               </Text>
               {/* <Grid.Container justify="flex-end" alignItems="center">
                 <Heart
@@ -98,7 +102,14 @@ export default function Home({ renderDate, links }) {
             <Collapse.Group css={{ p: 0 }}>
               {links.map((category, i) => (
                 <Collapse
-                  title={category.title}
+                  title={
+                    <Text h3>
+                      <span className={greatVibes.className}>
+                        {category.title[0]}
+                      </span>
+                      {category.title.slice(1)}
+                    </Text>
+                  }
                   key={i}
                   arrowIcon={<CircumIcon name={category.emoji} />}
                   expanded={category.emoji === "view_list"}

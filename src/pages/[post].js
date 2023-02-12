@@ -9,6 +9,7 @@ import {
   Divider,
 } from "@nextui-org/react";
 import { getPosts } from "lib";
+import FancyTitle from "src/components/FancyTitle";
 
 export default function Post({ content, hash, tags }) {
   return (
@@ -42,7 +43,9 @@ export default function Post({ content, hash, tags }) {
           content={content.body.split(" ").slice(0, 10).join(" ") + "..."}
         />
       </Head>
-      <Text h1>{content.title}</Text>
+      <Text h1>
+        <FancyTitle text={content.title} />
+      </Text>
       <Badge color="primary">
         {new Date(content.timestamp * 1000).toLocaleString("en", {
           month: "short",
