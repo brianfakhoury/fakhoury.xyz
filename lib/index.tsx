@@ -24,14 +24,12 @@ type Links = [
   }
 ];
 
-let POSTS_CACHE: Posts;
-
 export const getPosts = async (): Promise<Posts> => {
   console.log("Called POSTS");
-  if (POSTS_CACHE) {
-    return POSTS_CACHE;
+  if (global.POSTS_CACHE) {
+    return global.POSTS_CACHE;
   }
-  console.log("Generating posts", POSTS_CACHE);
+  console.log("BUILDING POSTS");
   const posts = JSON.parse(JSON.stringify(POSTS));
   for (const key in posts) {
     let data = await fetch(
@@ -40,7 +38,7 @@ export const getPosts = async (): Promise<Posts> => {
     let { content } = await data.json();
     posts[key]["content"] = content;
   }
-  POSTS_CACHE = posts;
+  global.POSTS_CACHE = posts;
   return posts;
 };
 

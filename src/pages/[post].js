@@ -10,6 +10,7 @@ import {
 } from "@nextui-org/react";
 import { getPosts } from "lib";
 import FancyTitle from "src/components/FancyTitle";
+import { default as NextLink } from "next/link";
 
 export default function Post({ content, hash, tags }) {
   return (
@@ -54,18 +55,18 @@ export default function Post({ content, hash, tags }) {
         })}
       </Badge>
       {tags.map((tag, i) => (
-        <Badge color="secondary" key={i}>
-          #{tag}
-        </Badge>
+        <NextLink href={`/writing/${tag}`} key={i}>
+          <Badge color="secondary">#{tag}</Badge>
+        </NextLink>
       ))}
       <Spacer />
       <NextMarkdown>{content.body}</NextMarkdown>
       <Spacer y={2} />
       <Divider />
-      <Link href="/writing">
+      <NextLink href="/writing">
         <Text size="$sm">← All writing</Text>
-      </Link>
-      <Text size="$xs" color="$gray600">
+      </NextLink>
+      <Text size="$xs" color="$gray600" style={{ wordBreak: "break-word" }}>
         Arweave transaction:{" "}
         <Link
           color="text"

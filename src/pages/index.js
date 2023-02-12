@@ -2,8 +2,6 @@ import Head from "next/head";
 import {
   Grid,
   Container,
-  Divider,
-  Link,
   Text,
   Spacer,
   Collapse,
@@ -11,10 +9,10 @@ import {
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
-import Heart from "../components/Heart";
 import { Footer } from "../components/Footer";
 import { getLinks } from "lib";
 import { Great_Vibes } from "@next/font/google";
+import Link from "next/link";
 
 const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
@@ -27,8 +25,6 @@ export default function Home({ renderDate, links }) {
     y && setClick(y);
   }, []);
   const [mounted, setMounted] = useState(false);
-  const [isclicked, setClick] = useState(false);
-  const [count, setCount] = useState(141);
 
   return (
     <>
@@ -117,7 +113,7 @@ export default function Home({ renderDate, links }) {
                   <ul>
                     {category.items.map((item, j) => (
                       <li key={j}>
-                        <Link isExternal href={item.link} target="_blank">
+                        <Link href={item.link} target="_blank">
                           {item.content}
                         </Link>
                       </li>
