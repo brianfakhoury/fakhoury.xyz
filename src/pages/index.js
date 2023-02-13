@@ -30,20 +30,15 @@ export default function Home({ renderDate, links }) {
     <>
       <Head>
         <title>Brian Fakhoury - Homepage</title>
-        <link rel="icon" type="image/x-icon" href="/azuki.png" />
-        <meta
-          name="”description”"
-          content="Hey, I'm Brian 👋🏼. This is my personal website, a list of all things relevant to me."
-        />
-        <meta
-          name="keywords"
-          content="brian fakhoury, venture capital, machine learning, neuroscience, crypto, blockchain, defi, lifestyle, personal page"
-        />
         <meta property="og:title" content="Brian Fakhoury - Homepage" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fakhoury.xyz" />
         <meta property="og:image" content="/header.png" />
         <meta property="og:description" content="Ad astra per aspera." />
+        <meta
+          property="og:image"
+          content={`https://fakhoury.xyz/api/og?title=Homepage`}
+        />
       </Head>
 
       <Container fluid>

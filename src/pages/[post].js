@@ -17,17 +17,6 @@ export default function Post({ content, hash, tags }) {
     <Container>
       <Head>
         <title>{content.title}</title>
-        <link rel="icon" type="image/x-icon" href="/azuki.png" />
-        <meta
-          name="”description”"
-          content="Hey, I'm Brian 👋🏼. I hope you enjoy my writing."
-        />
-        <meta
-          name="keywords"
-          content="brian fakhoury, venture capital, machine learning, neuroscience, crypto, blockchain, defi, lifestyle, personal page"
-        />
-        <meta property="og:title" content={content.title} />
-        <meta property="og:type" content="article" />
         <meta
           property="og:image"
           content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
@@ -38,7 +27,6 @@ export default function Post({ content, hash, tags }) {
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="og:description"
           content={content.body.split(" ").slice(0, 10).join(" ") + "..."}
