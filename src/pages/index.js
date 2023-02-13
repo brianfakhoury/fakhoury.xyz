@@ -33,7 +33,6 @@ export default function Home({ renderDate, links }) {
         <meta property="og:title" content="Brian Fakhoury - Homepage" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fakhoury.xyz" />
-        <meta property="og:image" content="/header.png" />
         <meta property="og:description" content="Ad astra per aspera." />
         <meta
           property="og:image"
