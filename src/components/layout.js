@@ -31,6 +31,9 @@ export default function Layout({ children }) {
           content="brian fakhoury, venture capital, machine learning, neuroscience, crypto, blockchain, defi, lifestyle, personal page"
         />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
       </Head>
       <Container xs css={{ p: 0 }}>
         <Grid.Container gap={1} justify="space-between" alignItems="center">

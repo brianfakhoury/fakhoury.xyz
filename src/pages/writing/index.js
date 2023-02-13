@@ -19,7 +19,6 @@ export default function Writing({ posts }) {
           property="og:image"
           content={`https://fakhoury.xyz/api/og?title=Writing`}
         />
-        <meta property="twitter:card" content="summary_large_image" />
         <meta property="og:description" content="Catalog of my essays" />
       </Head>
       <ListOfPosts posts={posts} />
