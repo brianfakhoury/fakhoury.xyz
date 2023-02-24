@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { Text, Link, Container } from "@nextui-org/react";
+import { Text, Link, Container, Spacer } from "@nextui-org/react";
 import Image from "next/image";
 
 export const NextMarkdown = ({ children }) => {
@@ -23,16 +23,26 @@ export const NextMarkdown = ({ children }) => {
         strong: ({ node, ...props }) => <Text b {...props} />,
         blockquote: ({ node, ...props }) => <Text blockquote {...props} />,
         code: ({ node, ...props }) => <Text code {...props} />,
-        img: ({ node, ...props }) => {
+        img: ({ node, alt, ...props }) => {
           let imageURL = new URL(props.src);
           return (
-            <Image
-              {...props}
-              width={imageURL.searchParams.get("width")}
-              height={imageURL.searchParams.get("height")}
-              layout="responsive"
-              style={{ borderRadius: "10px" }}
-            />
+            <>
+              <Spacer />
+              <Image
+                {...props}
+                width={imageURL.searchParams.get("width")}
+                height={imageURL.searchParams.get("height")}
+                layout="responsive"
+                style={{ borderRadius: "10px" }}
+              />
+              {alt && (
+                <Container display="flex" justify="center">
+                  <Text small color="$gray800" css={{ textAlign: "center" }}>
+                    {alt}
+                  </Text>
+                </Container>
+              )}
+            </>
           );
         },
       }}

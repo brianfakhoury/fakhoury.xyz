@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 h1, h2, h3, h4, h5, h6, p, li {
   margin: 16px 0;
+  word-wrap: break-word;
+}
+
+a {
+  word-wrap: break-word;
 }
 
 ul, ol {
