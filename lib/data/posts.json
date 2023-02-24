@@ -10,5 +10,9 @@
     "zk": {
       "hash": "CksrITW7fUisPTlpJbQonVaFN1rqSUHygJlEjezCZh4",
       "tags": ["zk", "crypto", "guide"]
-  }
+    },
+    "million-markets": {
+      "hash": "0dOBlvrw6wT2f-7UhnZ46Hj5tiv5hjWvpvHPsdot2vk",
+      "tags": ["crypto", "markets", "history"]
+    }
 }
