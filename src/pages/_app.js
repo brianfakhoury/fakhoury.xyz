@@ -6,7 +6,7 @@ import { Raleway } from "@next/font/google";
 
 import "../styles/globals.css";
 
-const raleway = Raleway({ weight: "400", subsets: ["latin"] });
+const raleway = Raleway({ weight: "400", subsets: ["latin"], display: "swap" });
 
 const baseTheme = {
   colors: {

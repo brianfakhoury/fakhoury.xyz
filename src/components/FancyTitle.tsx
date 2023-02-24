@@ -1,6 +1,10 @@
 import { Great_Vibes } from "@next/font/google";
 
-const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"] });
+const greatVibes = Great_Vibes({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function FancyTitle({ text }: { text: String }) {
   return (
