@@ -8,6 +8,7 @@ export default function Writing({ posts }) {
       <Head>
         <title>Writing</title>
         <meta property="og:title" content="Writing" />
+        <meta property="og:type" content="website" />
         <meta
           name="”description”"
           content="Hey, I'm Brian 👋🏼. I hope you enjoy my writing."
