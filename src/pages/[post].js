@@ -27,6 +27,7 @@ export default function Post({ content, hash, tags }) {
     <Container>
       <Head>
         <title>{content.title}</title>
+        <meta property="og:title" content={content.title} />
         <meta
           property="og:image"
           content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
