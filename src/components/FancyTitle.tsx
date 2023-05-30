@@ -1,4 +1,4 @@
-import { Great_Vibes } from "@next/font/google";
+import { Great_Vibes } from "next/font/google";
 
 const greatVibes = Great_Vibes({
   weight: "400",

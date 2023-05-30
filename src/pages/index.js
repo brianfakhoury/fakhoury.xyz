@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import { Footer } from "../components/Footer";
 import { getLinks } from "lib";
-import { Great_Vibes } from "@next/font/google";
+import { Great_Vibes } from "next/font/google";
 import Link from "next/link";
 
 const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"] });

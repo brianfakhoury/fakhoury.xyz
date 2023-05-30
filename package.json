@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^13.1.6",
     "@nextui-org/react": "^1.0.0-beta.7",
     "@vercel/og": "^0.0.27",
     "goober": "^2.1.9",

@@ -2,7 +2,7 @@ import { ThemeProvider } from "next-themes";
 import { createTheme, globalCss, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Layout from "../components/layout";
-import { Raleway } from "@next/font/google";
+import { Raleway } from "next/font/google";
 
 import "../styles/globals.css";
 
