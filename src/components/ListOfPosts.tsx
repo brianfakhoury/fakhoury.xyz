@@ -11,7 +11,7 @@ export default function ListOfPosts({ posts }) {
         .map((post, i) => (
           <>
             <Text h2>
-              <Link href={post} style={{ display: "block" }}>
+              <Link href={`/${post}`} style={{ display: "block" }}>
                 <FancyTitle text={posts[post].content.title} />
               </Link>
             </Text>
