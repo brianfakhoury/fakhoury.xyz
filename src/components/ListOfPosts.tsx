@@ -1,4 +1,11 @@
-import { Text, Badge, Spacer, Container, Divider } from "@nextui-org/react";
+import {
+  Text,
+  Badge,
+  Spacer,
+  Container,
+  Divider,
+  Col,
+} from "@nextui-org/react";
 import { NextMarkdown } from "./NextMarkdown";
 import FancyTitle from "./FancyTitle";
 import Link from "next/link";
@@ -12,21 +19,32 @@ export default function ListOfPosts({ posts }) {
           <>
             <Divider />
             <Container
+              display="flex"
+              justify="space-between"
               style={{
-                display: "flex",
-                justifyContent: "space-between",
                 padding: "10px 0",
               }}
             >
-              <Link href={`/${post.slug}`}>
-                <FancyTitle text={post.title} />
-              </Link>
-              <Badge size="sm" color="primary">
-                {new Date(post.date).toLocaleString("en", {
-                  month: "short",
-                  year: "numeric",
-                })}
-              </Badge>
+              <Col span={9}>
+                <Link href={`/${post.slug}`}>
+                  <FancyTitle text={post.title} />
+                </Link>
+              </Col>
+              <Col
+                span={3}
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-start",
+                }}
+              >
+                <Badge size="sm" color="primary">
+                  {new Date(post.date).toLocaleString("en", {
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </Badge>
+              </Col>
             </Container>
           </>
         ))}

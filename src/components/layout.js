@@ -40,10 +40,9 @@ export default function Layout({ children }) {
       <Container sm css={{ p: 0 }}>
         <Spacer y={2} />
         <Grid.Container
-          gap={1}
           justify="space-between"
           alignItems="center"
-          style={{ padding: "0 10px" }}
+          style={{ padding: "0 20px" }}
         >
           <Grid>
             <User
@@ -71,6 +70,7 @@ export default function Layout({ children }) {
               iconOn={<MoonIcon filled />}
               iconOff={<SunIcon filled />}
               onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+              style={{ marginRight: "20px" }}
             />
           </Grid>
         </Grid.Container>
