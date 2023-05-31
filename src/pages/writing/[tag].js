@@ -24,7 +24,9 @@ export default function Writing({ filteredPosts, tag }) {
         <meta property="og:description" content="Catalog of my essays" />
       </Head>
       <Container>
-        <Text>Filtered by #{tag}</Text>
+        <Text h2 style={{ textAlign: "center" }}>
+          #{tag}
+        </Text>
         <Link href="/writing">
           <Text h6>← Back To All Posts</Text>
         </Link>
@@ -37,9 +39,7 @@ export default function Writing({ filteredPosts, tag }) {
 export async function getStaticPaths() {
   const posts = await getPosts();
   const paths = new Set();
-  for (let key in posts) {
-    posts[key].tags.forEach((e) => paths.add(e));
-  }
+  posts.map((post) => post.tags.map((tag) => paths.add(tag)));
   return {
     paths: Array.from(paths).map((slug) => ({
       params: {
@@ -53,9 +53,7 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ params }) => {
   const posts = await getPosts();
   const tag = params["tag"];
-  const filteredPosts = Object.fromEntries(
-    Object.entries(posts).filter(([key, value]) => value.tags.includes(tag))
-  );
+  const filteredPosts = posts.filter((post) => post.tags.includes(tag));
   return {
     props: { filteredPosts, tag },
   };

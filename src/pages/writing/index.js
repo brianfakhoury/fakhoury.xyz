@@ -1,6 +1,7 @@
 import { getPosts } from "lib";
 import ListOfPosts from "src/components/ListOfPosts";
 import Head from "next/head";
+import { Text } from "@nextui-org/react";
 
 export default function Writing({ posts }) {
   return (
@@ -23,6 +24,9 @@ export default function Writing({ posts }) {
         />
         <meta property="og:description" content="Catalog of my essays" />
       </Head>
+      <Text h2 style={{ textAlign: "center" }}>
+        Written Words
+      </Text>
       <ListOfPosts posts={posts} />
     </>
   );

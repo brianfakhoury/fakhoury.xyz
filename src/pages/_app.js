@@ -13,8 +13,8 @@ const baseTheme = {
     gradient:
       "linear-gradient(112deg, $red100 -25%, $yellow500 -10%, $green500 80%)",
     link: "$green800",
-    primary: "$green500",
-    secondary: "$yellow500",
+    primary: "$green600",
+    secondary: "$yellow600",
   },
   fonts: {
     sans: raleway.style.fontFamily,

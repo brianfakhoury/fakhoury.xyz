@@ -7,6 +7,7 @@ import {
   Text,
   Spacer,
   Divider,
+  Grid,
 } from "@nextui-org/react";
 import { getPosts } from "lib";
 import FancyTitle from "src/components/FancyTitle";
@@ -15,38 +16,43 @@ import { default as NextLink } from "next/link";
 function filterOutImages(markdown) {
   // regular expression to match image components in markdown
   const imageRegex = /!\[[^\]]*\]\((.*?)\s*("(?:.*[^"])")?\s*\)/g;
-
   // replace image components with an empty string
   const filteredMarkdown = markdown.replace(imageRegex, "").replace(/\n/g, "");
 
   return filteredMarkdown;
 }
 
-export default function Post({ content, hash, tags }) {
+export default function Post({
+  tags,
+  date,
+  slug,
+  origin,
+  image,
+  description,
+  title,
+  body,
+}) {
   return (
     <Container>
       <Head>
-        <title>{content.title}</title>
-        <meta property="og:title" content={content.title} />
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
         <meta
           property="og:image"
           content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
-            content.title
+            title
           )}`}
         />
         <meta
           property="og:description"
           content={
-            filterOutImages(content.body).split(" ").slice(0, 10).join(" ") +
-            "..."
+            description ||
+            filterOutImages(body).split(" ").slice(0, 10).join(" ") + "..."
           }
         />
       </Head>
-      <Text h1>
-        <FancyTitle text={content.title} />
-      </Text>
       <Badge color="primary">
-        {new Date(content.timestamp * 1000).toLocaleString("en", {
+        {date.toLocaleString("en", {
           month: "short",
           day: "numeric",
           year: "numeric",
@@ -57,24 +63,30 @@ export default function Post({ content, hash, tags }) {
           <Badge color="secondary">#{tag}</Badge>
         </NextLink>
       ))}
-      <Spacer />
-      <NextMarkdown>{content.body}</NextMarkdown>
+      <Spacer y={2} />
+      <Text size="36px" style={{ textAlign: "center" }}>
+        <FancyTitle text={title} />
+      </Text>
+      <Spacer y={2} />
+      <NextMarkdown>{body}</NextMarkdown>
       <Spacer y={2} />
       <Divider />
+      {origin && (
+        <Text size="$xs" color="$gray600" style={{ wordBreak: "break-word" }}>
+          Orignally published at:{" "}
+          <Link
+            color="text"
+            target="_blank"
+            href={origin}
+            style={{ display: "inline" }}
+          >
+            {origin}
+          </Link>
+        </Text>
+      )}
       <NextLink href="/writing">
         <Text size="$sm">← All writing</Text>
       </NextLink>
-      <Text size="$xs" color="$gray600" style={{ wordBreak: "break-word" }}>
-        Arweave transaction:{" "}
-        <Link
-          color="text"
-          isExternal
-          target="_blank"
-          href={`https://viewblock.io/arweave/tx/${hash}`}
-        >
-          {hash}
-        </Link>
-      </Text>
 
       <Spacer y={2} />
     </Container>
@@ -84,10 +96,8 @@ export default function Post({ content, hash, tags }) {
 export async function getStaticPaths() {
   const posts = await getPosts();
   return {
-    paths: Object.keys(posts).map((slug) => ({
-      params: {
-        post: slug,
-      },
+    paths: posts.map((post) => ({
+      params: { post: post.slug },
     })),
     fallback: false,
   };
@@ -95,8 +105,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const posts = await getPosts();
-  let { hash, tags, content } = posts[params["post"]];
+  let target_post = posts.find((post) => post.slug === params["post"]);
+  let { tags, date, slug, origin, image, description, title, body } =
+    target_post;
   return {
-    props: { content, hash, tags },
+    props: { tags, date, slug, origin, image, description, title, body },
   };
 }

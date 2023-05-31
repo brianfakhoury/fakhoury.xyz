@@ -1,23 +1,23 @@
 [
     {
-        "title": "Select Articles",
+        "title": "Select Writing",
         "emoji": "pen",
         "items": [
             {
-                "link": "https://underscore.vc/blog/the-future-is-dao-a-primer-on-daos-and-their-explosive-growth/",
+                "link": "/future-is-dao",
                 "content": "The Future is DAO"
             },
             {
-                "link": "https://mirror.xyz/fakhoury.eth/v0pryMFMTyRiuYMKtwUEPEPSomdcE6XN1XEhuEba1xw",
+                "link": "hybrid-compute",
                 "content": "Hybrid Compute Smart Contract Platforms"
             },
             {
-                "link": "https://mirror.xyz/fakhoury.eth/w-lp0GNww9Ere8py64M2wI18PD9aEKQjUEL20pzq_mU",
+                "link": "history-rhymes",
                 "content": "History Rhymes, In Defense Of Crypto"
             },
             {
-                "link": "https://brianfakhoury.medium.com/alchemix-is-the-future-of-money-legos-aaab8196207a",
-                "content": "Alchemix Is The Future of Money Legos"
+                "link": "million-markets",
+                "content": "A Million Markets"
             }
         ]
     },
@@ -147,6 +147,11 @@
         "emoji": "money_check_1",
         "items": [
             {
+                "link": "https://www.antimetal.com/",
+                "content": "Antimetal",
+                "modifier": "(pre-seed)"
+            },
+            {
                 "link": "https://monet.world/",
                 "content": "Monet",
                 "modifier": "(pre-seed)"
@@ -183,7 +188,7 @@
         ]
     },
     {
-        "title": "Cool Technical Projects",
+        "title": "Projects",
         "emoji": "beaker_1",
         "items": [
             {

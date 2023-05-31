@@ -1,14 +1,19 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
 import LINKS from "./data/links.json";
 import POSTS from "./data//posts.json";
 
-type Posts = {
-  hash: String;
-  tags: [String];
-  content: {
-    body: String;
-    title: String;
-    timestamp: String;
-  };
+type Post = {
+  tags: String[];
+  date: Date;
+  slug: String;
+  origin: String[];
+  image: String;
+  description: String;
+  title: String;
+  body: String;
 };
 
 type Links = [
@@ -24,22 +29,43 @@ type Links = [
   }
 ];
 
-export const getPosts = async (): Promise<Posts> => {
-  console.log("Called POSTS");
-  if (global.POSTS_CACHE) {
-    return global.POSTS_CACHE;
-  }
-  console.log("BUILDING POSTS");
-  const posts = JSON.parse(JSON.stringify(POSTS));
-  for (const key in posts) {
-    let data = await fetch(
-      `https://nylbrpc3wbgdhwigt7iwja2jfrsnzl4xgfwgm3sxnrhwoupebtrq.arweave.net/${posts[key]["hash"]}`
-    );
-    let { content } = await data.json();
-    posts[key]["content"] = content;
-  }
-  global.POSTS_CACHE = posts;
-  return posts;
-};
+let cachedPosts: Post[] | null = null;
+
+export async function getPosts(): Promise<Post[]> {
+  return new Promise((resolve, reject) => {
+    try {
+      if (cachedPosts) {
+        resolve(cachedPosts);
+      }
+
+      const markdownFilesPath = path.join(process.cwd(), "lib/data/Blog");
+      const markdownFileNames = fs.readdirSync(markdownFilesPath);
+
+      const posts: Post[] = markdownFileNames
+        .filter((file) => file.endsWith(".md"))
+        .map((filename) => {
+          const filePath = path.join(markdownFilesPath, filename);
+          const fileContents = fs.readFileSync(filePath, "utf8");
+          const { data, content } = matter(fileContents);
+
+          return {
+            tags: data.tags.split(", ").map((tag) => tag.substring(5)),
+            date: data.date,
+            slug: data.slug,
+            origin: data.origin,
+            image: data.image,
+            description: data.description,
+            title: content.substring(2, content.indexOf("\n\n") + 1),
+            body: content.substring(content.indexOf("\n\n") + 1),
+          };
+        });
+
+      cachedPosts = posts;
+      resolve(posts);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
 
 export const getLinks = (): Links => JSON.parse(JSON.stringify(LINKS));

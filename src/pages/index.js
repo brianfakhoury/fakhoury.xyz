@@ -41,6 +41,7 @@ export default function Home({ renderDate, links }) {
       </Head>
 
       <Container fluid>
+        <Spacer y={2} />
         <Card css={{ background: "$gradient", p: 0 }} variant="flat">
           <Card.Body css={{ p: "25px 15px" }}>
             <Container css={{ background: "$background", borderRadius: "$md" }}>
@@ -51,9 +52,11 @@ export default function Home({ renderDate, links }) {
               </Text>
               <Text size="$sm">
                 You can continue down to my links or see my writings{" "}
-                <Link href="writing">here</Link>. My days are currently occupied
-                investing in and researching blockchain networks and crypto
-                assets.
+                <Link href="writing">here</Link>.
+              </Text>
+              <Text size="$sm">
+                My days are currently occupied investing in and researching
+                blockchain networks and crypto assets.
               </Text>
               <Text size="$sm">
                 My primary motivation is a strong will to work with hard
@@ -123,7 +126,6 @@ export default function Home({ renderDate, links }) {
       <Spacer y={1} />
 
       <Footer date={renderDate} />
-      <Spacer />
     </>
   );
 }
