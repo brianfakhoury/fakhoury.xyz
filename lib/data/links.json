@@ -192,6 +192,14 @@
         "emoji": "beaker_1",
         "items": [
             {
+                "link": "https://lion-brianfakhoury.vercel.app/",
+                "content": "Lion"
+            },
+            {
+                "link": "https://github.com/brianfakhoury/extensions/tree/main/extensions/mem",
+                "content": "Mem Extension for Raycast"
+            },
+            {
                 "link": "https://github.com/brianfakhoury/Ether-Forms",
                 "content": "Ether Forms"
             },

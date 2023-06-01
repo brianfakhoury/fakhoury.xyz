@@ -5,7 +5,13 @@ export const config = {
   runtime: "edge",
 };
 
-export default function handler(req: NextRequest) {
+let posts = [];
+
+function findPostByTitle(title: string, posts) {
+  return posts.find((post) => post.title.includes(title));
+}
+
+export default async function handler(req: NextRequest) {
   try {
     const { searchParams, host } = new URL(req.url);
 
@@ -14,6 +20,18 @@ export default function handler(req: NextRequest) {
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
       : "My default title";
+
+    if (posts.length === 0) {
+      let data = await (
+        await fetch(
+          `http://${host}/api/getPosts?title=${searchParams.get("title")}`
+        )
+      ).json();
+      posts = data.posts;
+    }
+
+    let post = findPostByTitle(title as string, posts);
+    let image = post.image;
 
     return new ImageResponse(
       (
@@ -27,9 +45,29 @@ export default function handler(req: NextRequest) {
             justifyContent: "center",
           }}
         >
+          {image && (
+            <img
+              src={
+                image.startsWith("http")
+                  ? `${image}`
+                  : `http://${host}/${image}`
+              }
+              style={{
+                position: "absolute",
+                left: "0",
+                top: "0",
+                width: "100%",
+                height: "100%",
+                maxHeight: "100%",
+                maxWidth: "100%",
+                objectFit: "cover",
+              }}
+            />
+          )}
           <div
             style={{
-              background: "rgb(0, 0, 0)",
+              background:
+                "linear-gradient(to top right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)",
               height: "96%",
               width: "97%",
               display: "flex",
@@ -38,6 +76,7 @@ export default function handler(req: NextRequest) {
               flexWrap: "nowrap",
               padding: "100px",
               borderRadius: "40px",
+              overflow: "hidden",
             }}
           >
             <div

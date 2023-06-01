@@ -6,6 +6,7 @@ import {
   Spacer,
   Collapse,
   Card,
+  Badge,
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
@@ -13,10 +14,12 @@ import { Footer } from "../components/Footer";
 import { getLinks } from "lib";
 import { Great_Vibes } from "next/font/google";
 import Link from "next/link";
+import FancyTitle from "src/components/FancyTitle";
+import { getPosts } from "lib";
 
 const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
-export default function Home({ renderDate, links }) {
+export default function Home({ renderDate, links, latest_post }) {
   useEffect(() => {
     setMounted(true);
     let x = JSON.parse(localStorage.getItem("count"));
@@ -42,6 +45,19 @@ export default function Home({ renderDate, links }) {
 
       <Container fluid>
         <Spacer y={2} />
+        <Card isHoverable isPressable disableRipple variant="bordered">
+          <Card.Body css={{ p: "0 20px" }}>
+            <Text>
+              <Badge color="primary" variant="dot" /> New writing:{" "}
+              <Link href={latest_post.slug}>
+                <FancyTitle text={latest_post.title} />
+              </Link>
+            </Text>
+          </Card.Body>
+        </Card>
+
+        <Spacer y={2} />
+
         <Card css={{ background: "$gradient", p: 0 }} variant="flat">
           <Card.Body css={{ p: "25px 15px" }}>
             <Container css={{ background: "$background", borderRadius: "$md" }}>
@@ -51,7 +67,7 @@ export default function Home({ renderDate, links }) {
                 Brian.
               </Text>
               <Text size="$sm">
-                You can continue down to my links or see my writings{" "}
+                You can continue down to my links or see my writing archive{" "}
                 <Link href="writing">here</Link>.
               </Text>
               <Text size="$sm">
@@ -63,27 +79,6 @@ export default function Home({ renderDate, links }) {
                 problems and use new technology. I&apos;m a student of first
                 principles and rationality. .
               </Text>
-              {/* <Grid.Container justify="flex-end" alignItems="center">
-                <Heart
-                  isclicked={isclicked}
-                  onClick={() => {
-                    if (isclicked) {
-                      setClick(false);
-                      setCount(count - 1);
-                      localStorage.setItem("count", JSON.stringify(count - 1));
-                      localStorage.setItem("clicked", JSON.stringify(false));
-                    } else {
-                      setClick(true);
-                      setCount(count + 1);
-                      localStorage.setItem("count", JSON.stringify(count + 1));
-                      localStorage.setItem("clicked", JSON.stringify(true));
-                    }
-                  }}
-                />
-                <Text small color="gray">
-                  {count}
-                </Text>
-              </Grid.Container> */}
             </Container>
           </Card.Body>
         </Card>
@@ -131,10 +126,15 @@ export default function Home({ renderDate, links }) {
 }
 
 export async function getStaticProps() {
+  const posts = await getPosts();
+  let latest_post = posts.reduce((latest, post) =>
+    new Date(post.date) > new Date(latest.date) ? post : latest
+  );
   return {
     props: {
       renderDate: JSON.stringify(new Date()),
       links: getLinks(),
+      latest_post: latest_post,
     },
   };
 }
