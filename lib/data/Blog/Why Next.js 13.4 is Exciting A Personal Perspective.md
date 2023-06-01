@@ -9,7 +9,7 @@ description:
 ---
 # Why Next.js 13.4 is Exciting: A Personal Perspective
 
-Hello fellow tech enthusiasts! As someone who spends my weekends hacking away on personal projects, I've got some exciting news to share. If you're like me, using Next.js to build your personal blog, or perhaps working on a weekend crypto project, or even creating scripts for your day job, you're going to love the latest update from Next.js - version 13.4!
+If you're like me, using Next.js to hack a personal blog together on the weekend, you're going to love the latest update from Next.js - version 13.4!
 
 ## A Little Background: The Page Router
 
@@ -27,7 +27,7 @@ This approach was simple and intuitive, but it had its limitations. The main con
 
 ## The Game Changer: The App Router
 
-Now, let's get to the exciting part. Next.js 13.4 introduces a new feature called the App Router, which is a game changer for hobbyist developers like us. The App Router allows us to have a single 'app' directory where we can organize our pages alongside any other related files. This concept is known as colocation and it allows for more efficient development.
+Now, let's get to the exciting part. Next.js 13.4 introduces a new feature called the App Router, which is a game changer for hobbyist developers like myself. The App Router allows us to have a single 'app' directory where we can organize our pages alongside any other related files. This concept is known as colocation and it allows for more efficient development.
 
 ```jsx
 // app/blog/page.tsx
