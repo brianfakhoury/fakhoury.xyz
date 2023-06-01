@@ -57,8 +57,8 @@ export default function Post({
   return (
     <Container>
       <Head>
-        <title>{title}</title>
-        <meta property="og:title" content={title}></meta>
+        <title>{title.trim()}</title>
+        <meta property="og:title" content={title.trim()}></meta>
         <meta
           property="og:image"
           content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
@@ -73,7 +73,7 @@ export default function Post({
           property="description"
           content={getOgDescription(body, description)}
         />
-        <meta property="twitter:title" content={title}></meta>
+        <meta property="twitter:title" content={title.trim()}></meta>
         <meta
           property="twitter:description"
           content={getOgDescription(body, description)}

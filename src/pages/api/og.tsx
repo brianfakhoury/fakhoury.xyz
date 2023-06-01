@@ -7,6 +7,11 @@ export const config = {
 
 let posts = [];
 
+let static_map = {
+  Homepage: "homepage.png",
+  Writing: "writing.png",
+};
+
 function findPostByTitle(title: string, posts) {
   return posts.find((post) => post.title.includes(title));
 }
@@ -32,6 +37,10 @@ export default async function handler(req: NextRequest) {
 
     let post = findPostByTitle(title as string, posts);
     let image = post?.image;
+
+    if (Object.keys(static_map).includes(title)) {
+      image = static_map[title];
+    }
 
     return new ImageResponse(
       (
@@ -68,14 +77,14 @@ export default async function handler(req: NextRequest) {
             style={{
               background:
                 "linear-gradient(to top right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)",
-              height: "96%",
-              width: "97%",
+              height: "100%",
+              width: "100%",
               display: "flex",
               alignItems: "flex-start",
               flexDirection: "row",
               flexWrap: "nowrap",
               padding: "100px",
-              borderRadius: "40px",
+              // borderRadius: "40px",
               overflow: "hidden",
             }}
           >
