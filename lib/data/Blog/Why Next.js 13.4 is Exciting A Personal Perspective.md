@@ -71,9 +71,7 @@ Here's a glimpse at how I might structure a project using the App Router:
 app/
 ├── components/
 │   └── FancyButton/
-│      
-
-└── FancyButton.tsx
+│	│   └── FancyButton.tsx
 ├── blog/
 │   ├── BlogPost/
 │   │   └── BlogPost.tsx
