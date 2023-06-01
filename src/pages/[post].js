@@ -75,6 +75,10 @@ export default function Post({
         />
         <meta property="twitter:title" content={title}></meta>
         <meta
+          property="twitter:description"
+          content={getOgDescription(body, description)}
+        ></meta>
+        <meta
           property="twitter:image"
           content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
             title
