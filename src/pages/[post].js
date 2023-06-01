@@ -58,7 +58,7 @@ export default function Post({
     <Container>
       <Head>
         <title>{title}</title>
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={title}></meta>
         <meta
           property="og:image"
           content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
@@ -69,6 +69,17 @@ export default function Post({
           property="og:description"
           content={getOgDescription(body, description)}
         />
+        <meta
+          property="description"
+          content={getOgDescription(body, description)}
+        />
+        <meta property="twitter:title" content={title}></meta>
+        <meta
+          property="twitter:image"
+          content={`https://fakhoury.xyz/api/og?title=${encodeURIComponent(
+            title
+          )}`}
+        ></meta>
       </Head>
       <Container display="flex" direction="column" css={{ height: "350px" }}>
         <Text small>

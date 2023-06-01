@@ -31,7 +31,7 @@ export default async function handler(req: NextRequest) {
     }
 
     let post = findPostByTitle(title as string, posts);
-    let image = post.image;
+    let image = post?.image;
 
     return new ImageResponse(
       (
