@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lauriys/react-palette": "^1.0.5",
     "@nextui-org/react": "^1.0.0-beta.7",
     "@vercel/og": "^0.0.27",
+    "color-thief-react": "^2.1.0",
+    "colorthief": "^2.4.0",
     "goober": "^2.1.9",
     "gray-matter": "^4.0.3",
     "image-size": "^1.0.2",

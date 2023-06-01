@@ -7,19 +7,31 @@ import {
   Text,
   Spacer,
   Divider,
-  Grid,
+  useTheme,
 } from "@nextui-org/react";
 import { getPosts } from "lib";
 import FancyTitle from "src/components/FancyTitle";
-import { default as NextLink } from "next/link";
+import NextLink from "next/link";
+import { useEffect, useState } from "react";
+import { usePalette } from "color-thief-react";
+import { getBrightness } from "utils/colorUtils";
+import { filterOutImages } from "utils/markdownUtils";
 
-function filterOutImages(markdown) {
-  // regular expression to match image components in markdown
-  const imageRegex = /!\[[^\]]*\]\((.*?)\s*("(?:.*[^"])")?\s*\)/g;
-  // replace image components with an empty string
-  const filteredMarkdown = markdown.replace(imageRegex, "").replace(/\n/g, "");
+function getCoverColor(data, isDark) {
+  for (const color of data) {
+    let brightness = getBrightness(color);
+    if ((isDark && brightness < 60) || (!isDark && brightness > 150)) {
+      return color;
+    }
+  }
+  return "$background";
+}
 
-  return filteredMarkdown;
+function getOgDescription(body, description) {
+  return (
+    description ||
+    filterOutImages(body).split(" ").slice(0, 10).join(" ") + "..."
+  );
 }
 
 export default function Post({
@@ -32,6 +44,16 @@ export default function Post({
   title,
   body,
 }) {
+  const [coverColor, setCoverColor] = useState("$background");
+  const { data, error } = usePalette(image, 8, "hex");
+  const { isDark } = useTheme();
+
+  useEffect(() => {
+    if (data) {
+      setCoverColor(getCoverColor(data, isDark));
+    }
+  }, [data, isDark]);
+
   return (
     <Container>
       <Head>
@@ -45,29 +67,71 @@ export default function Post({
         />
         <meta
           property="og:description"
-          content={
-            description ||
-            filterOutImages(body).split(" ").slice(0, 10).join(" ") + "..."
-          }
+          content={getOgDescription(body, description)}
         />
       </Head>
-      <Badge color="primary">
-        {date.toLocaleString("en", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        })}
-      </Badge>
-      {tags.map((tag, i) => (
-        <NextLink href={`/writing/${tag}`} key={i}>
-          <Badge color="secondary">#{tag}</Badge>
-        </NextLink>
-      ))}
-      <Spacer y={2} />
-      <Text size="36px" style={{ textAlign: "center" }}>
-        <FancyTitle text={title} />
-      </Text>
-      <Spacer y={2} />
+      <Container display="flex" direction="column" css={{ height: "350px" }}>
+        <Text small>
+          {date.toLocaleString("en", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </Text>
+        <Text size="4vh">
+          <FancyTitle text={title} />
+        </Text>
+      </Container>
+
+      <Container
+        css={{
+          position: "absolute",
+          p: "0",
+          margin: "0",
+          top: "0",
+          left: "0",
+          width: "100vw",
+          height: "500px",
+          zIndex: "-1",
+          maxWidth: "100%",
+        }}
+      >
+        {image ? (
+          <img
+            style={{
+              position: "absolute",
+              bottom: "0",
+              width: "100%",
+              height: "auto",
+            }}
+            src={image}
+          />
+        ) : (
+          <Container
+            css={{
+              width: "100%",
+              height: "100%",
+              backgroundColor: "$green50",
+              maxWidth: "100%",
+            }}
+          />
+        )}
+        <Container
+          css={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "100%",
+            maxWidth: "100%",
+            bg: `linear-gradient(to bottom, ${coverColor}, ${coverColor} 75%, transparent)`,
+            zIndex: "1",
+            "@xs": {
+              bg: `linear-gradient(to bottom, ${coverColor}, ${coverColor} 50%, transparent)`,
+            },
+          }}
+        />
+      </Container>
       <NextMarkdown>{body}</NextMarkdown>
       <Spacer y={2} />
       <Divider />
@@ -84,6 +148,11 @@ export default function Post({
           </Link>
         </Text>
       )}
+      {tags.map((tag, i) => (
+        <NextLink href={`/writing/${tag}`} key={i}>
+          <Badge color="neutral">#{tag}</Badge>
+        </NextLink>
+      ))}
       <NextLink href="/writing">
         <Text size="$sm">← All writing</Text>
       </NextLink>
@@ -96,18 +165,16 @@ export default function Post({
 export async function getStaticPaths() {
   const posts = await getPosts();
   return {
-    paths: posts.map((post) => ({
-      params: { post: post.slug },
-    })),
+    paths: posts.map((post) => ({ params: { post: post.slug } })),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   const posts = await getPosts();
-  let target_post = posts.find((post) => post.slug === params["post"]);
-  let { tags, date, slug, origin, image, description, title, body } =
-    target_post;
+  const { tags, date, slug, origin, image, description, title, body } =
+    posts.find((post) => post.slug === params["post"]);
+
   return {
     props: { tags, date, slug, origin, image, description, title, body },
   };

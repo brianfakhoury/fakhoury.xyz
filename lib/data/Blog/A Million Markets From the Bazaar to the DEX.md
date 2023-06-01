@@ -2,14 +2,12 @@
 tags: blog/crypto, blog/markets, blog/history
 date: Feb 24, 2023
 publish: true
-image: Assets/4uwmDDmCZiLa7Pkp_hMNC.jpg
+image: Blog/Assets/4uwmDDmCZiLa7Pkp_hMNC.jpg
 slug: million-markets
 origin: https://mirror.xyz/fakhoury.eth/0aHTR9U5cUlF2oF0PkyHAYsFnaM-LxkVHqEDUAmdrGs
 description: 
 ---
 # A Million Markets: From the Bazaar to the DEX
-
-![](Blog/Assets/4uwmDDmCZiLa7Pkp_hMNC.jpg)
 
 At Mechanism Capital, I come across countless investment opportunities in the incipient decentralized finance (DeFi) industry. When I do, I usually share the same reaction with my team: “it's another perp market” or “it’s just a uniswap fork”. Despite this abundance of market infrastructure, our reactions to this pattern likely stem from the observation that there are not many useful crypto assets to be traded. It’s like having the most luxurious, expansive supermarket imaginable with the most sophisticated automation tech and an incredibly optimized customer experience, yet it has only a meager selection of customers and products. After months of dismissing this observation, I finally began to investigate the reason behind this phenomenon. I realized that this is not a fleeting trend, it is an unavoidable evolution of markets and the optimal way of distributing economic power to individuals. We are now in the dawn of a million markets, and it is a revolution.
 

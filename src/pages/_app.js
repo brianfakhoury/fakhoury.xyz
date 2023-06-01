@@ -22,6 +22,11 @@ const baseTheme = {
   letterSpacings: { tighter: "0.05em" },
   fontSizes: {
     base: "1.05rem",
+    xl: "1.1rem",
+    "2xl": "1.2rem",
+    "3xl": "1.3rem",
+    "4xl": "1.5rem",
+    "5xl": "2rem",
   },
 };
 

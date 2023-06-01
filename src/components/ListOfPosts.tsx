@@ -16,7 +16,7 @@ export default function ListOfPosts({ posts }) {
       {posts
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .map((post, i) => (
-          <>
+          <div key={i}>
             <Divider />
             <Container
               display="flex"
@@ -46,7 +46,7 @@ export default function ListOfPosts({ posts }) {
                 </Badge>
               </Col>
             </Container>
-          </>
+          </div>
         ))}
     </ul>
   );

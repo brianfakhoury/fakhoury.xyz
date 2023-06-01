@@ -16,3 +16,7 @@ ul, ol {
 * {
   box-sizing: border-box;
 }
+
+body {
+  z-index: 0;
+}
