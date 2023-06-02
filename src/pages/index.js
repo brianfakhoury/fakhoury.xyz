@@ -10,7 +10,6 @@ import {
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import CircumIcon from "@klarr-agency/circum-icons-react";
-import { Footer } from "../components/Footer";
 import { getLinks } from "lib";
 import { Great_Vibes } from "next/font/google";
 import Link from "next/link";
@@ -43,7 +42,7 @@ export default function Home({ renderDate, links, latest_post }) {
         />
       </Head>
 
-      <Container fluid>
+      <Container fluid css={{ maxW: "600px" }}>
         <Spacer y={2} />
         <Card isHoverable isPressable disableRipple variant="bordered">
           <Card.Body css={{ p: "0 20px" }}>
@@ -119,8 +118,6 @@ export default function Home({ renderDate, links, latest_post }) {
       </Container>
 
       <Spacer y={1} />
-
-      <Footer date={renderDate} />
     </>
   );
 }
@@ -132,7 +129,6 @@ export async function getStaticProps() {
   );
   return {
     props: {
-      renderDate: JSON.stringify(new Date()),
       links: getLinks(),
       latest_post: latest_post,
     },
