@@ -109,6 +109,7 @@ export default function Post({
           height: "500px",
           zIndex: "-1",
           maxWidth: "100%",
+          overflow: "hidden",
         }}
       >
         {image ? (
@@ -147,7 +148,41 @@ export default function Post({
           }}
         />
       </Container>
-      <NextMarkdown>{body}</NextMarkdown>
+      <Container
+        className="post"
+        css={{
+          "& > :first-child::first-letter": {
+            initialLetter: "2",
+            p: "0 8px",
+            fontFamily: "serif",
+          },
+          borderLeft: "1px solid $gray50",
+          borderRight: "1px solid $gray50",
+          padding: "0 30px",
+          "h2, h3": {
+            position: "relative",
+            paddingLeft: "20px",
+          },
+          "& h2::before, h3::before": {
+            content: "",
+            position: "absolute",
+            top: "0",
+            bottom: "0",
+            left: "0",
+            width: "5px",
+            backgroundColor: "$green600",
+          },
+          "@media (max-width: 599px)": {
+            "&": {
+              borderLeft: "none",
+              borderRight: "none",
+              padding: "0",
+            },
+          },
+        }}
+      >
+        <NextMarkdown>{body}</NextMarkdown>
+      </Container>
       <Spacer y={2} />
       <Divider />
       {origin && (

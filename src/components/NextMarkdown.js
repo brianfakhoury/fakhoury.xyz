@@ -1,15 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import remarkUnwrapImages from "remark-unwrap-images";
-// import sizeOf from "image-size";
 import { Text, Link, Container, Spacer } from "@nextui-org/react";
-import Image from "next/image";
 
 export const NextMarkdown = ({ children }) => {
-  const getRemoteImage = (src) => {
-    let image = fetch(src);
-    console.log(image);
-    return image;
-  };
   return (
     <ReactMarkdown
       remarkPlugins={[remarkUnwrapImages]}

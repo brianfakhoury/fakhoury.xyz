@@ -9,9 +9,9 @@ description:
 ---
 # Exciting New Features in ECMAScript 2023 (ES14)
 
-> [!info] Transparency notice: This article was written with the help of GPT4.
-
 ECMAScript, the standard specification that JavaScript is based on, has been evolving rapidly over the years. With each new edition, it introduces a set of features that aim to improve the language, making it more powerful, flexible, and easier to work with. The 14th edition, ECMAScript 2023 (also known as ES14), is no exception. This article will explore some of the coolest features introduced in ES14 that developers should start using as soon as possible.
+
+> [!info] Transparency notice: This article was written with the help of GPT4.
 
 ## 1. Array.prototype and TypedArray.prototype Enhancements
 

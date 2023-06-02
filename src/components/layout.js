@@ -37,7 +37,7 @@ export default function Layout({ children }) {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
       </Head>
-      <Container sm css={{ p: 0 }}>
+      <Container md css={{ p: 0 }}>
         <Grid.Container
           justify="space-between"
           alignItems="center"
@@ -73,7 +73,7 @@ export default function Layout({ children }) {
             />
           </Grid>
         </Grid.Container>
-        <Container xs css={{ p: 0 }}>
+        <Container sm css={{ p: 0 }}>
           {children}
         </Container>
         <Spacer y={3} />

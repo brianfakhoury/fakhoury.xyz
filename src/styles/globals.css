@@ -9,7 +9,7 @@ a {
   word-wrap: break-word;
 }
 
-ul, ol {
+ul {
   list-style: circle;
 }
 
