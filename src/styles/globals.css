@@ -20,3 +20,7 @@ ul {
 body {
   z-index: 0;
 }
+
+& > :first-child::first-letter {
+  -webkit-initial-letter: "2"
+}
