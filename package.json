@@ -26,10 +26,10 @@
     "react-markdown": "^8.0.5",
     "remark-slug": "^7.0.1",
     "remark-toc": "^8.0.1",
-    "remark-unwrap-images": "^3.0.1"
+    "remark-unwrap-images": "^3.0.1",
+    "@klarr-agency/circum-icons-react": "^2.0.1"
   },
   "devDependencies": {
-    "@klarr-agency/circum-icons-react": "^2.0.1",
     "@types/node": "18.11.18",
     "eslint": "8.16.0",
     "eslint-config-next": "^13.1.6"

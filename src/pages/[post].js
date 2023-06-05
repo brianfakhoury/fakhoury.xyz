@@ -20,7 +20,7 @@ import { filterOutImages } from "utils/markdownUtils";
 function getCoverColor(data, isDark) {
   for (const color of data) {
     let brightness = getBrightness(color);
-    if ((isDark && brightness < 60) || (!isDark && brightness > 150)) {
+    if ((isDark && brightness < 60) || (!isDark && brightness > 180)) {
       return color;
     }
   }
@@ -45,7 +45,7 @@ export default function Post({
   body,
 }) {
   const [coverColor, setCoverColor] = useState("$background");
-  const { data, error } = usePalette(image, 8, "hex");
+  const { data, error } = usePalette(image, 10, "hex");
   const { isDark } = useTheme();
 
   useEffect(() => {
@@ -110,6 +110,8 @@ export default function Post({
           zIndex: "-1",
           maxWidth: "100%",
           overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         {image ? (
@@ -119,6 +121,8 @@ export default function Post({
               bottom: "0",
               width: "100%",
               height: "auto",
+              maxWidth: "1000px",
+              borderRadius: "20px",
             }}
             src={image}
           />
@@ -140,7 +144,7 @@ export default function Post({
             width: "100%",
             height: "100%",
             maxWidth: "100%",
-            bg: `linear-gradient(to bottom, ${coverColor}, ${coverColor} 75%, transparent)`,
+            bg: `linear-gradient(to bottom, ${coverColor}, ${coverColor} 65%, transparent)`,
             zIndex: "1",
             "@xs": {
               bg: `linear-gradient(to bottom, ${coverColor}, ${coverColor} 50%, transparent)`,

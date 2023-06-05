@@ -55,7 +55,7 @@ export default function Layout({ children }) {
             >
               <User.Link
                 href="https://twitter.com/brianfakhoury"
-                css={{ color: "$link" }}
+                css={{ color: "$accents8" }}
               >
                 @brianfakhoury
               </User.Link>

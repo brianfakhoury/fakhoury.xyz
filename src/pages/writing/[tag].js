@@ -26,10 +26,10 @@ export default function Writing({ filteredPosts, tag }) {
       <Container>
         <Text h2 style={{ textAlign: "center" }}>
           #{tag}
+          <Link href="/writing">
+            <Text h6>← Back To All Posts</Text>
+          </Link>
         </Text>
-        <Link href="/writing">
-          <Text h6>← Back To All Posts</Text>
-        </Link>
       </Container>
       <ListOfPosts posts={filteredPosts} />
     </>

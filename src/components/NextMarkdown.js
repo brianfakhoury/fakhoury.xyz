@@ -1,6 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { Text, Link, Container, Spacer } from "@nextui-org/react";
+import remarkToc from "remark-toc";
+import remarkSlug from "remark-slug";
 
 export const NextMarkdown = ({ children }) => {
   return (
