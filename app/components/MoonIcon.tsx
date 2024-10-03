@@ -1,20 +1,30 @@
-import { React } from "@nextui-org/react";
+import { SVGProps } from "react";
+
+interface MoonIconProps extends SVGProps<SVGSVGElement> {
+  fill?: string;
+  filled?: boolean;
+  size?: number;
+  height?: number;
+  width?: number;
+  label?: string;
+}
 
 export const MoonIcon = ({
   fill = "currentColor",
-  filled,
+  filled = false,
   size,
   height,
   width,
   label,
   ...props
-}) => {
+}: MoonIconProps) => {
   if (filled) {
     return (
       <svg
         width={size || width || 24}
         height={size || height || 24}
         viewBox="0 0 24 24"
+        aria-label={label}
         {...props}
       >
         <path
@@ -30,6 +40,7 @@ export const MoonIcon = ({
       width={size || width || 24}
       height={size || height || 24}
       viewBox="0 0 24 24"
+      aria-label={label}
       {...props}
     >
       <path

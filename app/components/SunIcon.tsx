@@ -1,20 +1,30 @@
-import { React } from "@nextui-org/react";
+import { SVGProps } from "react";
+
+interface SunIconProps extends SVGProps<SVGSVGElement> {
+  fill?: string;
+  filled?: boolean;
+  size?: number;
+  height?: number;
+  width?: number;
+  label?: string;
+}
 
 export const SunIcon = ({
   fill = "currentColor",
-  filled,
+  filled = false,
   size,
   height,
   width,
   label,
   ...props
-}) => {
+}: SunIconProps) => {
   if (filled) {
     return (
       <svg
         width={size || width || 24}
         height={size || height || 24}
         viewBox="0 0 24 24"
+        aria-label={label}
         {...props}
       >
         <g fill={fill}>
@@ -24,12 +34,14 @@ export const SunIcon = ({
       </svg>
     );
   }
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size || width || 24}
       height={size || height || 24}
       viewBox="0 0 24 24"
+      aria-label={label}
       {...props}
     >
       <path

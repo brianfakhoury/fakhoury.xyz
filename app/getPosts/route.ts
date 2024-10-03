@@ -1,6 +1,5 @@
-// next api route that exposes the getPosts function from the lib folder and returns the posts array
 import { NextApiRequest, NextApiResponse } from "next";
-import { getPosts } from "../../../lib";
+import { getPosts } from "../../lib";
 
 export default async function handler(
   req: NextApiRequest,
