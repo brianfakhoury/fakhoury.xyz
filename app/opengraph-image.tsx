@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { headers } from 'next/headers' // Import headers function from Next.js
+import { headers } from 'next/headers'
 
 export const runtime = 'edge'
 

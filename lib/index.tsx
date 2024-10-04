@@ -1,33 +1,9 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { Post, Links } from "@/types";
 
-import LINKS from "./data/links.json";
-import POSTS from "./data//posts.json";
-
-type Post = {
-  tags: String[];
-  date: Date;
-  slug: String;
-  origin: String[];
-  image: String;
-  description: String;
-  title: String;
-  body: String;
-};
-
-type Links = [
-  {
-    title: String;
-    emoji?: String;
-    items: [
-      {
-        link: String;
-        title: String;
-      }
-    ];
-  }
-];
+import LINKS from "@/data/links.json";
 
 let cachedPosts: Post[] | null = null;
 
@@ -38,7 +14,7 @@ export async function getPosts(): Promise<Post[]> {
         resolve(cachedPosts);
       }
 
-      const markdownFilesPath = path.join(process.cwd(), "lib/data/Blog");
+      const markdownFilesPath = path.join(process.cwd(), "data/blog");
       const markdownFileNames = fs.readdirSync(markdownFilesPath);
 
       const posts: Post[] = markdownFileNames
@@ -49,7 +25,7 @@ export async function getPosts(): Promise<Post[]> {
           const { data, content } = matter(fileContents);
 
           return {
-            tags: data.tags.split(", ").map((tag) => tag.substring(5)),
+            tags: data.tags.split(", ").map((tag: String) => tag.substring(5)),
             date: data.date,
             slug: data.slug,
             origin: data.origin,

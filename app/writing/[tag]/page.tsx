@@ -1,5 +1,7 @@
-import { getPosts } from "../../../lib";
-import ClientTagPosts from "./ClientTagPosts";
+import { getPosts } from "@/lib";
+import ListOfPosts from "@/components/ListOfPosts";
+import { Link } from "@nextui-org/react";
+
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -18,7 +20,17 @@ export default async function TagPage({ params }) {
 
   return (
     <div>
-      <ClientTagPosts posts={filteredPosts} tag={tag} />
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl text-center font-bold my-4">
+          #{tag}
+        </h2>
+        <div className="text-center my-2">
+          <Link href="/writing">
+              ← Back To All Posts
+          </Link>
+        </div>
+      </div>
+      <ListOfPosts posts={filteredPosts} />
     </div>
   );
 }

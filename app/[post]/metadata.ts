@@ -1,5 +1,5 @@
 // app/[post]/metadata.ts
-import { getPosts } from "../../lib";
+import { getPosts } from "@/lib";
 
 export async function generateMetadata({ params }) {
   const posts = await getPosts();
