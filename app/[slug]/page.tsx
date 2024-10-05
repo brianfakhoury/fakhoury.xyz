@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 interface PostPageProps {
-  params: {slug: string}
+  params: { slug: string };
 }
 
 export default async function PostPage({ params }: PostPageProps) {
@@ -45,7 +45,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </Link>
         </p>
       )}
-      <div className="absolute inset-0 max-w-screen-lg h-[550px] z-[-3] mx-auto overflow-hidden	">
+      <div className="absolute inset-0 max-w-screen-xl h-[550px] z-[-3] mx-auto overflow-hidden	">
         {image ? (
           <>
             <Image
@@ -64,12 +64,12 @@ export default async function PostPage({ params }: PostPageProps) {
         />
       </div>
 
-      <div className="relative">
+      <div className="mt-20 sm:mt-5 relative">
         {image && (
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-background/40 to-background to-50% z-[-2]" />
         )}
         <ReactMarkdown
-          className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left"
+          className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"
           components={{
             img: ({ ...props }) => (
               <figure>
