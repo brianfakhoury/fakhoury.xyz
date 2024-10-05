@@ -1,20 +1,24 @@
 import { getPosts } from "@/lib";
 import Image from "next/image";
 import { Link } from "@nextui-org/react";
-import { getCoverColorFromImage, formatDate } from "@/lib/utils";
+import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import React from "react";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
   return posts.map((post) => ({
-    post: post.slug,
+    slug: post.slug,
   }));
 }
 
-export default async function PostPage({ params }) {
+interface PostPageProps {
+  params: {slug: string}
+}
+
+export default async function PostPage({ params }: PostPageProps) {
   const posts = await getPosts();
-  const post = posts.find((post) => post.slug === params.post);
+  const post = posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     return <div>Post not found</div>;
@@ -25,16 +29,23 @@ export default async function PostPage({ params }) {
   // Correct the image path
   const imagePath = image ? (image.startsWith("/") ? image : `/${image}`) : "";
 
-  // Compute coverColor using utility function
-  const coverColor = image
-    ? await getCoverColorFromImage(imagePath)
-    : "#FFFFFF";
-
   return (
     <article className="container prose dark:prose-invert text-pretty break-words mx-auto">
-      <p className="text-sm">{formatDate(date)}</p>
+      <p className="text-sm">{formatDateForBlogPost(date)}</p>
       <h1 className="first-letter:font-greatVibes">{title}</h1>
-      <div className="absolute inset-0 w-full h-[550px] z-[-3] overflow-hidden	">
+      {origin && (
+        <p className="text-xs text-pretty">
+          Originally published at:{" "}
+          <Link
+            className="inline text-inherit text-xs underline"
+            isExternal
+            href={origin}
+          >
+            {origin}
+          </Link>
+        </p>
+      )}
+      <div className="absolute inset-0 max-w-screen-lg h-[550px] z-[-3] mx-auto overflow-hidden	">
         {image ? (
           <>
             <Image
@@ -60,9 +71,9 @@ export default async function PostPage({ params }) {
         <ReactMarkdown
           className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left"
           components={{
-            img: ({ node, ...props }) => (
+            img: ({ ...props }) => (
               <figure>
-                <img {...props} className="rounded-lg"/>
+                <img {...props} className="rounded-lg" />
                 {props.alt && <figcaption>{props.alt}</figcaption>}
               </figure>
             ),
@@ -74,20 +85,6 @@ export default async function PostPage({ params }) {
 
       <div className="space-y-8">
         <hr className="my-8 border-t border-gray-300" />
-
-        {origin && (
-          <p className="text-xs text-gray-600 break-words mt-4">
-            Originally published at:{" "}
-            <a
-              className="underline"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={origin}
-            >
-              {origin}
-            </a>
-          </p>
-        )}
 
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map((tag: string, i: number) => (

@@ -13,7 +13,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function TagPage({ params }) {
+interface TagPageProps {
+  params: { tag: string };
+}
+
+export default async function TagPage({ params }: TagPageProps) {
   const posts = await getPosts();
   const tag = params.tag;
   const filteredPosts = posts.filter((post) => post.tags.includes(tag));

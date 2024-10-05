@@ -1,5 +1,8 @@
-// app/writing/[tag]/metadata.ts
-export async function generateMetadata({ params }) {
+interface MetadataProps {
+  params: { tag: string };
+} 
+
+export async function generateMetadata({ params }: MetadataProps) {
     const tag = params.tag;
   
     return {

@@ -15,26 +15,27 @@ export default async function Home() {
   const latestPost = await getLatestPost();
 
   return (
-    <div className="max-w-[600px] mx-auto space-y-6">
-      <Card isHoverable isPressable disableAnimation fullWidth>
-        <CardBody className="px-5 flex-row items-center space-x-2">
-          <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
-          <p>New writing:</p>
-          <p>
-            {latestPost && (
-              <Link href={latestPost.slug.toString()}>
-                <p className="first-letter:font-greatVibes">
-                  {latestPost.title}
-                </p>
+    <div className="max-w-screen-sm mx-auto space-y-6">
+      {latestPost && (
+        <Card isHoverable isPressable disableAnimation fullWidth>
+          <CardBody className="px-5">
+            <p className="text-pretty">
+              <span className="inline-block w-2 h-2 m-1 bg-primary rounded-full"></span>
+              New writing:{" "}
+              <Link href={latestPost.slug.toString()} className="inline">
+                <span className="font-greatVibes">
+                  {latestPost.title.charAt(0)}
+                </span>
+                {latestPost.title.slice(1)}
               </Link>
-            )}
-          </p>
-        </CardBody>
-      </Card>
+            </p>
+          </CardBody>
+        </Card>
+      )}
 
       <Card className="p-0 bg-primary">
         <CardBody className="py-6 px-4">
-          <div className="prose dark:prose-invert bg-background rounded-lg p-6">
+          <div className="prose dark:prose-invert text-pretty bg-background rounded-lg p-6">
             <p>
               👋🏼 Hey, thanks for coming here. Hopefully you can find something
               useful!
@@ -46,14 +47,14 @@ export default async function Home() {
             <p>My days are currently occupied working at Mach Industries.</p>
             <p>
               My primary motivation is a strong will to work with hard problems
-              and use new technology. I'm a student of first principles and
+              and use new technology. I&apos;m a student of first principles and
               rationality.
             </p>
           </div>
         </CardBody>
       </Card>
 
-      <HomeAccordion links={links}/>
+      <HomeAccordion links={links} />
     </div>
   );
 }

@@ -1,14 +1,15 @@
-import { SVGProps } from "react";
+import dynamicIconImports from "lucide-react/dynamicIconImports";
+import { type LucideProps } from "lucide-react";
 
-export type IconSvgProps = SVGProps<SVGSVGElement> & {
-  size?: number;
-};
+export interface IconProps extends LucideProps {
+  name: keyof typeof dynamicIconImports;
+}
 
 export type Post = {
   tags: string[];
   date: Date;
   slug: string;
-  origin: string[];
+  origin: string;
   image: string;
   description: string;
   title: string;
@@ -18,12 +19,12 @@ export type Post = {
 export type Links = [
   {
     title: string;
-    emoji?: string;
+    emoji: IconProps["name"];
     items: [
       {
         link: string;
         content: string;
-      }
+      },
     ];
-  }
+  },
 ];

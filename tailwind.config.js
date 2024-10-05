@@ -27,12 +27,12 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            primary: "#34d399",
+            primary: "#166534",
           },
         },
         dark: {
           colors: {
-            primary: "#34d399",
+            primary: "#a7f3d0",
           },
         },
       },

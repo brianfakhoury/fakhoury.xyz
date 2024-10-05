@@ -1,9 +1,12 @@
-// app/[post]/metadata.ts
 import { getPosts } from "@/lib";
 
-export async function generateMetadata({ params }) {
+interface MetadataProps {
+  params: {slug: string}
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
   const posts = await getPosts();
-  const post = posts.find((post) => post.slug === params.post);
+  const post = posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     return {
@@ -13,7 +16,7 @@ export async function generateMetadata({ params }) {
 
   const { title, description, body } = post;
 
-  const getOgDescription = (body: String, description?: String) => {
+  const getOgDescription = (body: string, description?: string) => {
     return (
       description ||
       body.split(" ").slice(0, 10).join(" ") + "..."

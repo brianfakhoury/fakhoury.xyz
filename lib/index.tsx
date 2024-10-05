@@ -25,7 +25,7 @@ export async function getPosts(): Promise<Post[]> {
           const { data, content } = matter(fileContents);
 
           return {
-            tags: data.tags.split(", ").map((tag: String) => tag.substring(5)),
+            tags: data.tags.split(", ").map((tag: string) => tag.substring(5)),
             date: data.date,
             slug: data.slug,
             origin: data.origin,
