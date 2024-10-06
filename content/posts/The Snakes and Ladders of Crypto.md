@@ -1,21 +1,22 @@
 ---
-tags: blog/crypto, blog/mechanisms
+tags:
+  - crypto
+  - mechanisms
 date: Aug 23, 2021
 publish: true
 image: 
-slug: crypto-bridges
+slug: iov-crypto-bridges
 origin: https://internetofvalue.substack.com/p/the-virtual-bridges-that-will-power
 description: 
+title: The Snakes and Ladders of Crypto
 ---
-# The Snakes and Ladders of Crypto
-
-![Puente romano de Alcántara. An old Roman bridge.](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fdc1528bb-ae8f-47ab-9c8c-5e7b49f99b5f_800x524.jpeg "File:Puente romano de Alcántara, en El Museo Universal.jpg")
+![Puente romano de Alcántara. An old Roman bridge.](images/iov-crypto-bridges/bb533e5e2d9e48d9d25987fb668fe13e_MD5.jpg "File:Puente romano de Alcántara, en El Museo Universal.jpg")
 
 I always come back to this metaphor: a blockchain is an economy. Yes, blockchains partake in _our_ economies. But, on their own, networks like Ethereum are their _own_ economy. They are capable of (virtual) production without any external effects.
 
 In the real world, economies are likely to benefit from interacting with one another. This is also the case in crypto. To date, the absolute number of blockchains has, in a Cambrian way, exploded. Bitcoin’s beloved distributed ledger technology was (this is oversimplified) sliced and diced hundreds of times to create cryptocurrencies like Dogecoin that we all know and love. This has collectively built a multi-trillion dollar asset class in the span of a decade, and, as we’ll come to see, the economic opportunity here is only just getting started because of bridges.
 
-![Most Popular Blockchains. With a total count of 253 being tracked. Source: Messari](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa23f7852-63c8-4db6-8bf4-30d81081a27b_1334x1538.png "image.png")
+![Most Popular Blockchains. With a total count of 253 being tracked. Source: Messari](images/iov-crypto-bridges/005ded7529d3137b384d339d5794b5e9_MD5.png "image.png")
 
 #### What is a bridge when it comes to blockchains?
 
@@ -29,7 +30,7 @@ Blockchains are, and I cannot stress this enough, no different aside from having
 
 Simply put, Ethereum is extremely secure but **slow** and **expensive**. I think MakerDAO’s $DAI is a great example to illustrate this. DAI is a “stablecoin” built on Ethereum. It’s always worth $1, is backed by other crypto assets, and can be used by anyone around the world without permission. Don’t take my word for it, take the billions of dollars of DAI that have been minted for crypto natives to use as a stable asset:
 
-![Amount of DAI in existence over time. Source: daistats.com](Blog/Assets/Amount_of_DAI_in_existence_over_time._Source!_daistats.com.png)
+![Amount of DAI in existence over time. Source: daistats.com](images/iov-crypto-bridges/dai-in-existence.png)
 
 DAI is a great asset, so much so that people want to use it _outside_ of Ethereum. **And here’s a major point on why other blockchains exist: you don’t need the full backing of Ethereum if you want to pay for a coffee with crypto, say in DAI.** For this use case, while blockchains are still very practical, there exist other chains that process transactions must faster than Ethereum, one of these being the (Ethereum friendly) Polygon Network. A transaction on Ethereum ranges from a few dollars worth of Ether to hundreds of dollars worth of Ether. They also take at least 15 seconds to go through and be confirmed. I’m not saying this is bad, Ethereum is massively useful. But when I use Polygon, the transaction is confirmed in a couple seconds and the fee never gets near a penny even.
 
@@ -37,7 +38,7 @@ _“Great! I would like to transact with DAI on Polygon then.”_
 
 Not so fast. DAI is created on Ethereum much like US Dollars are created in the United States. Any DAI that I use on Polygon has to have been brought over either by myself or someone else at some point. Thankfully, the Polygon developers have built a nice bridge for any assets on Ethereum to easily be brought over to Polygon: 
 
-![Ethereum to Polygon Bridge](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9e420ff1-5b04-43bf-a493-cc81d0ff224c_998x854.png "image.png")
+![Ethereum to Polygon Bridge](images/iov-crypto-bridges/e3f33f5bfd0fb9ebc48fb9bb3f88b0c5_MD5.png "image.png")
 
 The bridge works by holding custody of the assets on Ethereum, and issuing 1:1 that asset on the Polygon network. This doesn’t require any input from MakerDAO because DAI is permissionless, and DAI issued on Polygon by the bridge is backed by the real thing on Ethereum. But, because of high transaction costs on Ethereum, it’s not cheap to move DAI over. Though once it’s there, it’s easy and inexpensive to use. (for those that are extra curious: MakerDAO is considering **creating** DAI on Polygon in the future through the same collateral process as on Ethereum)
 
@@ -55,14 +56,14 @@ To sum it up, blockchains have a native asset, like BTC or ETH, and possibly tok
 
 It doesn’t end here. Building the bridge from Ethereum is a tough task. With a growing number of blockchains, the number of required bridges will grow exponentially:
 
-![There will be lots of highways between blockchains.](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8539c1bd-2667-474d-8867-7acfbdc0a4ef_1400x1274.png "image.png")
+![There will be lots of highways between blockchains.](images/iov-crypto-bridges/106228bed2ee5884284a72e73d6e161d_MD5.png "image.png")
 
 
 As is apparent with Bitcoin and Polygon, different blockchains have fundamentally different security/decentralization/fee tradeoffs. On one end, you have something like Binance Smart Chain. It functions very similarly to Ethereum, except it is much more centralized. At the cost of only a few parties controlling the whole thing, fees are cheaper and transactions go through faster. This works fine for an average person with relatively small financial activity, but if you’re a big institution, this amounts to real counterparty risk. NFTs are a popular application of blockchains, but do I really need the same security promises for my ownership of a cat JPG that I do for my financial assets? Probably not, and this is why the market is keen towards different blockchains with different characteristics.
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1c7fed19-9423-4bdb-9caa-6db27179ffc7_936x808.png "image.png")
+![](images/iov-crypto-bridges/d989e3efeac840cfe2636cc310a1d406_MD5.jpg "image.png")
 
 #### Scalability and dependency
 
@@ -82,7 +83,7 @@ BUT, there’s a big piece missing here. Going back to the beginning, virtual as
 
 Connext is a leading project in solving blockchain interoperability. They already have a working bridge [here](https://xpollinate.io/) that allows for transfer of tokens between an assortment of EVM (that more or less means can easily run code built for Ethereum) blockchains:
 
-![Connext enabled bridge.](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fff69ddc1-5a2d-4b44-b759-77df6ded486f_1312x892.png "image.png")
+![Connext enabled bridge.](images/iov-crypto-bridges/637666136b29578222e8f27fdf7122c6_MD5.jpg "image.png")
 
 How does this work? It’s actually fairly straightforward if we skip some of the technicality. Since the asset already exists on all these blockchains because of their bridge with Ethereum, Connext creates pools of each token, say DAI, on each network. Then, users and applications alike can swap between the pools by depositing DAI into a pool on one network and taking it out of the other. The benefit of EVM blockchains is that existing addresses and private keys work across any of the networks, so your asset is ready to go in your wallet once the swap is done.
 

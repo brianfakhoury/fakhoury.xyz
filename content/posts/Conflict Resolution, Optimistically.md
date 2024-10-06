@@ -1,7 +1,7 @@
 ---
 tags:
-  - blog/crypto
-  - blog/mechanisms
+  - crypto
+  - mechanisms
 date: Aug 15, 2021
 publish: true
 image: images/iov-optimistic-resolution/c2b3b8d389ad128711b1c2424dbe34b3_MD5.jpg

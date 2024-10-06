@@ -1,8 +1,8 @@
 ---
 tags:
-  - blog/crypto
-  - blog/programming
-  - blog/hacking
+  - crypto
+  - programming
+  - hacking
 date: Jan 24, 2022
 publish: true
 image: 

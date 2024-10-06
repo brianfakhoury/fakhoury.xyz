@@ -1,14 +1,16 @@
 ---
-tags: blog/crypto, blog/history, blog/opinion
+tags:
+  - crypto
+  - history
+  - opinion
 date: June 11, 2022
 publish: true
-image: https://mirror-media.imgix.net/publication-images/3Kl1WOmZNG2ybvBU0YBgy.png?height=315&width=630&h=315&w=630&auto=compress
+image: images/history-rhymes/netscape.png
 slug: history-rhymes
 origin: https://mirror.xyz/fakhoury.eth/w-lp0GNww9Ere8py64M2wI18PD9aEKQjUEL20pzq_mU
 description: 
+title: History Rhymes, In Defense Of Crypto
 ---
-# History Rhymes, In Defense Of Crypto
-
 _TLDR; Crypto doesn’t matter until it does._
 
 > “what if all the layer 1's and eth died tomorrow
@@ -27,19 +29,19 @@ At that time, the web browser was used to read horribly plain pieces of text, so
 
 Fast forward 5 more years to the height of the dotcom boom. Tons of businesses were being launched in an attempt to recreate the odd success of the Netscape IPO. These businesses, such as online book stores and search engines, again played folly to the disappearance test. People could still buy books in bookstores and could still look up information in a physical book. But a sore piece of data just was not lining up with this sentiment:
 
-![](Blog/Assets/image-4.png)
+![](images/history-rhymes/2e9fbc9ac1220177b4f439b7ece360dd_MD5.png)
 
 **How could the internet have had so many users in 2000 if people didn’t care whether or not it disappeared?** The logical conclusion is that usage is a leading indicator of societal relevance. Technology gets adopted _before_ it can’t be lived without.
 
 The TCP/IP of crypto is Bitcoin, and it has been roughly 15 years since the network saw its first block. Here’s a chart to see its usage growth:
 
-![](Blog/Assets/image-3.png)
+![](images/history-rhymes/c00637c2efbfc64e5b26c49ac2561b4c_MD5.png)
 
 So, 15 years after its invention, how can there be 1 billion unique addresses that have interacted with bitcoin if it’s just a toy? If it were to disappear tomorrow, would anyone care? I’ll admit for bitcoin, the case is different. It’s just trying to be hard money, and by that nature, anyone using it cares deeply about its existence (as money).
 
 On this same timeline, Ethereum (HTTP of crypto?) is in the dotcom era of its existence. It’s the web browser of digitally native value. Whether or not you believe ETH to be money, the service of selling blockspace is the metric that I believe to be the leading indicator of its societal relevance. And just as the physical world connection & importance of the internet today is less about consumers and more about the industrial application, I think the same analogy can be said of what is something as boring as blockspace (see layer 2 networks to expand on this). To continue drawing our line, here’s the chart that says “how come Ethereum is selling so much blockspace if no one cares if it disappeared tomorrow?”:
 
-![](Blog/Assets/image-2.png)
+![](images/history-rhymes/db94a88ff70644808c10a333d5c10cd2_MD5.png)
 
 This graph is about a year old, unfortunately, but it makes the point clear. There’s plenty of paid usage here for a thing that people don’t care for if it “died tomorrow.” If this dependence continues, it cannot be long (a decade max if looking at web history) before the real world starts to feel the externalities of Ethereum. It’s impossible to say what this dependence will be, but Google does a lot more than simple text search now and Amazon does a lot more than sell books. In the same vein, Ethereum will be a lot more than a casino in the future, and applications on ethereum will be a lot more than a token exchange or lending protocol. To get there, tons of these will need to fail, capital will have to flow, and social perception will have to shift to one of dependence. We’re not there, but look up and see where we’re headed.
 

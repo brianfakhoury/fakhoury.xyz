@@ -1,15 +1,19 @@
 ---
-tags: blog/crypto, blog/programming, blog/tech
+tags:
+  - crypto
+  - programming
+  - tech
 date: Jan 24, 2022
 publish: true
 image: 
 slug: hybrid-compute
 origin: https://mirror.xyz/fakhoury.eth/v0pryMFMTyRiuYMKtwUEPEPSomdcE6XN1XEhuEba1xw
 description: 
+title: Hybrid Compute Smart Contract Platforms
 ---
-# Hybrid Compute Smart Contract Platforms
+I originally posted this analysis on Twitter here: https://x.com/brianfakhoury/status/1485150532897591301
 
-I originally posted this analysis on Twitter here: https://twitter.com/brianfakhoury/status/1485150532897591301
+---
 
 I came across something interesting that the team behind Boba network is working on: https://github.com/omgnetwork/optimism-v2
 
@@ -31,7 +35,7 @@ Imagine being able to write code like this inside a contract.
 
 (technically only 1 turning call can happen per transaction, assuming this is bc of a recursion attack)
 
-![](Blog/Assets/image.png)
+![](images/hybrid-compute/6fe4889a99550141780451e928cb85b4_MD5.png)
 
 To enable this type of EVM execution, the Geth client (L2TGeth) is first modified at the execution layer.
 
@@ -67,4 +71,4 @@ Unfortunately, I couldn't get the tests to work on my machine, which is a hint a
 
 Regardless, hope someone learned something from this, and I hope to see others experimenting as well
 
-![](Blog/Assets/image-1.png)
+![](images/hybrid-compute/5892946c39a93481aa4f50877d6e2b1f_MD5.png)
