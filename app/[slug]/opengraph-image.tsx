@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { headers } from "next/headers";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 export const alt = "Brian Fakhoury Website Header";
 export const size = {
@@ -50,66 +50,16 @@ export default async function Image({ params }: ImageParams) {
         })
     : "";
 
+  const text_size = post.title.length > 20 ? "text-8xl" : "text-9xl";
+
   return new ImageResponse(
     (
-      <div
-        style={{
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          width: "100%",
-        }}
-      >
-        <img
-          src={cover_src}
-          alt=""
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
-        />
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            height: "100%",
-            padding: "16px",
-            backgroundColor: "rgba(0, 0, 0, 0.75)",
-          }}
-        >
-          <img
-            src={logo_src}
-            alt=""
-            style={{
-              width: "256px",
-              height: "256px",
-              marginRight: "12px",
-              borderRadius: "9999px",
-            }}
-          />
-          <div
-            style={{
-              width: "1px",
-              height: "100%",
-              backgroundColor: "white",
-            }}
-          />
-          <div
-            style={{
-              paddingLeft: "24px",
-              fontSize: post.title.length > 20 ? "64px" : "72px",
-              color: "white",
-            }}
-          >
-            {post.title}
-          </div>
+      <div tw="relative flex items-center justify-center h-full w-full">
+        <img src={cover_src} alt="" tw="absolute top-0 left-0 w-full h-full" />
+        <div tw="relative flex items-center w-full h-full p-16 bg-black/75">
+          <img src={logo_src} alt="" tw="w-64 h-64 mr-12 rounded-full" />
+          <div tw="w-1 h-full bg-white" />
+          <div tw={`${text_size} text-white pl-24`}>{post.title}</div>
         </div>
       </div>
     ),
