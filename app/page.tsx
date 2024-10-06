@@ -1,56 +1,65 @@
-import { getLinks, getPosts } from "@/lib";
+import { getPost } from "@/lib/get-posts";
+import getLinks from "@/lib/get-links";
 import { Card, CardBody } from "@nextui-org/card";
 import { Link } from "@nextui-org/link";
-import HomeAccordion from "@/components/HomeAccordion";
-
-async function getLatestPost() {
-  const posts = await getPosts();
-  return posts.reduce((latest, post) =>
-    new Date(post.date) > new Date(latest.date) ? post : latest
-  );
-}
+import HomeAccordion from "@/app/components/home-accordion";
+import Image from "next/image";
+import cover from "./opengraph-image.jpg";
 
 export default async function Home() {
   const links = getLinks();
-  const latestPost = await getLatestPost();
+  const post = await getPost();
 
   return (
     <div className="max-w-screen-sm mx-auto space-y-6">
-      {latestPost && (
+      {post && (
         <Card isHoverable isPressable disableAnimation fullWidth>
           <CardBody className="px-5">
             <p className="text-pretty">
               <span className="inline-block w-2 h-2 m-1 bg-primary rounded-full"></span>
               New writing:{" "}
-              <Link href={latestPost.slug.toString()} className="inline">
-                <span className="font-greatVibes">
-                  {latestPost.title.charAt(0)}
-                </span>
-                {latestPost.title.slice(1)}
+              <Link href={post.slug.toString()} className="inline">
+                <span className="font-greatVibes">{post.title.charAt(0)}</span>
+                {post.title.slice(1)}
               </Link>
             </p>
           </CardBody>
         </Card>
       )}
 
-      <Card className="p-0 bg-primary">
-        <CardBody className="py-6 px-4">
-          <div className="prose dark:prose-invert text-pretty bg-background rounded-lg p-6">
-            <p>
-              👋🏼 Hey, thanks for coming here. Hopefully you can find something
-              useful!
-            </p>
-            <p>
-              You can continue down to my links or see my writing archive{" "}
-              <Link href="/writing">here</Link>.
-            </p>
-            <p>My days are currently occupied working at Mach Industries.</p>
-            <p>
-              My primary motivation is a strong will to work with hard problems
-              and use new technology. I&apos;m a student of first principles and
-              rationality.
-            </p>
-          </div>
+      <Card>
+        <Image
+          src={cover}
+          alt={"national park landscape"}
+          className="absolute inset-0 object-cover w-full h-full"
+        />
+        <CardBody className="prose dark:prose-invert text-pretty backdrop-blur-md bg-background/50 rounded-lg px-3 py-8 sm:px-8 mx-2 my-6 sm:mx-6 w-auto">
+          <p>
+            Dearest web surfer, you&apos;ve come knocking on my digital door.
+            Welcome. I built this website for you to enjoy if you will, and for
+            myself to play with the latest web technologies. You can continue
+            down to my links or see my writing archive by clicking{" "}
+            <Link href="/writing">here</Link>.
+          </p>
+          <p>
+            These days, my time is spent contirubting to the growth of Mach
+            Industries, a defense tech company. However, I deeply appreciate
+            time taken to think, create, and invite serendipity. It&apos;s why I
+            built this site by hand, and painstakingly optimized it. So, spend
+            as long as you wish on here, and if I may, I suggest you view my
+            thoughts through a few lenses:
+          </p>
+          <ol>
+            <li>
+              My primary motivation is to work on things that are uncomfortably
+              hard for my skillset.
+            </li>
+            <li>I view the world through rationality.</li>
+            <li>
+              Technology is engraved in who I am, I appreciate beautiful
+              technology for its existence.
+            </li>
+          </ol>
         </CardBody>
       </Card>
 

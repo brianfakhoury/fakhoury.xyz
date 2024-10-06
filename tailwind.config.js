@@ -15,24 +15,24 @@ module.exports = {
         DEFAULT: "100ms",
       },
       fontFamily: {
-        raleway: ['Raleway', 'sans-serif'],
-        greatVibes: ['Great Vibes', 'cursive'],
+        raleway: ["Raleway", "sans-serif"],
+        greatVibes: ["Great Vibes", "cursive"],
       },
     },
   },
   darkMode: "class",
   plugins: [
-    require('@tailwindcss/typography'),
+    require("@tailwindcss/typography"),
     nextui({
       themes: {
         light: {
           colors: {
-            primary: "#166534",
+            primary: "#57534e",
           },
         },
         dark: {
           colors: {
-            primary: "#a7f3d0",
+            primary: "#a8a29e",
           },
         },
       },

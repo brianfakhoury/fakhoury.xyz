@@ -1,15 +1,15 @@
-import { getPosts } from "@/lib";
+import { getPosts, getPost } from "@/lib/get-posts";
 import Image from "next/image";
 import { Link } from "@nextui-org/react";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import React from "react";
+import { notFound } from "next/navigation";
+import sizeOf from "image-size";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 interface PostPageProps {
@@ -17,17 +17,14 @@ interface PostPageProps {
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const posts = await getPosts();
-  const post = posts.find((post) => post.slug === params.slug);
+  const post = await getPost(params.slug);
 
-  if (!post) {
-    return <div>Post not found</div>;
-  }
+  if (!post) return notFound();
 
   const { tags, date, origin, image, title, body } = post;
-
-  // Correct the image path
-  const imagePath = image ? (image.startsWith("/") ? image : `/${image}`) : "";
+  const image_cover_size = image
+    ? sizeOf(`content/posts/${image}`)
+    : { width: 500, height: 500 };
 
   return (
     <article className="container prose dark:prose-invert text-pretty break-words mx-auto">
@@ -49,11 +46,11 @@ export default async function PostPage({ params }: PostPageProps) {
         {image ? (
           <>
             <Image
-              src={imagePath}
-              alt={title}
-              fill
-              className="rounded-lg m-0 absolute z-[-2]"
-              priority
+              src={image.startsWith("/") ? image : `/${image}`}
+              alt={`${title} cover image`}
+              height={image_cover_size.height}
+              width={image_cover_size.width}
+              className="rounded-lg m-0 h-full absolute z-[-2]"
             />
           </>
         ) : (
@@ -71,12 +68,26 @@ export default async function PostPage({ params }: PostPageProps) {
         <ReactMarkdown
           className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"
           components={{
-            img: ({ ...props }) => (
-              <figure>
-                <img {...props} className="rounded-lg" />
-                {props.alt && <figcaption>{props.alt}</figcaption>}
-              </figure>
-            ),
+            img: ({ ...props }) => {
+              const image_size = sizeOf(`content/posts/${props.src}`);
+              const image_src = props.src?.startsWith("/")
+                ? props.src
+                : `/${props.src}`;
+
+              return (
+                <figure>
+                  <Image
+                    {...props}
+                    src={image_src}
+                    alt={props.alt || "blog image"}
+                    height={image_size.height || "450"}
+                    width={image_size.width || "500"}
+                    className="rounded-lg"
+                  />
+                  {props.alt && <figcaption>{props.alt}</figcaption>}
+                </figure>
+              );
+            },
           }}
         >
           {body}
