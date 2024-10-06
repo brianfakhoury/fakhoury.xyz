@@ -50,7 +50,7 @@ export default async function PostPage({ params }: PostPageProps) {
               alt={`${title} cover image`}
               height={image_cover_size.height}
               width={image_cover_size.width}
-              className="rounded-lg m-0 h-full absolute z-[-2]"
+              className="rounded-lg absolute inset-0 w-full h-full object-cover object-bottom z-[-2]"
             />
           </>
         ) : (

@@ -1,16 +1,15 @@
 ---
-tags: blog/crypto, blog/mechanisms
+tags:
+  - blog/crypto
+  - blog/mechanisms
 date: Aug 15, 2021
 publish: true
-image: 
-slug: optimistic-resolution
+image: images/iov-optimistic-resolution/c2b3b8d389ad128711b1c2424dbe34b3_MD5.jpg
+slug: iov-optimistic-resolution
 origin: https://internetofvalue.substack.com/p/crypto-economies-do-not-own-fighter
 description: 
+title: Conflict Resolution, Optimistically
 ---
-# Conflict Resolution, Optimistically
-
-![The Code Of Honor—A Duel in the Bois De Boulogne](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1d371797-67c7-4bca-b260-188c2aaaf53e_1221x903.jpeg)
-
 There's an analogy I've heard a number of times that is paraphrased as:
 
 > When you go to buy a coffee, it's the fighter jets in the US Military that, after quite a sequence of cause & effect, ensure that your credit card transaction credits the merchant.
@@ -43,7 +42,7 @@ Here's a thought experiment. You and I are going to race, 100 meters. I'm confid
 
 An optimistic oracle does _nothing_ most of the time as the resulting data that is needed is entered manually by parties and everyone agrees.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F01d742ae-6b19-4a36-b168-6bf8871099de_1024x734.png)
+![](images/iov-optimistic-resolution/6c989e033004cf2e49e7949e0c2c4a8f_MD5.png)
 
 [UMA](https://umaproject.org/) has such a neat implementation of this. It's literally a court system built on-chain that acts as the fighter jets for any smart contract ecosystem. Without this system, smart contracts would have to query an oracle like Chainlink for any off-chain info, adding to costs and complexity. With UMA oracles, we can go about making deals & contracts with each other and with smart contracts, knowing that we can integrate with UMA and settle disputes with their DVM (data verification module). I think this is crucial for a crypto economy.
 

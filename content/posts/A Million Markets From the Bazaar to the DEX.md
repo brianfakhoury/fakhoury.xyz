@@ -1,14 +1,16 @@
 ---
-tags: blog/crypto, blog/markets, blog/history
+tags:
+  - crypto
+  - markets
+  - history
 date: Feb 24, 2023
 publish: true
-image: Blog/Assets/4uwmDDmCZiLa7Pkp_hMNC.jpg
+image: images/million-markets/03d86356704f7698bf35ac4756076ada_MD5.jpg
 slug: million-markets
 origin: https://mirror.xyz/fakhoury.eth/0aHTR9U5cUlF2oF0PkyHAYsFnaM-LxkVHqEDUAmdrGs
 description: 
+title: "A Million Markets: From the Bazaar to the DEX"
 ---
-# A Million Markets: From the Bazaar to the DEX
-
 At Mechanism Capital, I come across countless investment opportunities in the incipient decentralized finance (DeFi) industry. When I do, I usually share the same reaction with my team: “it's another perp market” or “it’s just a uniswap fork”. Despite this abundance of market infrastructure, our reactions to this pattern likely stem from the observation that there are not many useful crypto assets to be traded. It’s like having the most luxurious, expansive supermarket imaginable with the most sophisticated automation tech and an incredibly optimized customer experience, yet it has only a meager selection of customers and products. After months of dismissing this observation, I finally began to investigate the reason behind this phenomenon. I realized that this is not a fleeting trend, it is an unavoidable evolution of markets and the optimal way of distributing economic power to individuals. We are now in the dawn of a million markets, and it is a revolution.
 
 The story of the modern economy is told in part by evolving forms of trade that are centered around markets, both physical and digital. Capital markets today are dominated by complex derivative instruments on digitized exchanges controlled by large companies and regulated by the state. Markets didn’t always run in this regime, and it’s likely they won’t for much longer. The costs associated with standing up a market have historically been both prohibitive and stimulating. High-cost markets required lots of effort was spent to ensure quality, yet this also limited the exploration of the long tail of financial ideas.
@@ -25,9 +27,9 @@ Some may claim that the most influential cause for markets to develop was the gr
 
 Although not true in the 21st century, trade historically required a shared geographic location to commence. In ancient Greece, the agora served as both a marketplace and a gathering place for political and social activities. On the other hand, the Roman forum was primarily a market where merchants from all over the empire came to trade their goods. During the Middle Ages, markets became an important part of life in European towns and cities. These markets were typically held once a week and were individually regulated by local authorities. The merchants who sold their goods at these markets were known as "burghers," and they played a significant role in the growth and development of European cities. While most civilizations had some form of a “market,” the ancient historian Herodotus noted that the Persians did not have marketplaces, which reminds us that some forms of exchange are not always commercial (they are incentivized for reasons other than pure business).
 
-All this activity allowed for the first _capital markets_ to emerge, in which accounts could be settled at a future date with capital exchanging hands immediately. The first capital markets are thought to have appeared in the early 1600s in Osaka, Japan. They were built around rice trading. The story goes – a Japanese rice merchant met a friend from the north of Japan, who said that the rice yield in the north was not good that year. The merchant bought the future rice harvest in his local area, paying the farmers 10% upfront and owing them the rest at delivery. After the harvest came in, he stored the rice for several months, selling it for a profit once the north’s poor harvest had driven prices up.
+All this activity allowed for the first _capital markets_ to emerge, in which accounts could be settled at a future date with capital exchanging hands immediately. The first capital markets are thought to have appeared in the early 1600s in Osaka, Japan. They were built around rice trading. The story goes – a Japanese rice merchant met a friend from the north of Japan, who said that the rice yield in the north was not good that year. The merchant bought the future rice harvest in his local area, paying the farmers 10% upfront and owing them the rest at delivery. After the harvest came in, he stored the rice for several months, selling it for a profit once the north’s poor harvest had driven prices up.
 
-![DOJIMA RICE EXCHANGE Painting by Hiroshige (1797-1858)](Blog/Assets/DOJIMA_RICE_EXCHANGE_Painting_by_Hiroshige_(1797-1858).png)
+![DOJIMA RICE EXCHANGE Painting by Hiroshige (1797-1858)](images/million-markets/a5386e11b39f44ae2d7ea8ca6d337370_MD5.png)
 
 Markets have bewildered people for centuries, as they often appear to be morally corrupt or extractive, yet they have the magical power to organize communities and provide stability and upward mobility. In the 1700s Reverend Richard Whately, a professor of political economy at Oxford University, suggested that such an emergent organization (of markets) was indisputable evidence that God exists, put in motion by His invisible hand. Regardless of associated costs, this self-organizing feature of markets proved to be the leading cause of market structure innovation. In 1792, John Sutton set up a securities marketplace at 22 Wall Street to let investors sell stocks and bonds through an auction process. There was a critical bug in this market structure as other brokers figured out that the deep liquidity of John Sutton’s auction allowed them to arbitrage the exchange by sitting in and observing the auction prices, then mediating trades at the same price, but with a lower fee. Perhaps this was the birth of the modern market maker (firms that specialize in earning a profit by ensuring a market has a deep supply for buyers and sellers). Still, the New York securities market was one that self-innovated as Sutton’s model could no longer accurately discover prices because of a lack of real participants. This resulted in an agreement amongst 24 Manhattan brokers to trade securities at fixed fees without worrying about external competition leeching pricing information (an issue that we’ll see again in decentralized crypto markets). The agreement was enforced through contracts, which of course relied on the strong US legal system.
 
@@ -35,7 +37,8 @@ Self-organization doesn’t always result in positive externalities. In the case
 
 # Fundamentals of Markets
 
-Before continuing, it’s useful to define some of the fundamental assumptions, or invariants, of any *free marke*t that will hold true regardless of the technology behind it, namely:
+Before continuing, it’s useful to define some of the fundamental assumptions, or invariants, of any _free marke_t that will hold true regardless of the technology behind it, namely:
+
 1. Information must flow freely
 2. Property rights must be upheld
 3. Promises can be trusted
@@ -48,7 +51,7 @@ Information flow in markets is most directly related to transaction costs. As in
 
 Another way to think about information flow is by using Information Theory, first framed by Claude Shannon in 1948. Information theory is a mathematical framework for analyzing communication systems, including the transmission and processing of information. At its core, Shannon's theory is concerned with quantifying and measuring information and provides a precise definition of the term "information" as the reduction of uncertainty, or the amount of surprise in a message. The basic unit of information in Shannon's theory is the "bit," which can represent one of two possible values. One of the key concepts in Shannon's theory is the idea of "entropy," which is a measure of the amount of information in a message. Entropy is related to the degree of unpredictability or randomness in a message and is independent of the actual content of the message. For example, a highly predictable message (such as a long string of repeated characters) may have a low entropy, even though it contains a large number of bits. Shannon's theory also introduced the concept of "channel capacity," which is the maximum rate at which information can be transmitted over a noisy communication channel without error. This capacity is limited by factors such as bandwidth and signal-to-noise ratio and can be increased by using error-correcting codes and other techniques. One of the most significant results of Shannon's theory is the "Shannon-Hartley theorem," which provides a formula for calculating the maximum data rate of a communication channel based on its bandwidth and signal-to-noise ratio. This theorem has had a profound impact on the development of digital communication systems and remains a fundamental concept in modern information theory.
 
-![](Blog/Assets/Kfs7ApfNy-4rJjTk3oEY7.png)
+![](images/million-markets/3d47b8572db834b56bc23dda40cbfd52_MD5.png)
 
 As it relates to markets, technological progress in market structure has reduced the entropy of information flows while simultaneously increasing channel capacity (we’ll see more of why that is as it relates to blockchains). Using this quantification standard, we can compare market structures and rate their information flow capability by comparing the entropy and channel capacity.
 
@@ -56,7 +59,7 @@ As it relates to markets, technological progress in market structure has reduced
 
 Ownership is the strongest source of incentive (as the Vietnam truck example illustrates). In order for people to feel like they truly own something, they need to be convinced of their property rights. This comes back to a natural function of government – to guarantee property rights. Some argue that land ownership, and the associated property rights, are the basis of strong, effective capitalism. This thinking stems from the fact that all capital can be reduced to productive land. Without productive land, most “productive” capital assets could not exist. With strong property rights come security and risk-taking, hand in hand, by market participants.
 
-![](Blog/Assets/xQJHULzmCyeqVPczj7Z56.png)
+![](images/million-markets/c78e856507f296fb9f80f404a30ef7bd_MD5.png)
 
 Property rights are hard to come by in the physical world. It takes decades for governments to build trust in the relevant institutions, and markets have to test the murky waters to be sure that the expected security guaranteed by the property rights system is really there. Regarding blockchains, property rights can be built completely with code and guaranteed without any humans in the loop. This condition becomes especially relevant when we compare the time it takes for the government to build a property rights track record to the time it takes for a new blockchain, much less an existing one, to build confidence in its property rights system.
 
@@ -98,7 +101,7 @@ Double-entry bookkeeping (invented hundreds of years ago and helping to usher in
 
 Ethereum is decentralized. In order for it to have the aforementioned properties, it is not necessary to rely on any person or group of people. Instead, the definition of the protocol, agreed upon by thousands of participants explicitly (and millions of users implicitly) is the only necessary trust in the whole system. Given the rigorous engineering and mathematical analysis and years of operation securing billions of dollars of value, it’s not hard to be comfortable with the assumption that the protocol is well-defined. By being extremely decentralized (measured by the distribution of parties running the network), Ethereum is credibly neutral. This means that any user can be comfortable knowing that there is no structural disadvantage to their using the network and receiving the benefits of permissionless and immutable transactions.
 
-![](Blog/Assets/_EGHJ4S9ePOBbmDXM9uGO.png)
+![](images/million-markets/c6bf3e437c7a028d8af2c0e08522277a_MD5.png)
 
 ## Market Structure in Blockchain Economies
 
@@ -110,7 +113,7 @@ Some of the main novelties in blockchain-based, decentralized markets are peer-t
 
 Bitcoin started the crypto revolution by introducing the idea of peer-to-peer digital cash. This refers to the permissionless nature of blockchains that make payments function similarly to the way payments are made with physical cash. As decentralized finance (DeFi) emerged on Ethereum to provide the full set of financial services that complement payments, it was discovered that demand to provide counterparty services to financial actions like trading and lending could be pooled together, again due to the permissionless nature of blockchains.
 
-![](Blog/Assets/c5zCq4sVssrdK83DMqKfT.png)
+![](images/million-markets/d323c95e936cf19ebba260b311422a8a_MD5.png)
 
 In the peer-to-pool model, users interact with pools of capital on their own time, utilizing the rules governing the pool of capital to perform their desired action. For example, trading Ether (ETH) for a stablecoin like USDC does not resemble historical capital markets where two parties must coincide to perform the exchange. Instead, there exist pools of ETH and USDC, existing because other users are incentivized to earn fees, of which a trader can come to deposit ETH and withdraw USDC. The price of the transaction is governed by a piece of code, an impartial smart contract on the Ethereum blockchain, and is completely permissionless.
 
@@ -120,7 +123,7 @@ To be nuanced, we should recognize two facts. First, the rise of the peer-to-poo
 
 The rise of “tokenization” as a standard format for assets on blockchains comes from the fact that the cost of representing an asset as a token is marginally zero, similar to how the cost of distributing software with the internet is almost zero. This is indeed a tangential area to our thesis of collapsing market costs. But as it relates to composable liquidity, tokens representing a share of liquidity in a market can be created in the same format as the tokens that they represent. This is a mouthful, but essentially, the homogeneity of assets through tokens means that the lifeblood of a financial market, liquidity, can be quantified and represented just as easily as the asset itself.
 
-![](Blog/Assets/NlsQBci5OBMV2qqNDbFin.png)
+![](images/million-markets/9d5b59ce8421933e19156ce0986732f5_MD5.png)
 
 What are the implications? Composable liquidity means it is permissionless and costless to innovate on financial primitives (like lending and trading). The effects of this are crucial to our thesis, as new markets can utilize existing liquidity assets without having any contractual arrangements from the primitive, or underlying, market. Composable liquidity improves information flow by making underlying assets transparent, expands property rights, and represents a cryptographically secure promise for its holder.
 
@@ -130,7 +133,7 @@ For example, a lender in a money market receives a token to represent their lend
 
 The economy on Ethereum is completely transparent to the world. Every account, transaction, and contract code is viewable by anyone with an internet connection. This leads to an interesting modality for users interacting and viewing the blockchain. There is no permissioned party, as there often are in traditional financial systems, with access to the data and methods of sending a transaction. Practically speaking, this means the interfaces available to a user to interact with their account and conduct transactions are able to be completely commodified, a prime example being digital wallets. While there still exists competition in practice between frontends, there does lay an assurance to users that, should their preferred frontend stop working, the whole financial system on Ethereum is still readily accessible (through numerous other frontends that can quickly be spun up). This is can be seen as a subset of the permissionless nature of blockchains.
 
-![](Blog/Assets/6zYMYpQjM63elhvwtGwv6.png)
+![](images/million-markets/471dcc6e3febc23b136f07584f835946_MD5.png)
 
 ### Forkable protocols
 
@@ -152,21 +155,21 @@ This “good MEV” is not always the case. Going back to John Sutton’s securi
 
 Finally, we can tie it all together. There are a million markets rising, some amazing and some useless. The three dynamics that make a market are information flows, property rights, and promises. When looking through this lens, traditional markets are disincentivized to continue growing relative to markets built on crypto rails, which exhibit the properties of being permissionless, immutable, and decentralized. These new markets have high entropy flows through peer-to-pool matchmakers and the ability to be forked, uphold property rights through composable liquidity and open frontends, and democratize information flows through MEV. And they’re always online, giving the same promises to anyone around the world. This brings us back to information theory, and how channel capacity and entropy demonstrate that markets on crypto rails are fitter in the long run.
 
-![](Blog/Assets/LDApms_h9PruI0cEZonYK.png)
+![](images/million-markets/2038bfde0fd9cc83701720c1d63846d0_MD5.png)
 
 Channel capacity highlights the advantages of decentralized markets. In a centralized market, decisions are made by a small number of individuals or institutions, who may have limited bandwidth and processing power to process and transmit information (usually during certain business hours). This can result in bottlenecks, delays, and errors in the flow of information, and can limit the overall channel capacity of the market. In a decentralized market, on the other hand, decision-making is distributed among a large number of independent actors, each with its own bandwidth and processing power, on a settlement layer that is available 24/7. These uncapped constraints on bandwidth are evidence that the channel capacity of decentralized markets will be larger in the long run.
 
-![](Blog/Assets/DdxNTLU1aVtnO8L1k7bxn.png)
+![](images/million-markets/e69908c1a03593974448c8072c139183_MD5.png)
 
 In terms of entropy, centralized decision-making is again constrained by a small number of actors or institutions, who may have limited perspectives and biases. This can result in a low entropy market as the p(i) term in Shanon entropy approaches 1, causing entropy to collapse. In a decentralized market, on the other hand, decision-making is distributed among a large number of actors, each with its own perspectives and incentives. This can result in a high entropy market as the probability of any action or element (however you want to frame it) is exceedingly low and hard to predict. With greater diversity and complexity, this helps to ensure that the market is more resilient and adaptable over the long term.
 
 In order to see all this in action instead of theory, let’s look at a number of data points and extrapolate the underlying trend. First, we will examine the number of existing liquidity pools. A liquidity pool, while part of a larger protocol like Uniswap (A popular DEX, or decentralized exchange), can be technically thought of as an independent market. Paired with the fact that the code for these pools is easily forked, counting the number of these markets in existence gives us a directional sense of why a million markets are coming.
 
-![Cumulative uniswap pools created by the uniswap factory contract on Ethereum mainnet.](Blog/Assets/Cumulative_uniswap_pools_created_by_the_uniswap_factory_contract_on_Ethereum_mainnet.png)
+![Cumulative uniswap pools created by the uniswap factory contract on Ethereum mainnet.](images/million-markets/ce25a174a7df8049ddf41aef877044d8_MD5.png)
 
 Uniswap pools alone already represent more than 100,000 on-chain markets, albeit many of these markets are redundant as they use a base currency like ETH or USDC. Still, the growth is clearly showing that the creation of new markets is a multi-year trend, one that supports the million markets thesis. If we add in other protocols, across different blockchains, the number is over one million, though the signal is much noisier as these markets tend to be holding less value.
 
-![Total number of liquidity pools across multiple crypto networks](Blog/Assets/Total_number_of_liquidity_pools_across_multiple_crypto_networks.png)
+![Total number of liquidity pools across multiple crypto networks](images/million-markets/a620cdce7f4cca082c3320533ca15590_MD5.png)
 
 What about forks of Uniswap? We know that uniswap code has been battle-tested, and redeploying it only incurs contract creation costs on-chain, which are manageable as we’ll see further below. Some estimates (I used DeFiLlama data) at the time of writing place the number at nearly 400 forks of the uniswap protocol. This entails taking the smart contract code, and redeploying it either verbatim or with minor changes. With each fork comes the opportunity for thousands of markets, as we can see in the graph above. Considering Uniswap’s recent protocols have only come into existence in the past few years, the spawning of hundreds of forks is the strongest testament to the advancement in market structure that this decentralized market has brought about. As an added data point, the Compound protocol (a money market protocol for borrowing and lending) has at least 76 tracked forks. Surely there are hundreds if not thousands more forks of the exact code that have little relevance such that they aren’t worth classifying and tracking. Given what we know about the benefits in decentralized markets regarding entropy and channel capacity, these forks give added assurances that these properties will only grow stronger for decentralized markets on crypto networks like Ethereum.
 
@@ -174,17 +177,17 @@ Since property rights are the backbone of the long-term trust in these systems, 
 
 Third, MEV, both good and bad, could be thought of as a proxy for real value in the system. There’s not much value to be extracted if the value isn’t real right? How many unique searchers are profiting from the state of the economic system and how much are they earning collectively? We have a lower bound for this number by tracing the most common classes of MEV, which gives us a number of roughly $700M:
 
-![From Flashbot’s MEV Explore dashboard](Blog/Assets/From_Flashbot’s_MEV_Explore_dashboard.png)
+![From Flashbot’s MEV Explore dashboard](images/million-markets/1417ca6d9db3bb746c9899ba8090240d_MD5.png)
 
 Finally, why are crypto networks a better substrate for markets? How much does it cost to set up a new market and what is the take rate of these protocols over time? If the take rate is trending down for a piece of immutable code, perhaps the most important markets become something of a public good. In traditional financial markets, fees can be maintained by regulatory advantage, whereas a good piece of market infrastructure on a blockchain cannot afford to charge unjust fees. This is readily apparent when we look at protocol fees as a function of efficiency over the past two years:
 
-![Messari graphic on compressing money market fees.](Blog/Assets/Messari_graphic_on_compressing_money_market_fees.png)
+![Messari graphic on compressing money market fees.](images/million-markets/b131ac25c52b0891b95f4c280f7a7546_MD5.png)
 
-![Messari graphic on compressing trading protocol fees.](Blog/Assets/Messari_graphic_on_compressing_trading_protocol_fees.png)
+![Messari graphic on compressing trading protocol fees.](images/million-markets/5290195ad4b40c97eee48fa0fcd6c424_MD5.png)
 
 While this is bad news for protocols from an earnings perspective, it highlights the principle of a million markets: it’s a free, open market and is thus subject to those forces. Ultimately, the end users stand to benefit from markets that look closer to public commons and that are ultimately independent of one another.
 
-On the point of deployment costs, deploying a uniswap market on Ethereum’s mainnet (the most expensive environment, calculated at the time of writing) costs \\~$20 of ETH, but on a layer 2 like Arbitrum One, it costs \\~$0.10. On a sidechain like Polygon PoS, the cost is $0.06. These numbers can fluctuate a lot but are a far shot from the millions of dollars a traditional securities exchange would need in upfront capital. Because of the standardization around these markets, namely liquidity pool conventions, so much of the infrastructure needed to access these markets is already available, often requiring the end market to spend no time on setting anything else up. In the case of a fork, a simple website might be created to stimulate frontend usage, and that’s it.
+On the point of deployment costs, deploying a uniswap market on Ethereum’s mainnet (the most expensive environment, calculated at the time of writing) costs ~$20 of ETH, but on a layer 2 like Arbitrum One, it costs ~$0.10. On a sidechain like Polygon PoS, the cost is $0.06. These numbers can fluctuate a lot but are a far shot from the millions of dollars a traditional securities exchange would need in upfront capital. Because of the standardization around these markets, namely liquidity pool conventions, so much of the infrastructure needed to access these markets is already available, often requiring the end market to spend no time on setting anything else up. In the case of a fork, a simple website might be created to stimulate frontend usage, and that’s it.
 
 A million markets built on crypto rails are coming, and the data should make it obvious. What’s less obvious is the implications that this will have on our society. As I argued earlier, historical precedent around decentralized markets tells us that we’re likely to enjoy the benefits of a stronger financial system, the property rights guarantees of free states, and the efficiency of digital markets. From there, new problems will arise for mankind to tackle, but given the strong footing that I believe crypto networks have the power to unlock, I see the immense importance and value of what is being created here and now. With that said, I hope the data and arguments here make the case for why others should strive to desire the ideal blockchain properties to be present in our future crypto networks.
 
@@ -193,12 +196,13 @@ A million markets built on crypto rails are coming, and the data should make it 
 The constant flood of new market protocols makes more sense to me now. Technological cycles and trends are often over-reduced in hindsight. We put the random path of history into a box and rationalize the state of things as being an obvious consequence of what came before. But when you’re there, in the midst of a revolution, the fog of war is intense. The best ideas always seem crazy at one point. In this essay, we tried to see through this fog, and understand what blockchains as a technology really contribute to markets. Naturally, unknown unknowns remain. In the complex system that is capital markets, the priors that enable outcomes are more often obscured than illuminated. While markets built on crypto rails have wonderful properties, this alone does not give us all the priors we need to understand the future with certainty. Risk still lies in the uncertainty of human behavior. After all, how we use new technology means just as much, if not more, than the technology itself. I hope to see these new markets push out of the frontier and into the mainstream. It seems inevitable.
 
 # Sources
-- <https://en.wikipedia.org/wiki/Marketplace>
-- <https://www.britannica.com/topic/market/The-historical-development-of-markets>
-- <https://www.investopedia.com/ask/answers/020615/what-history-market-economy.asp>
-- <https://mirror.xyz/alkimiya-protocol.eth/PbTyQ3JnVtGq54fLjDr9toMLliWX_HMox9PQCFkZvsw>
-- <https://www.econlib.org/library/Enc/bios/Hayek.html>
-- <https://defillama.com/forks/Uniswap>
+
+- [https://en.wikipedia.org/wiki/Marketplace](https://en.wikipedia.org/wiki/Marketplace)
+- [https://www.britannica.com/topic/market/The-historical-development-of-markets](https://www.britannica.com/topic/market/The-historical-development-of-markets)
+- [https://www.investopedia.com/ask/answers/020615/what-history-market-economy.asp](https://www.investopedia.com/ask/answers/020615/what-history-market-economy.asp)
+- [https://mirror.xyz/alkimiya-protocol.eth/PbTyQ3JnVtGq54fLjDr9toMLliWX_HMox9PQCFkZvsw](https://mirror.xyz/alkimiya-protocol.eth/PbTyQ3JnVtGq54fLjDr9toMLliWX_HMox9PQCFkZvsw)
+- [https://www.econlib.org/library/Enc/bios/Hayek.html](https://www.econlib.org/library/Enc/bios/Hayek.html)
+- [https://defillama.com/forks/Uniswap](https://defillama.com/forks/Uniswap)
 - [https://explore.flashbots.net](https://explore.flashbots.net/)
 - [https://messari.io](https://messari.io/)
 - [https://dune.com](https://dune.com/)

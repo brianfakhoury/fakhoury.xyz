@@ -1,14 +1,16 @@
 ---
-tags: blog/crypto, blog/programming, blog/hacking
+tags:
+  - blog/crypto
+  - blog/programming
+  - blog/hacking
 date: Jan 24, 2022
 publish: true
 image: 
 slug: bribe-tokens
 origin: https://mirror.xyz/fakhoury.eth/AEUye97BSEsNaHtxomYsi5OTTvNlVlK5QUqKb_WjR5Y
 description: 
+title: Bribe Tokens
 ---
-# Bribe Tokens
-
 Context: I had written this as a note many months ago. On reflection, I think the term _bribe token_ might better be reserved for the ongoing “Curve” wars and the rise of DeFi gauge bribes…
 
 ## 🧙🏼‍♂️ Gaming the blockchain
