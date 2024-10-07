@@ -1,14 +1,15 @@
 ---
-tags: blog/crypto, blog/tech
+tags:
+  - crypto
+  - tech
 date: Oct 19, 2022
 publish: true
 image: 
 slug: settlement-layers
 origin: https://mirror.xyz/fakhoury.eth/SqXRPk0MonKK81KI4UWv7o0QnspPQd3rk8h_GLyD0Po
 description: 
+title: Settlement Layers
 ---
-# Settlement Layers
-
 **A settlement layer is where the final ledger of an asset lies.**
 
 For physical goods & commodities, this definition is trivial, it’s just physics. For traditional, intangible financial assets, the ledger lies with some central authority. In the world of digital assets where the assets themselves are emergent from cryptonetworks, it’s not as straightforward.
@@ -17,9 +18,7 @@ Bitcoin’s settlement layer is on the bitcoin network. ETH settles on Ethereum 
 
 Settlement layers have gotten significantly more complex as modular blockchains have become the [preferred scaling method](https://ethereum-magicians.org/t/a-rollup-centric-ethereum-roadmap/4698) for Ethereum, and have always been the [long-term](https://v1.cosmos.network/resources/whitepaper) vision for Cosmos. In the context of settlement layers, to be modular means to (optionally) have a native unit of account whose ledger is not stored locally. For example, this could mean using ETH as a gas token for another network, as Arbitrum and Optimism do for their rollups. While you can deploy an ERC20 token on Arbitrum One that natively settles within the Arbitrum execution environment, many tokens on Arbitrum One, including ETH itself, settle back on the Ethereum mainnet. Since these tokens are brought over through an enshrined bridge in the Arbitrum protocol, we can say that Arbtitrum settles on Ethereum. If tokens are brought over (wrapped) by a third-party bridge from another network, Solana for example, we would _not_ say that Arbitrum settles on Solana.
 
-![Source: Celestia's Twitter Account](Blog/Assets/Source!_Celestia's_Twitter_Account.png)
-
-Source: Celestia's Twitter Account
+![Source: Celestia's Twitter Account](images/settlement-layers/2e14e45b3f37aa48e7dd48fc5c32250c_MD5.png)
 
 **Being a settlement layer brings long-term network effects.**
 
@@ -27,9 +26,7 @@ Since a settlement layer is where the ledger of an asset lies, it becomes very s
 
 ETH being the biggest settlement network for tokens has forced new networks to depend on the bridging of these tokens to help bring assets into their new ecosystem, inadvertently strengthening Ethereum’s grasp as a settlement layer. Tokens like LINK, USDC, stETH, etc… have all been popular assets in crypto to bring over to new networks in order to bootstrap economic activity on the new chain.
 
-![DeFiLlama Total Value Secured relative comparison across 149 chains.](Blog/Assets/DeFiLlama_Total_Value_Secured_relative_comparison_across_149_chains.png)
-
-DeFiLlama Total Value Secured relative comparison across 149 chains.
+![DeFiLlama Total Value Secured relative comparison across 149 chains.](images/settlement-layers/9876ebf59351842a5123405bd6f822f5_MD5.png)
 
 With over $100B+ of assets at its peak, Ethereum became an indispensable settlement layer in the crypto economy. It still dominates today because of the network effects of being a settlement layer, namely: long-term **integrity**, deep stablecoin **liquidity**, and credible **neutrality** (anyone can bridge assets from Ethereum without risk of censorship).
 

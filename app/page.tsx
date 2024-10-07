@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <div className="max-w-screen-sm mx-auto space-y-6">
       {post && (
-        <Card isHoverable isPressable disableAnimation fullWidth>
+        <Card fullWidth>
           <CardBody className="px-5">
             <p className="text-pretty">
               <span className="inline-block w-2 h-2 m-1 bg-primary rounded-full"></span>

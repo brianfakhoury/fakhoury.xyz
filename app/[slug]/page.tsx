@@ -42,7 +42,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </Link>
         </p>
       )}
-      <div className="absolute inset-0 max-w-screen-xl h-[550px] z-[-3] mx-auto overflow-hidden	">
+      <div className="rounded-lg absolute inset-0 max-w-screen-xl h-[550px] z-[-3] mx-auto overflow-hidden	">
         {image ? (
           <>
             <Image
@@ -50,7 +50,7 @@ export default async function PostPage({ params }: PostPageProps) {
               alt={`${title} cover image`}
               height={image_cover_size.height}
               width={image_cover_size.width}
-              className="rounded-lg absolute inset-0 w-full h-full object-cover object-bottom z-[-2]"
+              className="absolute inset-0 w-full h-full object-cover object-bottom z-[-2]"
             />
           </>
         ) : (

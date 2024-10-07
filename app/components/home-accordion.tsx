@@ -22,7 +22,7 @@ export default function HomeAccordion({ links }: { links: Links }) {
           <ul className="list-disc pl-5">
             {category.items.map((item, j) => (
               <li key={j}>
-                <Link href={item.link} isExternal className="inline">
+                <Link href={item.link} isExternal>
                   <p className="text-pretty">{item.content}</p>
                 </Link>
               </li>

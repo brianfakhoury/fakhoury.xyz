@@ -1,15 +1,16 @@
 ---
-tags: blog/crypto, blog/society
+tags:
+  - crypto
+  - society
 date: Aug 8, 2021
 publish: true
 image: 
-slug: liquid-super-communities
+slug: iov-liquid-super-communities
 origin: https://internetofvalue.substack.com/p/liquid-super-communities-are-hot
 description: 
+title: Liquid Super Communities
 ---
-# Liquid Super Communities
-
-![John Law’s Bank Royale. Not a liquid super community. RIP.](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6d7924d3-0e47-48fb-9618-acc5041f3622_1000x575.jpeg "John Law: Genius or Fraud? — Parisology")
+![John Law’s Bank Royale. Not a liquid super community. RIP.](images/iov-liquid-super-communities/1d260a2472d306fe16da9d44a58caa87_MD5.jpg "John Law: Genius or Fraud? — Parisology")
 
 There’s a recent article by Packy McCormick that made rounds for describing “liquid super teams.” It’s a neat way of thinking about how small teams can come together online and build a digital product quickly, efficiently, and without the burden of a traditional company with an HR department 😬. https://www.notboring.co/p/the-cooperation-economy
 

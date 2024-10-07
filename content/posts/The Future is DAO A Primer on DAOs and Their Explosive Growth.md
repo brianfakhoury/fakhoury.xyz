@@ -1,14 +1,15 @@
 ---
-tags: blog/crypto, blog/DAOs
+tags:
+  - crypto
+  - DAOs
 date: May 5, 2021
 publish: true
-image: https://cdn-cpkkb.nitrocdn.com/yDEGtitWfqPMARCNjxclLyJTAKMYMIyD/assets/images/optimized/rev-cd6dd02/wp-content/uploads/2021/05/Blog-Header-1.gif
+image: images/future-is-dao/d905a4d16c09e3e636154d0f51054568_MD5.gif
 slug: future-is-dao
 origin: https://underscore.vc/blog/the-future-is-dao-a-primer-on-daos-and-their-explosive-growth/
 description: 
+title: "The Future is DAO: A Primer on DAOs and Their Explosive Growth"
 ---
-# The Future is DAO: A Primer on DAOs and Their Explosive Growth
-
 One year ago, the world was learning to adapt to being digital-first. In the wake of the pandemic, markets across the world were quickly selling off. And within the crypto community lay murky aftertaste and a not-so-fond memory of “Black Thursday,” a day when the price of all crypto tanked in unison, pushing crypto infrastructure to its knees.
 
 Institutions, small businesses, and individuals alike all lost wealth as measured by their assets. Another category of organizations, called DAOs, or **decentralized autonomous organizations**, had felt this pain too. What came from it? The story that is told in the year to follow sets the case that these mystical, and somewhat theoretical, organizations might just be the premiere setup for all institutions and businesses alike one day.
@@ -23,17 +24,17 @@ In summary: a DAO is created by a group of crypto wallets controlled by individu
 
 Let’s look back to 2020 one more time and paint a picture of trajectory. At a time when [$ETH](https://messari.io/asset/ethereum) was trading at $230, DAOs barely made a dent in the financial world, with the long tail of them holding only a few thousand dollars worth of assets:
 
-![Snapshot of DAO assets. Source: Messari Crypto](Blog/Assets/Snapshot_of_DAO_assets._Source!_Messari_Crypto.png)
+![Snapshot of DAO assets. Source: Messari Crypto](images/future-is-dao/cf4df0178fd57c9ed7454b9f41c4ba10_MD5.png)
 
 After a year-long crypto bull market, millions of new people introduced to crypto, and thousands of projects launched and generating fees — let’s just say things are different today:
 
-![Figure 2. 2021 Snapshot of DAO assets. Source: Messari Crypto](Blog/Assets/Figure_2._2021_Snapshot_of_DAO_assets._Source!_Messari_Crypto.png)
+![Figure 2. 2021 Snapshot of DAO assets. Source: Messari Crypto](images/future-is-dao/242606c938ead618ac9ca5b4ceb200f6_MD5.png)
 
 We’re now measuring DAO holdings in the millions. It doesn’t stop there even — widely adopted crypto protocols that have been built over the past year control huge treasuries of their native token, sometimes totaling in the billions in terms of the worth of those assets. An example of this is [Uniswap](https://uniswap.org/), a massively successful protocol that allows for decentralized and permissionless trading of assets on Ethereum. Their treasury? About $7,200,000,000; or over seven billion dollars worth of mostly UNI tokens. (we can check this total along with treasury movements at any time we want; the data is fully transparent and able to be queried by anyone!)
 
 The effect of this massive wealth inflation by this category of organizations is wondrous. As Ethereum- founder Vitalik Buterin points out in [this great blog post](https://vitalik.ca/general/2021/03/23/legitimacy.html), funding of engineering and development for public blockchains is minuscule compared to the value they create.
 
-![Figure 3. Relative funding of public blockchain development. Source: Vitalik Buterin](Blog Posts/Assets/Figure_3._Relative_funding_of_public_blockchain_development._Source!_Vitalik_Buterin.png)
+![Figure 3. Relative funding of public blockchain development. Source: Vitalik Buterin](images/future-is-dao/68b262c60fd15d8eb12017b05b5798b9_MD5.png)
 
 From millions to billions in assets, a zeitgeist-market fit, and a future irreversibly dominated by the internet, DAOs have gone from being a clubhouse for crypto-nerds, to the equivalent of a boardroom full of suits when it comes to dealing with serious matters of business. With this level of power comes the ability for the early crypto community to now build out serious grant ecosystems for public goods, provide benefits for users of their ecosystem, decentralized philanthropy, and most importantly — further decentralize.
 
@@ -63,7 +64,7 @@ According to the Tally page, [Robert Leshner](http://withtally.com/governance/c
 
 A lot of DAOs implement a function in their smart contracts called ragequit. This function serves simply to let any DAO member call it, and immediately remove themselves from the DAO, receiving their pro rata assortment of assets. This is remarkable in a number of ways! Let’s think of a real-world example where a partnership agreement specifies in writing how a member could leave and take their share of money out of the company. Traditionally, if all goes well, paperwork is signed, and in a few days, all is well and on its way. Some of the assets might be hard to liquidate or split up, but it’ll get sorted. In another scenario where there is a dispute on the terms, lawyers involved and all, leaving a partnership might take months and be very expensive! The ragequit function is agnostic to all this. The second it’s called, assets are transferred according to the rules, no papers are signed, no one even has to check! This can all happen within a few seconds. Most importantly, it’s agnostic to how anyone feels. An unruly member can’t get in the way.
 
-![Figure 3. Generic DAO flowchart with ragequit(). Source: Consensys](Blog/Assets/Figure_3._Generic_DAO_flowchart_with_ragequit()._Source!_Consensys.png)
+![Figure 3. Generic DAO flowchart with ragequit(). Source: Consensys](images/future-is-dao/3f0658d64ef7ed174c3792dd4a97262d_MD5.png)
 
 The disparity between traditional organizations and DAOs in these edge cases is really important, and what in essence can lead to their future takeover. By natural selection, the organizations that are the most fit and resilient will last. What’s more resilient and permanent than a DAO? Nothing! The fluidity goes above and beyond what any paperwork can ever implement, and can scale larger than any corporation that exists right now. In fact, there’s no reason why an entire country cannot be a DAO.
 
@@ -87,7 +88,7 @@ What about traditional businesses, say your run-of-the-mill Fortune 500 company?
 
 DAOs are code, and code is hard. As things progress, not every group of people will be able to program their own DAO, just like not everyone can write up the legal papers for an LLC or code their own website. The tools here are incredibly important.
 
-![Figure 5. A rough landscape of the picks and shovels for DAOs. Source: Underscore VC](Blog/Assets/fig5.png)
+![Figure 5. A rough landscape of the picks and shovels for DAOs. Source: Underscore VC](images/future-is-dao/5996745e3035216c2e5c0fd9621a702a_MD5.png)
 
 I mentioned [DAOhaus](https://daohaus.club/) as an all-in-one solution, but as we see above, there’s plenty of individual tools that can be used. For example, Snapshot lets you collect signatures for a proposal in an off-chain manner. The use case is that for wallets that hold your governance token, a signature by that wallet is more than enough proof of vote, and saves the costs of creating transactions on the blockchain. Imagine holding $100 worth of COMP and having to pay $20 to vote on a single proposal. [Aragon](https://aragon.org/) is more similar to DAOhaus, offering a modular assembly approach to pick and choose for your DAO.
 
@@ -100,6 +101,7 @@ At Underscore, we believe DeFi will rewrite the financial operating system of th
 As I was writing this article, the Compound treasury went from $2B to $3B. The Uniswap treasury increased by over a billion dollars as well. I had to revise these numbers 3 times!
 
 ---
+
 ## Other reading and sources
 
 [https://medium.com/odyssy/moloch-primer-for-humans-9e6a4f258f78](https://medium.com/odyssy/moloch-primer-for-humans-9e6a4f258f78)  
@@ -107,5 +109,5 @@ As I was writing this article, the Compound treasury went from $2B to $3B. The U
 [https://consensys.net/diligence/audits/2020/01/the-lao/](https://consensys.net/diligence/audits/2020/01/the-lao/)  
 [https://ournetwork.substack.com/p/our-network-deep-dive-2](https://ournetwork.substack.com/p/our-network-deep-dive-2)  
 [https://newsletter.banklesshq.com/p/how-daos-should-approach-treasury](https://newsletter.banklesshq.com/p/how-daos-should-approach-treasury)  
-[https://medium.com/daohaus-club/uberhaus-is-alive-%EF%B8%8F-3af528dc3494](https://medium.com/daohaus-club/uberhaus-is-alive-%EF%B8%8F-3af528dc3494) 
+[https://medium.com/daohaus-club/uberhaus-is-alive-%EF%B8%8F-3af528dc3494](https://medium.com/daohaus-club/uberhaus-is-alive-%EF%B8%8F-3af528dc3494)  
 [https://www.placeholder.vc/blog/2019/2/19/cryptonetwork-governance-as-capital](https://www.placeholder.vc/blog/2019/2/19/cryptonetwork-governance-as-capital)

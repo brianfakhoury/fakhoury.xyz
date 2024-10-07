@@ -1,15 +1,15 @@
 ---
-tags: blog/speech
+tags:
+  - speech
 date: May 28, 2016
 publish: true
 image: 
 slug: smooth-reverie
 origin: https://archive.reporternews.com/opinion/columnists/salutatory-address-brian-fakhoury-wylie-something-i-call-smooth-reverie-33a05733-c6bf-7628-e053-0100-381127131.html/
 description: 
+title: "Salutatory Address: Smooth Reverie"
 ---
-# Salutatory Address: Smooth Reverie
-
-![](Blog/Assets/0!mbht_WGFbs70Rb6g.jpg)
+![](images/smooth-reverie/salutatorian.png)
 
 I call this speech “Smooth Reverie.” I wrote this in a series of sweaty sessions across particularly random hours of the 24-hour day, and fully understand and admit that by no means this writing would receive a passing grade from one of my stricter English teachers. Now, a reverie is a daydream, or fantastic vision, and tonight, we capture a part of our lives in a snapshot that will forever shine brilliantly in our memories. Like a herd of water buffalo, we as a class have stomped through our grade school years, and like a lost lion, we as a class have courageously made it to graduation.
 

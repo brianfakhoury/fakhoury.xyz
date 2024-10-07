@@ -7,7 +7,7 @@ date: Feb 24, 2023
 publish: true
 image: images/million-markets/03d86356704f7698bf35ac4756076ada_MD5.jpg
 slug: million-markets
-origin: https://mirror.xyz/fakhoury.eth/0aHTR9U5cUlF2oF0PkyHAYsFnaM-LxkVHqEDUAmdrGs
+origin: https://www.mechanism.capital/million-markets-from-the-bazaar-to-the-dex/
 description: 
 title: "A Million Markets: From the Bazaar to the DEX"
 ---
