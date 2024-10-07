@@ -26,26 +26,20 @@ export default function RootLayout({ children }: PropsWithChildren) {
 }
 
 export const metadata = {
-  metadataBase: new URL("https://fakhoury.xyz"),
+  metadataBase: process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : `http://localhost:${process.env.PORT || 3000}`, // bug: i had to hardcode this myself even though theres a default
   title: {
-    template: "%s | Max Leiter",
+    template: "%s | Brian Fakhoury",
     default: "Brian Fakhoury",
   },
-  description: "Brian Fakhoury's personal site and digital garden.",
+  description: "My personal site and digital garden.",
+  authors: [{ name: "Brian Fakhoury" }],
   openGraph: {
-    title: "Brian Fakhoury",
-    url: "https://fakhoury.xyz",
+    url: "/",
     siteName: "Brian Fakhoury's website",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: `https://fakhoury.xyz/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "Brian Fakhoury's site",
-      },
-    ],
   },
   robots: {
     index: true,
@@ -56,13 +50,13 @@ export const metadata = {
     },
   },
   twitter: {
-    title: "Brian Fakhoury",
     card: "summary_large_image",
     creator: "@brianfakhoury",
   },
   alternates: {
+    canonical: "/",
     types: {
-      "application/rss+xml": "https://fakhoury.xyz/feed.xml",
+      "application/rss+xml": "/feed.xml",
     },
   },
 };

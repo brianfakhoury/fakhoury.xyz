@@ -1,5 +1,6 @@
 import { User, Link } from "@nextui-org/react";
 import ThemeSwitcher from "./theme-switcher";
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -14,6 +15,8 @@ export default function Header() {
           }
           avatarProps={{
             src: "/icon.png",
+            ImgComponent: Image,
+            imgProps: { width: 256, height: 256 },
           }}
         />
       </Link>

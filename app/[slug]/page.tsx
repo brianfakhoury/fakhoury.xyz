@@ -61,9 +61,9 @@ export default async function PostPage({ params }: PostPageProps) {
         />
       </div>
 
-      <div className="mt-20 sm:mt-5 relative">
+      <div className="mt-10 relative">
         {image && (
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-background/40 to-background to-50% z-[-2]" />
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-background/40 to-background to-40% z-[-2]" />
         )}
         <ReactMarkdown
           className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"

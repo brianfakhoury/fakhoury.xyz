@@ -2,6 +2,14 @@ import { getPosts } from "@/lib/get-posts";
 import ListOfPosts from "@/app/components/list-of-posts";
 import { Link } from "@nextui-org/react";
 
+interface TagPageProps {
+  params: { tag: string };
+}
+
+interface MetadataProps {
+  params: { tag: string };
+}
+
 export async function generateStaticParams() {
   const posts = await getPosts();
   const paths = new Set();
@@ -12,8 +20,23 @@ export async function generateStaticParams() {
   }));
 }
 
-interface TagPageProps {
-  params: { tag: string };
+export async function generateMetadata({ params }: MetadataProps) {
+  return {
+    title: `Writing - #${params.tag}`,
+    description: `Essays tagged with #${params.tag}`,
+    openGraph: {
+      url: `/writing/${params.tag}`,
+      siteName: "Brian Fakhoury's website",
+      locale: "en_US",
+      type: "website",
+    },
+    alternates: {
+      canonical: `/writing/${params.tag}`,
+      types: {
+        "application/rss+xml": "/feed.xml",
+      },
+    },
+  };
 }
 
 export default async function TagPage({ params }: TagPageProps) {

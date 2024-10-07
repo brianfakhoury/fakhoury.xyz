@@ -1,6 +1,6 @@
 // Format date for use in blog post heading
 export function formatDateForBlogPost(date: Date): string {
-  return new Date(date).toLocaleDateString("en", {
+  return date.toLocaleDateString("en", {
     month: "short",
     day: "numeric",
     year: "numeric",

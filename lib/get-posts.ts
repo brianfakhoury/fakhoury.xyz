@@ -21,7 +21,7 @@ export const getPosts = cache(async () => {
         // default slug to filename without extension
         return {
           tags: data.tags,
-          date: data.date,
+          date: new Date(data.date),
           slug: data.slug || file.replace(/\.mdx?$/, ""),
           origin: data.origin,
           image: data.image,
@@ -34,7 +34,7 @@ export const getPosts = cache(async () => {
 
   return postsWithMetadata
     .filter((post) => post !== null)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a, b) => b.date.getTime() - a.date.getTime());
 });
 
 export async function getPost(slug?: string) {

@@ -10,10 +10,7 @@ export default function ListOfPosts({ posts }: ListOfPostsProps) {
   return (
     <ul className="max-w-screen-lg mx-auto">
       {posts
-        .sort(
-          (a: Post, b: Post) =>
-            new Date(b.date).getTime() - new Date(a.date).getTime()
-        )
+        .sort((a: Post, b: Post) => b.date.getTime() - a.date.getTime())
         .map((post: Post, i: number) => (
           <li key={i}>
             <Divider />
@@ -25,7 +22,7 @@ export default function ListOfPosts({ posts }: ListOfPostsProps) {
               </div>
               <div className="w-3/12 flex justify-end items-start">
                 <Badge color="primary" variant="flat">
-                  {new Date(post.date).toLocaleString("en", {
+                  {post.date.toLocaleString("en", {
                     month: "short",
                     year: "numeric",
                   })}
