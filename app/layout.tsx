@@ -54,7 +54,7 @@ export const metadata = {
     creator: "@brianfakhoury",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://fakhoury.xyz",
     types: {
       "application/rss+xml": "/feed.xml",
     },

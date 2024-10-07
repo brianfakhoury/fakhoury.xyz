@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: MetadataProps) {
       locale: "en_US",
     },
     alternates: {
-      canonical: `/${post.slug}`,
+      canonical: `https://fakhoury.xyz/${post.slug}`,
       types: {
         "application/rss+xml": "/feed.xml",
       },

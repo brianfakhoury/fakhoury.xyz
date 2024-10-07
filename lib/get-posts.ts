@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import { cache } from "react";
 import type { Post } from "@/lib/types";
 
-const POSTS_DIRECTORY = "./content/posts";
+const POSTS_DIRECTORY = "./public/";
 
 export const getPosts = cache(async () => {
   const posts = await fs.readdir(POSTS_DIRECTORY);

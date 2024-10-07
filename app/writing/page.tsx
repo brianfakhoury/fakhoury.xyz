@@ -11,7 +11,7 @@ export const metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "writing",
+    canonical: "https://fakhoury.xyz/writing",
     types: {
       "application/rss+xml": "/feed.xml",
     },
