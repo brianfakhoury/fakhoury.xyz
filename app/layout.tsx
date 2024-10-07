@@ -27,7 +27,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
 export const metadata = {
   metadataBase: process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+    ? `https://fakhoury.xyz`
     : `http://localhost:${process.env.PORT || 3000}`, // bug: i had to hardcode this myself even though theres a default
   title: {
     template: "%s | Brian Fakhoury",

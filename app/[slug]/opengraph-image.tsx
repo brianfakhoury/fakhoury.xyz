@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+// TODO: make static, theses images should be cached for each post
+
 export const runtime = "edge";
 export const alt = "Brian Fakhoury Blog Header";
 export const size = { width: 1200, height: 630 };
@@ -11,7 +13,7 @@ interface ImageParams {
 
 export default async function Image({ params }: ImageParams) {
   const host = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+    ? `https://fakhoury.xyz`
     : `http://localhost:${process.env.PORT || 3000}`;
 
   const post = await fetch(`${host}/api/get-post?slug=${params.slug}`).then(

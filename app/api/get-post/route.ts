@@ -1,6 +1,8 @@
 import { getPost } from "@/lib/get-posts";
 import { NextResponse, type NextRequest } from "next/server";
 
+// TODO make static, files do not change in prod
+
 // wraps get post in api call with slug as param, returns post
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
