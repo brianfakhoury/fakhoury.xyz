@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: MetadataProps) {
       authors: ["Brian Fakhoury"],
       siteName: "Brian Fakhoury's website",
       locale: "en_US",
+      images: `/${params.slug}/og.png`,
     },
     alternates: {
       canonical: `https://fakhoury.xyz/${post.slug}`,
