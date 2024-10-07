@@ -13,7 +13,7 @@ export default function Header() {
             </Link>
           }
           avatarProps={{
-            src: "http://localhost:3000/icon.png",
+            src: "/icon.png",
           }}
         />
       </Link>
