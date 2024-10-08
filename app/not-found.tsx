@@ -3,8 +3,8 @@ import { Link } from "@nextui-org/react";
 export default function NotFound() {
   return (
     <div className="prose dark:prose-invert">
-      <h1>Couldn't find it.</h1>
-      <p>My website doesn't know what you're looking for.</p>
+      <h1>Couldn&apos;t find it.</h1>
+      <p>My website doesn&apos;t know what you&apos;re looking for.</p>
       <p>Here are some links, maybe you can find it elsewhere:</p>
       <ul>
         <li>
