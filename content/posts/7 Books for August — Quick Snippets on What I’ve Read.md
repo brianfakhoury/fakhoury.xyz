@@ -2,12 +2,12 @@
 tags:
   - books
   - reading
-date: Aug 29, 2019
+date: 2019-08-29
 publish: true
 image: 
 slug: aug-2019-book-snippets
 origin: https://brianfakhoury.medium.com/7-books-for-august-quick-snippets-on-what-ive-read-65a1a5a0885
-description: 
+description: Quick takeaways from 7 books I read in August 2019, covering topics like psychology, design, history, and more.
 title: 7 Books for August — Quick Snippets on What I’ve Read
 ---
 ![](images/aug-2019-book-snippets/2f023b057dedaaf00299323144df2b1d_MD5.jpg)

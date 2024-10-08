@@ -1,12 +1,12 @@
 ---
 tags:
   - speech
-date: May 28, 2016
+date: 2016-05-28
 publish: true
 image: 
 slug: smooth-reverie
 origin: https://archive.reporternews.com/opinion/columnists/salutatory-address-brian-fakhoury-wylie-something-i-call-smooth-reverie-33a05733-c6bf-7628-e053-0100-381127131.html/
-description: 
+description: My speech as a salutatorian at my high school in 2016.
 title: "Salutatory Address: Smooth Reverie"
 ---
 ![](images/smooth-reverie/salutatorian.png)

@@ -2,12 +2,12 @@
 tags:
   - opinion
   - philosophy
-date: Apr 19, 2022
+date: 2022-04-19
 publish: true
 image: 
 slug: writing-rich
 origin: https://mirror.xyz/fakhoury.eth/VQhxCvhvAVRPJykFuDVVK9CTg6SFjw1Wdl-Ze4_2ito
-description: 
+description: Writing is a powerful tool that fosters continuous learning and growth, offering non-monetary richness through the pursuit of knowledge and personal fulfillment.
 title: Writing Can Make One Rich*
 ---
 It’s exceedingly clear to me that I have a very chatty internal monologue. From the first signs of an awakening mind to the moments before sleep, there exists a flurry of loose-ended thought processes in my head that range from explaining technical concepts to coming up with my own “self-help” principles. In parallel, I believe there is a common narrative that has been growing over the years in my social circles: that writing is a powerful tool. In the age of Proof-of-Stake blockchains, private space industry, CRISPR and other genomic technologies, AI language models, etc… it's quite silly to think of _writing_ as a _technology_. Unfortunately, writing does not have a token to speculate on, nor stock to list on a public market. It doesn’t rely on power laws in computing to get more powerful, nor does it need to be unlocked inside a laboratory environment. It’s a simple technology, thousands of years old, that gave us the ability to control our minds in a way that enables precise and compact knowledge.

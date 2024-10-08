@@ -16,7 +16,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Providers>
           <div className="container mx-auto px-4 sm:px-8 max-w-screen-xl">
             <Header />
-            <div className="min-h-[80vh] p-0">{children}</div>
+            <div className="min-h-[85vh] p-0">{children}</div>
             <Footer />
           </div>
         </Providers>

@@ -2,12 +2,12 @@
 tags:
   - crypto
   - DAOs
-date: May 5, 2021
+date: 2021-05-05
 publish: true
 image: images/future-is-dao/d905a4d16c09e3e636154d0f51054568_MD5.gif
 slug: future-is-dao
 origin: https://underscore.vc/blog/the-future-is-dao-a-primer-on-daos-and-their-explosive-growth/
-description: 
+description: A simple guide to how decentralized autonomous organizations (DAOs) are changing the way people manage money and make decisions online.
 title: "The Future is DAO: A Primer on DAOs and Their Explosive Growth"
 ---
 One year ago, the world was learning to adapt to being digital-first. In the wake of the pandemic, markets across the world were quickly selling off. And within the crypto community lay murky aftertaste and a not-so-fond memory of “Black Thursday,” a day when the price of all crypto tanked in unison, pushing crypto infrastructure to its knees.

@@ -3,13 +3,13 @@ tags:
   - crypto
   - programming
   - hacking
-date: Jan 24, 2022
+date: 2022-01-24
 publish: true
-image: 
 slug: bribe-tokens
-origin: https://mirror.xyz/fakhoury.eth/AEUye97BSEsNaHtxomYsi5OTTvNlVlK5QUqKb_WjR5Y
-description: 
+description: Exploring how "bribe tokens" could impact blockchain politics and influence DeFi protocols like 1inch.
 title: Bribe Tokens
+origin: https://mirror.xyz/fakhoury.eth/AEUye97BSEsNaHtxomYsi5OTTvNlVlK5QUqKb_WjR5Y
+image:
 ---
 Context: I had written this as a note many months ago. On reflection, I think the term _bribe token_ might better be reserved for the ongoing “Curve” wars and the rise of DeFi gauge bribes…
 

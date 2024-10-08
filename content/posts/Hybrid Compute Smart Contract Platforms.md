@@ -3,12 +3,12 @@ tags:
   - crypto
   - programming
   - tech
-date: Jan 24, 2022
+date: 2022-01-24
 publish: true
 image: 
 slug: hybrid-compute
 origin: https://mirror.xyz/fakhoury.eth/v0pryMFMTyRiuYMKtwUEPEPSomdcE6XN1XEhuEba1xw
-description: 
+description: An exploration of smart contracts using external data sources.
 title: Hybrid Compute Smart Contract Platforms
 ---
 I originally posted this analysis on Twitter here: https://x.com/brianfakhoury/status/1485150532897591301

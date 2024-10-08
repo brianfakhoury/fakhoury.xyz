@@ -3,12 +3,12 @@ tags:
   - crypto
   - history
   - opinion
-date: June 11, 2022
+date: 2022-06-11
 publish: true
 image: images/history-rhymes/netscape.png
 slug: history-rhymes
 origin: https://mirror.xyz/fakhoury.eth/w-lp0GNww9Ere8py64M2wI18PD9aEKQjUEL20pzq_mU
-description: 
+description: Parallels between early internet and crypto show growing adoption will lead to a significant future impact on society.
 title: History Rhymes, In Defense Of Crypto
 ---
 _TLDR; Crypto doesn’t matter until it does._

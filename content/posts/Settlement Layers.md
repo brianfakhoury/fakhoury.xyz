@@ -2,12 +2,12 @@
 tags:
   - crypto
   - tech
-date: Oct 19, 2022
+date: 2022-10-19
 publish: true
 image: 
 slug: settlement-layers
 origin: https://mirror.xyz/fakhoury.eth/SqXRPk0MonKK81KI4UWv7o0QnspPQd3rk8h_GLyD0Po
-description: 
+description: A settlement layer records digital asset ownership. Ethereum leads now, but new blockchains may challenge as crypto grows.
 title: Settlement Layers
 ---
 **A settlement layer is where the final ledger of an asset lies.**

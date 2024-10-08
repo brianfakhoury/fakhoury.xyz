@@ -2,6 +2,8 @@ import { getPosts } from "@/lib/get-posts";
 import ListOfPosts from "@/app/components/list-of-posts";
 import { Link } from "@nextui-org/react";
 
+export const dynamicParams = false;
+
 interface TagPageProps {
   params: { tag: string };
 }

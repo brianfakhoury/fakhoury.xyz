@@ -21,7 +21,18 @@ export async function generateMetadata({ params }: MetadataProps) {
       authors: ["Brian Fakhoury"],
       siteName: "Brian Fakhoury",
       locale: "en_US",
-      images: `/${params.slug}/og.png`,
+      images: [
+        {
+          url: `/${params.slug}/og.png`,
+          width: 1200,
+          height: 630,
+          alt: `Brian Fakhoury's headshot alongside the title of the post: "${post.title}"`,
+        },
+      ],
+    },
+    other: {
+      "og:updated_time": (post.modified || post.date).toISOString(),
+      "article:modified_time": (post.modified || post.date).toISOString(),
     },
     alternates: {
       canonical: `https://fakhoury.xyz/${post.slug}`,

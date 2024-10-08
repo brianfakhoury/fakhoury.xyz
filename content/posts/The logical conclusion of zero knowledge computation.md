@@ -3,12 +3,12 @@ tags:
   - crypto
   - zk
   - programming
-date: Dec 12, 2022
+date: 2022-12-12
 publish: true
 image: 
 slug: zk
 origin: https://mirror.xyz/fakhoury.eth/Q4PyoYdOlYGlnAA4q4XWTEk5x5JgFEAhvA9qWvw1PYo
-description:
+description: Zero-knowledge proofs (ZKPs) enable private, verifiable computations. RISC Zero's zkVM brings this tech to popular programming languages.
 ---
 Zero-knowledge proofs (ZKPs) are an absurd technological breakthrough, and people like [@VitalikButerin](https://twitter.com/VitalikButerin) have publicly commented that they're likely on par with blockchains in terms of ideological importance for this decade. The power of ZKPs can be generally split into two superpowers: privacy & compression. Both sides of this technology are incredibly important, but I want to focus on the compression superpower as it relates to the first line of this thread. How do ZKPs help power compression in a new way?
 

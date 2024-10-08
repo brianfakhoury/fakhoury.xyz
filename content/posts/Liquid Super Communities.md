@@ -2,12 +2,12 @@
 tags:
   - crypto
   - society
-date: Aug 8, 2021
+date: 2021-08-08
 publish: true
 image: 
 slug: iov-liquid-super-communities
 origin: https://internetofvalue.substack.com/p/liquid-super-communities-are-hot
-description: 
+description: An exploration of web3 communities where token-based memberships allow for flexible participation.
 title: Liquid Super Communities
 ---
 ![John Law’s Bank Royale. Not a liquid super community. RIP.](images/iov-liquid-super-communities/1d260a2472d306fe16da9d44a58caa87_MD5.jpg "John Law: Genius or Fraud? — Parisology")

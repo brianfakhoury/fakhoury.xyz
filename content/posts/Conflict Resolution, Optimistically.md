@@ -2,12 +2,12 @@
 tags:
   - crypto
   - mechanisms
-date: Aug 15, 2021
+date: 2021-08-15
 publish: true
 image: images/iov-optimistic-resolution/c2b3b8d389ad128711b1c2424dbe34b3_MD5.jpg
 slug: iov-optimistic-resolution
 origin: https://internetofvalue.substack.com/p/crypto-economies-do-not-own-fighter
-description: 
+description: A look at optimistic problem-solving in blockchain, exploring how it enables scaling, improves oracles, and strengthens trust in crypto economies.
 title: Conflict Resolution, Optimistically
 ---
 There's an analogy I've heard a number of times that is paraphrased as:

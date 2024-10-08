@@ -2,12 +2,12 @@
 tags:
   - crypto
   - mechanisms
-date: Aug 23, 2021
+date: 2021-08-23
 publish: true
 image: 
 slug: iov-crypto-bridges
 origin: https://internetofvalue.substack.com/p/the-virtual-bridges-that-will-power
-description: 
+description: How blockchain bridges connect networks, enabling smoother asset transfers and boosting the interconnected crypto economy.
 title: The Snakes and Ladders of Crypto
 ---
 ![Puente romano de Alcántara. An old Roman bridge.](images/iov-crypto-bridges/bb533e5e2d9e48d9d25987fb668fe13e_MD5.jpg "File:Puente romano de Alcántara, en El Museo Universal.jpg")

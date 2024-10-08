@@ -2,12 +2,12 @@
 tags:
   - pc
   - hardware
-date: May 8, 2017
+date: 2017-05-08
 publish: true
 image: 
 slug: rig
 origin: https://medium.com/@brianfakhoury/the-rig-computer-de5bcfb43c38
-description: 
+description: A look at building a custom high-performance PC, featuring an Intel i7, GTX 970, and personal insights on optimizing for power and performance.
 title: The Rig (Computer)
 ---
 ![](images/rig/rig.jpg)

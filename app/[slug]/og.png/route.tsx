@@ -40,7 +40,10 @@ export async function GET(req: NextRequest, { params }: RouteProps) {
 
   const post = await getPost(params.slug);
 
-  if (!post) return new NextResponse("Not found", { status: 404 });
+  if (!post)
+    return new NextResponse("There is no post that has this image.", {
+      status: 404,
+    });
 
   const cover_path = post.image
     ? path.join("content", "posts", post.image)
@@ -54,7 +57,7 @@ export async function GET(req: NextRequest, { params }: RouteProps) {
 
   return new ImageResponse(
     (
-      <div tw="relative flex items-center justify-center h-full w-full">
+      <div tw="relative flex items-center justify-center h-full w-full bg-black">
         {cover_src && (
           <img
             src={cover_src}

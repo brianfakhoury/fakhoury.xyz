@@ -16,7 +16,11 @@ export default function Header() {
           avatarProps={{
             src: "/icon.png",
             ImgComponent: Image,
-            imgProps: { width: 256, height: 256 },
+            imgProps: {
+              width: 256,
+              height: 256,
+              alt: "Brian Fakhoury's headshot",
+            },
           }}
         />
       </Link>
