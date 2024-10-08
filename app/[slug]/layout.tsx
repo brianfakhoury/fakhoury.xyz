@@ -2,6 +2,8 @@ import { getPost } from "@/lib/get-posts";
 import { notFound } from "next/navigation";
 import { type PropsWithChildren } from "react";
 
+export const dynamicParams = false;
+
 interface MetadataProps {
   params: { slug: string };
 }

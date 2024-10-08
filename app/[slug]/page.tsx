@@ -8,6 +8,8 @@ import React from "react";
 import { notFound } from "next/navigation";
 import sizeOf from "image-size";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const posts = await getPosts();
   return posts.map((post) => ({ slug: post.slug }));
