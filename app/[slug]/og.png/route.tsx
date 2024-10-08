@@ -57,12 +57,13 @@ export async function GET(req: NextRequest, { params }: RouteProps) {
 
   return new ImageResponse(
     (
+      /* eslint-disable @next/next/no-img-element */
       <div tw="relative flex items-center justify-center h-full w-full bg-black">
         {cover_src && (
           <img
             src={cover_src}
-            width={1200} // Explicit width
-            height={630} // Explicit height
+            width={1200}
+            height={630}
             alt=""
             tw="absolute top-0 left-0 w-full h-full"
           />
