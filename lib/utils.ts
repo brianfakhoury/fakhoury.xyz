@@ -15,15 +15,15 @@ export function timeAgo(date: Date): string {
   const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
   const units = [
-    { name: "day", value: 86400 },
-    { name: "hour", value: 3600 },
-    { name: "minute", value: 60 },
+    { name: "d", value: 86400 },
+    { name: "h", value: 3600 },
+    { name: "m", value: 60 },
   ];
 
   for (const { name, value } of units) {
     const amount = Math.floor(diffInSeconds / value);
     if (amount >= 1) {
-      return `${amount} ${name}${amount > 1 ? "s" : ""} ago`;
+      return `${amount}${name} ago`;
     }
   }
 
