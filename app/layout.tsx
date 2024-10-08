@@ -11,8 +11,8 @@ const raleway = Raleway({ weight: "400", subsets: ["latin"], display: "swap" });
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={raleway.className}>
-      <body>
+    <html lang="en">
+      <body className={raleway.className}>
         <Providers>
           <div className="container mx-auto px-4 sm:px-8 max-w-screen-xl">
             <Header />
