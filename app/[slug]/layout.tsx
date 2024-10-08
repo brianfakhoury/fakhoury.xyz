@@ -11,19 +11,15 @@ export async function generateMetadata({ params }: MetadataProps) {
 
   if (!post) notFound();
 
-  const getOgDescription = (body: string, description?: string) => {
-    return description || body.split(" ").slice(0, 10).join(" ") + "...";
-  };
-
   return {
     title: post.title.trim(),
-    description: getOgDescription(post.body, post.description),
+    description: post.description,
     openGraph: {
       url: `/${post.slug}`,
       type: "article",
       publishedTime: post.date.toISOString(),
       authors: ["Brian Fakhoury"],
-      siteName: "Brian Fakhoury's website",
+      siteName: "Brian Fakhoury",
       locale: "en_US",
       images: `/${params.slug}/og.png`,
     },

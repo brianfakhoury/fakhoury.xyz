@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import { cache } from "react";
 import type { Post } from "@/lib/types";
 
-const POSTS_DIRECTORY = "./public/";
+const POSTS_DIRECTORY = "./content/posts";
 
 export const getPosts = cache(async () => {
   const posts = await fs.readdir(POSTS_DIRECTORY);
@@ -16,25 +16,30 @@ export const getPosts = cache(async () => {
         const fileContents = await fs.readFile(filePath, "utf8");
         const { data, content } = matter(fileContents);
 
-        if (!data.publish || !data.title) return null;
+        if (!data.publish || !data.date || !data.title || !content) return null;
 
-        // default slug to filename without extension
         return {
-          tags: data.tags,
+          tags: data.tags || [],
           date: new Date(data.date),
+          modified: data.modified && new Date(data.modified),
           slug: data.slug || file.replace(/\.mdx?$/, ""),
-          origin: data.origin,
-          image: data.image,
-          description: data.description,
+          origin: data.origin ?? undefined,
+          image: data.image ?? undefined,
+          description:
+            data.description ||
+            content.split(" ").slice(0, 10).join(" ") + "...",
           title: data.title,
           body: content,
         } as Post;
       })
   );
-
   return postsWithMetadata
     .filter((post) => post !== null)
-    .sort((a, b) => b.date.getTime() - a.date.getTime());
+    .sort((a, b) => {
+      const aTime = (a.modified || a.date).getTime();
+      const bTime = (b.modified || b.date).getTime();
+      return bTime - aTime;
+    });
 });
 
 export async function getPost(slug?: string) {

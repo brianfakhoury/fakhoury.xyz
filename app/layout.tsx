@@ -37,7 +37,7 @@ export const metadata = {
   authors: [{ name: "Brian Fakhoury" }],
   openGraph: {
     url: "/",
-    siteName: "Brian Fakhoury's website",
+    siteName: "Brian Fakhoury",
     locale: "en_US",
     type: "website",
   },

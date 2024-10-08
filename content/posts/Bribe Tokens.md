@@ -15,7 +15,7 @@ Context: I had written this as a note many months ago. On reflection, I think th
 
 ## 🧙🏼‍♂️ Gaming the blockchain
 
-```jsx
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;
 
@@ -57,7 +57,7 @@ In this case, the bribe token would have the following functionality: Mint for e
 
 Here's a skeleton implementation:
 
-```jsx
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;
 

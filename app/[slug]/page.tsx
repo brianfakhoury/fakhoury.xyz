@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Link } from "@nextui-org/react";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
+import { Code } from "bright";
 import React from "react";
 import { notFound } from "next/navigation";
 import sizeOf from "image-size";
@@ -68,6 +69,14 @@ export default async function PostPage({ params }: PostPageProps) {
         <ReactMarkdown
           className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"
           components={{
+            code: ({ ...props }) => (
+              <Code
+                lang={props.className?.split("-")[1]}
+                title={props.className?.split("-")[1]}
+                lineNumbers
+                {...props}
+              />
+            ),
             img: ({ ...props }) => {
               const image_size = sizeOf(`content/posts/${props.src}`);
               const image_src = props.src?.startsWith("/")

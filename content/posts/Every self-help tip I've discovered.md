@@ -1,12 +1,13 @@
 ---
 tags:
   - life
-date: June 1, 2023
+date: 2023-06-23
+modified: 2024-09-03
 publish: true
 image: images/self-help/ai-oil-painting.png
 slug: self-help
 origin: 
-description: 
+description: An evolving list of self-help tips focused on personal growth, productivity, and well-being.
 title: Every self-help tip I've discovered
 ---
 I plan on keeping this list regularly updated. Obviously there are orders of magnitude more "self-help tips" residing in our heads than we'll ever be able to take note of in an organized way. But, here's my attempt. Enjoy!

@@ -6,7 +6,7 @@ export const metadata = {
   description: "A collection of written words by Brian Fakhoury.",
   openGraph: {
     url: "/writing",
-    siteName: "Brian Fakhoury's website",
+    siteName: "Brian Fakhoury",
     locale: "en_US",
     type: "website",
   },

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: MetadataProps) {
     description: `Essays tagged with #${params.tag}`,
     openGraph: {
       url: `/writing/${params.tag}`,
-      siteName: "Brian Fakhoury's website",
+      siteName: "Brian Fakhoury",
       locale: "en_US",
       type: "website",
     },

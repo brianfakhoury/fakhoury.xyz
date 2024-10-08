@@ -8,9 +8,10 @@ export interface IconProps extends LucideProps {
 export type Post = {
   tags: string[];
   date: Date;
+  modified: Date | undefined;
   slug: string;
-  origin: string;
-  image: string;
+  origin: string | undefined;
+  image: string | undefined;
   description: string;
   title: string;
   body: string;
@@ -24,7 +25,7 @@ export type Links = [
       {
         link: string;
         content: string;
-      },
+      }
     ];
-  },
+  }
 ];

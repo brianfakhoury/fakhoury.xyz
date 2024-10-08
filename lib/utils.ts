@@ -1,3 +1,5 @@
+import type { Post } from "./types";
+
 // Format date for use in blog post heading
 export function formatDateForBlogPost(date: Date): string {
   return date.toLocaleDateString("en", {
@@ -26,4 +28,22 @@ export function timeAgo(date: Date): string {
   }
 
   return "just now";
+}
+
+// helpder function to find when a tag was last posted to
+export function getTagsWithLatestModified(
+  posts: Post[]
+): { tag: string; modified: string }[] {
+  const tagDates = posts.reduce((acc, post) => {
+    const postDate = new Date(post.modified || post.date)
+      .toISOString()
+      .split("T")[0];
+    post.tags.forEach((tag) => {
+      acc[tag] = acc[tag] && acc[tag] > postDate ? acc[tag] : postDate;
+    });
+    return acc;
+  }, {} as Record<string, string>);
+
+  // Convert the tagDates object into a list of { tag, modified } objects
+  return Object.entries(tagDates).map(([tag, modified]) => ({ tag, modified }));
 }
