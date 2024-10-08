@@ -22,7 +22,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   if (!post) return notFound();
 
-  const { tags, date, origin, image, title, body } = post;
+  const { tags, date, modified, origin, image, title, body } = post;
   const image_cover_size = image
     ? sizeOf(`content/posts/${image}`)
     : { width: 500, height: 500 };
@@ -30,6 +30,9 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className="container prose dark:prose-invert text-pretty break-words mx-auto">
       <p className="text-sm">{formatDateForBlogPost(date)}</p>
+      {modified && (
+        <p className="text-sm">Updated on {formatDateForBlogPost(modified)}</p>
+      )}
       <h1 className="first-letter:font-greatVibes">{title}</h1>
       {origin && (
         <p className="text-xs text-pretty">
@@ -51,7 +54,7 @@ export default async function PostPage({ params }: PostPageProps) {
               alt={`${title} cover image`}
               height={image_cover_size.height}
               width={image_cover_size.width}
-              className="absolute inset-0 w-full h-full object-cover object-bottom z-[-2]"
+              className="absolute inset-x-0 bottom-0 w-full h-3/4 object-cover z-[-2] m-0"
             />
           </>
         ) : (
@@ -62,7 +65,7 @@ export default async function PostPage({ params }: PostPageProps) {
         />
       </div>
 
-      <div className="mt-10 relative">
+      <div className={`${image && "mt-10"} relative`}>
         {image && (
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-background/40 to-background to-40% z-[-2]" />
         )}
