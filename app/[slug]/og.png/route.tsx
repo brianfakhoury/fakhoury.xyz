@@ -19,12 +19,19 @@ function getBase64Image(filePath: string): string {
   const imagePath = path.resolve(process.cwd(), filePath);
   const imageBuffer = fs.readFileSync(imagePath);
 
-  // Determine the file extension to set the correct MIME type
   const ext = path.extname(filePath).toLowerCase();
-  const mimeType =
-    ext === ".jpg" || ext === ".jpeg" ? "image/jpeg" : "image/png";
+  let mimeType;
 
-  // Return the image as a base64-encoded string
+  if (ext === ".jpg" || ext === ".jpeg") {
+    mimeType = "image/jpeg";
+  } else if (ext === ".png") {
+    mimeType = "image/png";
+  } else if (ext === ".gif") {
+    mimeType = "image/gif";
+  } else {
+    throw new Error("Unsupported image format for OG image generation");
+  }
+
   return `data:${mimeType};base64,${imageBuffer.toString("base64")}`;
 }
 
