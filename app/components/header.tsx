@@ -13,7 +13,12 @@ export default function Header() {
           </Link>
         }
         description={
-          <Link href="https://x.com/brianfakhoury" isExternal size="sm">
+          <Link
+            href="https://x.com/brianfakhoury"
+            isExternal
+            size="sm"
+            className="py-0.5"
+          >
             @brianfakhoury
           </Link>
         }

@@ -25,7 +25,11 @@ export default function ThemeSwitcher() {
   const Icon = theme === "light" ? Sun : theme === "dark" ? Moon : SunMoon;
 
   return (
-    <button onClick={handleThemeChange} className="ml-auto">
+    <button
+      onClick={handleThemeChange}
+      className="ml-auto"
+      aria-label="Switch theme"
+    >
       <Icon />
     </button>
   );

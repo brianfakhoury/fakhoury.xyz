@@ -9,6 +9,8 @@ import "@/app/styles/globals.css";
 
 const raleway = Raleway({ weight: "400", subsets: ["latin"], display: "swap" });
 
+export const dynamic = "force-static";
+
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
@@ -16,7 +18,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Providers>
           <div className="container mx-auto px-4 sm:px-8 max-w-screen-xl">
             <Header />
-            <div className="min-h-[85vh] p-0">{children}</div>
+            <main className="min-h-[85vh] p-0">{children}</main>
             <Footer />
           </div>
         </Providers>

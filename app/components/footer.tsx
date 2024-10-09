@@ -9,6 +9,7 @@ export default function Footer() {
     <footer className="text-sm text-gray-500 flex items-center py-10 pr-6">
       <Link
         isExternal
+        aria-label="Send me a direct message on X"
         href="https://x.com/messages/compose?recipient_id=987899418597879808"
       >
         <Icon name="mailbox" />

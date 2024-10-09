@@ -3,8 +3,10 @@ import getLinks from "@/lib/get-links";
 import { Card, CardBody } from "@nextui-org/card";
 import { Link } from "@nextui-org/link";
 import HomeAccordion from "@/app/components/home-accordion";
-import Image from "next/image";
+import CustomImage from "./components/custom-image";
 import cover from "./opengraph-image.jpg";
+
+export const dynamic = "force-static";
 
 export default async function Home() {
   const links = getLinks();
@@ -28,7 +30,7 @@ export default async function Home() {
       )}
 
       <Card>
-        <Image
+        <CustomImage
           src={cover}
           alt={"national park landscape"}
           className="absolute inset-0 object-cover w-full h-full"
