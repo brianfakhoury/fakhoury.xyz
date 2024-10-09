@@ -32,9 +32,13 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="container prose dark:prose-invert text-pretty break-words mx-auto">
-      <p className="text-sm">{formatDateForBlogPost(date)}</p>
+      <time dateTime={date.toISOString()} className="block mb-5 text-sm">
+        {formatDateForBlogPost(date)}
+      </time>
       {modified && (
-        <p className="text-sm">Updated on {formatDateForBlogPost(modified)}</p>
+        <time dateTime={modified.toISOString()} className="block mb-5 text-sm">
+          Updated on {formatDateForBlogPost(modified)}
+        </time>
       )}
       <h1 className="first-letter:font-greatVibes">{title}</h1>
       {origin && (
