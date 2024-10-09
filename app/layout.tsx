@@ -6,7 +6,6 @@ import Footer from "@/app/components/footer";
 import { PropsWithChildren } from "react";
 
 import "@/app/styles/globals.css";
-import { color } from "framer-motion";
 
 const raleway = Raleway({ weight: "400", subsets: ["latin"], display: "swap" });
 
