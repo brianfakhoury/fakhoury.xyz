@@ -13,8 +13,8 @@ export const metadata = {
   alternates: {
     canonical: "https://fakhoury.xyz",
     types: {
-      "application/rss+xml": "/feed.xml",
       "application/atom+xml": "/atom.xml",
+      "application/rss+xml": "/feed.xml",
       "application/json": "/feed.json",
     },
   },
