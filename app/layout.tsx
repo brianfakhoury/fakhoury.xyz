@@ -6,6 +6,7 @@ import Footer from "@/app/components/footer";
 import { PropsWithChildren } from "react";
 
 import "@/app/styles/globals.css";
+import { color } from "framer-motion";
 
 const raleway = Raleway({ weight: "400", subsets: ["latin"], display: "swap" });
 
@@ -66,6 +67,7 @@ export const metadata = {
 };
 
 export const viewport = {
+  colorScheme: "light dark",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
