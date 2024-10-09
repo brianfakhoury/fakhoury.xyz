@@ -1,27 +1,25 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-const BLOG_CONTENT = path.join("content", "posts");
-const PUBLIC_PATH = path.join("public");
+const BLOG_IMAGE_DIR = path.join("content", "posts", "images");
+const PUBLIC_IMAGE_DIR = path.join("public", "images");
 
 async function copyImages() {
   try {
     // Ensure the source directory exists
     try {
-      await fs.access(BLOG_CONTENT);
+      await fs.access(BLOG_IMAGE_DIR);
     } catch {
-      console.error(`Source directory does not exist: ${BLOG_CONTENT}`);
+      console.error(`Source directory does not exist: ${BLOG_IMAGE_DIR}`);
       return;
     }
 
-    // Read all entries (files and directories) in the source directory
-    const entries = await fs.readdir(BLOG_CONTENT);
+    const entries = await fs.readdir(BLOG_IMAGE_DIR);
 
-    // Prepare and execute copy operations for all entries concurrently
     await Promise.all(
       entries.map(async (entry) => {
-        const sourcePath = path.join(BLOG_CONTENT, entry);
-        const destinationPath = path.join(PUBLIC_PATH, entry);
+        const sourcePath = path.join(BLOG_IMAGE_DIR, entry);
+        const destinationPath = path.join(PUBLIC_IMAGE_DIR, entry);
 
         try {
           await fs.cp(sourcePath, destinationPath, { recursive: true });

@@ -11,9 +11,11 @@ export const metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "https://fakhoury.xyz/writing",
+    canonical: "https://fakhoury.xyz",
     types: {
       "application/rss+xml": "/feed.xml",
+      "application/atom+xml": "/atom.xml",
+      "application/json": "/feed.json",
     },
   },
 };

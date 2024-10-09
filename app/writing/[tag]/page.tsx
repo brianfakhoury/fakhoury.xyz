@@ -33,9 +33,11 @@ export async function generateMetadata({ params }: MetadataProps) {
       type: "website",
     },
     alternates: {
-      canonical: `https://fakhoury.xyz/writing/${params.tag}`,
+      canonical: "https://fakhoury.xyz",
       types: {
         "application/rss+xml": "/feed.xml",
+        "application/atom+xml": "/atom.xml",
+        "application/json": "/feed.json",
       },
     },
   };
