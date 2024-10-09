@@ -12,7 +12,7 @@ export default async function getFeed() {
     id: "https://fakhoury.xyz/",
     link: "https://fakhoury.xyz/",
     language: "en",
-    image: "https://fakhoury.xyz/opengraph-image.jpg",
+    image: "https://fakhoury.xyz/icon.png",
     favicon: "https://fakhoury.xyz/favicon.ico",
     copyright: "2024, Brian Fakhoury",
     updated: posts[0].modified || posts[0].date,
