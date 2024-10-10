@@ -14,3 +14,4 @@
 12. Change prefix slash behavior for image paths in writing posts
 13. Add writing series functionality, and flesh out extra post properties.
 14. Make main page text an mdx thing.
+15. Remove global styles somehow, maybe just make it a utility or library function?
