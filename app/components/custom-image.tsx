@@ -31,7 +31,7 @@ const CustomImage: React.FC<CustomImageProps> = ({
         src={src}
         alt={alt}
         onLoad={handleLoad}
-        className={`${className} transition-opacity duration-500 ease-in-out ${
+        className={`${className} transition-opacity duration-300 ease-in-out ${
           isLoading ? "opacity-0" : "opacity-100"
         }`}
         {...props}
