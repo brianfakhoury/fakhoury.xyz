@@ -10,8 +10,6 @@ interface CustomImageProps extends ImageProps {
 const CustomImage: React.FC<CustomImageProps> = ({
   src,
   alt,
-  width,
-  height,
   className = "",
   onLoad,
   ...props
@@ -32,8 +30,6 @@ const CustomImage: React.FC<CustomImageProps> = ({
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
         onLoad={handleLoad}
         className={`${className} transition-opacity duration-500 ease-in-out ${
           isLoading ? "opacity-0" : "opacity-100"

@@ -67,6 +67,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   height={image_cover_size.height}
                   width={image_cover_size.width}
                   className="absolute inset-x-0 bottom-0 w-full h-3/4 object-cover z-[-2] m-0"
+                  priority
                 />
               </>
             ) : (

@@ -32,8 +32,11 @@ export default async function Home() {
       <Card>
         <CustomImage
           src={cover}
-          alt={"national park landscape"}
+          alt="Beautiful view at Glacier national park that I took on my camera."
           className="absolute inset-0 object-cover w-full h-full"
+          priority
+          width={cover.width / 10}
+          height={cover.height / 10}
         />
         <CardBody className="prose dark:prose-invert text-pretty backdrop-blur-md bg-background/50 rounded-lg px-3 py-8 sm:px-8 mx-2 my-6 sm:mx-6 w-auto">
           <p>

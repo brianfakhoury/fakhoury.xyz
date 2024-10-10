@@ -27,8 +27,8 @@ export default function Header() {
           src: "/icon.png",
           ImgComponent: Image,
           imgProps: {
-            width: 256,
-            height: 256,
+            width: 40,
+            height: 40,
             alt: "Brian Fakhoury's headshot",
           },
         }}
