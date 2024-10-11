@@ -3,7 +3,7 @@ const nextConfig = {
   transpilePackages: ["lucide-react"],
   reactStrictMode: true,
   images: {
-    formats: ["image/webp", "image/avif"],
+    formats: ["image/avif", "image/webp"],
   },
 };
 
