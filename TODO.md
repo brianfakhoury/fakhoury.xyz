@@ -16,3 +16,4 @@
 14. Make main page text an mdx thing.
 15. Remove global styles somehow, maybe just make it a utility or library function?
 16. Make this repo copy-able
+17. Re-write User component to work better with icon png and linking in general (this component is the source of a lot of problems)

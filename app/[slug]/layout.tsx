@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: MetadataProps) {
       "article:modified_time": (post.modified || post.date).toISOString(),
     },
     alternates: {
-      canonical: "https://fakhoury.xyz",
+      canonical: `https://fakhoury.xyz/${params.slug}`,
       types: {
         "application/atom+xml": "/atom.xml",
         "application/rss+xml": "/feed.xml",
