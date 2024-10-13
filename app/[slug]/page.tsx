@@ -47,7 +47,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
           <h1 className="first-letter:font-greatVibes">{title}</h1>
           {origin && (
-            <aside className="text-xs text-pretty">
+            <aside className="text-xs">
               Originally published at:{" "}
               <Link
                 className="inline text-inherit text-xs underline"
@@ -58,25 +58,21 @@ export default async function PostPage({ params }: PostPageProps) {
               </Link>
             </aside>
           )}
-          <div className="rounded-lg absolute inset-0 max-w-screen-xl h-[550px] z-[-3] mx-auto overflow-hidden	">
-            {image ? (
-              <>
-                <CustomImage
-                  src={image.startsWith("/") ? image : `/${image}`}
-                  alt={`${title} cover image`}
-                  height={image_cover_size.height}
-                  width={image_cover_size.width}
-                  className="absolute inset-x-0 bottom-0 w-full h-3/4 object-cover z-[-2] m-0"
-                  priority
-                />
-              </>
-            ) : (
-              <div className="w-full h-full" />
-            )}
-            <div
-              className={`absolute inset-0 z-10 bg-gradient-to-b from-background from-30%`}
-            />
-          </div>
+          {image && (
+            <div className="rounded-lg absolute inset-0 max-w-screen-xl h-[550px] z-[-3] mx-auto overflow-hidden	">
+              <CustomImage
+                src={image.startsWith("/") ? image : `/${image}`}
+                alt={`${title} cover image`}
+                height={image_cover_size.height}
+                width={image_cover_size.width}
+                className="absolute inset-x-0 bottom-0 w-full h-3/4 object-cover z-[-2] m-0"
+                priority
+              />
+              <div
+                className={`absolute inset-0 z-10 bg-gradient-to-b from-background from-30%`}
+              />
+            </div>
+          )}
         </header>
 
         <section className={`${image && "mt-10"} relative`}>

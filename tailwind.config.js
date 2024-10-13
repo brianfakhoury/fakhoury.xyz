@@ -15,8 +15,8 @@ module.exports = {
         DEFAULT: "100ms",
       },
       fontFamily: {
-        raleway: ["Raleway", "sans-serif"],
-        greatVibes: ["Great Vibes", "cursive"],
+        raleway: ["var(--font-raleway)"],
+        greatVibes: ["var(--font-greatVibes)"],
       },
     },
   },

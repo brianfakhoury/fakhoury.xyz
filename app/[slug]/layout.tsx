@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: MetadataProps) {
       ],
     },
     other: {
-      "og:updated_time": (post.modified || post.date).toISOString(),
-      "article:modified_time": (post.modified || post.date).toISOString(),
+      "og:updated_time": post.modified?.toISOString(),
+      "article:modified_time": post.modified?.toISOString(),
     },
     alternates: {
       canonical: `https://fakhoury.xyz/${params.slug}`,

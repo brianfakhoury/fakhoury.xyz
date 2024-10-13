@@ -7,13 +7,11 @@
 5. Add commenting via giscus
 6. Add html content to feeds
 7. Can I remove postcss.config?
-8. Programmatic favicon(s), move `/images` on build, make public directory empty before build
-9. Metadata inheritance, perhaps via `get-metadata.ts`
-10. Can I remove nextui? good library but tons of overhead it seems
-11. Need a way to view all tags. `/writing/all-tags`?
-12. Change prefix slash behavior for image paths in writing posts
-13. Add writing series functionality, and flesh out extra post properties.
-14. Make main page text an mdx thing.
-15. Remove global styles somehow, maybe just make it a utility or library function?
-16. Make this repo copy-able
-17. Re-write User component to work better with icon png and linking in general (this component is the source of a lot of problems)
+8. Metadata inheritance, perhaps via `get-metadata.ts`
+9. Can I remove nextui? good library but tons of overhead it seems
+10. Need a way to view all tags. `/writing/all-tags`?
+11. Change prefix slash behavior for image paths in writing posts
+12. Add writing series functionality, and flesh out extra post properties.
+13. Make main page text an mdx thing.
+14. Remove global styles somehow, maybe just make it a utility or library function?
+15. Make this repo copy-able
