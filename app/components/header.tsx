@@ -1,4 +1,3 @@
-// components/header.tsx
 import Link from "next/link";
 import Image from "next/image";
 import ThemeSwitcher from "./theme-switcher";
@@ -17,12 +16,10 @@ export default function Header() {
           />
         </Link>
         <div className="ml-2 flex flex-col">
-          <Link href="/" className="text-inherit">
-            Brian Fakhoury
-          </Link>
+          <Link href="/">Brian Fakhoury</Link>
           <Link
             href="https://x.com/brianfakhoury"
-            className="py-0.5 text-sm text-gray-500"
+            className="py-0.5 text-sm text-primary"
           >
             @brianfakhoury
           </Link>
