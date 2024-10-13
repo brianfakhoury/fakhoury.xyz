@@ -43,8 +43,8 @@ export default async function Home() {
             Dearest web surfer, you&apos;ve come knocking on my digital door.
             Welcome. I built this website for you to enjoy if you will, and for
             myself to play with the latest web technologies. You can continue
-            down to my links or see my writing archive by clicking{" "}
-            <Link href="/writing">here</Link>.
+            down to my links or see my{" "}
+            <Link href="/writing">writing archive</Link>.
           </p>
           <p>
             These days, my time is spent contirubting to the growth of Mach
