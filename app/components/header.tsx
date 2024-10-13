@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ThemeSwitcher from "./theme-switcher";
+import Icon from "@/app/icon.png";
 
 export default function Header() {
   return (
@@ -8,10 +9,10 @@ export default function Header() {
       <div className="flex items-center">
         <Link href="/">
           <Image
-            src="/icon.png"
+            src={Icon}
             width={40}
             height={40}
-            alt="Brian Fakhoury's headshot"
+            alt="Headshot of Brian Fakhoury"
             className="rounded-full"
           />
         </Link>
