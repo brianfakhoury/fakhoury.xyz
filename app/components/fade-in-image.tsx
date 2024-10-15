@@ -3,11 +3,11 @@
 import { useState, SyntheticEvent } from "react";
 import Image, { ImageProps } from "next/image";
 
-interface CustomImageProps extends ImageProps {
+interface FadeInImageProps extends ImageProps {
   className?: string;
 }
 
-const CustomImage: React.FC<CustomImageProps> = ({
+const FadeInImage: React.FC<FadeInImageProps> = ({
   src,
   alt,
   className = "",
@@ -40,4 +40,4 @@ const CustomImage: React.FC<CustomImageProps> = ({
   );
 };
 
-export default CustomImage;
+export default FadeInImage;

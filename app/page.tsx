@@ -1,9 +1,9 @@
 import { getPost } from "@/lib/get-posts";
 import getLinks from "@/lib/get-links";
 import { Card, CardBody } from "@nextui-org/card";
-import { Link } from "@nextui-org/link";
+import Link from "next/link";
 import HomeAccordion from "@/app/components/home-accordion";
-import CustomImage from "./components/custom-image";
+import FadeInImage from "./components/fade-in-image";
 import cover from "./opengraph-image.jpg";
 
 export const dynamic = "force-static";
@@ -18,9 +18,12 @@ export default async function Home() {
         <Card fullWidth>
           <CardBody className="px-5">
             <p className="text-pretty">
-              <span className="inline-block w-2 h-2 m-1 bg-primary rounded-full"></span>
+              <span className="inline-block mr-1 mb-0.5 w-2 h-2 bg-stone-500 dark:bg-stone-300 rounded-full"></span>
               New writing:{" "}
-              <Link href={post.slug.toString()} className="inline">
+              <Link
+                href={post.slug.toString()}
+                className="inline text-stone-500 dark:text-stone-300"
+              >
                 <span className="font-greatVibes">{post.title.charAt(0)}</span>
                 {post.title.slice(1)}
               </Link>
@@ -30,7 +33,7 @@ export default async function Home() {
       )}
 
       <Card>
-        <CustomImage
+        <FadeInImage
           src={cover}
           alt="Beautiful view at Glacier national park that I took on my camera."
           className="absolute inset-0 object-cover w-full h-full"

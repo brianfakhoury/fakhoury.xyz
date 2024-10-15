@@ -3,7 +3,8 @@
 // This components uses client because nextui Accordion is not
 // exporting a server ready component for whatever reason
 
-import { Accordion, AccordionItem, Link } from "@nextui-org/react";
+import { Accordion, AccordionItem } from "@nextui-org/react";
+import Link from "next/link";
 import Icon from "@/app/components/dynamic-icon";
 import { Links } from "@/lib/types";
 
@@ -22,8 +23,14 @@ export default function HomeAccordion({ links }: { links: Links }) {
           <ul className="list-disc pl-5">
             {category.items.map((item, j) => (
               <li key={j}>
-                <Link href={item.link} isExternal>
-                  <p className="text-pretty">{item.content}</p>
+                <Link
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <p className="text-pretty text-stone-500 dark:text-stone-300">
+                    {item.content}
+                  </p>
                 </Link>
               </li>
             ))}

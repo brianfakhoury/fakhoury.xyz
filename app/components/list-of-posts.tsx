@@ -1,5 +1,6 @@
 // components/ListOfPosts.jsx
-import { Badge, Divider, Link } from "@nextui-org/react";
+import { Divider } from "@nextui-org/react";
+import Link from "next/link";
 import { Post } from "@/lib/types";
 
 interface ListOfPostsProps {
@@ -8,7 +9,7 @@ interface ListOfPostsProps {
 
 export default function ListOfPosts({ posts }: ListOfPostsProps) {
   return (
-    <ul className="max-w-screen-lg mx-auto">
+    <ul className="max-w-screen-md mx-auto">
       {posts
         .sort((a: Post, b: Post) => b.date.getTime() - a.date.getTime())
         .map((post: Post, i: number) => (
@@ -16,17 +17,13 @@ export default function ListOfPosts({ posts }: ListOfPostsProps) {
             <Divider />
             <div className="flex justify-between py-2">
               <div className="w-9/12">
-                <Link href={`/${post.slug}`} size="lg">
-                  {post.title}
-                </Link>
+                <Link href={`/${post.slug}`}>{post.title}</Link>
               </div>
               <div className="w-3/12 flex justify-end items-start">
-                <Badge color="primary" variant="flat">
-                  {post.date.toLocaleString("en", {
-                    month: "short",
-                    year: "numeric",
-                  })}
-                </Badge>
+                {post.date.toLocaleString("en", {
+                  month: "short",
+                  year: "numeric",
+                })}
               </div>
             </div>
           </li>

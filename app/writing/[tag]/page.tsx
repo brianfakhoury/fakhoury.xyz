@@ -1,6 +1,6 @@
 import { getPosts } from "@/lib/get-posts";
 import ListOfPosts from "@/app/components/list-of-posts";
-import { Link } from "@nextui-org/react";
+import Link from "next/link";
 
 export const dynamicParams = false;
 

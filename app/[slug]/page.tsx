@@ -1,6 +1,6 @@
 import { getPosts, getPost } from "@/lib/get-posts";
-import { Link } from "@nextui-org/react";
-import CustomImage from "@/app/components/custom-image";
+import Link from "next/link";
+import FadeInImage from "@/app/components/fade-in-image";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { Code } from "bright";
@@ -32,7 +32,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <article className="container prose dark:prose-invert text-pretty break-words mx-auto">
+      <article className="prose prose-stone dark:prose-invert text-pretty break-words mx-auto">
         <header>
           <time dateTime={date.toISOString()} className="block mb-5 text-sm">
             {formatDateForBlogPost(date)}
@@ -50,9 +50,10 @@ export default async function PostPage({ params }: PostPageProps) {
             <aside className="text-xs">
               Originally published at:{" "}
               <Link
-                className="inline text-inherit text-xs underline"
-                isExternal
+                className="inline text-xs"
                 href={origin}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {origin}
               </Link>
@@ -60,7 +61,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
           {image && (
             <div className="rounded-lg absolute inset-0 max-w-screen-xl h-[550px] z-[-3] mx-auto overflow-hidden	">
-              <CustomImage
+              <FadeInImage
                 src={image.startsWith("/") ? image : `/${image}`}
                 alt={`${title} cover image`}
                 height={image_cover_size.height}
@@ -75,7 +76,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </header>
 
-        <section className={`${image && "mt-10"} relative`}>
+        <section className={`relative ${image && "mt-10"}`}>
           {image && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-background/40 to-background to-40% z-[-2]" />
           )}
@@ -99,7 +100,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
                 return (
                   <figure>
-                    <CustomImage
+                    <FadeInImage
                       src={image_src}
                       alt={props.alt || "blog image"}
                       height={image_size.height || 450}
@@ -110,27 +111,36 @@ export default async function PostPage({ params }: PostPageProps) {
                   </figure>
                 );
               },
+              a: ({ ...props }) => {
+                if (!props.href) return <>{props.children}</>;
+                return (
+                  <Link
+                    href={props.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {props.children}
+                  </Link>
+                );
+              },
             }}
           >
             {body}
           </ReactMarkdown>
         </section>
 
-        <footer className="space-y-8">
-          <hr className="my-8 border-t border-gray-300" />
-          <div className="flex flex-wrap gap-2 mt-4">
+        <footer className="not-prose flex flex-col space-y-4 mt-12">
+          <hr className="border-t border-stone-300" />
+          <div className="flex flex-wrap gap-3">
             {tags.map((tag: string, i: number) => (
               <Link href={`/writing/${tag}`} key={i}>
                 #{tag}
               </Link>
             ))}
           </div>
+          <Link href="/writing">← All writing</Link>
         </footer>
       </article>
-
-      <Link className="mt-4" href="/writing">
-        ← All writing
-      </Link>
     </>
   );
 }

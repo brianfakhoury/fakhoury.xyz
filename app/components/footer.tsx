@@ -1,18 +1,19 @@
-import { Link } from "@nextui-org/react";
-import Icon from "./dynamic-icon";
+import { Mailbox } from "lucide-react";
 import React from "react";
 import BuildInfo from "./build-info";
+import Link from "next/link";
 
 export default function Footer() {
   const build_date = new Date();
   return (
-    <footer className="text-sm text-gray-500 flex items-center py-10 pr-6">
+    <footer className="text-sm flex items-center py-10 pr-2">
       <Link
-        isExternal
         aria-label="Send me a direct message on X"
         href="https://x.com/messages/compose?recipient_id=987899418597879808"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <Icon name="mailbox" />
+        <Mailbox />
       </Link>
       <BuildInfo build_date={build_date} />
     </footer>

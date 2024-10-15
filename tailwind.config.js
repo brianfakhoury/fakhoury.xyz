@@ -1,41 +1,32 @@
-// tailwind.config.js
-const { nextui } = require("@nextui-org/react");
+import colors from "tailwindcss/colors";
+import typography from "@tailwindcss/typography";
+import { nextui } from "@nextui-org/react";
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      transitionDuration: {
-        DEFAULT: "100ms",
-      },
-      fontFamily: {
-        raleway: ["var(--font-raleway)"],
-        greatVibes: ["var(--font-greatVibes)"],
-      },
+export const content = [
+  "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  "./app/**/*.{js,ts,jsx,tsx}",
+];
+
+export const theme = {
+  colors: {
+    transparent: "transparent",
+    current: "currentColor",
+    black: colors.black,
+    white: colors.white,
+    gray: colors.gray,
+    stone: colors.stone,
+  },
+  transitionDuration: {
+    DEFAULT: "100ms",
+  },
+  extend: {
+    fontFamily: {
+      raleway: ["var(--font-raleway)"],
+      greatVibes: ["var(--font-greatVibes)"],
     },
   },
-  darkMode: "class",
-  plugins: [
-    require("@tailwindcss/typography"),
-    nextui({
-      themes: {
-        light: {
-          colors: {
-            primary: "#57534e",
-          },
-        },
-        dark: {
-          colors: {
-            primary: "#a8a29e",
-          },
-        },
-      },
-    }),
-  ],
 };
+
+export const darkMode = "class";
+
+export const plugins = [typography, nextui()];

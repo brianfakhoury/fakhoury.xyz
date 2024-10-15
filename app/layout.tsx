@@ -13,10 +13,10 @@ const raleway = Raleway({
   variable: "--font-raleway",
 });
 const great_vibes = Great_Vibes({
-  weight: "400",
   subsets: ["latin"],
   display: "swap",
   variable: "--font-greatVibes",
+  weight: "400",
 });
 
 export const dynamic = "force-static";
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body className={`${raleway.variable} ${great_vibes.variable}`}>
         <Providers>
-          <div className="container mx-auto px-4 sm:px-8 max-w-screen-xl font-raleway">
+          <div className="mx-auto px-4 sm:px-8 max-w-screen-xl font-raleway">
             <Header />
             <main className="min-h-[85vh] p-0">{children}</main>
             <Footer />

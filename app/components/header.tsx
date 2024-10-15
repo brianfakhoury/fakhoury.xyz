@@ -20,7 +20,9 @@ export default function Header() {
           <Link href="/">Brian Fakhoury</Link>
           <Link
             href="https://x.com/brianfakhoury"
-            className="py-0.5 text-sm text-primary"
+            className="py-0.5 text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             @brianfakhoury
           </Link>

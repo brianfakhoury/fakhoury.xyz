@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@nextui-org/react";
+import Link from "next/link";
 import { timeAgo } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
@@ -17,12 +17,15 @@ export default function BuildInfo({ build_date }: BuildInfoProps) {
 
   return (
     <Link
-      isExternal
-      className="ml-auto text-inherit text-xs"
+      className="ml-auto text-xs"
       href="https://github.com/brianfakhoury/personal-website"
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      <span className="inline-block m-1 w-2 h-2 bg-primary rounded-full" />
-      <p>{timeAgoText && <span>{timeAgoText}</span>}</p>
+      <p>
+        <span className="inline-block w-2 h-2 mr-1 bg-stone-500 dark:bg-stone-300 rounded-full" />
+        {timeAgoText && <span>{timeAgoText}</span>}
+      </p>
     </Link>
   );
 }
