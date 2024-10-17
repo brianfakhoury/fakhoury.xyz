@@ -1,12 +1,14 @@
 import colors from "tailwindcss/colors";
 import typography from "@tailwindcss/typography";
-import { nextui } from "@nextui-org/react";
+import { nextui } from "@nextui-org/theme";
 
+/** @type {import('tailwindcss').Config['content']} */
 export const content = [
-  "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  "./node_modules/@nextui-org/theme/dist/components/(accordion|card).js",
   "./app/**/*.{js,ts,jsx,tsx}",
 ];
 
+/** @type {import('tailwindcss').Config['theme']} */
 export const theme = {
   colors: {
     transparent: "transparent",
@@ -27,6 +29,8 @@ export const theme = {
   },
 };
 
+/** @type {import('tailwindcss').Config['darkMode']} */
 export const darkMode = "class";
 
+/** @type {import('tailwindcss').Config['plugins']} */
 export const plugins = [typography, nextui()];

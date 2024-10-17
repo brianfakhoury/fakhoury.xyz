@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
 import { RefreshCcw } from "lucide-react";
 
 export default function Error({ reset }: { reset: () => void }) {
@@ -20,9 +19,12 @@ export default function Error({ reset }: { reset: () => void }) {
         down here.
       </p>
       <p>-Brian</p>
-      <Button startContent={<RefreshCcw />} onPress={() => reset()}>
-        Try again
-      </Button>
+      <button
+        onClick={() => reset()}
+        className="flex items-center p-3 rounded-lg border"
+      >
+        <RefreshCcw className="mr-1" /> Try again
+      </button>
     </div>
   );
 }

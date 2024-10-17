@@ -19,7 +19,7 @@ export type Post = {
   location?: string;
   duration?: string;
   related_posts?: Post[];
-  category?: string;
+  category?: string[];
 };
 
 export type Links = [

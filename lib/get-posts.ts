@@ -29,6 +29,8 @@ export const getPosts = cache(async () => {
           description: data.description || content.slice(0, 100) + "...",
           title: data.title,
           series: data.series,
+          category: data.category,
+          location: data.location,
           body: content,
         } as Post;
       })

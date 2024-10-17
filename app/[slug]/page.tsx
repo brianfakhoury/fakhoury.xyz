@@ -107,7 +107,11 @@ export default async function PostPage({ params }: PostPageProps) {
                       width={image_size.width || 500}
                       className="rounded-lg"
                     />
-                    {props.alt && <figcaption>{props.alt}</figcaption>}
+                    {props.alt && (
+                      <figcaption className="text-center">
+                        {props.alt}
+                      </figcaption>
+                    )}
                   </figure>
                 );
               },

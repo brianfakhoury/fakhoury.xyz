@@ -2,7 +2,19 @@
   "name": "fakhoury.xyz",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Brian Fakhoury",
+    "url": "https://fakhoury.xyz"
+  },
+  "license": "MIT",
+  "description": "Brian Fakhoury's personal website and digital garden.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brianfakhoury/fakhoury.xyz.git"
+  },
+  "icon": "app/icon.png",
+  "homepage": "https://fakhoury.xyz",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
@@ -10,25 +22,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.4.8",
+    "@nextui-org/accordion": "^2.0.40",
+    "@nextui-org/card": "^2.0.34",
     "@nextui-org/system": "^2.2.6",
     "@nextui-org/theme": "^2.2.11",
     "@tailwindcss/typography": "^0.5.15",
-    "@vercel/og": "^0.6.3",
     "bright": "^0.8.5",
     "feed": "^4.2.2",
     "framer-motion": "^11.11.1",
-    "fs-extra": "^11.2.0",
     "gray-matter": "^4.0.3",
     "image-size": "^1.1.1",
     "lucide-react": "^0.447.0",
-    "next": "^14.2.14",
+    "next": "^14.2.15",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
     "remark-unwrap-images": "^4.0.0",
-    "rss": "^1.2.2",
     "sharp": "^0.33.5",
     "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.13"
@@ -37,7 +47,6 @@
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.11",
     "@types/react-dom": "18.3.0",
-    "@types/rss": "^0.0.32",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
     "@typescript-eslint/parser": "^8.8.0",
     "autoprefixer": "10.4.20",

@@ -44,18 +44,18 @@ export default async function Home() {
         <CardBody className="prose dark:prose-invert text-pretty backdrop-blur-md bg-background/50 rounded-lg px-3 py-8 sm:px-8 mx-2 my-6 sm:mx-6 w-auto">
           <p>
             Dearest web surfer, you&apos;ve come knocking on my digital door.
-            Welcome. I built this website for you to enjoy if you will, and for
+            Welcome. I built this website for you to enjoy, if you will, and for
             myself to play with the latest web technologies. You can continue
             down to my links or see my{" "}
             <Link href="/writing">writing archive</Link>.
           </p>
           <p>
-            These days, my time is spent contirubting to the growth of Mach
+            These days, my time is spent contributing to the growth of Mach
             Industries, a defense tech company. However, I deeply appreciate
             time taken to think, create, and invite serendipity. It&apos;s why I
-            built this site by hand, and painstakingly optimized it. So, spend
-            as long as you wish on here, and if I may, I suggest you view my
-            thoughts through a few lenses:
+            built this site by hand and painstakingly optimized it. So, spend as
+            long as you wish here, and if I may, I suggest you view my thoughts
+            through a few lenses:
           </p>
           <ol>
             <li>

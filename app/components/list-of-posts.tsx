@@ -1,5 +1,4 @@
 // components/ListOfPosts.jsx
-import { Divider } from "@nextui-org/react";
 import Link from "next/link";
 import { Post } from "@/lib/types";
 
@@ -14,7 +13,7 @@ export default function ListOfPosts({ posts }: ListOfPostsProps) {
         .sort((a: Post, b: Post) => b.date.getTime() - a.date.getTime())
         .map((post: Post, i: number) => (
           <li key={i}>
-            <Divider />
+            <hr className="border-t border-stone-300" />
             <div className="flex justify-between py-2">
               <div className="w-9/12">
                 <Link href={`/${post.slug}`}>{post.title}</Link>

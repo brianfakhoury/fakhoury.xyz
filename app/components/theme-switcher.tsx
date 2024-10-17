@@ -5,7 +5,7 @@ import { Moon, Sun, SunMoon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,16 +14,23 @@ export default function ThemeSwitcher() {
 
   if (!mounted) return null;
 
-  const themes = ["light", "system", "dark"];
-  const currentThemeIndex = themes.indexOf(theme || "system");
+  // The user expects the theme to switch when they tap.
+  // If the system theme changes to match the forced theme,
+  // the next theme should be forced opposite. Otherwise,
+  // the next theme should be the system theme for convenience
+  const upcomingTheme =
+    theme === "system" || theme === systemTheme
+      ? resolvedTheme === "light"
+        ? "dark"
+        : "light"
+      : "system";
 
   const handleThemeChange = () => {
-    const nextTheme = themes[(currentThemeIndex + 1) % themes.length];
-    setTheme(nextTheme);
+    setTheme(upcomingTheme);
   };
 
-  const Icon = theme === "light" ? Sun : theme === "dark" ? Moon : SunMoon;
-
+  const Icon =
+    upcomingTheme === "light" ? Sun : upcomingTheme === "dark" ? Moon : SunMoon;
   return (
     <button
       onClick={handleThemeChange}

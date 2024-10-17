@@ -3,7 +3,7 @@
 // This components uses client because nextui Accordion is not
 // exporting a server ready component for whatever reason
 
-import { Accordion, AccordionItem } from "@nextui-org/react";
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import Link from "next/link";
 import Icon from "@/app/components/dynamic-icon";
 import { Links } from "@/lib/types";
