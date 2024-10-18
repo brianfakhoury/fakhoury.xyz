@@ -55,7 +55,7 @@ export async function GET(req: NextRequest, { params }: RouteProps) {
 
   return new ImageResponse(
     (
-      /* eslint-disable @next/next/no-img-element */
+      /* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text */
       <div tw="relative flex items-center justify-center h-full w-full bg-black">
         {cover_src && <img src={cover_src} tw="absolute left-0 w-full" />}
         <div tw="relative flex items-center w-full h-full p-16 bg-black/75">
