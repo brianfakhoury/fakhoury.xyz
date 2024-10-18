@@ -45,13 +45,11 @@ export async function GET(req: NextRequest, { params }: RouteProps) {
       status: 404,
     });
 
-  const cover_path = post.image
-    ? path.join("content", "posts", post.image)
+  const cover_src = post.image
+    ? getBase64Image(path.join("content", "posts", post.image))
     : "";
-  const logo_path = path.join("app", "icon.png");
 
-  const cover_src = cover_path ? getBase64Image(cover_path) : "";
-  const logo_src = getBase64Image(logo_path);
+  const logo_src = getBase64Image(path.join("app", "icon.png"));
 
   const text_size = post.title.length > 20 ? "text-8xl" : "text-9xl";
 
@@ -59,25 +57,11 @@ export async function GET(req: NextRequest, { params }: RouteProps) {
     (
       /* eslint-disable @next/next/no-img-element */
       <div tw="relative flex items-center justify-center h-full w-full bg-black">
-        {cover_src && (
-          <img
-            src={cover_src}
-            width={1200}
-            height={630}
-            alt=""
-            tw="absolute top-0 left-0 w-full h-full"
-          />
-        )}
+        {cover_src && <img src={cover_src} tw="absolute left-0 w-full" />}
         <div tw="relative flex items-center w-full h-full p-16 bg-black/75">
-          <img
-            src={logo_src}
-            width={256}
-            height={256}
-            alt=""
-            tw="w-64 h-64 mr-12 rounded-full"
-          />
-          <div tw="w-1 h-full bg-white" />
-          <div tw={`${text_size} text-white pl-24`}>
+          <img src={logo_src} tw="w-64 h-64 mr-18 rounded-full" />
+          <div tw="w-2 h-full bg-white rounded-lg" />
+          <div tw={`${text_size} text-white pl-18`}>
             {post.title.split(":")[0]}
           </div>
         </div>
