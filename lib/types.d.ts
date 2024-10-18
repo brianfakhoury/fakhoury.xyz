@@ -10,7 +10,7 @@ export type Post = {
   date: Date;
   modified?: Date;
   slug: string;
-  origin?: string;
+  origin?: URL;
   image?: string;
   description: string;
   title: string;

@@ -49,14 +49,13 @@ export default async function PostPage({ params }: PostPageProps) {
           <h1 className="first-letter:font-greatVibes">{title}</h1>
           {origin && (
             <aside className="text-xs">
-              Originally published at:{" "}
+              Originally published at{" "}
               <Link
-                className="inline text-xs"
-                href={origin}
+                href={origin.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {origin}
+                {origin.hostname}
               </Link>
             </aside>
           )}

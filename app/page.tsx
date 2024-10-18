@@ -21,7 +21,7 @@ export default async function Home() {
               <span className="inline-block mr-1 mb-0.5 w-2 h-2 bg-stone-500 dark:bg-stone-300 rounded-full"></span>
               New writing:{" "}
               <Link
-                href={post.slug.toString()}
+                href={post.slug}
                 className="inline text-stone-500 dark:text-stone-300"
               >
                 <span className="font-greatVibes">{post.title.charAt(0)}</span>

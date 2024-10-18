@@ -24,7 +24,7 @@ export const getPosts = cache(async () => {
           date: new Date(data.date),
           modified: data.modified ? new Date(data.modified) : undefined,
           slug: data.slug || file.replace(/\.mdx?$/, ""),
-          origin: data.origin,
+          origin: data.origin ? new URL(data.origin) : undefined,
           image: data.image,
           description: data.description || content.slice(0, 100) + "...",
           title: data.title,
