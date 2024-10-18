@@ -1,5 +1,6 @@
 import { getPosts, getPost } from "@/lib/get-posts";
 import Link from "next/link";
+import Image from "next/image";
 import FadeInImage from "@/app/components/fade-in-image";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
@@ -100,7 +101,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
                 return (
                   <figure>
-                    <FadeInImage
+                    <Image
                       src={image_src}
                       alt={props.alt || "blog image"}
                       height={image_size.height || 450}
