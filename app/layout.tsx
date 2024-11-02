@@ -4,6 +4,7 @@ import React from "react";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import { PropsWithChildren } from "react";
+import { getPost } from "@/lib/get-posts";
 
 import "@/app/styles/globals.css";
 
@@ -37,43 +38,58 @@ export default function RootLayout({ children }: PropsWithChildren) {
   );
 }
 
-export const metadata = {
-  metadataBase: process.env.VERCEL_URL
-    ? `https://fakhoury.xyz`
-    : `http://localhost:${process.env.PORT || 3000}`, // bug: i had to hardcode this myself even though theres a default
-  title: {
-    template: "%s | Brian Fakhoury",
-    default: "Brian Fakhoury",
-  },
-  description: "My personal site and digital garden.",
-  authors: [{ name: "Brian Fakhoury" }],
-  openGraph: {
-    url: "/",
-    siteName: "Brian Fakhoury",
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+export async function generateMetadata() {
+  const post = await getPost();
+  return {
+    metadataBase: process.env.VERCEL_URL
+      ? `https://fakhoury.xyz`
+      : `http://localhost:${process.env.PORT || 3000}`, // bug: i had to hardcode this myself even though theres a default
+    title: {
+      template: "%s | Brian Fakhoury",
+      default: "Brian Fakhoury",
+    },
+    description: "My personal site and digital garden.",
+    authors: [{ name: "Brian Fakhoury" }],
+    openGraph: {
+      url: "/",
+      siteName: "Brian Fakhoury",
+      locale: "en_US",
+      type: "website",
+    },
+    robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
     },
-  },
-  twitter: {
-    card: "summary_large_image",
-    creator: "@brianfakhoury",
-  },
-  alternates: {
-    canonical: "https://fakhoury.xyz",
-    types: {
-      "application/atom+xml": "/atom.xml",
-      "application/rss+xml": "/feed.xml",
-      "application/json": "/feed.json",
+    twitter: {
+      card: "summary_large_image",
+      creator: "@brianfakhoury",
     },
-  },
-};
+    alternates: {
+      canonical: "https://fakhoury.xyz",
+      types: {
+        "application/atom+xml": "/atom.xml",
+        "application/rss+xml": "/feed.xml",
+        "application/json": "/feed.json",
+      },
+    },
+    other: {
+      "fc:frame": "vNext",
+      "fc:frame:image": "https://fakhoury.xyz/opengraph-image.jpg",
+      "fc:frame:button:1": "Visit",
+      "fc:frame:button:1:action": "link",
+      "fc:frame:button:1:target": "https://fakhoury.xyz",
+      ...(post && {
+        "fc:frame:button:2": "My Latest Post",
+        "fc:frame:button:2:action": "link",
+        "fc:frame:button:2:target": `https://fakhoury.xyz/${post.slug}`,
+      }),
+    },
+  };
+}
 
 export const viewport = {
   colorScheme: "light dark",
