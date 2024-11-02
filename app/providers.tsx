@@ -2,7 +2,7 @@
 
 import { NextUIProvider } from "@nextui-org/system";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 interface ProviderProps {
   children: ReactNode;
@@ -49,7 +49,9 @@ export function Providers({ children }: ProviderProps) {
              ++==*#%@@=*%%%%%############%#+*#%%%**%%@@%##**##****+**=          
              --:::-===.:===============-===---==+=-==++==---==--------          `;
 
-  console.info("%c" + asciiArt, "font-family: monospace; white-space: pre;");
+  useEffect(() => {
+    console.info("%c" + asciiArt, "font-family: monospace; white-space: pre;");
+  }, []);
 
   return (
     <NextUIProvider>
