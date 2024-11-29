@@ -35,6 +35,16 @@ export async function generateMetadata({ params }: MetadataProps) {
     other: {
       "og:updated_time": post.modified?.toISOString(),
       "article:modified_time": post.modified?.toISOString(),
+      "fc:frame": "vNext",
+      "fc:frame:image": `https://fakhoury.xyz/${params.slug}/og.png`,
+      "fc:frame:button:1": "Read on fakhoury.xyz",
+      "fc:frame:button:1:action": "link",
+      "fc:frame:button:1:target": `https://fakhoury.xyz/${params.slug}`,
+      ...(post.origin && {
+        "fc:frame:button:2": `Read on ${post.origin.host}`,
+        "fc:frame:button:2:action": "link",
+        "fc:frame:button:2:target": post.origin.href,
+      }),
     },
     alternates: {
       canonical: post.origin?.href || `https://fakhoury.xyz/${params.slug}`,
