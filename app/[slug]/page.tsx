@@ -84,7 +84,7 @@ export default async function PostPage({ params }: PostPageProps) {
             className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"
             remarkPlugins={[remarkUnwrapImages]}
             components={{
-              code: ({ ...props }) => (
+              pre: ({ ...props }) => (
                 <Code
                   lang={props.className?.split("-")[1]}
                   title={props.className?.split("-")[1]}
