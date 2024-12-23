@@ -1,7 +1,7 @@
 import { getPosts, getPost } from "@/lib/get-posts";
 import Link from "next/link";
 import Image from "next/image";
-import FadeInImage from "@/app/components/fade-in-image";
+import FadeInImage from "@/components/fade-in-image";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { Code } from "bright";
@@ -18,11 +18,12 @@ export async function generateStaticParams() {
 }
 
 interface PostPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPost(params.slug);
+  const { slug } = await params
+  const post = await getPost(slug);
 
   if (!post) return notFound();
 

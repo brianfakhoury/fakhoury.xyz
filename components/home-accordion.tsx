@@ -5,7 +5,7 @@
 
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import Link from "next/link";
-import Icon from "@/app/components/dynamic-icon";
+import Icon from "@/components/dynamic-icon";
 import { Links } from "@/lib/types";
 
 export default function HomeAccordion({ links }: { links: Links }) {

@@ -2,11 +2,9 @@ import { getPost } from "@/lib/get-posts";
 import getLinks from "@/lib/get-links";
 import { Card, CardBody } from "@nextui-org/card";
 import Link from "next/link";
-import HomeAccordion from "@/app/components/home-accordion";
-import FadeInImage from "./components/fade-in-image";
+import HomeAccordion from "@/components/home-accordion";
+import FadeInImage from "@/components/fade-in-image";
 import cover from "./opengraph-image.jpg";
-
-export const dynamic = "force-static";
 
 export default async function Home() {
   const links = getLinks();

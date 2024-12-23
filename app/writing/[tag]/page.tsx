@@ -1,15 +1,15 @@
 import { getPosts } from "@/lib/get-posts";
-import ListOfPosts from "@/app/components/list-of-posts";
+import ListOfPosts from "@/components/list-of-posts";
 import Link from "next/link";
 
 export const dynamicParams = false;
 
 interface TagPageProps {
-  params: { tag: string };
+  params: Promise<{ tag: string }>;
 }
 
 interface MetadataProps {
-  params: { tag: string };
+  params: Promise<{ tag: string }>;
 }
 
 export async function generateStaticParams() {
@@ -23,17 +23,18 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: MetadataProps) {
+  const { tag } = await params;
   return {
-    title: `Writing - #${params.tag}`,
-    description: `Essays tagged with #${params.tag}`,
+    title: `Writing - #${tag}`,
+    description: `Essays tagged with #${tag}`,
     openGraph: {
-      url: `/writing/${params.tag}`,
+      url: `/writing/${tag}`,
       siteName: "Brian Fakhoury",
       locale: "en_US",
       type: "website",
     },
     alternates: {
-      canonical: `https://fakhoury.xyz/writing/${params.tag}`,
+      canonical: `https://fakhoury.xyz/writing/${tag}`,
       types: {
         "application/atom+xml": "/atom.xml",
         "application/rss+xml": "/feed.xml",
@@ -44,8 +45,8 @@ export async function generateMetadata({ params }: MetadataProps) {
 }
 
 export default async function TagPage({ params }: TagPageProps) {
+  const { tag } = await params;
   const posts = await getPosts();
-  const tag = params.tag;
   const filteredPosts = posts.filter((post) => post.tags.includes(tag));
 
   return (

@@ -7,7 +7,7 @@ import path from "path";
 export const dynamicParams = false;
 
 interface RouteProps {
-  params: { slug: string; id: string };
+  params: Promise<{ slug: string; id: string }>;
 }
 
 export async function generateStaticParams() {
@@ -35,10 +35,11 @@ function getBase64Image(filePath: string): string {
   return `data:${mimeType};base64,${imageBuffer.toString("base64")}`;
 }
 
-export async function GET(req: NextRequest, { params }: RouteProps) {
+export async function GET(_req: NextRequest, { params }: RouteProps) {
+  const { slug } = await params;
   const size = { width: 1200, height: 630 };
 
-  const post = await getPost(params.slug);
+  const post = await getPost(slug);
 
   if (!post)
     return new NextResponse("There is no post that has this image.", {

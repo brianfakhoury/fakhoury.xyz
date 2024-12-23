@@ -1,5 +1,5 @@
 import { getPosts } from "@/lib/get-posts";
-import ListOfPosts from "@/app/components/list-of-posts";
+import ListOfPosts from "@/components/list-of-posts";
 
 export const metadata = {
   title: "Writing",

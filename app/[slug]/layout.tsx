@@ -5,11 +5,12 @@ import { type PropsWithChildren } from "react";
 export const dynamicParams = false;
 
 interface MetadataProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: MetadataProps) {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) notFound();
 
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: MetadataProps) {
       locale: "en_US",
       images: [
         {
-          url: `/${params.slug}/og.png`,
+          url: `/${slug}/og.png`,
           width: 1200,
           height: 630,
           alt: `Brian Fakhoury's headshot alongside the title of the post: "${post.title}"`,
@@ -36,10 +37,10 @@ export async function generateMetadata({ params }: MetadataProps) {
       "og:updated_time": post.modified?.toISOString(),
       "article:modified_time": post.modified?.toISOString(),
       "fc:frame": "vNext",
-      "fc:frame:image": `https://fakhoury.xyz/${params.slug}/og.png`,
+      "fc:frame:image": `https://fakhoury.xyz/${slug}/og.png`,
       "fc:frame:button:1": "Read on fakhoury.xyz",
       "fc:frame:button:1:action": "link",
-      "fc:frame:button:1:target": `https://fakhoury.xyz/${params.slug}`,
+      "fc:frame:button:1:target": `https://fakhoury.xyz/${slug}`,
       ...(post.origin && {
         "fc:frame:button:2": `Read on ${post.origin.host}`,
         "fc:frame:button:2:action": "link",
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: MetadataProps) {
       }),
     },
     alternates: {
-      canonical: post.origin?.href || `https://fakhoury.xyz/${params.slug}`,
+      canonical: post.origin?.href || `https://fakhoury.xyz/${slug}`,
       types: {
         "application/atom+xml": "/atom.xml",
         "application/rss+xml": "/feed.xml",

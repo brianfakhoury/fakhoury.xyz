@@ -1,12 +1,11 @@
+import React, { PropsWithChildren } from "react";
 import { Raleway, Great_Vibes } from "next/font/google";
 import { Providers } from "@/app/providers";
-import React from "react";
-import Header from "@/app/components/header";
-import Footer from "@/app/components/footer";
-import { PropsWithChildren } from "react";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { getPost } from "@/lib/get-posts";
 
-import "@/app/styles/globals.css";
+import "@/styles/globals.css";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -19,8 +18,6 @@ const great_vibes = Great_Vibes({
   variable: "--font-greatVibes",
   weight: "400",
 });
-
-export const dynamic = "force-static";
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -41,9 +38,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
 export async function generateMetadata() {
   const post = await getPost();
   return {
-    metadataBase: process.env.VERCEL_URL
-      ? `https://fakhoury.xyz`
-      : `http://localhost:${process.env.PORT || 3000}`, // bug: i had to hardcode this myself even though theres a default
+    metadataBase: new URL(
+      process.env.VERCEL_URL
+        ? 'https://fakhoury.xyz'
+        : `http://localhost:${process.env.PORT || 3000}`
+    ),
     title: {
       template: "%s | Brian Fakhoury",
       default: "Brian Fakhoury",
