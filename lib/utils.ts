@@ -1,4 +1,10 @@
 import type { Post } from "./types";
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 // Format date for use in blog post heading
 export function formatDateForBlogPost(date: Date): string {

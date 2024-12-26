@@ -50,13 +50,26 @@ export default async function TagPage({ params }: TagPageProps) {
   const filteredPosts = posts.filter((post) => post.tags.includes(tag));
 
   return (
-    <div>
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl text-center font-bold my-4">#{tag}</h2>
-        <div className="text-center my-2">
-          <Link href="/writing">← Back To All Posts</Link>
+    <div className="container max-w-screen-md mx-auto py-8">
+      <header className="mb-12 space-y-4">
+        <div className="flex items-baseline justify-between">
+          <h1 className="text-4xl font-bold tracking-tight">#{tag}</h1>
+          <span className="text-sm text-muted-foreground">
+            {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
+          </span>
         </div>
-      </div>
+        <div className="flex justify-between items-center">
+          <p className="text-lg text-muted-foreground">
+            Posts tagged with #{tag}
+          </p>
+          <Link 
+            href="/writing" 
+            className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+          >
+            ← All posts
+          </Link>
+        </div>
+      </header>
       <ListOfPosts posts={filteredPosts} />
     </div>
   );

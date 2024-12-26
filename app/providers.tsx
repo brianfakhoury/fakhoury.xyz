@@ -1,6 +1,5 @@
 "use client";
 
-import { NextUIProvider } from "@nextui-org/system";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect, type ReactNode } from "react";
 
@@ -54,8 +53,6 @@ export function Providers({ children }: ProviderProps) {
   }, [asciiArt]);
 
   return (
-    <NextUIProvider>
       <NextThemesProvider attribute="class">{children}</NextThemesProvider>
-    </NextUIProvider>
   );
 }

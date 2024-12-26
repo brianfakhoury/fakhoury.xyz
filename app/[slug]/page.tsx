@@ -71,7 +71,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 priority
               />
               <div
-                className={`absolute inset-0 z-10 bg-gradient-to-b from-background from-30%`}
+                className={`absolute inset-0 z-10 bg-gradient-to-b from-white dark:from-black from-30%`}
               />
             </div>
           )}
@@ -79,7 +79,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
         <section className={`relative ${image && "mt-10"}`}>
           {image && (
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-background/40 to-background to-40% z-[-2]" />
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
           )}
           <ReactMarkdown
             className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"

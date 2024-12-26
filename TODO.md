@@ -5,7 +5,5 @@
 - Add a changelog and readme
 - Add commenting via giscus
 - Add html content to feeds
-- Metadata inheritance, perhaps via `get-metadata.ts`
-- Need a way to view all tags/categories on `/writing`
 - Make main page text an mdx thing.
 - Make this repo copy-able
