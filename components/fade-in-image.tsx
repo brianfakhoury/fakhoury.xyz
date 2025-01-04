@@ -3,10 +3,21 @@
 import { useState, SyntheticEvent } from "react";
 import Image, { ImageProps } from "next/image";
 
+/**
+ * Props interface for the FadeInImage component
+ * @interface FadeInImageProps
+ * @extends {ImageProps}
+ * @property {string} [className] - Optional CSS class name for styling the image container
+ */
 interface FadeInImageProps extends ImageProps {
   className?: string;
 }
 
+/**
+ * A component that renders an image with a fade-in effect when loaded
+ * @param {FadeInImageProps} props - The component props including Next.js Image props
+ * @returns {JSX.Element} An image component with fade-in animation
+ */
 const FadeInImage: React.FC<FadeInImageProps> = ({
   src,
   alt,
@@ -16,6 +27,10 @@ const FadeInImage: React.FC<FadeInImageProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  /**
+   * Handles the image load event and triggers the fade-in effect
+   * @param {SyntheticEvent<HTMLImageElement, Event>} event - The load event
+   */
   const handleLoad = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     setIsLoading(false);
     if (onLoad) {

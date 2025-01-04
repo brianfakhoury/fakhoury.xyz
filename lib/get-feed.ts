@@ -2,6 +2,19 @@ import getPosts from "@/lib/get-posts";
 import { Post } from "@/lib/types";
 import { Feed } from "feed";
 
+/**
+ * Generates RSS, Atom, and JSON feeds for the blog
+ * @returns {Promise<Feed>} A Feed instance configured with all blog posts
+ * @description Creates a feed with the following features:
+ * - Basic site metadata (title, description, etc.)
+ * - Author information
+ * - Links to RSS, Atom, and JSON feed variants
+ * - All blog posts as feed items with:
+ *   - Title, description, and link
+ *   - Publication and modification dates
+ *   - Tags as categories
+ *   - Author information
+ */
 export default async function getFeed() {
   const posts: Post[] = await getPosts();
 

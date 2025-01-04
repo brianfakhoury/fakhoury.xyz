@@ -4,8 +4,14 @@ import matter from "gray-matter";
 import { cache } from "react";
 import type { Post } from "@/lib/types";
 
+/** Directory containing all blog post markdown files */
 const POSTS_DIRECTORY = path.join(process.cwd(), "content/posts");
 
+/**
+ * Retrieves and processes all blog posts from the content directory
+ * @returns {Promise<Post[]>} Array of processed blog posts, sorted by date (most recent first)
+ * @cached The function is cached using React's cache function
+ */
 export const getPosts = cache(async () => {
   const posts = await fs.readdir(POSTS_DIRECTORY);
 
@@ -45,6 +51,12 @@ export const getPosts = cache(async () => {
     });
 });
 
+/**
+ * Retrieves a specific blog post by its slug
+ * @param {string} [slug] - The slug of the post to retrieve
+ * @returns {Promise<Post | undefined>} The requested post or undefined if not found
+ * If no slug is provided, returns the most recent post
+ */
 export async function getPost(slug?: string) {
   const posts = await getPosts();
   if (!slug) return posts[0];

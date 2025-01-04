@@ -12,15 +12,30 @@ import remarkUnwrapImages from "remark-unwrap-images";
 
 export const dynamicParams = false;
 
+/**
+ * Generates static paths for all blog posts during build time
+ * @returns {Promise<Array<{slug: string}>>} Array of objects containing slug parameters for each post
+ */
 export async function generateStaticParams() {
   const posts = await getPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
+/**
+ * Props interface for the PostPage component
+ * @interface PostPageProps
+ * @property {Promise<{slug: string}>} params - Object containing the dynamic route parameter (slug)
+ */
 interface PostPageProps {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Renders a single blog post page
+ * @param {PostPageProps} props - The component props
+ * @returns {Promise<JSX.Element>} The rendered blog post page
+ * @throws {notFound} When the post with the specified slug is not found
+ */
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params
   const post = await getPost(slug);

@@ -10,10 +10,20 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+/**
+ * Props interface for the ListOfPosts component
+ * @interface ListOfPostsProps
+ * @property {Post[]} posts - Array of blog posts to display in the table
+ */
 interface ListOfPostsProps {
   posts: Post[];
 }
 
+/**
+ * Renders a table of blog posts sorted by date
+ * @param {ListOfPostsProps} props - The component props
+ * @returns {JSX.Element} A table displaying blog post titles and dates
+ */
 export default function ListOfPosts({ posts }: ListOfPostsProps) {
   return (
     <div className="max-w-screen-md mx-auto">
