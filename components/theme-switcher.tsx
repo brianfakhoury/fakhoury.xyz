@@ -34,7 +34,7 @@ export default function ThemeSwitcher() {
   return (
     <button
       onClick={handleThemeChange}
-      className="ml-auto"
+      className="ml-auto text-muted-foreground hover:text-foreground"
       aria-label="Switch theme"
     >
       <Icon />

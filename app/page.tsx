@@ -15,8 +15,8 @@ export default async function Home() {
   return (
     <div className="max-w-screen-sm mx-auto space-y-8">
       {post && (
-        <Card className="bg-muted/50 hover:bg-muted transition-colors duration-200">
-          <CardContent className="px-5 py-4">
+        <Card className="bg-muted/50 hover:bg-muted">
+          <CardContent className="px-5 py-3">
             <Link
               href={post.slug}
               className="group flex items-center justify-between text-pretty"
@@ -37,7 +37,7 @@ export default async function Home() {
         </Card>
       )}
 
-      <Card className="relative p-0 overflow-hidden bg-transparent border-0 sm:mx-0 -mx-4">
+      <Card className="relative p-0 overflow-hidden bg-transparent border-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/95 to-background" />
         <FadeInImage
           src={cover}
@@ -48,21 +48,16 @@ export default async function Home() {
 
         <CardContent className={cn(
           "relative z-10 prose dark:prose-invert text-pretty",
-          "backdrop-blur-sm bg-background/40 rounded-lg",
-          "sm:mx-8 sm:my-8 px-6 py-10 sm:p-10",
-          "transition-colors duration-200"
+          "backdrop-blur-sm bg-background/50 rounded-lg",
+          "sm:mx-8 sm:my-8 px-6 py-10 sm:p-10"
         )}>
-          <p className="leading-relaxed text-lg">
+          <p>
             Dearest web surfer, you&apos;ve come knocking on my digital door.
             Welcome. I built this website for you to enjoy, if you will, and for
             myself to play with the latest web technologies. You can continue
-            down to my links or see my{" "}
-            <Link href="/writing" className="font-medium hover:text-foreground/90 transition-colors underline decoration-stone-400/50 hover:decoration-stone-400">
-              writing archive
-            </Link>
-            .
+            down to my links or see my <Link href="/writing">writing archive</Link>.
           </p>
-          <p className="leading-relaxed text-lg mt-6">
+          <p>
             These days, my time is spent contributing to the growth of Mach
             Industries, a defense tech company. However, I deeply appreciate
             time taken to think, create, and invite serendipity. It&apos;s why I
@@ -70,10 +65,10 @@ export default async function Home() {
             long as you wish here, and if I may, I suggest you view my thoughts
             through a few lenses:
           </p>
-          <ol className="space-y-4 leading-relaxed text-lg mt-6">
+          <ol>
             <li>
               My primary motivation is to work on things that are uncomfortably
-              hard for my skillset.
+              hard for my skill-level.
             </li>
             <li>
               I view the world through rationality.
@@ -86,24 +81,22 @@ export default async function Home() {
         </CardContent>
       </Card>
 
-      <Accordion 
-        type="single" 
-        collapsible 
-        defaultValue="list" 
-        className="space-y-3"
+      <Accordion
+        type="single"
+        collapsible
+        defaultValue="list"
       >
         {links.map((category) => (
-          <AccordionItem 
-            key={category.emoji} 
+          <AccordionItem
+            key={category.emoji}
             value={category.emoji}
-            className="border-0 bg-card hover:bg-muted/50 data-[state=open]:bg-muted/50 rounded-lg transition-colors duration-200"
           >
-            <AccordionTrigger className="hover:no-underline px-5 py-4 [&[data-state=open]]:pb-2">
+            <AccordionTrigger className="hover:no-underline px-5">
               <div className="flex items-center gap-2">
                 <span className="first-letter:font-greatVibes text-lg">{category.title}</span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="px-5 pb-4">
+            <AccordionContent className="px-2">
               <div className="space-y-2">
                 {category.items.map((item, j) => (
                   <Link
@@ -111,9 +104,9 @@ export default async function Home() {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-start gap-2 rounded-md p-2.5 text-muted-foreground hover:text-foreground hover:bg-background/80 transition-colors duration-200"
+                    className="flex items-center gap-2 p-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <ExternalLink className="h-4 w-4 mt-1 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    <ExternalLink className="h-4 w-4 flex-shrink-0" />
                     <span className="text-pretty">{item.content}</span>
                   </Link>
                 ))}

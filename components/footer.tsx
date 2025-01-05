@@ -12,6 +12,7 @@ export default function Footer() {
         href="https://x.com/messages/compose?recipient_id=987899418597879808"
         target="_blank"
         rel="noopener noreferrer"
+        className="text-muted-foreground hover:text-foreground"
       >
         <Mailbox />
       </Link>

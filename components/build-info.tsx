@@ -17,7 +17,7 @@ export default function BuildInfo({ build_date }: BuildInfoProps) {
 
   return (
     <Link
-      className="ml-auto text-xs"
+      className="ml-auto text-xs text-muted-foreground hover:text-foreground"
       href="https://github.com/brianfakhoury/personal-website"
       target="_blank"
       rel="noopener noreferrer"
