@@ -88,11 +88,11 @@ export default async function Home() {
       >
         {links.map((category) => (
           <AccordionItem
-            key={category.emoji}
-            value={category.emoji}
+            key={category.title}
+            value={category.title}
           >
-            <AccordionTrigger className="hover:no-underline px-5">
-              <div className="flex items-center gap-2">
+            <AccordionTrigger className="hover:no-underline">
+              <div className="flex">
                 <span className="first-letter:font-greatVibes text-lg">{category.title}</span>
               </div>
             </AccordionTrigger>

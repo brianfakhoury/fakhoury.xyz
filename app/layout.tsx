@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { Raleway, Great_Vibes } from "next/font/google";
+import type { Metadata } from "next";
 import { Providers } from "@/app/providers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -35,7 +36,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   );
 }
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const post = await getPost();
   return {
     metadataBase: new URL(
@@ -75,6 +76,7 @@ export async function generateMetadata() {
         "application/json": "/feed.json",
       },
     },
+    archives: ["https://fakhoury.xyz/writing"],
     other: {
       "fc:frame": "vNext",
       "fc:frame:image": "https://fakhoury.xyz/opengraph-image.jpg",
