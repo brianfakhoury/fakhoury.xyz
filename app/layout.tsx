@@ -78,16 +78,18 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     archives: ["https://fakhoury.xyz/writing"],
     other: {
-      "fc:frame": "vNext",
-      "fc:frame:image": "https://fakhoury.xyz/opengraph-image.jpg",
-      "fc:frame:button:1": "Visit",
-      "fc:frame:button:1:action": "link",
-      "fc:frame:button:1:target": "https://fakhoury.xyz",
-      ...(post && {
-        "fc:frame:button:2": "My Latest Post",
-        "fc:frame:button:2:action": "link",
-        "fc:frame:button:2:target": `https://fakhoury.xyz/${post.slug}`,
-      }),
+      "fc:frame": JSON.stringify({
+        version: "next",
+        imageUrl: "https://fakhoury.xyz/opengraph-image.jpg",
+        button: {
+          title: post ? "Read Latest Post" : "Visit Site",
+          action: {
+            type: "launch_frame",
+            name: "Brian Fakhoury",
+            url: post ? `https://fakhoury.xyz/${post.slug}` : "https://fakhoury.xyz"
+          }
+        }
+      })
     },
   };
 }

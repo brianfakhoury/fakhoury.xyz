@@ -1,0 +1,15 @@
+{
+    "accountAssociation": {
+        "header": "eyJmaWQiOjQ1NzYsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhCMEU1REFGMThBRTQ4NWUyNzIzNGZFZjdkYjQ0NERBM2NmMkYwZTQzIn0",
+        "payload": "eyJkb21haW4iOiJmYWtob3VyeS54eXoifQ",
+        "signature": "MHgxNjU1NDIzOGNhNDdjOGExODlhNjc2NDhiMmRiY2YyMDNhNzYwM2YzMGEzZGExZmMwMmY5Mzc5Mzc2MmViNjJlNzk2NjhlYzg1YmE4N2U5Zjk0MzM4YWEyNWQ5ZmIwMTFjY2NjYmI2MTlmNzM0MTg2NTk3OTBkMTJjMWIzMjRkOTFj"
+    },
+    "frame": {
+        "version": "1",
+        "name": "Brian Fakhoury",
+        "homeUrl": "https://fakhoury.xyz",
+        "iconUrl": "https://fakhoury.xyz/icon.png",
+        "imageUrl": "https://fakhoury.xyz/opengraph-image.jpg",
+        "buttonTitle": "Read Latest Post"
+    }
+}
