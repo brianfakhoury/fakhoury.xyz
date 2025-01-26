@@ -9,7 +9,7 @@ export default function Header() {
     <header className="flex items-center justify-between py-10 pr-6">
       <div className="flex items-center">
         <Link href="/" className="relative group">
-          <div className="absolute -left-0.5 -bottom-0.5 rounded-full bg-background p-0.5 shadow-sm">
+          <div className="absolute -left-0.5 -bottom-0.5 rounded-full bg-background p-0.5 shadow-xs">
             <Home size={14} className="text-muted-foreground group-hover:text-foreground" />
           </div>
           <Image

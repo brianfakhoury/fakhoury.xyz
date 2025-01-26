@@ -27,7 +27,7 @@ export default async function WritingPage() {
   const tags = getTagsWithLatestModified(posts);
 
   return (
-    <div className="container max-w-screen-md mx-auto py-8">
+    <div className="container max-w-(--breakpoint-md) mx-auto py-8">
       <header className="mb-12 space-y-4">
         <div className="flex items-baseline justify-between">
           <h1 className="text-4xl font-bold tracking-tight">Writing</h1>

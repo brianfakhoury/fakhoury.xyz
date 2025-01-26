@@ -62,7 +62,7 @@ export default async function PostPage({ params }: PostPageProps) {
               Updated on {formatDateForBlogPost(modified)}
             </time>
           )}
-          <h1 className="first-letter:font-greatVibes">{title}</h1>
+          <h1 className="first-letter:font-great-vibes">{title}</h1>
           {origin && (
             <aside className="text-xs">
               Originally published at{" "}
@@ -76,7 +76,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </aside>
           )}
           {image && (
-            <div className="rounded-lg absolute inset-0 max-w-screen-xl h-[550px] z-[-3] mx-auto overflow-hidden	">
+            <div className="rounded-lg absolute inset-0 max-w-(--breakpoint-xl) h-[550px] z-[-3] mx-auto overflow-hidden not-prose">
               <FadeInImage
                 src={image.startsWith("/") ? image : `/${image}`}
                 alt={`${title} cover image`}
@@ -86,7 +86,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 priority
               />
               <div
-                className={`absolute inset-0 z-10 bg-gradient-to-b from-white dark:from-black from-30%`}
+                className={`absolute inset-0 z-10 bg-linear-to-b from-white dark:from-black from-30%`}
               />
             </div>
           )}
@@ -94,7 +94,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
         <section className={`relative ${image && "mt-10"}`}>
           {image && (
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-gradient-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-linear-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
           )}
           <ReactMarkdown
             className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"

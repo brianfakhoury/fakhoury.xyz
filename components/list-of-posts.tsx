@@ -26,7 +26,7 @@ interface ListOfPostsProps {
  */
 export default function ListOfPosts({ posts }: ListOfPostsProps) {
   return (
-    <div className="max-w-screen-md mx-auto">
+    <div className="max-w-(--breakpoint-md) mx-auto">
       <Table>
         <TableHeader>
           <TableRow className="hover:bg-transparent border-b border-border">

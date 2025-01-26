@@ -13,7 +13,7 @@ export default async function Home() {
   const post = await getPost();
 
   return (
-    <div className="max-w-screen-sm mx-auto space-y-8">
+    <div className="max-w-(--breakpoint-sm) mx-auto space-y-8">
       {post && (
         <Card className="bg-muted/50 hover:bg-muted">
           <CardContent className="px-5 py-3">
@@ -26,7 +26,7 @@ export default async function Home() {
                 <span>
                   New writing:{" "}
                   <span className="text-stone-500 dark:text-stone-300">
-                    <span className="font-greatVibes">{post.title.charAt(0)}</span>
+                    <span className="font-great-vibes">{post.title.charAt(0)}</span>
                     {post.title.slice(1)}
                   </span>
                 </span>
@@ -38,7 +38,7 @@ export default async function Home() {
       )}
 
       <Card className="relative p-0 overflow-hidden bg-transparent border-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/95 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background/95 via-background/95 to-background" />
         <FadeInImage
           src={cover}
           alt="Cover image"
@@ -48,7 +48,7 @@ export default async function Home() {
 
         <CardContent className={cn(
           "relative z-10 prose dark:prose-invert text-pretty",
-          "backdrop-blur-sm bg-background/50 rounded-lg",
+          "backdrop-blur-xs bg-background/50 rounded-lg",
           "sm:mx-8 sm:my-8 px-6 py-10 sm:p-10"
         )}>
           <p>
@@ -93,7 +93,7 @@ export default async function Home() {
           >
             <AccordionTrigger className="hover:no-underline">
               <div className="flex">
-                <span className="first-letter:font-greatVibes text-lg">{category.title}</span>
+                <span className="first-letter:font-great-vibes text-lg">{category.title}</span>
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-2">
@@ -106,7 +106,7 @@ export default async function Home() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 p-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <ExternalLink className="h-4 w-4 flex-shrink-0" />
+                    <ExternalLink className="h-4 w-4 shrink-0" />
                     <span className="text-pretty">{item.content}</span>
                   </Link>
                 ))}

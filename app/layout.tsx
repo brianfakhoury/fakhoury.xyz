@@ -16,7 +16,7 @@ const raleway = Raleway({
 const great_vibes = Great_Vibes({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-greatVibes",
+  variable: "--font-great-vibes",
   weight: "400",
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html suppressHydrationWarning lang="en">
       <body className={`${raleway.variable} ${great_vibes.variable}`}>
         <Providers>
-          <div className="mx-auto px-4 sm:px-8 max-w-screen-xl font-raleway">
+          <div className="mx-auto px-4 sm:px-8 max-w-(--breakpoint-xl) font-raleway">
             <Header />
             <main className="min-h-[85vh] p-0">{children}</main>
             <Footer />
