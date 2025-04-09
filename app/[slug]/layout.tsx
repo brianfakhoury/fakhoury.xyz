@@ -44,7 +44,9 @@ export async function generateMetadata({ params }: MetadataProps) {
           action: {
             type: "launch_frame",
             name: "Brian Fakhoury",
-            url: `https://fakhoury.xyz/${slug}`
+            url: `https://fakhoury.xyz/${slug}`,
+            splashImageUrl: "https://fakhoury.xyz/_next/image?url=%2Ficon.png&w=128&q=75",
+            splashBackgroundColor: "#000000"
           }
         }
       })

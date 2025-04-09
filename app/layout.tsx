@@ -5,8 +5,11 @@ import { Providers } from "@/app/providers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { getPost } from "@/lib/get-posts";
-
+import { syncImages } from "@/lib/sync-images";
 import "@/styles/globals.css";
+
+//  Only used at build time to sync the images from the content folder to the public folder.
+syncImages();
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -86,7 +89,9 @@ export async function generateMetadata(): Promise<Metadata> {
           action: {
             type: "launch_frame",
             name: "Brian Fakhoury",
-            url: post ? `https://fakhoury.xyz/${post.slug}` : "https://fakhoury.xyz"
+            url: post ? `https://fakhoury.xyz/${post.slug}` : "https://fakhoury.xyz",
+            splashImageUrl: "https://fakhoury.xyz/_next/image?url=%2Ficon.png&w=128&q=75",
+            splashBackgroundColor: "#000000"
           }
         }
       })

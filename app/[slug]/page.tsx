@@ -92,12 +92,11 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </header>
 
-        <section className={`relative ${image && "mt-10"}`}>
+        <section className={`relative ${image && "mt-10"} first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3`}>
           {image && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-linear-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
           )}
           <ReactMarkdown
-            className="first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3"
             remarkPlugins={[remarkUnwrapImages]}
             components={{
               pre: ({ ...props }) => (

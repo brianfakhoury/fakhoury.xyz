@@ -8,8 +8,10 @@
         "version": "1",
         "name": "Brian Fakhoury",
         "homeUrl": "https://fakhoury.xyz",
-        "iconUrl": "https://fakhoury.xyz/icon.png",
+        "iconUrl": "https://fakhoury.xyz/_next/image?url=%2Ficon.png&w=128&q=75",
         "imageUrl": "https://fakhoury.xyz/opengraph-image.jpg",
-        "buttonTitle": "Read Latest Post"
+        "buttonTitle": "Read Latest Post",
+        "splashImageUrl": "https://fakhoury.xyz/_next/image?url=%2Ficon.png&w=128&q=75",
+        "splashBackgroundColor": "#000000"
     }
 }
