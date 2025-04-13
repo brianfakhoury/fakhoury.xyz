@@ -152,6 +152,11 @@
         "emoji": "hand-coins",
         "items": [
             {
+                "link": "https://bima.money/",
+                "content": "Bima",
+                "modifier": "(seed)"
+            },
+            {
                 "link": "https://www.antimetal.com/",
                 "content": "Antimetal",
                 "modifier": "(pre-seed)"

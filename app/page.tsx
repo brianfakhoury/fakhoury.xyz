@@ -52,30 +52,20 @@ export default async function Home() {
           "sm:mx-8 sm:my-8 px-6 py-10 sm:p-10"
         )}>
           <p>
-            Dearest web surfer, you&apos;ve come knocking on my digital door.
-            Welcome. I built this website for you to enjoy, if you will, and for
-            myself to play with the latest web technologies. You can continue
-            down to my links or see my <Link href="/writing">writing archive</Link>.
+            Dearest web surfer, you've come knocking on my digital door — welcome. I built this site for your curiosity and my own tinkering. Feel free to explore the links below or dive into my <Link href="/writing">writing archive</Link>.
           </p>
           <p>
-            These days, my time is spent contributing to the growth of Mach
-            Industries, a defense tech company. However, I deeply appreciate
-            time taken to think, create, and invite serendipity. It&apos;s why I
-            built this site by hand and painstakingly optimized it. So, spend as
-            long as you wish here, and if I may, I suggest you view my thoughts
-            through a few lenses:
+            These days, I’m helping grow <strong>Mach Industries</strong>, a defense tech company. But I’ve always valued time to think, create, and court serendipity. That’s why I built this site by hand and optimized it beyond reasonable utility. You're welcome to linger as long as you like. If you do, I invite you to view my work and writing through a few personal lenses:
           </p>
           <ol>
             <li>
-              My primary motivation is to work on things that are uncomfortably
-              hard for my skill-level.
+              I want to take on challenges just beyond my current abilities.
             </li>
             <li>
-              I view the world through rationality.
+              I believe in maximizing one’s natural strengths.
             </li>
             <li>
-              Technology is engraved in who I am, I appreciate beautiful
-              technology for its existence.
+              Technology is engraved deeply in me; I appreciate it for its quality, possibility, and existence.
             </li>
           </ol>
         </CardContent>
