@@ -7,7 +7,7 @@ import ReactMarkdown from "react-markdown";
 import { Code } from "bright";
 import React from "react";
 import { notFound } from "next/navigation";
-import sizeOf from "image-size";
+import { imageSizeFromFile } from "image-size/fromFile";
 import remarkUnwrapImages from "remark-unwrap-images";
 
 export const dynamicParams = false;
@@ -44,7 +44,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   const { tags, date, modified, origin, image, title, body } = post;
   const image_cover_size = image
-    ? sizeOf(`content/posts/${image}`)
+    ? await imageSizeFromFile(`content/posts/${image}`)
     : { width: 500, height: 500 };
 
   return (
@@ -107,10 +107,13 @@ export default async function PostPage({ params }: PostPageProps) {
                   {...props}
                 />
               ),
-              img: ({ ...props }) => {
-                const image_size = sizeOf(`content/posts/${props.src}`);
-                const image_src = props.src?.startsWith("/")
-                  ? props.src
+              img: async ({ ...props }) => {
+                const image_size = props.src
+                  ? await imageSizeFromFile(`content/posts/${props.src}`)
+                  : { width: 500, height: 450 };
+
+                const image_src = props.src?.toString().startsWith("/")
+                  ? `${props.src}`
                   : `/${props.src}`;
 
                 return (
