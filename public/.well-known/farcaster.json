@@ -7,11 +7,19 @@
     "frame": {
         "version": "1",
         "name": "Brian Fakhoury",
-        "homeUrl": "https://fakhoury.xyz",
         "iconUrl": "https://fakhoury.xyz/_next/image?url=%2Ficon.png&w=128&q=75",
-        "imageUrl": "https://fakhoury.xyz/opengraph-image.jpg",
-        "buttonTitle": "Read Latest Post",
+        "homeUrl": "https://fakhoury.xyz",
+        "subtitle": "Personal website and blog.",
+        "description": "My personal site and digital garden.",
+        "primaryCategory": "news-media",
+        "tags": ["blog", "technology", "writing", "personal"],
+        "heroImageUrl": "https://fakhoury.xyz/opengraph-image.jpg",
+        "tagline": "Thoughts and Code.",
+        "ogTitle": "Brian Fakhoury",
+        "ogDescription": "My personal site and digital garden.",
+        "ogImageUrl": "https://fakhoury.xyz/opengraph-image.jpg",
         "splashImageUrl": "https://fakhoury.xyz/_next/image?url=%2Ficon.png&w=128&q=75",
-        "splashBackgroundColor": "#000000"
+        "splashBackgroundColor": "#000000",
+        "noindex": false
     }
 }

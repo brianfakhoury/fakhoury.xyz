@@ -34,8 +34,10 @@ export async function generateMetadata({ params }: MetadataProps) {
       ],
     },
     other: {
-      "og:updated_time": post.modified?.toISOString(),
-      "article:modified_time": post.modified?.toISOString(),
+      ...(post.modified && {
+        "og:updated_time": post.modified.toISOString(),
+        "article:modified_time": post.modified.toISOString(),
+      }),
       "fc:frame": JSON.stringify({
         version: "next",
         imageUrl: `https://fakhoury.xyz/${slug}/og.png`,
