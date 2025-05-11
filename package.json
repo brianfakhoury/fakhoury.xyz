@@ -22,7 +22,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@farcaster/frame-sdk": "^0.0.38",
+    "@farcaster/frame-sdk": "^0.0.39",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-separator": "^1.1.1",
     "lucide-react": "0.x",
@@ -41,7 +41,6 @@
     "@typescript-eslint/eslint-plugin": "^8.8.0",
     "@typescript-eslint/parser": "^8.8.0",
     "bright": "^1.0.0",
-    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "eslint": "^9.17.0",
     "eslint-config-next": "^15.1.2",
