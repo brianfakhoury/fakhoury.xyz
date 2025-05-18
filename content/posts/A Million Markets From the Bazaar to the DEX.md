@@ -7,7 +7,7 @@ date: 2023-02-24
 publish: true
 image: images/million-markets/03d86356704f7698bf35ac4756076ada_MD5.jpg
 slug: million-markets
-origin: https://www.mechanism.capital/million-markets-from-the-bazaar-to-the-dex/
+origin: https://www.mechanism.capital/writings/million-markets-from-the-bazaar-to-the-dex
 description: Exploring the evolution of markets from ancient bazaars to decentralized exchanges (DEX) and the future of millions of new crypto markets.
 title: "A Million Markets: From the Bazaar to the DEX"
 ---
