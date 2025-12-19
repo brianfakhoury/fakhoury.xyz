@@ -7,7 +7,7 @@ import path from "path";
 export const dynamicParams = false;
 
 interface RouteProps {
-  params: Promise<{ slug: string; id: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {

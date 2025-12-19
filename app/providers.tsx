@@ -2,7 +2,6 @@
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect, type ReactNode } from "react";
-import { sdk } from '@farcaster/frame-sdk';
 
 interface ProviderProps {
   children: ReactNode;
@@ -52,10 +51,6 @@ export function Providers({ children }: ProviderProps) {
   useEffect(() => {
     console.info("%c" + asciiArt, "font-family: monospace; white-space: pre;");
   }, [asciiArt]);
-
-  useEffect(() => {
-    sdk.actions.ready();
-  }, []);
 
   return (
       <NextThemesProvider attribute="class">{children}</NextThemesProvider>
