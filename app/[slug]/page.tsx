@@ -5,7 +5,6 @@ import FadeInImage from "@/components/fade-in-image";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { Code } from "bright";
-import React from "react";
 import { notFound } from "next/navigation";
 import { imageSizeFromFile } from "image-size/fromFile";
 import remarkUnwrapImages from "remark-unwrap-images";

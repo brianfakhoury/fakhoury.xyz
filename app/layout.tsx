@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { Raleway, Great_Vibes } from "next/font/google";
 import type { Metadata } from "next";
 import { Providers } from "@/app/providers";

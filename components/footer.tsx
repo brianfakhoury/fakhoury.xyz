@@ -1,5 +1,4 @@
 import { Mailbox } from "lucide-react";
-import React from "react";
 import BuildInfo from "./build-info";
 import Link from "next/link";
 

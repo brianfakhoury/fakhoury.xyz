@@ -2,15 +2,15 @@
 
 import { useTheme } from "next-themes";
 import { Moon, Sun, SunMoon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 export default function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   if (!mounted) return null;
 
@@ -25,15 +25,12 @@ export default function ThemeSwitcher() {
         : "light"
       : "system";
 
-  const handleThemeChange = () => {
-    setTheme(upcomingTheme);
-  };
-
   const Icon =
     upcomingTheme === "light" ? Sun : upcomingTheme === "dark" ? Moon : SunMoon;
+
   return (
     <button
-      onClick={handleThemeChange}
+      onClick={() => setTheme(upcomingTheme)}
       className="ml-auto text-muted-foreground hover:text-foreground"
       aria-label="Switch theme"
     >
