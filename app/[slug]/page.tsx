@@ -45,6 +45,8 @@ export default async function PostPage({ params }: PostPageProps) {
   const image_cover_size = image
     ? await imageSizeFromFile(`content/posts/${image}`)
     : { width: 500, height: 500 };
+  
+  const isPoem = tags.includes("poem");
 
   return (
     <>
@@ -91,7 +93,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </header>
 
-        <section className={`relative ${image && "mt-10"} first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left pt-3`}>
+        <section className={`relative ${image && "mt-10"} pt-3 ${isPoem ? "[&_p]:whitespace-pre-line [&_p]:my-4" : "first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left"}`}>
           {image && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-linear-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
           )}

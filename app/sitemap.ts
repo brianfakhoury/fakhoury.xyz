@@ -35,7 +35,7 @@ export default async function sitemap() {
     lastModified: new Date(latest_post.modified || latest_post.date)
       .toISOString()
       .split("T")[0],
-    changefreq: "monthly",
+    changeFrequency: "monthly",
     priority: 0.5,
   };
 
