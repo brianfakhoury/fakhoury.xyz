@@ -51,14 +51,14 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <>
       <article className="prose prose-stone dark:prose-invert text-pretty break-words mx-auto">
-        <header>
-          <time dateTime={date.toISOString()} className="block mb-5 text-sm">
+        <header className="[&>:not(.header-bg)]:!mt-5 [&>:not(.header-bg):first-child]:!mt-0 [&>:not(.header-bg)]:!mb-0">
+          <time dateTime={date.toISOString()} className="block text-sm">
             {formatDateForBlogPost(date)}
           </time>
           {modified && (
             <time
               dateTime={modified.toISOString()}
-              className="block mb-5 text-sm"
+              className="block text-sm"
             >
               Updated on {formatDateForBlogPost(modified)}
             </time>
@@ -77,7 +77,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </aside>
           )}
           {image && (
-            <div className="rounded-lg absolute inset-0 max-w-(--breakpoint-xl) h-[550px] z-[-3] mx-auto overflow-hidden not-prose">
+            <div className="header-bg rounded-lg absolute inset-0 max-w-(--breakpoint-xl) h-[550px] z-[-3] mx-auto overflow-hidden not-prose">
               <FadeInImage
                 src={image.startsWith("/") ? image : `/${image}`}
                 alt={`${title} cover image`}
