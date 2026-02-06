@@ -7,6 +7,7 @@ import FadeInImage from "@/components/fade-in-image";
 import cover from "./opengraph-image.jpg";
 import { ExternalLink, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Welcome from "@/content/welcome.mdx";
 
 export default async function Home() {
   const links = getLinks();
@@ -51,23 +52,7 @@ export default async function Home() {
           "backdrop-blur-xs bg-background/50 rounded-lg",
           "sm:mx-8 sm:my-8 px-6 py-10 sm:p-10"
         )}>
-          <p>
-            Dearest web surfer, you&apos;ve come knocking on my digital door — welcome. I built this site for your curiosity and my own tinkering. Feel free to explore the links below or dive into my <Link href="/writing">writing archive</Link>.
-          </p>
-          <p>
-            These days, I&apos;m helping grow <strong>Mach Industries</strong>, a defense tech company. But I&apos;ve always valued time to think, create, and court serendipity. That&apos;s why I built this site by hand and optimized it beyond reasonable utility. You&apos;re welcome to linger as long as you like. If you do, I invite you to view my work and writing through a few personal lenses:
-          </p>
-          <ol>
-            <li>
-              I want to take on challenges just beyond my current abilities.
-            </li>
-            <li>
-              I believe in maximizing one&apos;s natural strengths.
-            </li>
-            <li>
-              Technology is engraved deeply in me; I appreciate it for its quality, possibility, and existence.
-            </li>
-          </ol>
+          <Welcome />
         </CardContent>
       </Card>
 
