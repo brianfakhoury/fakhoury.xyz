@@ -2,6 +2,7 @@ import { getPosts, getPost } from "@/lib/get-posts";
 import Link from "next/link";
 import Image from "next/image";
 import FadeInImage from "@/components/fade-in-image";
+import Comments from "@/components/comments";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { Code } from "bright";
@@ -164,6 +165,8 @@ export default async function PostPage({ params }: PostPageProps) {
           <Link href="/writing">← All writing</Link>
         </footer>
       </article>
+
+      <Comments />
     </>
   );
 }
