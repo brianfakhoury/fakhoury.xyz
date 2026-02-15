@@ -176,7 +176,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         }
       >
-        <Comments slug={slug} />
+        <Comments slug={slug} title={title} />
       </Suspense>
     </>
   );

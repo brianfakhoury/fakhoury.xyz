@@ -3,7 +3,8 @@ import Link from "next/link";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = "brianfakhoury";
 const REPO_NAME = "fakhoury.xyz";
-const CATEGORY = "General";
+const CATEGORY = "Blog Comments";
+const CATEGORY_SLUG = "blog-comments";
 
 const SEARCH_QUERY = `
   query($search: String!) {
@@ -58,12 +59,24 @@ function relativeTime(iso: string) {
   });
 }
 
-async function fetchComments(pathname: string) {
-  const empty = { discussion: null as { url: string } | null, comments: [] as DiscussionComment[] };
+function buildDiscussionBody(title: string, slug: string) {
+  const url = `https://fakhoury.xyz/${slug}`;
+  return [
+    `> This is the comment thread for [**${title}**](${url}).`,
+    ">",
+    "> Leave a reply below to share your thoughts. Markdown and code blocks are supported.",
+  ].join("\n");
+}
+
+async function fetchComments(title: string) {
+  const empty = {
+    discussion: null as { url: string } | null,
+    comments: [] as DiscussionComment[],
+  };
   if (!GITHUB_TOKEN) return empty;
 
   try {
-    const search = `repo:${REPO_OWNER}/${REPO_NAME} category:${JSON.stringify(CATEGORY)} in:title ${JSON.stringify(pathname)}`;
+    const search = `repo:${REPO_OWNER}/${REPO_NAME} category:${JSON.stringify(CATEGORY)} in:title ${JSON.stringify(title)}`;
 
     const res = await fetch("https://api.github.com/graphql", {
       method: "POST",
@@ -82,7 +95,7 @@ async function fetchComments(pathname: string) {
 
     const { data } = await res.json();
     const nodes: DiscussionNode[] = data?.search?.nodes ?? [];
-    const discussion = nodes.find((d) => d.title === pathname);
+    const discussion = nodes.find((d) => d.title === title);
 
     if (!discussion) return empty;
 
@@ -97,13 +110,14 @@ async function fetchComments(pathname: string) {
 
 interface CommentsProps {
   slug: string;
+  title: string;
 }
 
-export default async function Comments({ slug }: CommentsProps) {
-  const pathname = `/${slug}`;
-  const { discussion, comments } = await fetchComments(pathname);
+export default async function Comments({ slug, title }: CommentsProps) {
+  const { discussion, comments } = await fetchComments(title);
 
-  const newDiscussionUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/discussions/new?category=general&title=${encodeURIComponent(pathname)}&body=${encodeURIComponent(`Comments for [${pathname}](https://fakhoury.xyz${pathname})`)}`;
+  const body = buildDiscussionBody(title, slug);
+  const newDiscussionUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/discussions/new?category=${CATEGORY_SLUG}&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
   const commentUrl = discussion?.url ?? newDiscussionUrl;
 
   return (
