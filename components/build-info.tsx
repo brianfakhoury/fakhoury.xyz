@@ -4,16 +4,12 @@ import Link from "next/link";
 import { timeAgo } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
-interface BuildInfoProps {
-  build_date: Date;
-}
-
-export default function BuildInfo({ build_date }: BuildInfoProps) {
+export default function BuildInfo() {
   const [timeAgoText, setTimeAgoText] = useState("");
 
   useEffect(() => {
-    setTimeAgoText(timeAgo(build_date));
-  }, [build_date]);
+    setTimeAgoText(timeAgo(new Date()));
+  }, []);
 
   return (
     <Link

@@ -4,8 +4,6 @@ import { NextResponse, type NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
 
-export const dynamicParams = false;
-
 interface RouteProps {
   params: Promise<{ slug: string }>;
 }

@@ -2,8 +2,6 @@ import { getPosts } from "@/lib/get-posts";
 import ListOfPosts from "@/components/list-of-posts";
 import Link from "next/link";
 
-export const dynamicParams = false;
-
 interface TagPageProps {
   params: Promise<{ tag: string }>;
 }
