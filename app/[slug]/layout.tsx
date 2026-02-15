@@ -2,8 +2,6 @@ import { getPost } from "@/lib/get-posts";
 import { notFound } from "next/navigation";
 import { type PropsWithChildren } from "react";
 
-export const dynamicParams = false;
-
 interface MetadataProps {
   params: Promise<{ slug: string }>;
 }
@@ -54,7 +52,7 @@ export async function generateMetadata({ params }: MetadataProps) {
       })
     },
     alternates: {
-      canonical: post.origin?.href || `https://fakhoury.xyz/${slug}`,
+      canonical: post.origin || `https://fakhoury.xyz/${slug}`,
       types: {
         "application/atom+xml": "/atom.xml",
         "application/rss+xml": "/feed.xml",

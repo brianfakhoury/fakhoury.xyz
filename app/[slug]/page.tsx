@@ -2,14 +2,14 @@ import { getPosts, getPost } from "@/lib/get-posts";
 import Link from "next/link";
 import Image from "next/image";
 import FadeInImage from "@/components/fade-in-image";
+import Comments from "@/components/comments";
 import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { Code } from "bright";
 import { notFound } from "next/navigation";
 import { imageSizeFromFile } from "image-size/fromFile";
 import remarkUnwrapImages from "remark-unwrap-images";
-
-export const dynamicParams = false;
+import { Suspense } from "react";
 
 /**
  * Generates static paths for all blog posts during build time
@@ -36,134 +36,161 @@ interface PostPageProps {
  * @throws {notFound} When the post with the specified slug is not found
  */
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = await params
+  const { slug } = await params;
   const post = await getPost(slug);
 
   if (!post) return notFound();
+
+  return (
+    <>
+      <PostArticle slug={slug} />
+      <Suspense
+        fallback={
+          <div className="mt-12 max-w-prose mx-auto">
+            <p className="text-sm text-muted-foreground animate-pulse">
+              Loading comments...
+            </p>
+          </div>
+        }
+      >
+        <Comments slug={slug} title={post.title} />
+      </Suspense>
+    </>
+  );
+}
+
+/**
+ * Cached component that renders the full blog post article.
+ * All filesystem I/O (image sizes, post content) is cached here,
+ * keeping it out of the dynamic rendering path.
+ */
+async function PostArticle({ slug }: { slug: string }) {
+  "use cache";
+
+  const post = await getPost(slug);
+  if (!post) return null;
 
   const { tags, date, modified, origin, image, title, body } = post;
   const image_cover_size = image
     ? await imageSizeFromFile(`content/posts/${image}`)
     : { width: 500, height: 500 };
-  
+
   const isPoem = tags.includes("poem");
 
   return (
-    <>
-      <article className="prose prose-stone dark:prose-invert text-pretty break-words mx-auto">
-        <header className="[&>:not(.header-bg)]:!mt-5 [&>:not(.header-bg):first-child]:!mt-0 [&>:not(.header-bg)]:!mb-0">
-          <time dateTime={date.toISOString()} className="block text-sm">
-            {formatDateForBlogPost(date)}
-          </time>
-          {modified && (
-            <time
-              dateTime={modified.toISOString()}
-              className="block text-sm"
-            >
-              Updated on {formatDateForBlogPost(modified)}
-            </time>
-          )}
-          <h1 className="first-letter:font-great-vibes">{title}</h1>
-          {origin && (
-            <aside className="text-xs">
-              Originally published at{" "}
-              <Link
-                href={origin.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {origin.hostname}
-              </Link>
-            </aside>
-          )}
-          {image && (
-            <div className="header-bg rounded-lg absolute inset-0 max-w-(--breakpoint-xl) h-[550px] z-[-3] mx-auto overflow-hidden not-prose">
-              <FadeInImage
-                src={image.startsWith("/") ? image : `/${image}`}
-                alt={`${title} cover image`}
-                height={image_cover_size.height}
-                width={image_cover_size.width}
-                className="absolute inset-x-0 bottom-0 w-full h-3/4 object-cover z-[-2] m-0"
-                priority
-              />
-              <div
-                className={`absolute inset-0 z-10 bg-linear-to-b from-white dark:from-black from-30%`}
-              />
-            </div>
-          )}
-        </header>
-
-        <section className={`relative ${image && "mt-10"} pt-3 ${isPoem ? "[&_p]:whitespace-pre-line [&_p]:my-4" : "first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left"}`}>
-          {image && (
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-linear-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
-          )}
-          <ReactMarkdown
-            remarkPlugins={[remarkUnwrapImages]}
-            components={{
-              pre: ({ ...props }) => (
-                <Code
-                  lang={props.className?.split("-")[1]}
-                  title={props.className?.split("-")[1]}
-                  lineNumbers
-                  {...props}
-                />
-              ),
-              img: async ({ ...props }) => {
-                const image_size = props.src
-                  ? await imageSizeFromFile(`content/posts/${props.src}`)
-                  : { width: 500, height: 450 };
-
-                const image_src = props.src?.toString().startsWith("/")
-                  ? `${props.src}`
-                  : `/${props.src}`;
-
-                return (
-                  <figure>
-                    <Image
-                      src={image_src}
-                      alt={props.alt || "blog image"}
-                      height={image_size.height || 450}
-                      width={image_size.width || 500}
-                      className="rounded-lg"
-                    />
-                    {props.alt && (
-                      <figcaption className="text-center">
-                        {props.alt}
-                      </figcaption>
-                    )}
-                  </figure>
-                );
-              },
-              a: ({ ...props }) => {
-                if (!props.href) return <>{props.children}</>;
-                return (
-                  <Link
-                    href={props.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {props.children}
-                  </Link>
-                );
-              },
-            }}
+    <article className="prose prose-stone dark:prose-invert text-pretty break-words mx-auto">
+      <header className="[&>:not(.header-bg)]:!mt-5 [&>:not(.header-bg):first-child]:!mt-0 [&>:not(.header-bg)]:!mb-0">
+        <time dateTime={date.toISOString()} className="block text-sm">
+          {formatDateForBlogPost(date)}
+        </time>
+        {modified && (
+          <time
+            dateTime={modified.toISOString()}
+            className="block text-sm"
           >
-            {body}
-          </ReactMarkdown>
-        </section>
-
-        <footer className="not-prose flex flex-col space-y-4 mt-12">
-          <hr className="border-t border-stone-300" />
-          <div className="flex flex-wrap gap-3">
-            {tags.map((tag: string, i: number) => (
-              <Link href={`/writing/${tag}`} key={i}>
-                #{tag}
-              </Link>
-            ))}
+            Updated on {formatDateForBlogPost(modified)}
+          </time>
+        )}
+        <h1 className="first-letter:font-great-vibes">{title}</h1>
+        {origin && (
+          <aside className="text-xs">
+            Originally published at{" "}
+            <Link
+              href={origin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {new URL(origin).hostname}
+            </Link>
+          </aside>
+        )}
+        {image && (
+          <div className="header-bg rounded-lg absolute inset-0 max-w-(--breakpoint-xl) h-[550px] z-[-3] mx-auto overflow-hidden not-prose">
+            <FadeInImage
+              src={image.startsWith("/") ? image : `/${image}`}
+              alt={`${title} cover image`}
+              height={image_cover_size.height}
+              width={image_cover_size.width}
+              className="absolute inset-x-0 bottom-0 w-full h-3/4 object-cover z-[-2] m-0"
+              priority
+            />
+            <div
+              className={`absolute inset-0 z-10 bg-linear-to-b from-white dark:from-black from-30%`}
+            />
           </div>
-          <Link href="/writing">← All writing</Link>
-        </footer>
-      </article>
-    </>
+        )}
+      </header>
+
+      <section className={`relative ${image && "mt-10"} pt-3 ${isPoem ? "[&_p]:whitespace-pre-line [&_p]:my-4" : "first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left"}`}>
+        {image && (
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-linear-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
+        )}
+        <ReactMarkdown
+          remarkPlugins={[remarkUnwrapImages]}
+          components={{
+            pre: ({ ...props }) => (
+              <Code
+                lang={props.className?.split("-")[1]}
+                title={props.className?.split("-")[1]}
+                lineNumbers
+                {...props}
+              />
+            ),
+            img: async ({ ...props }) => {
+              const image_size = props.src
+                ? await imageSizeFromFile(`content/posts/${props.src}`)
+                : { width: 500, height: 450 };
+
+              const image_src = props.src?.toString().startsWith("/")
+                ? `${props.src}`
+                : `/${props.src}`;
+
+              return (
+                <figure>
+                  <Image
+                    src={image_src}
+                    alt={props.alt || "blog image"}
+                    height={image_size.height || 450}
+                    width={image_size.width || 500}
+                    className="rounded-lg"
+                  />
+                  {props.alt && (
+                    <figcaption className="text-center">
+                      {props.alt}
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            },
+            a: ({ ...props }) => {
+              if (!props.href) return <>{props.children}</>;
+              return (
+                <Link
+                  href={props.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {props.children}
+                </Link>
+              );
+            },
+          }}
+        >
+          {body}
+        </ReactMarkdown>
+      </section>
+
+      <footer className="not-prose flex flex-col space-y-4 mt-12">
+        <hr className="border-t border-stone-300" />
+        <div className="flex flex-wrap gap-3">
+          {tags.map((tag: string, i: number) => (
+            <Link href={`/writing/${tag}`} key={i}>
+              #{tag}
+            </Link>
+          ))}
+        </div>
+        <Link href="/writing">← All writing</Link>
+      </footer>
+    </article>
   );
 }

@@ -3,7 +3,6 @@ import BuildInfo from "./build-info";
 import Link from "next/link";
 
 export default function Footer() {
-  const build_date = new Date();
   return (
     <footer className="text-sm flex items-center py-10 pr-2">
       <Link
@@ -15,7 +14,7 @@ export default function Footer() {
       >
         <Mailbox />
       </Link>
-      <BuildInfo build_date={build_date} />
+      <BuildInfo />
     </footer>
   );
 }
