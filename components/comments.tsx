@@ -4,13 +4,12 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 
 const REPO = "brianfakhoury/fakhoury.xyz";
-const LABEL = "blog-comment";
+const CATEGORY_SLUG = "general";
 
 interface Comment {
-  id: number;
-  user: { login: string; avatar_url: string; html_url: string };
-  body_html: string;
-  created_at: string;
+  bodyHTML: string;
+  createdAt: string;
+  author: { login: string; avatarUrl: string; url: string } | null;
 }
 
 function relativeTime(iso: string) {
@@ -35,7 +34,7 @@ export default function Comments() {
   );
 
   const [comments, setComments] = useState<Comment[]>([]);
-  const [issueNumber, setIssueNumber] = useState<number | null>(null);
+  const [discussionUrl, setDiscussionUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,34 +44,15 @@ export default function Comments() {
 
     async function load() {
       try {
-        // List issues tagged with the blog-comment label
         const res = await fetch(
-          `https://api.github.com/repos/${REPO}/issues?labels=${LABEL}&state=open&per_page=100`,
-          {
-            signal: controller.signal,
-            headers: { Accept: "application/vnd.github+json" },
-          },
+          `/api/comments?pathname=${encodeURIComponent(pathname)}`,
+          { signal: controller.signal },
         );
         if (!res.ok) return;
 
-        const issues: { number: number; title: string; comments: number }[] =
-          await res.json();
-        const issue = issues.find((i) => i.title === pathname);
-
-        if (issue) {
-          setIssueNumber(issue.number);
-
-          if (issue.comments > 0) {
-            const commentsRes = await fetch(
-              `https://api.github.com/repos/${REPO}/issues/${issue.number}/comments?per_page=100`,
-              {
-                signal: controller.signal,
-                headers: { Accept: "application/vnd.github.full+json" },
-              },
-            );
-            if (commentsRes.ok) setComments(await commentsRes.json());
-          }
-        }
+        const data = await res.json();
+        if (data.discussion) setDiscussionUrl(data.discussion.url);
+        if (data.comments) setComments(data.comments);
       } catch (e) {
         if (e instanceof DOMException && e.name === "AbortError") return;
       } finally {
@@ -86,72 +66,80 @@ export default function Comments() {
 
   if (!mounted) return null;
 
-  const issueUrl = issueNumber
-    ? `https://github.com/${REPO}/issues/${issueNumber}`
-    : `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(pathname)}&labels=${encodeURIComponent(LABEL)}&body=${encodeURIComponent(`Comments for [${pathname}](https://fakhoury.xyz${pathname})`)}`;
+  const newDiscussionUrl = `https://github.com/${REPO}/discussions/new?category=${CATEGORY_SLUG}&title=${encodeURIComponent(pathname)}&body=${encodeURIComponent(`Comments for [${pathname}](https://fakhoury.xyz${pathname})`)}`;
+  const commentUrl = discussionUrl ?? newDiscussionUrl;
+
+  if (loading) {
+    return (
+      <section className="mt-12 max-w-prose mx-auto">
+        <p className="text-sm text-muted-foreground animate-pulse">
+          Loading comments...
+        </p>
+      </section>
+    );
+  }
 
   return (
     <section className="mt-12 max-w-prose mx-auto">
-      <h2 className="text-sm font-medium text-muted-foreground mb-6">
-        Comments
-      </h2>
-
-      {loading ? (
-        <p className="text-sm text-muted-foreground animate-pulse">
-          Loading...
-        </p>
-      ) : (
+      {comments.length > 0 && (
         <>
-          {comments.length > 0 ? (
-            <div className="space-y-6 mb-8">
-              {comments.map((c) => (
-                <div key={c.id} className="flex gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+          <h2 className="text-sm font-medium text-muted-foreground mb-6">
+            Comments
+          </h2>
+          <div className="space-y-6 mb-8">
+            {comments.map((c, i) => (
+              <div key={i} className="flex gap-3">
+                {c.author && (
+                  /* eslint-disable-next-line @next/next/no-img-element */
                   <img
-                    src={`${c.user.avatar_url}&s=64`}
+                    src={`${c.author.avatarUrl}&s=64`}
                     alt=""
                     width={32}
                     height={32}
                     className="rounded-full w-8 h-8 mt-0.5 shrink-0"
                   />
-                  <div className="min-w-0">
-                    <div className="flex items-baseline gap-2 text-sm">
+                )}
+                <div className="min-w-0">
+                  <div className="flex items-baseline gap-2 text-sm">
+                    {c.author ? (
                       <a
-                        href={c.user.html_url}
+                        href={c.author.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-medium text-foreground hover:underline"
                       >
-                        {c.user.login}
+                        {c.author.login}
                       </a>
-                      <time className="text-xs text-muted-foreground">
-                        {relativeTime(c.created_at)}
-                      </time>
-                    </div>
-                    <div
-                      className="prose prose-sm prose-stone dark:prose-invert mt-1 break-words [&>*:first-child]:mt-0 [&>*:last-child]:mb-0"
-                      dangerouslySetInnerHTML={{ __html: c.body_html }}
-                    />
+                    ) : (
+                      <span className="font-medium text-muted-foreground">
+                        deleted user
+                      </span>
+                    )}
+                    <time className="text-xs text-muted-foreground">
+                      {relativeTime(c.createdAt)}
+                    </time>
                   </div>
+                  <div
+                    className="prose prose-sm prose-stone dark:prose-invert mt-1 break-words [&>*:first-child]:mt-0 [&>*:last-child]:mb-0"
+                    dangerouslySetInnerHTML={{ __html: c.bodyHTML }}
+                  />
                 </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-sm text-muted-foreground mb-4">
-              No comments yet.
-            </p>
-          )}
-
-          <a
-            href={issueUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Leave a comment on GitHub &rarr;
-          </a>
+              </div>
+            ))}
+          </div>
         </>
       )}
+
+      <a
+        href={commentUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        {comments.length > 0
+          ? "Leave a comment on GitHub \u2192"
+          : "No comments yet \u2014 start a discussion on GitHub \u2192"}
+      </a>
     </section>
   );
 }
