@@ -3,8 +3,8 @@ import Link from "next/link";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = "brianfakhoury";
 const REPO_NAME = "fakhoury.xyz";
-const CATEGORY = "Blog Comments";
-const CATEGORY_SLUG = "blog-comments";
+const CATEGORY = "General";
+const CATEGORY_SLUG = "general";
 
 const SEARCH_QUERY = `
   query($search: String!) {
