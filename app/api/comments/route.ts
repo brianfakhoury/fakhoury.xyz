@@ -1,22 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN!;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = "brianfakhoury";
 const REPO_NAME = "fakhoury.xyz";
 
 // "General" discussion category — change this if you create a dedicated one
-const CATEGORY_ID = "DIC_kwDOCPjnKs4C2d0m";
+const CATEGORY = "General";
 
-const QUERY = `
-  query($owner: String!, $name: String!) {
-    repository(owner: $owner, name: $name) {
-      discussions(categoryId: "${CATEGORY_ID}", first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
-        nodes {
+const SEARCH_QUERY = `
+  query($search: String!) {
+    search(query: $search, type: DISCUSSION, first: 5) {
+      nodes {
+        ... on Discussion {
           title
           number
           url
           comments(first: 100) {
             nodes {
+              id
               bodyHTML
               createdAt
               author {
@@ -32,6 +33,22 @@ const QUERY = `
   }
 `;
 
+interface DiscussionComment {
+  id: string;
+  bodyHTML: string;
+  createdAt: string;
+  author: { login: string; avatarUrl: string; url: string } | null;
+}
+
+interface DiscussionNode {
+  title: string;
+  number: number;
+  url: string;
+  comments: { nodes: DiscussionComment[] };
+}
+
+const EMPTY = { discussion: null, comments: [] };
+
 export async function GET(request: NextRequest) {
   const pathname = request.nextUrl.searchParams.get("pathname");
   if (!pathname) {
@@ -42,10 +59,12 @@ export async function GET(request: NextRequest) {
   }
 
   if (!GITHUB_TOKEN) {
-    return NextResponse.json({ discussion: null, comments: [] });
+    return NextResponse.json(EMPTY);
   }
 
   try {
+    const search = `repo:${REPO_OWNER}/${REPO_NAME} category:${JSON.stringify(CATEGORY)} in:title ${JSON.stringify(pathname)}`;
+
     const res = await fetch("https://api.github.com/graphql", {
       method: "POST",
       headers: {
@@ -53,49 +72,47 @@ export async function GET(request: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        query: QUERY,
-        variables: { owner: REPO_OWNER, name: REPO_NAME },
+        query: SEARCH_QUERY,
+        variables: { search },
       }),
       next: { revalidate: 60 },
     });
 
     if (!res.ok) {
-      return NextResponse.json({ discussion: null, comments: [] });
+      return NextResponse.json(EMPTY, { headers: cacheHeaders(10) });
     }
 
     const { data } = await res.json();
-    const discussions = data?.repository?.discussions?.nodes ?? [];
-    const discussion = discussions.find(
-      (d: { title: string }) => d.title === pathname,
-    );
+    const nodes: DiscussionNode[] = data?.search?.nodes ?? [];
+
+    // Exact title match — search returns fuzzy results
+    const discussion = nodes.find((d) => d.title === pathname);
 
     if (!discussion) {
-      return NextResponse.json({ discussion: null, comments: [] });
+      return NextResponse.json(EMPTY, { headers: cacheHeaders(60) });
     }
 
-    const comments = discussion.comments.nodes.map(
-      (c: {
-        bodyHTML: string;
-        createdAt: string;
-        author: { login: string; avatarUrl: string; url: string } | null;
-      }) => ({
-        bodyHTML: c.bodyHTML,
-        createdAt: c.createdAt,
-        author: c.author
-          ? {
-              login: c.author.login,
-              avatarUrl: c.author.avatarUrl,
-              url: c.author.url,
-            }
-          : null,
-      }),
-    );
+    const comments = discussion.comments.nodes.map((c) => ({
+      id: c.id,
+      bodyHTML: c.bodyHTML,
+      createdAt: c.createdAt,
+      author: c.author,
+    }));
 
-    return NextResponse.json({
-      discussion: { number: discussion.number, url: discussion.url },
-      comments,
-    });
+    return NextResponse.json(
+      {
+        discussion: { number: discussion.number, url: discussion.url },
+        comments,
+      },
+      { headers: cacheHeaders(60) },
+    );
   } catch {
-    return NextResponse.json({ discussion: null, comments: [] });
+    return NextResponse.json(EMPTY, { headers: cacheHeaders(10) });
   }
+}
+
+function cacheHeaders(seconds: number) {
+  return {
+    "Cache-Control": `public, s-maxage=${seconds}, stale-while-revalidate=${seconds * 2}`,
+  };
 }

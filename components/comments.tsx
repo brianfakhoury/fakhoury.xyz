@@ -7,6 +7,7 @@ const REPO = "brianfakhoury/fakhoury.xyz";
 const CATEGORY_SLUG = "general";
 
 interface Comment {
+  id: string;
   bodyHTML: string;
   createdAt: string;
   author: { login: string; avatarUrl: string; url: string } | null;
@@ -87,8 +88,8 @@ export default function Comments() {
             Comments
           </h2>
           <div className="space-y-6 mb-8">
-            {comments.map((c, i) => (
-              <div key={i} className="flex gap-3">
+            {comments.map((c) => (
+              <div key={c.id} className="flex gap-3">
                 {c.author && (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
