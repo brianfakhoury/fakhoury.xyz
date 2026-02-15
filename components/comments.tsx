@@ -1,16 +1,48 @@
-"use client";
+import Link from "next/link";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
-import { usePathname } from "next/navigation";
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const REPO_OWNER = "brianfakhoury";
+const REPO_NAME = "fakhoury.xyz";
+const CATEGORY = "General";
 
-const REPO = "brianfakhoury/fakhoury.xyz";
-const CATEGORY_SLUG = "general";
+const SEARCH_QUERY = `
+  query($search: String!) {
+    search(query: $search, type: DISCUSSION, first: 5) {
+      nodes {
+        ... on Discussion {
+          title
+          number
+          url
+          comments(first: 100) {
+            nodes {
+              id
+              bodyHTML
+              createdAt
+              author {
+                login
+                avatarUrl
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
-interface Comment {
+interface DiscussionComment {
   id: string;
   bodyHTML: string;
   createdAt: string;
   author: { login: string; avatarUrl: string; url: string } | null;
+}
+
+interface DiscussionNode {
+  title: string;
+  number: number;
+  url: string;
+  comments: { nodes: DiscussionComment[] };
 }
 
 function relativeTime(iso: string) {
@@ -26,59 +58,53 @@ function relativeTime(iso: string) {
   });
 }
 
-export default function Comments() {
-  const pathname = usePathname();
-  const mounted = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false,
-  );
+async function fetchComments(pathname: string) {
+  const empty = { discussion: null as { url: string } | null, comments: [] as DiscussionComment[] };
+  if (!GITHUB_TOKEN) return empty;
 
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [discussionUrl, setDiscussionUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  try {
+    const search = `repo:${REPO_OWNER}/${REPO_NAME} category:${JSON.stringify(CATEGORY)} in:title ${JSON.stringify(pathname)}`;
 
-  useEffect(() => {
-    if (!mounted) return;
+    const res = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: SEARCH_QUERY,
+        variables: { search },
+      }),
+      next: { revalidate: 60 },
+    });
 
-    const controller = new AbortController();
+    if (!res.ok) return empty;
 
-    async function load() {
-      try {
-        const res = await fetch(
-          `/api/comments?pathname=${encodeURIComponent(pathname)}`,
-          { signal: controller.signal },
-        );
-        if (!res.ok) return;
+    const { data } = await res.json();
+    const nodes: DiscussionNode[] = data?.search?.nodes ?? [];
+    const discussion = nodes.find((d) => d.title === pathname);
 
-        const data = await res.json();
-        if (data.discussion) setDiscussionUrl(data.discussion.url);
-        if (data.comments) setComments(data.comments);
-      } catch (e) {
-        if (e instanceof DOMException && e.name === "AbortError") return;
-      } finally {
-        setLoading(false);
-      }
-    }
+    if (!discussion) return empty;
 
-    load();
-    return () => controller.abort();
-  }, [mounted, pathname]);
-
-  if (!mounted) return null;
-
-  const newDiscussionUrl = `https://github.com/${REPO}/discussions/new?category=${CATEGORY_SLUG}&title=${encodeURIComponent(pathname)}&body=${encodeURIComponent(`Comments for [${pathname}](https://fakhoury.xyz${pathname})`)}`;
-  const commentUrl = discussionUrl ?? newDiscussionUrl;
-
-  if (loading) {
-    return (
-      <section className="mt-12 max-w-prose mx-auto">
-        <p className="text-sm text-muted-foreground animate-pulse">
-          Loading comments...
-        </p>
-      </section>
-    );
+    return {
+      discussion: { url: discussion.url },
+      comments: discussion.comments.nodes,
+    };
+  } catch {
+    return empty;
   }
+}
+
+interface CommentsProps {
+  slug: string;
+}
+
+export default async function Comments({ slug }: CommentsProps) {
+  const pathname = `/${slug}`;
+  const { discussion, comments } = await fetchComments(pathname);
+
+  const newDiscussionUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/discussions/new?category=general&title=${encodeURIComponent(pathname)}&body=${encodeURIComponent(`Comments for [${pathname}](https://fakhoury.xyz${pathname})`)}`;
+  const commentUrl = discussion?.url ?? newDiscussionUrl;
 
   return (
     <section className="mt-12 max-w-prose mx-auto">
@@ -103,14 +129,14 @@ export default function Comments() {
                 <div className="min-w-0">
                   <div className="flex items-baseline gap-2 text-sm">
                     {c.author ? (
-                      <a
+                      <Link
                         href={c.author.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-medium text-foreground hover:underline"
                       >
                         {c.author.login}
-                      </a>
+                      </Link>
                     ) : (
                       <span className="font-medium text-muted-foreground">
                         deleted user
@@ -131,7 +157,7 @@ export default function Comments() {
         </>
       )}
 
-      <a
+      <Link
         href={commentUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -140,7 +166,7 @@ export default function Comments() {
         {comments.length > 0
           ? "Leave a comment on GitHub \u2192"
           : "No comments yet \u2014 start a discussion on GitHub \u2192"}
-      </a>
+      </Link>
     </section>
   );
 }

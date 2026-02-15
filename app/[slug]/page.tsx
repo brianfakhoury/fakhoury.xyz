@@ -9,6 +9,7 @@ import { Code } from "bright";
 import { notFound } from "next/navigation";
 import { imageSizeFromFile } from "image-size/fromFile";
 import remarkUnwrapImages from "remark-unwrap-images";
+import { Suspense } from "react";
 
 export const dynamicParams = false;
 
@@ -166,7 +167,17 @@ export default async function PostPage({ params }: PostPageProps) {
         </footer>
       </article>
 
-      <Comments />
+      <Suspense
+        fallback={
+          <div className="mt-12 max-w-prose mx-auto">
+            <p className="text-sm text-muted-foreground animate-pulse">
+              Loading comments...
+            </p>
+          </div>
+        }
+      >
+        <Comments slug={slug} />
+      </Suspense>
     </>
   );
 }
