@@ -57,6 +57,7 @@ export default function ConceptIndex({
             <Link
               key={concept.slug}
               href={`/concepts/${concept.slug}`}
+              prefetch={false}
               className="block break-inside-avoid mb-2 px-3 py-2 rounded-md hover:bg-muted/50 transition-colors group"
             >
               <span className="text-foreground/90 group-hover:text-foreground text-sm">

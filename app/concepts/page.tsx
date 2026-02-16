@@ -37,7 +37,7 @@ export default async function ConceptsPage() {
           </span>
         </div>
         <p className="text-lg text-muted-foreground">
-          My personal <Link href="/concepts/notes-are-meant-to-either-be-lost-or-connected-to-others" className="underline decoration-dotted underline-offset-3 hover:decoration-solid text-foreground/80 hover:text-foreground transition-colors">Zettelkasten</Link> — short
+          My personal <Link href="/concepts/notes-are-meant-to-either-be-lost-or-connected-to-others" prefetch={false} className="underline decoration-dotted underline-offset-3 hover:decoration-solid text-foreground/80 hover:text-foreground transition-colors">Zettelkasten</Link> — short
           notes distilled from everything I read across technology, philosophy,
           science, and beyond. Each concept links to related ideas, building a
           web of knowledge over time. Click any concept to explore — linked

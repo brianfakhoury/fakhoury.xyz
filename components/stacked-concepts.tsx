@@ -88,6 +88,7 @@ function MobileConcept({
               <Link
                 key={bl.slug}
                 href={`/concepts/${bl.slug}`}
+                prefetch={false}
                 className="block text-sm underline decoration-dotted underline-offset-3 hover:decoration-solid text-foreground/80 hover:text-foreground transition-colors cursor-pointer"
               >
                 {bl.title}
@@ -128,6 +129,7 @@ function MobileConceptMarkdown({
             return (
               <Link
                 href={href}
+                prefetch={false}
                 className="text-foreground underline decoration-dotted underline-offset-3 hover:decoration-solid"
               >
                 {children}
@@ -296,6 +298,7 @@ function DesktopConceptPane({
               {index > 0 ? (
                 <Link
                   href={`/concepts/${concept.slug}`}
+                  prefetch={false}
                   className="hover:underline decoration-dotted underline-offset-3"
                   title="Open as main concept"
                 >
