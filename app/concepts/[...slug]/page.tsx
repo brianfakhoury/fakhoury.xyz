@@ -39,12 +39,12 @@ export default async function ConceptPage({ params }: ConceptPageProps) {
 
   return (
     <div className="flex flex-col md:overflow-hidden md:h-[calc(100dvh-8rem)]">
-      <div className="shrink-0 px-4 sm:px-8 py-3">
+      <div className="shrink-0 px-4 sm:px-8 py-2">
         <Link
           href="/concepts"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-1 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors"
         >
-          <ArrowLeft className="h-3.5 w-3.5" />
+          <ArrowLeft className="h-3 w-3" />
           All concepts
         </Link>
       </div>

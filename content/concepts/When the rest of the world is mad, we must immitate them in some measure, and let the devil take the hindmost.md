@@ -3,4 +3,4 @@
 This quote was said by an english speculator in the south sea bubble of 1720.
 
 ---
-- [[EARLY ACCESS - What Causes Bubbles With Edward Chancellor - The Price of Money by Bankless (premium feed for brianfakhoury@gmail.com)]]
+- [[EARLY ACCESS - What Causes Bubbles With Edward Chancellor - The Price of Money by Bankless]]
