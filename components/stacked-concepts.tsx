@@ -68,7 +68,7 @@ function MobileConcept({
     .filter(Boolean) as Concept[];
 
   return (
-    <div className="flex-1 overflow-y-auto px-4 pb-8">
+    <div className="px-4 pb-8">
       <h1 className="text-2xl font-semibold leading-tight text-pretty mb-4">
         {concept.title}
       </h1>
@@ -177,13 +177,6 @@ function DesktopStackedConcepts({
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, []);
-
   const updateUrl = useCallback(
     (newStack: Concept[]) => {
       if (newStack.length <= 1) {
@@ -241,7 +234,7 @@ function DesktopStackedConcepts({
   return (
     <div
       ref={scrollRef}
-      className="flex flex-1 overflow-x-auto min-h-0"
+      className="flex flex-1 overflow-x-auto min-h-0 scrollbar-hide"
     >
       {stack.map((concept, i) => (
         <DesktopConceptPane
@@ -297,10 +290,20 @@ function DesktopConceptPane({
       }}
     >
       <div className="h-full overflow-y-auto">
-        <div className="px-6 py-5">
+        <div className="px-6 pt-5 pb-10">
           <div className="flex items-start justify-between gap-3 mb-4">
             <h2 className="text-xl font-semibold leading-tight text-pretty">
-              {concept.title}
+              {index > 0 ? (
+                <Link
+                  href={`/concepts/${concept.slug}`}
+                  className="hover:underline decoration-dotted underline-offset-3"
+                  title="Open as main concept"
+                >
+                  {concept.title}
+                </Link>
+              ) : (
+                concept.title
+              )}
             </h2>
             {index > 0 && (
               <button

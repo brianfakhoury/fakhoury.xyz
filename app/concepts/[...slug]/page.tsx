@@ -38,7 +38,7 @@ export default async function ConceptPage({ params }: ConceptPageProps) {
   );
 
   return (
-    <div className="flex flex-col" style={{ height: "calc(100vh - 6rem)" }}>
+    <div className="flex flex-col md:overflow-hidden md:h-[calc(100dvh-8rem)]">
       <div className="shrink-0 px-4 sm:px-8 py-3">
         <Link
           href="/concepts"

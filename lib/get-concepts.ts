@@ -93,4 +93,3 @@ export async function getConceptGraph(): Promise<ConceptGraph> {
 
   return { nodes, links };
 }
-
