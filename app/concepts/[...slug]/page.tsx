@@ -42,6 +42,7 @@ export default async function ConceptPage({ params }: ConceptPageProps) {
       <div className="shrink-0 px-4 sm:px-8 py-2">
         <Link
           href="/concepts"
+          prefetch={false}
           className="inline-flex items-center gap-1 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors"
         >
           <ArrowLeft className="h-3 w-3" />

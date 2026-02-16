@@ -1,10 +1,15 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Search } from "lucide-react";
 import type { ConceptGraph } from "@/lib/types";
-import ConceptGraphView from "@/components/concept-graph";
+
+const ConceptGraphView = dynamic(
+  () => import("@/components/concept-graph"),
+  { ssr: false }
+);
 
 interface ConceptSummary {
   title: string;
