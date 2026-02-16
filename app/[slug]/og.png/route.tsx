@@ -1,7 +1,7 @@
 import getPosts, { getPost } from "@/lib/get-posts";
+import { getBase64Image } from "@/lib/server-utils";
 import { ImageResponse } from "next/og";
 import { NextResponse, type NextRequest } from "next/server";
-import fs from "fs";
 import path from "path";
 
 interface RouteProps {
@@ -11,26 +11,6 @@ interface RouteProps {
 export async function generateStaticParams() {
   const posts = await getPosts();
   return posts.map((post) => ({ slug: post.slug }));
-}
-
-function getBase64Image(filePath: string): string {
-  const imagePath = path.resolve(process.cwd(), filePath);
-  const imageBuffer = fs.readFileSync(imagePath);
-
-  const ext = path.extname(filePath).toLowerCase();
-  let mimeType;
-
-  if (ext === ".jpg" || ext === ".jpeg") {
-    mimeType = "image/jpeg";
-  } else if (ext === ".png") {
-    mimeType = "image/png";
-  } else if (ext === ".gif") {
-    mimeType = "image/gif";
-  } else {
-    throw new Error("Unsupported image format for OG image generation");
-  }
-
-  return `data:${mimeType};base64,${imageBuffer.toString("base64")}`;
 }
 
 export async function GET(_req: NextRequest, { params }: RouteProps) {
