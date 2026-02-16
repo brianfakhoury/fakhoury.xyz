@@ -1,9 +1,11 @@
 // app/sitemap.ts
 import getPosts from "@/lib/get-posts";
+import { getConcepts } from "@/lib/get-concepts";
 import { getTagsWithLatestModified } from "@/lib/utils";
 
 export default async function sitemap() {
   const posts = await getPosts();
+  const concepts = await getConcepts();
   const latest_post = posts[0];
   const tag_list = getTagsWithLatestModified(posts);
 
@@ -23,6 +25,13 @@ export default async function sitemap() {
     priority: 0.5,
   }));
 
+  const conceptPages = concepts.map((c) => ({
+    url: `https://fakhoury.xyz/concepts/${c.slug}`,
+    lastModified: new Date().toISOString().split("T")[0],
+    changeFrequency: "monthly",
+    priority: 0.4,
+  }));
+
   const home = {
     url: "https://fakhoury.xyz",
     lastModified: new Date().toISOString().split("T")[0],
@@ -39,5 +48,12 @@ export default async function sitemap() {
     priority: 0.5,
   };
 
-  return [home, writing, ...tags, ...writings];
+  const conceptsIndex = {
+    url: "https://fakhoury.xyz/concepts",
+    lastModified: new Date().toISOString().split("T")[0],
+    changeFrequency: "monthly",
+    priority: 0.6,
+  };
+
+  return [home, writing, conceptsIndex, ...tags, ...writings, ...conceptPages];
 }

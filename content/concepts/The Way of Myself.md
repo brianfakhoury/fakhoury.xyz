@@ -1,0 +1,18 @@
+# The Way of Myself
+- [[Work like a Lion. Complete your tasks in sprints. Any time allotted will be used up and result in inefficiencies. Set a time to start and get it done.]]
+- [[If you have a nice thought about someone, tell them immediately.]]
+- [[Try to create more, consume less. It's a balance of course, but consummation is stronger pulling, so fight towards creation.]]
+- [[Spending time with _good_ people in a social setting is critical to being a well functioning human.]]
+- [[Design the space you live and work in to be beautiful, natural, and inspiring. Be clean, both digitally, mentally, and physically. Be organized.]]
+- [[Be descriptive in thought and product. This leads to long term credibility and relationship. Avoid talking just to talk. Be silent sometimes.]]
+- [[Busywork creates a false sense of productivity. When you seek to be productive, identify that what you are about to do is actually meaningful.]]
+- [[Go places to meet people. Follow up with people you meet.]]
+- [[Do not casually talk about feeling busy or about feeling tired. It's useless and, if anything, slightly hurts reputation.]]
+- [[Save time earlier in the day to peruse scrolling and foraging behavior (like Twitter), leverage the inspiration during creative hours later in the day.]]
+- [[Generate a lot of digital data. As AI becomes ubiquitous, our ability to leverage AI comes down to having data for context.]]
+- [[Meet local people that you find interesting when you travel, continue to visit them]]
+- [[Use digital platforms to share genuine, real-world efforts]]
+- [[Do the timeless thing well]]
+- [[Don't be a cynic]]
+
+See also: [[Moral perfection according to Benjamin Franklin]]

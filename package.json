@@ -19,23 +19,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "cp scripts/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@next/mdx": "^16.1.6",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-separator": "^1.1.1",
+    "d3": "^7.9.0",
     "lucide-react": "^0.562.0",
     "next": "^16.1.0",
     "next-themes": "^0.4.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-markdown": "^10.1.0"
+    "react-markdown": "^10.1.0",
+    "remark-wiki-link": "^2.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.15",
+    "@types/d3": "^7.4.3",
     "@types/node": "^24.10.4",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",

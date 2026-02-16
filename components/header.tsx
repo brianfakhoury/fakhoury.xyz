@@ -33,7 +33,15 @@ export default function Header() {
         </div>
       </div>
 
-      <ThemeSwitcher />
+      <nav className="flex items-center gap-4">
+        <Link
+          href="/concepts"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Concepts
+        </Link>
+        <ThemeSwitcher />
+      </nav>
     </header>
   );
 }

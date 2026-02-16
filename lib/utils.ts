@@ -2,6 +2,15 @@ import type { Post } from "./types";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
+/** Convert a concept title (or filename) to a URL-safe slug */
+export function titleToSlug(title: string): string {
+  return title
+    .replace(/\.md$/, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 /**
  * Combines Tailwind CSS classes with proper precedence using clsx and tailwind-merge
  * @param inputs - Array of class values to be merged

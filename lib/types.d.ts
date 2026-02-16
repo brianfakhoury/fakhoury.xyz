@@ -62,3 +62,31 @@ export type Links = [
     ];
   }
 ];
+
+/**
+ * Represents a single concept (Zettel) in the knowledge base
+ * @interface Concept
+ * @property {string} title - The concept title (derived from H1 or filename)
+ * @property {string} slug - URL-friendly identifier
+ * @property {string} body - Raw markdown content (without the H1 title)
+ * @property {string[]} forwardLinks - Slugs of concepts this note links to
+ * @property {string[]} backlinks - Slugs of concepts that link to this note
+ */
+export type Concept = {
+  title: string;
+  slug: string;
+  body: string;
+  forwardLinks: string[];
+  backlinks: string[];
+};
+
+/**
+ * Graph data for the concept network visualization
+ * @interface ConceptGraph
+ * @property {Array<{id: string; title: string}>} nodes - All concept nodes
+ * @property {Array<{source: string; target: string}>} links - Edges between concepts
+ */
+export type ConceptGraph = {
+  nodes: { id: string; title: string }[];
+  links: { source: string; target: string }[];
+};
