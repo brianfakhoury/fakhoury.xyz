@@ -8,28 +8,43 @@ import { Suspense } from "react";
 
 export async function generateStaticParams() {
   const concepts = await getConcepts();
-  return concepts.map((c) => ({ slug: [c.slug] }));
+  return concepts.map((c) => ({ slug: c.slug }));
 }
 
 interface ConceptPageProps {
-  params: Promise<{ slug: string[] }>;
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({
   params,
 }: ConceptPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const concept = await getConcept(slug[0]);
+  const concept = await getConcept(slug);
   if (!concept) return {};
+
+  const description =
+    concept.body.slice(0, 160).replace(/\n/g, " ").trim() + "...";
+
   return {
     title: concept.title,
-    description: concept.body.slice(0, 160).replace(/\n/g, " ") + "...",
+    description,
+    openGraph: {
+      title: concept.title,
+      description,
+      url: `/concepts/${slug}`,
+      siteName: "Brian Fakhoury",
+      locale: "en_US",
+      type: "article",
+    },
+    alternates: {
+      canonical: `https://fakhoury.xyz/concepts/${slug}`,
+    },
   };
 }
 
 export default async function ConceptPage({ params }: ConceptPageProps) {
   const { slug } = await params;
-  const concept = await getConcept(slug[0]);
+  const concept = await getConcept(slug);
   if (!concept) return notFound();
 
   const allConcepts = await getConcepts();
