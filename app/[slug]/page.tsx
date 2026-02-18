@@ -79,15 +79,15 @@ async function PostArticle({ slug }: { slug: string }) {
   const isPoem = tags.includes("poem");
 
   return (
-    <article className="prose prose-stone dark:prose-invert text-pretty break-words mx-auto">
+    <article className="prose prose-lg prose-stone dark:prose-invert antialiased text-pretty break-words mx-auto prose-headings:tracking-tight prose-h1:text-3xl prose-h2:text-xl prose-h3:text-lg prose-p:leading-[1.65] prose-li:leading-[1.65] prose-blockquote:border-l-2 prose-blockquote:border-muted-foreground/30 prose-blockquote:not-italic prose-blockquote:text-muted-foreground prose-figcaption:text-sm prose-figcaption:text-muted-foreground">
       <header className="[&>:not(.header-bg)]:!mt-5 [&>:not(.header-bg):first-child]:!mt-0 [&>:not(.header-bg)]:!mb-0">
-        <time dateTime={date.toISOString()} className="block text-sm">
+        <time dateTime={date.toISOString()} className="block text-sm text-muted-foreground">
           {formatDateForBlogPost(date)}
         </time>
         {modified && (
           <time
             dateTime={modified.toISOString()}
-            className="block text-sm"
+            className="block text-sm text-muted-foreground"
           >
             Updated on {formatDateForBlogPost(modified)}
           </time>
@@ -122,7 +122,7 @@ async function PostArticle({ slug }: { slug: string }) {
         )}
       </header>
 
-      <section className={`relative ${image && "mt-10"} pt-3 ${isPoem ? "[&_p]:whitespace-pre-line [&_p]:my-4" : "first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left"}`}>
+      <section className={`relative ${image && "mt-10"} pt-3 ${isPoem ? "[&_p]:whitespace-pre-line [&_p]:my-4" : "first-letter:text-4xl first-letter:font-bold first-letter:mr-2 first-letter:float-left"}`}>
         {image && (
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-screen max-w-3xl h-96 rounded-lg bg-linear-to-b from-white/40 dark:from-black/40 to-white dark:to-black to-40% z-[-2]" />
         )}
