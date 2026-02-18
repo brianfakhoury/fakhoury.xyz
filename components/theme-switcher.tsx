@@ -31,10 +31,10 @@ export default function ThemeSwitcher() {
   return (
     <button
       onClick={() => setTheme(upcomingTheme)}
-      className="ml-auto text-muted-foreground hover:text-foreground"
+      className="text-muted-foreground hover:text-foreground transition-colors"
       aria-label="Switch theme"
     >
-      <Icon />
+      <Icon className="h-4 w-4" />
     </button>
   );
 }

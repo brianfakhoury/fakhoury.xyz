@@ -9,6 +9,7 @@ import { Code } from "bright";
 import { notFound } from "next/navigation";
 import { imageSizeFromFile } from "image-size/fromFile";
 import remarkUnwrapImages from "remark-unwrap-images";
+import { ArrowLeft } from "lucide-react";
 import { Suspense } from "react";
 
 /**
@@ -180,16 +181,28 @@ async function PostArticle({ slug }: { slug: string }) {
         </ReactMarkdown>
       </section>
 
-      <footer className="not-prose flex flex-col space-y-4 mt-12">
-        <hr className="border-t border-stone-300" />
-        <div className="flex flex-wrap gap-3">
-          {tags.map((tag: string, i: number) => (
-            <Link href={`/writing/${tag}`} key={i}>
-              #{tag}
-            </Link>
-          ))}
+      <footer className="not-prose mt-12">
+        <hr className="border-t border-stone-300 dark:border-stone-700" />
+        <div className="flex items-center justify-between gap-4 mt-4">
+          <Link
+            href="/writing"
+            className="shrink-0 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            All writing
+          </Link>
+          <div className="flex flex-wrap justify-end gap-2">
+            {tags.map((tag: string, i: number) => (
+              <Link
+                href={`/writing/${tag}`}
+                key={i}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1 rounded-md bg-muted/50 hover:bg-muted"
+              >
+                #{tag}
+              </Link>
+            ))}
+          </div>
         </div>
-        <Link href="/writing">← All writing</Link>
       </footer>
     </article>
   );

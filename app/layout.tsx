@@ -26,6 +26,9 @@ const great_vibes = Great_Vibes({
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html suppressHydrationWarning lang="en">
+      <head>
+        <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
+      </head>
       <body className={`${raleway.variable} ${great_vibes.variable}`}>
         <Providers>
           <div className="mx-auto px-4 sm:px-8 max-w-(--breakpoint-xl) font-raleway">

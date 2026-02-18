@@ -4,24 +4,22 @@ import Link from "next/link";
 import { timeAgo } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
-export default function BuildInfo() {
-  const [timeAgoText, setTimeAgoText] = useState("");
+export default function BuildInfo({ buildTime }: { buildTime: string }) {
+  const [age, setAge] = useState("");
 
   useEffect(() => {
-    setTimeAgoText(timeAgo(new Date()));
-  }, []);
+    setAge(timeAgo(new Date(buildTime)));
+  }, [buildTime]);
 
   return (
     <Link
-      className="ml-auto text-xs text-muted-foreground hover:text-foreground"
-      href="https://github.com/brianfakhoury/personal-website"
+      className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors"
+      href="https://github.com/brianfakhoury/fakhoury.xyz"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <p>
-        <span className="inline-block w-2 h-2 mr-1 bg-stone-500 dark:bg-stone-300 rounded-full" />
-        {timeAgoText && <span>{timeAgoText}</span>}
-      </p>
+      <span className="inline-block w-1.5 h-1.5 bg-stone-500 dark:bg-stone-300 rounded-full" />
+      {age && <span>{age}</span>}
     </Link>
   );
 }

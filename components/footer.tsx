@@ -1,20 +1,22 @@
-import { Mailbox } from "lucide-react";
 import BuildInfo from "./build-info";
 import Link from "next/link";
+import { CreativeCommons } from "lucide-react";
+
+const BUILD_TIME = new Date().toISOString();
 
 export default function Footer() {
   return (
-    <footer className="text-sm flex items-center py-10 pr-2">
+    <footer className="mt-16 border-t border-border pt-6 pb-10 flex items-center justify-between text-xs text-muted-foreground">
       <Link
-        aria-label="Send me a direct message on X"
-        href="https://x.com/messages/compose?recipient_id=987899418597879808"
+        href="https://creativecommons.org/licenses/by/4.0/"
         target="_blank"
-        rel="noopener noreferrer"
-        className="text-muted-foreground hover:text-foreground"
+        rel="license noopener noreferrer"
+        className="hover:text-foreground transition-colors"
+        title="CC BY 4.0"
       >
-        <Mailbox />
+        <CreativeCommons className="h-4 w-4" />
       </Link>
-      <BuildInfo />
+      <BuildInfo buildTime={BUILD_TIME} />
     </footer>
   );
 }
