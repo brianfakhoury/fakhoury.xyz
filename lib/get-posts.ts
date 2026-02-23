@@ -13,7 +13,7 @@ const POSTS_DIRECTORY = path.join(process.cwd(), "content/posts");
  */
 export async function getPosts() {
   "use cache";
-  cacheLife("days");
+  cacheLife("max");
   const posts = await fs.readdir(POSTS_DIRECTORY);
 
   const postsWithMetadata = await Promise.all(

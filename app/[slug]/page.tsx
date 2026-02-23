@@ -57,7 +57,7 @@ export default async function PostPage({ params }: PostPageProps) {
  */
 async function PostArticle({ slug }: { slug: string }) {
   "use cache";
-  cacheLife("days");
+  cacheLife("max");
 
   const post = await getPost(slug);
   if (!post) return null;
