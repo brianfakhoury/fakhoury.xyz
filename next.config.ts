@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000, // 1 year
   },
-  cacheComponents: true,
 };
 
 export default createMDX()(nextConfig);
