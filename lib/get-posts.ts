@@ -5,13 +5,13 @@ import type { Post } from "@/lib/types";
 
 /** Directory containing all blog post markdown files */
 const POSTS_DIRECTORY = path.join(process.cwd(), "content/posts");
+let postsPromise: Promise<Post[]> | null = null;
 
 /**
  * Retrieves and processes all blog posts from the content directory
  * @returns {Promise<Post[]>} Array of processed blog posts, sorted by date (most recent first)
  */
-export async function getPosts() {
-  "use cache";
+async function loadPosts() {
   const posts = await fs.readdir(POSTS_DIRECTORY);
 
   const postsWithMetadata = await Promise.all(
@@ -48,6 +48,17 @@ export async function getPosts() {
       const bTime = (b.modified || b.date).getTime();
       return bTime - aTime;
     });
+}
+
+export async function getPosts() {
+  if (!postsPromise) {
+    postsPromise = loadPosts().catch((error) => {
+      postsPromise = null;
+      throw error;
+    });
+  }
+
+  return postsPromise;
 }
 
 /**
