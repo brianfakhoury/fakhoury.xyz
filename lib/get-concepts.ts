@@ -4,6 +4,7 @@ import type { Concept, ConceptGraph } from "@/lib/types";
 import { titleToSlug } from "@/lib/utils";
 
 const CONCEPTS_DIRECTORY = path.join(process.cwd(), "content/concepts");
+let conceptsPromise: Promise<Concept[]> | null = null;
 
 /** Extract all [[wiki-links]] from raw markdown, returning the raw link text */
 function extractWikiLinks(content: string): string[] {
@@ -29,7 +30,7 @@ function parseConcept(
 }
 
 /** Load all concepts, build backlink map, and return the full dataset */
-export async function getConcepts(): Promise<Concept[]> {
+async function loadConcepts(): Promise<Concept[]> {
   const files = await fs.readdir(CONCEPTS_DIRECTORY);
   const mdFiles = files.filter((f) => f.endsWith(".md"));
 
@@ -62,6 +63,17 @@ export async function getConcepts(): Promise<Concept[]> {
       backlinks: [...new Set(backlinkMap.get(p.slug) || [])],
     }))
     .sort((a, b) => a.title.localeCompare(b.title));
+}
+
+export async function getConcepts(): Promise<Concept[]> {
+  if (!conceptsPromise) {
+    conceptsPromise = loadConcepts().catch((error) => {
+      conceptsPromise = null;
+      throw error;
+    });
+  }
+
+  return conceptsPromise;
 }
 
 export async function getConcept(slug: string): Promise<Concept | undefined> {
