@@ -11,7 +11,6 @@ import { cacheLife } from "next/cache";
 import { imageSizeFromFile } from "image-size/fromFile";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { ArrowLeft } from "lucide-react";
-import { Suspense } from "react";
 
 /**
  * Generates static paths for all blog posts during build time
@@ -46,17 +45,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <>
       <PostArticle slug={slug} />
-      <Suspense
-        fallback={
-          <div className="mt-12 max-w-prose mx-auto">
-            <p className="text-sm text-muted-foreground animate-pulse">
-              Loading comments...
-            </p>
-          </div>
-        }
-      >
-        <Comments slug={slug} title={post.title} />
-      </Suspense>
+      <Comments slug={slug} title={post.title} />
     </>
   );
 }

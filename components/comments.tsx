@@ -1,37 +1,11 @@
-import Link from "next/link";
+"use client";
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
 const REPO_OWNER = "brianfakhoury";
 const REPO_NAME = "fakhoury.xyz";
-const CATEGORY = "Blog Comments";
 const CATEGORY_SLUG = "blog-comments";
-const COMMENTS_REVALIDATE_SECONDS = 60 * 60 * 6;
-
-const SEARCH_QUERY = `
-  query($search: String!) {
-    search(query: $search, type: DISCUSSION, first: 5) {
-      nodes {
-        ... on Discussion {
-          title
-          number
-          url
-          comments(first: 100) {
-            nodes {
-              id
-              bodyHTML
-              createdAt
-              author {
-                login
-                avatarUrl
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 interface DiscussionComment {
   id: string;
@@ -40,12 +14,15 @@ interface DiscussionComment {
   author: { login: string; avatarUrl: string; url: string } | null;
 }
 
-interface DiscussionNode {
-  title: string;
-  number: number;
-  url: string;
-  comments: { nodes: DiscussionComment[] };
+interface CommentsResponse {
+  discussion: { url: string } | null;
+  comments: DiscussionComment[];
 }
+
+const EMPTY_COMMENTS: CommentsResponse = {
+  discussion: null,
+  comments: [],
+};
 
 function relativeTime(iso: string) {
   const sec = (Date.now() - new Date(iso).getTime()) / 1000;
@@ -69,69 +46,75 @@ function buildDiscussionBody(title: string, slug: string) {
   ].join("\n");
 }
 
-async function fetchComments(title: string) {
-  const empty = {
-    discussion: null as { url: string } | null,
-    comments: [] as DiscussionComment[],
-  };
-  if (!GITHUB_TOKEN) return empty;
-
-  try {
-    const search = `repo:${REPO_OWNER}/${REPO_NAME} category:${JSON.stringify(CATEGORY)} in:title ${JSON.stringify(title)}`;
-
-    const res = await fetch("https://api.github.com/graphql", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: SEARCH_QUERY,
-        variables: { search },
-      }),
-      // Comments are low-frequency content; a longer cache window avoids
-      // burning ISR writes under crawler traffic across all post pages.
-      next: { revalidate: COMMENTS_REVALIDATE_SECONDS },
-    });
-
-    if (!res.ok) return empty;
-
-    const { data } = await res.json();
-    const nodes: DiscussionNode[] = data?.search?.nodes ?? [];
-    const discussion = nodes.find((d) => d.title === title);
-
-    if (!discussion) return empty;
-
-    return {
-      discussion: { url: discussion.url },
-      comments: discussion.comments.nodes,
-    };
-  } catch {
-    return empty;
-  }
-}
-
 interface CommentsProps {
   slug: string;
   title: string;
 }
 
-export default async function Comments({ slug, title }: CommentsProps) {
-  const { discussion, comments } = await fetchComments(title);
+export default function Comments({ slug, title }: CommentsProps) {
+  const [data, setData] = useState<CommentsResponse>(EMPTY_COMMENTS);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const body = buildDiscussionBody(title, slug);
-  const newDiscussionUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/discussions/new?category=${CATEGORY_SLUG}&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
-  const commentUrl = discussion?.url ?? newDiscussionUrl;
+  useEffect(() => {
+    const controller = new AbortController();
+    let cancelled = false;
+    setIsLoading(true);
+    setData(EMPTY_COMMENTS);
+
+    async function loadComments() {
+      try {
+        const res = await fetch(
+          `/api/comments?title=${encodeURIComponent(title)}`,
+          { signal: controller.signal }
+        );
+
+        if (!res.ok) throw new Error("Failed to fetch comments");
+
+        const payload = (await res.json()) as CommentsResponse;
+        if (cancelled) return;
+
+        setData({
+          discussion: payload?.discussion ?? null,
+          comments: Array.isArray(payload?.comments) ? payload.comments : [],
+        });
+      } catch {
+        if (cancelled) return;
+        setData(EMPTY_COMMENTS);
+      } finally {
+        if (!cancelled) setIsLoading(false);
+      }
+    }
+
+    loadComments();
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
+  }, [title]);
+
+  const newDiscussionUrl = useMemo(() => {
+    const body = buildDiscussionBody(title, slug);
+    return `https://github.com/${REPO_OWNER}/${REPO_NAME}/discussions/new?category=${CATEGORY_SLUG}&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+  }, [slug, title]);
+
+  const commentUrl = data.discussion?.url ?? newDiscussionUrl;
 
   return (
     <section className="mt-12 max-w-prose mx-auto">
-      {comments.length > 0 && (
+      {isLoading && (
+        <p className="text-sm text-muted-foreground animate-pulse mb-6">
+          Loading comments...
+        </p>
+      )}
+
+      {data.comments.length > 0 && (
         <>
           <h2 className="text-sm font-medium text-muted-foreground mb-6">
             Comments
           </h2>
           <div className="space-y-6 mb-8">
-            {comments.map((c) => (
+            {data.comments.map((c) => (
               <div key={c.id} className="flex gap-3">
                 {c.author && (
                   /* eslint-disable-next-line @next/next/no-img-element */
@@ -174,16 +157,18 @@ export default async function Comments({ slug, title }: CommentsProps) {
         </>
       )}
 
-      <Link
-        href={commentUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block text-sm text-muted-foreground hover:text-foreground transition-colors"
-      >
-        {comments.length > 0
-          ? "Leave a comment on GitHub \u2192"
-          : "No comments yet \u2014 start a discussion on GitHub \u2192"}
-      </Link>
+      {!isLoading && (
+        <Link
+          href={commentUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {data.comments.length > 0
+            ? "Leave a comment on GitHub \u2192"
+            : "No comments yet \u2014 start a discussion on GitHub \u2192"}
+        </Link>
+      )}
     </section>
   );
 }
