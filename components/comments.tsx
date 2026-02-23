@@ -5,6 +5,7 @@ const REPO_OWNER = "brianfakhoury";
 const REPO_NAME = "fakhoury.xyz";
 const CATEGORY = "Blog Comments";
 const CATEGORY_SLUG = "blog-comments";
+const COMMENTS_REVALIDATE_SECONDS = 60 * 60 * 6;
 
 const SEARCH_QUERY = `
   query($search: String!) {
@@ -88,7 +89,9 @@ async function fetchComments(title: string) {
         query: SEARCH_QUERY,
         variables: { search },
       }),
-      next: { revalidate: 60 },
+      // Comments are low-frequency content; a longer cache window avoids
+      // burning ISR writes under crawler traffic across all post pages.
+      next: { revalidate: COMMENTS_REVALIDATE_SECONDS },
     });
 
     if (!res.ok) return empty;

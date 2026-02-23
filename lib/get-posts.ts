@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { cacheLife } from "next/cache";
 import type { Post } from "@/lib/types";
 
 /** Directory containing all blog post markdown files */
@@ -12,6 +13,7 @@ const POSTS_DIRECTORY = path.join(process.cwd(), "content/posts");
  */
 export async function getPosts() {
   "use cache";
+  cacheLife("days");
   const posts = await fs.readdir(POSTS_DIRECTORY);
 
   const postsWithMetadata = await Promise.all(

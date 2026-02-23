@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+import { cacheLife } from "next/cache";
 import type { Concept, ConceptGraph } from "@/lib/types";
 import { titleToSlug } from "@/lib/utils";
 
@@ -31,6 +32,7 @@ function parseConcept(
 /** Load all concepts, build backlink map, and return the full dataset */
 export async function getConcepts(): Promise<Concept[]> {
   "use cache";
+  cacheLife("days");
 
   const files = await fs.readdir(CONCEPTS_DIRECTORY);
   const mdFiles = files.filter((f) => f.endsWith(".md"));

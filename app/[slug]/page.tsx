@@ -7,6 +7,7 @@ import { formatDateForBlogPost } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { Code } from "bright";
 import { notFound } from "next/navigation";
+import { cacheLife } from "next/cache";
 import { imageSizeFromFile } from "image-size/fromFile";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { ArrowLeft } from "lucide-react";
@@ -67,6 +68,7 @@ export default async function PostPage({ params }: PostPageProps) {
  */
 async function PostArticle({ slug }: { slug: string }) {
   "use cache";
+  cacheLife("days");
 
   const post = await getPost(slug);
   if (!post) return null;
