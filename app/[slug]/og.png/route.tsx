@@ -4,6 +4,8 @@ import { ImageResponse } from "next/og";
 import { NextResponse, type NextRequest } from "next/server";
 import path from "path";
 
+export const dynamicParams = false;
+
 interface RouteProps {
   params: Promise<{ slug: string }>;
 }
@@ -22,6 +24,9 @@ export async function GET(_req: NextRequest, { params }: RouteProps) {
   if (!post)
     return new NextResponse("There is no post that has this image.", {
       status: 404,
+      headers: {
+        "Cache-Control": "no-store",
+      },
     });
 
   const cover_src = post.image
