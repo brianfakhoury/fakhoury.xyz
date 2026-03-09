@@ -6,6 +6,7 @@ import path from "path";
 export const alt = "Concept card";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const concepts = await getConcepts();
@@ -21,12 +22,12 @@ export default async function Image({
   const concept = await getConcept(slug);
 
   if (!concept) {
-    return new ImageResponse(
-      <div tw="flex items-center justify-center w-full h-full bg-black text-white text-4xl">
-        Concept not found
-      </div>,
-      { ...size }
-    );
+    return new Response("Concept not found.", {
+      status: 404,
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    });
   }
 
   const logoSrc = getBase64Image(path.join("app", "icon.png"));
